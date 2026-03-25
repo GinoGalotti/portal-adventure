@@ -1,0 +1,104 @@
+{
+  "artefacts": [
+    {
+      "id": "art-001",
+      "phases": [
+        {
+          "show_from": "w1",
+          "show_until": "w1",
+          "display_id": "ART-001",
+          "session_label": "SESSION 01",
+          "status": "PENDING RECOVERY",
+          "status_blurred": false,
+          "name": "The Ash Locket",
+          "name_blurred": false,
+          "description": "CAMPBELL has flagged a physical anchor object — a small gold locket associated with the Keller University entity. Warm to the touch at all ambient temperatures. Lab directive: priority acquisition. Locket is believed to be in the possession of the entity's charge.",
+          "lab_note_label": "// LAB DIRECTIVE — ACTIVE",
+          "lab_note": "Acquire and transport intact. No field analysis until locket is secured. Handle with standard anomalous-object protocols.",
+          "lab_link": null,
+          "blur_notice": null,
+          "placeholder": false,
+          "opacity": null
+        },
+        {
+          "show_from": "w2",
+          "show_until": null,
+          "display_id": "ART-001",
+          "session_label": "SESSION 01",
+          "status": "NOT RECOVERED",
+          "status_blurred": false,
+          "name": "The Ash Locket",
+          "name_blurred": false,
+          "description": "A small gold locket, origin Hungary. Contained an unclassified grey particulate (Class 2 Ectoplasmic Residue, per CAMPBELL). Warm to the touch at all ambient temperatures. Left a frost ring on any surface it rested on. Inside: a handwritten note in Hungarian. Translation on file. The locket was not retrieved — the entity dispersed at scene. Trace ash recovered incidentally by field team and submitted for analysis.",
+          "lab_note_label": "// LAB ANALYSIS — ONGOING",
+          "lab_note": "Residue exhibits anomalous interaction with active electronic systems. Preliminary findings suggest the particulate acts as a conductive medium for signals outside the standard electromagnetic spectrum. Research continues. Implications for Project Veil: under assessment.",
+          "lab_link": { "label": "→ VIEW REDACTED LAB REPORT", "href": "reports/s1-ash-veil-memo.html" },
+          "blur_notice": null,
+          "placeholder": false,
+          "opacity": null
+        }
+      ]
+    },
+    {
+      "id": "art-002",
+      "phases": [
+        {
+          "show_from": "w2",
+          "show_until": "w2",
+          "display_id": "ART-002",
+          "session_label": "SESSION 02",
+          "status": "ACTIVE",
+          "status_blurred": true,
+          "name": "— PENDING FIELD RECOVERY —",
+          "name_blurred": true,
+          "description": "CAMPBELL has flagged a probable anchor object associated with the Aldermoor District anomaly. Origin of disturbance traced to a construction site excavation 18 months prior. Physical object, if recovered, would constitute first confirmed spatial-anchoring artefact. Lab has requested priority acquisition. Field team advised: object may be unstable outside affected zone.",
+          "lab_note_label": null,
+          "lab_note": null,
+          "lab_link": null,
+          "blur_notice": "⚠ ARTEFACT LOG UPDATES POST-SESSION 02",
+          "placeholder": false,
+          "opacity": null
+        },
+        {
+          "show_from": "w3",
+          "show_until": null,
+          "display_id": "ART-002",
+          "session_label": "SESSION 02",
+          "status": "LAB POSSESSION",
+          "status_blurred": false,
+          "name": "Diane Marsh's Field Notebook",
+          "name_blurred": false,
+          "description": "Nine days of observations recorded from inside the Aldermoor displacement zone by district nurse Diane Marsh, 58. Charted intensity cycles, navigation windows, street-by-street behaviour. Contains a hand-drawn sketch of a threshold-shaped shadow in the excavation substrate — described as \"a door-shaped shadow in the rock — not a door, but the memory of one.\" Drawn at dawn, three days before extraction. Object of interest to multiple researchers. Significance of threshold sketch: under assessment.",
+          "lab_note_label": "// LAB ANALYSIS — ONGOING",
+          "lab_note": "Notebook constitutes the most detailed first-person account of spatial consciousness displacement recovered to date. Threshold sketch cross-referenced against known liminal boundary maps. Flagged for operative Alan Frazier's review — possible resonance with Changeling geographic sensitivity. Research continues.",
+          "lab_link": null,
+          "blur_notice": null,
+          "placeholder": false,
+          "opacity": null
+        }
+      ]
+    },
+    {
+      "id": "art-unknown",
+      "phases": [
+        {
+          "show_from": "w2",
+          "show_until": null,
+          "display_id": "ART-???",
+          "session_label": "SESSION ??",
+          "status": "UNKNOWN",
+          "status_blurred": false,
+          "name": "— PENDING —",
+          "name_blurred": false,
+          "description": "NO FURTHER ARTEFACTS LOGGED.\nLOG WILL UPDATE POST-SESSION.",
+          "lab_note_label": null,
+          "lab_note": null,
+          "lab_link": null,
+          "blur_notice": null,
+          "placeholder": true,
+          "opacity": 0.4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "_note": "Move names for basic moves (Kick Some Ass, Investigate a Mystery, etc.) are adapted from Monster of the Week (MotW). Playbook move names are adapted originals. All move mechanics and descriptions are original adaptations for this game. Names should be reviewed for IP concerns before public release.",
+  "version": "phase-b-1",
+  "basicMoves": [
+    {
+      "id": "basic-attack",
+      "name": "Kick Some Ass",
+      "description": "When you get into a fight, roll +Tough. On 10+: you deal harm and choose one extra (deal +1 harm, suffer -1 harm, gain +1 forward, force them where you want). On 7–9: you trade harm with your opponent. Miss: you take harm without dealing any.",
+      "statUsed": "tough",
+      "cost": "scene_action",
+      "effect": "attack",
+      "mapsToActionType": "attack"
+    },
+    {
+      "id": "basic-act-under-pressure",
+      "name": "Act Under Pressure",
+      "description": "When you do something despite danger or stress, roll +Cool. On 10+: you do it. On 7–9: you do it, but the Keeper will impose a cost, complication, or hard choice. Miss: things go badly.",
+      "statUsed": "cool",
+      "cost": "scene_action",
+      "effect": "act_under_pressure",
+      "mapsToActionType": "resist"
+    },
+    {
+      "id": "basic-help-out",
+      "name": "Help Out",
+      "description": "When you help another hunter, roll +Cool. On 10+: they get +1 to their roll. On 7–9: they get +1 but you expose yourself to risk. Miss: you expose yourself to risk without helping.",
+      "statUsed": "cool",
+      "cost": "assist_charge",
+      "effect": "assist",
+      "mapsToActionType": "assist"
+    },
+    {
+      "id": "basic-investigate",
+      "name": "Investigate a Mystery",
+      "description": "When you investigate a monster, location, or phenomenon, roll +Sharp. On 10+: hold 2. On 7–9: hold 1. Spend hold to ask: what happened here? what is it? what can hurt it? where is it now? what is it going to do? On miss: you find something, but it finds you too.",
+      "statUsed": "sharp",
+      "cost": "scene_action",
+      "effect": "investigate",
+      "mapsToActionType": "investigate"
+    },
+    {
+      "id": "basic-manipulate",
+      "name": "Manipulate Someone",
+      "description": "When you try to get someone to do what you want with persuasion, charm, or leverage, roll +Charm. On 10+: they do it. On 7–9: they do it, but they want something in return — the Keeper will say what. Miss: they refuse and may become hostile.",
+      "statUsed": "charm",
+      "cost": "scene_action",
+      "effect": "interview",
+      "mapsToActionType": "interview"
+    },
+    {
+      "id": "basic-protect",
+      "name": "Protect Someone",
+      "description": "When you step in to protect someone from harm, roll +Tough. On 10+: you protect them without taking harm yourself. On 7–9: you protect them but take the harm meant for them. Miss: you both take harm.",
+      "statUsed": "tough",
+      "cost": "scene_action",
+      "effect": "protect",
+      "mapsToActionType": "defend"
+    },
+    {
+      "id": "basic-read-situation",
+      "name": "Read a Bad Situation",
+      "description": "When you quickly assess a dangerous situation, roll +Sharp. On 10+: hold 3. On 7–9: hold 1. Spend hold to ask: what's the biggest threat? what could I use here? where's the safe exit? who's in control? what's about to go wrong? On miss: the Keeper asks you one of these questions instead.",
+      "statUsed": "sharp",
+      "cost": "scene_action",
+      "effect": "assess",
+      "mapsToActionType": "assess"
+    },
+    {
+      "id": "basic-use-magic",
+      "name": "Use Magic",
+      "description": "When you use supernatural power, roll +Weird. On 10+: it works as intended. On 7–9: it works but pick one: it doesn't work as intended, it has an unexpected side effect, or you take 1 harm. Miss: the magic goes badly wrong.",
+      "statUsed": "weird",
+      "cost": "scene_action",
+      "effect": "use_magic",
+      "mapsToActionType": "useSpecialMove"
+    },
+    {
+      "id": "basic-deep-search",
+      "name": "Deep Search",
+      "description": "When you spend focused time on an exhaustive search of a location — going beyond normal investigation — spend 1 stamina and roll +Sharp. On 10+: you find everything findable here. On 7–9: you find one hidden thing, but miss one other. Miss: you find something, but disturb something too.",
+      "statUsed": "sharp",
+      "cost": "stamina",
+      "effect": "deep_search",
+      "mapsToActionType": "deepSearch"
+    }
+  ],
+  "playbookMoves": {
+    "crooked": [
+      {
+        "id": "crooked-friends-on-the-force",
+        "name": "Friends on the Force",
+        "description": "You know cops who will look the other way or do you a favour — for considerations. Once per mystery, you can use Act Under Pressure to call in a favour: suppress a report, get crime scene access, or make an arrest warrant disappear.",
+        "cost": "special",
+        "effect": "leverage_cops"
+      },
+      {
+        "id": "crooked-artifact",
+        "name": "Artifact",
+        "description": "You found a magical artifact and kept it. Choose one: Protective amulet (1-armour, recharges on a new mystery), Lucky charm (once per mystery, reroll any single die), or Strange relic (once per mystery, ask the Keeper one question about the supernatural as if you had investigated).",
+        "cost": "free",
+        "effect": "artifact_passive"
+      },
+      {
+        "id": "crooked-crew",
+        "name": "Crew",
+        "description": "You have 3–4 people who will help with almost anything. Once per mystery, direct them to: gather information at a location you can't reach, create a distraction (removes a minion from play), or provide backup (+1 harm for one confrontation round).",
+        "cost": "special",
+        "effect": "crew_support"
+      },
+      {
+        "id": "crooked-deal-with-the-devil",
+        "name": "Deal with the Devil",
+        "description": "You sold your soul for benefits (pick 1–2: wealth, fame, skill (+1 to two stats), or other). The debt is real and the collector will come. The Keeper will introduce the reckoning at a dramatically appropriate moment.",
+        "cost": "free",
+        "effect": "devil_debt_passive"
+      },
+      {
+        "id": "crooked-driver",
+        "name": "Driver",
+        "description": "+1 ongoing while driving. You can hotwire almost any vehicle. You own two widely-available vehicles.",
+        "cost": "free",
+        "effect": "driving_bonus"
+      },
+      {
+        "id": "crooked-made",
+        "name": "Made",
+        "description": "You're made in a named gang. Call on gang members for help (they expect pay). Bosses will have requests. Minor infractions are forgiven. Major ones are not.",
+        "cost": "special",
+        "effect": "gang_resources"
+      }
+    ],
+    "expert": [
+      {
+        "id": "expert-ive-read-about-this",
+        "name": "I've Read About This Sort Of Thing",
+        "description": "When you act under pressure using accumulated knowledge rather than composure, roll +Sharp instead of +Cool.",
+        "cost": "free",
+        "effect": "replace_cool_with_sharp_for_aup"
+      },
+      {
+        "id": "expert-preparedness",
+        "name": "Preparedness",
+        "description": "When you need something unusual or hard to find, roll +Sharp. On 10+: you have it. On 7–9: you have something that will work, but it's imperfect or single-use. Miss: you don't have it.",
+        "statUsed": "sharp",
+        "cost": "scene_action",
+        "effect": "equipment_retrieval"
+      },
+      {
+        "id": "expert-it-wasnt-as-bad",
+        "name": "It Wasn't As Bad As It Looked",
+        "description": "Once per mystery, when injured, roll +Cool. On 10+: heal 2 harm and keep going. On 7–9: heal 1 harm but take -1 ongoing until you rest. Miss: it was worse.",
+        "statUsed": "cool",
+        "cost": "special",
+        "effect": "once_per_mystery_heal"
+      },
+      {
+        "id": "expert-often-right",
+        "name": "Often Right",
+        "description": "When a hunter comes to you for advice and you give your honest assessment, if they follow it and it goes badly, they mark experience. If it goes well, you both mark experience.",
+        "cost": "free",
+        "effect": "advice_exp"
+      },
+      {
+        "id": "expert-precise-strike",
+        "name": "Precise Strike",
+        "description": "When you inflict harm on a monster, roll +Tough. On 10+: +2 harm and pick one: hit a vulnerable spot (counts as exploiting weakness even at blind intel), cause a condition, or stagger them. On 7–9: +1 harm. Miss: monster counterattacks with full force.",
+        "statUsed": "tough",
+        "cost": "scene_action",
+        "effect": "precise_strike"
+      },
+      {
+        "id": "expert-the-woman-with-the-plan",
+        "name": "The Expert With The Plan",
+        "description": "At the beginning of each mystery, roll +Sharp. On 10+: hold 2. On 7–9: hold 1. Spend hold to give any hunter +1 forward when they're about to do something you planned for. Miss: the Keeper holds 1 and can give any NPC +1 forward once.",
+        "statUsed": "sharp",
+        "cost": "special",
+        "effect": "plan_hold"
+      }
+    ],
+    "initiate": [
+      {
+        "id": "initiate-the-sect",
+        "name": "The Sect",
+        "description": "At the start of each mystery, roll +Charm for Sect support. On 10+: hold 3. On 7–9: hold 1. Spend hold 1-for-1 to: get intelligence, requisition equipment, or call a contact. Miss: the Sect needs something from you right now.",
+        "statUsed": "charm",
+        "cost": "special",
+        "effect": "sect_resources"
+      },
+      {
+        "id": "initiate-fortunes",
+        "name": "Fortunes",
+        "description": "Once per mystery, use Sect divination. Roll +Weird. On 10+: hold 3. On 7–9: hold 1. Spend hold to: ask what happens if we do X, get a vision of a clue location, or sense the monster's intent. Miss: vision is misleading.",
+        "statUsed": "weird",
+        "cost": "special",
+        "effect": "divination_hold"
+      },
+      {
+        "id": "initiate-mystic",
+        "name": "Mystic",
+        "description": "Every time you successfully use magic (7+ on useSpecialMove), take +1 forward on the next action that directly follows from what the magic revealed or enabled.",
+        "cost": "free",
+        "effect": "bonus_after_magic"
+      },
+      {
+        "id": "initiate-ancient-fighting-arts",
+        "name": "Ancient Fighting Arts",
+        "description": "When using a traditional hand weapon, +1 harm and +1 armour on any roll where your fighting form would confer an advantage.",
+        "cost": "free",
+        "effect": "traditional_weapon_bonus"
+      },
+      {
+        "id": "initiate-sacred-oath",
+        "name": "Sacred Oath",
+        "description": "Bind yourself to a single goal for this mystery, forsaking something appropriate to your Sect. While keeping the oath: +1 ongoing to all rolls. If you break the oath: -1 ongoing until the next mystery.",
+        "cost": "special",
+        "effect": "oath_bonus"
+      },
+      {
+        "id": "initiate-mentor",
+        "name": "Mentor",
+        "description": "You have a named Sect mentor. When you contact them for knowledge, roll +Sharp. On 10+: they tell you everything they know about the monster type. On 7–9: partial information, but they want a favour. Miss: unreachable — and they may need rescuing.",
+        "statUsed": "sharp",
+        "cost": "scene_action",
+        "effect": "mentor_knowledge"
+      }
+    ],
+    "mundane": [
+      {
+        "id": "mundane-always-the-victim",
+        "name": "Always The Victim",
+        "description": "When another hunter uses Protect Someone to protect you, they mark experience. When a monster targets you specifically, the team gets +1 forward on all rolls to find or rescue you.",
+        "cost": "free",
+        "effect": "protect_bonus_exp"
+      },
+      {
+        "id": "mundane-trust-me",
+        "name": "Trust Me",
+        "description": "When you tell a normal person the truth about danger to protect them, roll +Charm. On 10+: they believe and comply. On 7–9: they believe but need convincing (time, proof, or they'll tell someone). Miss: they think you're unstable.",
+        "statUsed": "charm",
+        "cost": "scene_action",
+        "effect": "convince_normal"
+      },
+      {
+        "id": "mundane-lets-get-out-of-here",
+        "name": "Let's Get Out Of Here!",
+        "description": "If you protect a hunter or bystander by directing their retreat, they escape without rolling. You don't have to escape yourself. Works once per confrontation scene.",
+        "cost": "special",
+        "effect": "emergency_exit"
+      },
+      {
+        "id": "mundane-oops",
+        "name": "Oops!",
+        "description": "If you want to stumble across something important, tell the Keeper. You will find something relevant — but it will also create a complication. Once per mystery.",
+        "cost": "special",
+        "effect": "stumble_upon"
+      },
+      {
+        "id": "mundane-panic-button",
+        "name": "Panic Button",
+        "description": "When you need to escape, name the route and roll +Sharp. On 10+: you and anyone with you escape cleanly. On 7–9: you escape but leave something behind or attract attention. Miss: you get further in.",
+        "statUsed": "sharp",
+        "cost": "scene_action",
+        "effect": "escape_route"
+      },
+      {
+        "id": "mundane-power-of-heart",
+        "name": "The Power of Heart",
+        "description": "When fighting a monster to protect someone you care about, if you help them, you automatically succeed as if you rolled 10+ — no roll needed.",
+        "cost": "free",
+        "effect": "heart_auto_help"
+      }
+    ],
+    "snoop": [
+      {
+        "id": "snoop-what-does-that-feel-like",
+        "name": "What Does That Feel Like?",
+        "description": "When you put a camera or microphone in someone's face and ask what they experienced, they answer honestly about what they witnessed. No roll required. They won't lie about the core event — though they may not tell you everything.",
+        "cost": "scene_action",
+        "effect": "npc_honest_testimony"
+      },
+      {
+        "id": "snoop-press-accreditation",
+        "name": "Press Accreditation",
+        "description": "When you investigate using talking to witnesses, reading records, or attending official briefings, roll +Charm instead of +Sharp. Your credentials get you access others can't reach.",
+        "cost": "free",
+        "effect": "investigate_bonus_charm"
+      },
+      {
+        "id": "snoop-the-mojo-wire",
+        "name": "The Mojo Wire",
+        "description": "When you spend time scanning news feeds, social media, and public records for patterns, the Keeper tells you: (a) similar incidents in the region, (b) who appeared at multiple sites, and (c) whether anything was suppressed. Costs one scene action.",
+        "cost": "scene_action",
+        "effect": "scan_for_patterns"
+      },
+      {
+        "id": "snoop-minor-celebrity",
+        "name": "Minor Celebrity",
+        "description": "At the start of each mystery, roll +Weird. On 10+: hold 2. On 7–9: hold 1. Spend hold to: get access to a restricted area because someone recognises you, get a tip from a viewer/follower, or use your platform to put public pressure on someone. Miss: your notoriety attracts the wrong attention.",
+        "statUsed": "weird",
+        "cost": "special",
+        "effect": "minor_fame_hold"
+      },
+      {
+        "id": "snoop-truthiness",
+        "name": "Truthiness",
+        "description": "Whatever you tell a normal person, they'll accept that you believe it's true. They may not act on it, but they won't dismiss it as a lie. Useful for establishing false (or true) context.",
+        "cost": "free",
+        "effect": "believable_claim"
+      },
+      {
+        "id": "snoop-well-fix-it-in-post",
+        "name": "We'll Fix It In Post",
+        "description": "You can use anything you conceivably recorded — video, audio, photos — as evidence for an Investigate roll. The Keeper must tell you if the evidence contains something useful, even if you didn't intend to capture it.",
+        "cost": "free",
+        "effect": "recording_as_evidence"
+      }
+    ],
+    "celebrity": [
+      {
+        "id": "celebrity-scream-queen",
+        "name": "Scream Queen",
+        "description": "When you use fame and projected terror to frighten someone, roll +Charm. On 10+: they flee or freeze (your choice) for this scene. On 7–9: shaken, -1 forward, but don't fully break. Miss: they focus on you.",
+        "statUsed": "charm",
+        "cost": "scene_action",
+        "effect": "terrify_flee"
+      },
+      {
+        "id": "celebrity-i-have-people",
+        "name": "I Have People",
+        "description": "You have an entourage. Once per session, direct them to: gather information from a public location (as if investigating), create a media distraction (+1 forward for the team for one scene), or obtain a specific item or access credential within 24 hours.",
+        "cost": "special",
+        "effect": "entourage_task"
+      },
+      {
+        "id": "celebrity-disarming",
+        "name": "Disarming",
+        "description": "When you defuse a tense situation with charm and vulnerability, roll +Charm. On 10+: full ceasefire, they're willing to talk. On 7–9: temporary hold for one scene. Miss: they find your performance insulting.",
+        "statUsed": "charm",
+        "cost": "scene_action",
+        "effect": "defuse_tension"
+      },
+      {
+        "id": "celebrity-fakelore",
+        "name": "Fakelore",
+        "description": "Pick two areas of occult lore your public persona is associated with (e.g. ghost hunting, cryptids). When you investigate something in those areas, roll with +1. When something in those areas is involved in the mystery, the Keeper owes you one free piece of information.",
+        "cost": "free",
+        "effect": "fakelore_bonus"
+      },
+      {
+        "id": "celebrity-the-price-of-fame",
+        "name": "The Price of Fame",
+        "description": "When you leverage celebrity to get what you need from someone who knows who you are, roll +Charm. On 10+: you get it, no strings. On 7–9: you get it, but it costs you (publicity, a favour, or they attach conditions). Miss: they want more than you're willing to give.",
+        "statUsed": "charm",
+        "cost": "scene_action",
+        "effect": "celebrity_leverage"
+      },
+      {
+        "id": "celebrity-i-do-my-own-stunts",
+        "name": "I Do My Own Stunts",
+        "description": "When you attempt something physically dangerous that you've trained for (falls, fights, vehicle chases, heights), you don't have to roll Act Under Pressure for the physical part. You still roll for any tactical or social elements.",
+        "cost": "free",
+        "effect": "stunt_training_passive"
+      }
+    ]
+  }
+}

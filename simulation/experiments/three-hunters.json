@@ -1,0 +1,12 @@
+{
+  "name": "three-hunters",
+  "description": "Expert + Mundane + Initiate (3-hunter team composition)",
+  "mysteryPath": "data/mysteries/mystery-001.json",
+  "hunters": [
+    { "playbookId": "expert", "name": "Rosa" },
+    { "playbookId": "mundane", "name": "Mack" },
+    { "playbookId": "initiate", "name": "Kai" }
+  ],
+  "strategies": ["balanced", "greedy"],
+  "runsPerStrategy": 200
+}

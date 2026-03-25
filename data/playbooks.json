@@ -1,0 +1,260 @@
+{
+  "_note": "Playbook names (The Crooked, The Expert, etc.) are borrowed from Monster of the Week (MotW) under fair-use reference. These names MUST be replaced with original names before public release to avoid IP concerns. The mechanics are original adaptations — only the names need changing.",
+  "version": "phase-b-1",
+  "playbooks": [
+    {
+      "id": "crooked",
+      "name": "The Crooked",
+      "description": "Street-smart and well-connected. You've operated on the wrong side of the law long enough to know how the world really works — and to call in favours from people who'd rather not be named.",
+      "baseStats": { "charm": 2, "cool": 1, "sharp": 1, "tough": 0, "weird": -1 },
+      "signatureMoves": [
+        {
+          "id": "crooked-friends-on-the-force",
+          "name": "Friends on the Force",
+          "description": "You know cops who will look the other way or do you a favour — for considerations. Once per mystery, you can use Act Under Pressure to call in a favour: suppress a report, get crime scene access, or make an arrest warrant disappear.",
+          "cost": "special",
+          "effect": "leverage_cops"
+        },
+        {
+          "id": "crooked-artifact",
+          "name": "Artifact",
+          "description": "You found a magical artifact and kept it. Choose one: Protective amulet (1-armour, recharges on a new mystery), Lucky charm (once per mystery, reroll any single die), or Strange relic (once per mystery, ask the Keeper one question about the supernatural as if you had investigated).",
+          "cost": "free",
+          "effect": "artifact_passive"
+        },
+        {
+          "id": "crooked-crew",
+          "name": "Crew",
+          "description": "You have 3–4 people who will help with almost anything. Once per mystery, direct them to: gather information at a location you can't reach, create a distraction (removes a minion from play), or provide backup (+1 harm for one confrontation round).",
+          "cost": "special",
+          "effect": "crew_support"
+        }
+      ],
+      "gearOptions": [
+        [
+          { "id": "crooked-gear-toolkit", "name": "Criminal Toolkit", "description": "Lockpicks, slim-jim, and assorted tools. +1 forward on any roll to bypass physical security." },
+          { "id": "crooked-gear-burner", "name": "Burner Phone Stack", "description": "Five untraceable phones. Contacts answer calls they'd ignore on a real number." }
+        ],
+        [
+          { "id": "crooked-gear-weapon", "name": "Favoured Weapon (2-harm close)", "description": "Your go-to. Could be a knife, sap, or anything you know well." },
+          { "id": "crooked-gear-handgun", "name": "Concealed Handgun (2-harm far)", "description": "Unregistered. Don't ask where it came from." }
+        ]
+      ],
+      "vulnerability": "Your criminal past creates leverage others can use against you. An old contact, enemy, or outstanding debt surfaces at the worst moment — usually when you're most exposed.",
+      "bondCapacity": 2
+    },
+    {
+      "id": "expert",
+      "name": "The Expert",
+      "description": "You've spent years — maybe decades — studying the supernatural. You've read every book, walked every crime scene, and survived things that should have killed you. When others are guessing, you already know.",
+      "baseStats": { "charm": -1, "cool": 1, "sharp": 2, "tough": 1, "weird": 0 },
+      "signatureMoves": [
+        {
+          "id": "expert-ive-read-about-this",
+          "name": "I've Read About This Sort Of Thing",
+          "description": "When you act under pressure using accumulated knowledge rather than composure, roll +Sharp instead of +Cool.",
+          "cost": "free",
+          "effect": "replace_cool_with_sharp_for_aup"
+        },
+        {
+          "id": "expert-preparedness",
+          "name": "Preparedness",
+          "description": "When you need something unusual or hard to find, roll +Sharp. On 10+: you have it with you. On 7–9: you have something that will work, but it's imperfect or has one use. Miss: you don't have it and explaining the gap to the team is awkward.",
+          "statUsed": "sharp",
+          "cost": "scene_action",
+          "effect": "equipment_retrieval"
+        },
+        {
+          "id": "expert-it-wasnt-as-bad",
+          "name": "It Wasn't As Bad As It Looked",
+          "description": "Once per mystery, when you are injured, roll +Cool. On 10+: heal 2 harm and keep going. On 7–9: heal 1 harm but you're running on fumes — take -1 ongoing until you rest. Miss: it was worse than it looked.",
+          "statUsed": "cool",
+          "cost": "special",
+          "effect": "once_per_mystery_heal"
+        }
+      ],
+      "gearOptions": [
+        [
+          { "id": "expert-gear-library", "name": "Portable Reference Library", "description": "Field guides, bestiaries, annotated maps. Once per mystery, ask the Keeper one free question about the monster type as if you had investigated." },
+          { "id": "expert-gear-medkit", "name": "Advanced Field Medkit", "description": "Full trauma kit. Once per mystery, reduce one hunter's harm by 2 (outside of combat)." }
+        ],
+        [
+          { "id": "expert-gear-jacket", "name": "Reinforced Jacket (1-armour)", "description": "Discreet protection. Doesn't look like armour." },
+          { "id": "expert-gear-silvercoat", "name": "Silver-lined Coat (1-armour, weird)", "description": "Effective against supernatural harm specifically." }
+        ]
+      ],
+      "vulnerability": "Your expertise makes you prone to dismissing things you can't explain and people who aren't as informed. When you assume you already know the answer, you stop looking — and that's when mysteries bite back.",
+      "bondCapacity": 3
+    },
+    {
+      "id": "initiate",
+      "name": "The Initiate",
+      "description": "You are trained by a Sect — an ancient order with its own rituals, codes, and secrets. Your weird power is real, hard-won, and comes with obligations you cannot ignore.",
+      "baseStats": { "charm": -1, "cool": 1, "sharp": 0, "tough": 1, "weird": 2 },
+      "signatureMoves": [
+        {
+          "id": "initiate-the-sect",
+          "name": "The Sect",
+          "description": "At the start of each mystery, roll +Charm for Sect support. On 10+: hold 3. On 7–9: hold 1. Spend hold 1-for-1 to: get a piece of Sect intelligence, requisition equipment (not weapons), or call in a Sect contact for one task. Miss: the Sect needs something from you right now.",
+          "statUsed": "charm",
+          "cost": "special",
+          "effect": "sect_resources"
+        },
+        {
+          "id": "initiate-fortunes",
+          "name": "Fortunes",
+          "description": "Once per mystery, use the Sect's divination. Roll +Weird. On 10+: hold 3. On 7–9: hold 1. Spend hold to: ask 'what will happen if we do X?', get a vision of a clue location, or sense the monster's current mood/intent. Miss: the vision is misleading.",
+          "statUsed": "weird",
+          "cost": "special",
+          "effect": "divination_hold"
+        },
+        {
+          "id": "initiate-mystic",
+          "name": "Mystic",
+          "description": "Every time you successfully use magic (roll 7+ on Use Magic / useSpecialMove), take +1 forward on any action that follows directly from what the magic revealed or enabled.",
+          "cost": "free",
+          "effect": "bonus_after_magic"
+        }
+      ],
+      "gearOptions": [
+        [
+          { "id": "initiate-gear-ritual-kit", "name": "Ritual Components Kit", "description": "Salts, herbs, chalk, candles. Required for any ritual-based weaknesses or Use Magic rolls involving the Sect's methods." },
+          { "id": "initiate-gear-sacred-text", "name": "Sacred Text", "description": "Annotated Sect manual. Once per mystery, consult it to add +1 to a Fortunes or Investigate roll." }
+        ],
+        [
+          { "id": "initiate-gear-blade", "name": "Ceremonial Blade (2-harm hand)", "description": "Ancient. Deals full harm to incorporeal entities." },
+          { "id": "initiate-gear-blessed-weapon", "name": "Blessed Firearm (2-harm far)", "description": "Loaded with Sect-prepared rounds. Effective against warded targets." }
+        ]
+      ],
+      "vulnerability": "Your Sect has demands that supersede the mission. Disobedience or deviation from Sect doctrine has consequences — sanctions, surveillance, or withdrawal of support at a critical moment.",
+      "bondCapacity": 2
+    },
+    {
+      "id": "mundane",
+      "name": "The Mundane",
+      "description": "You have no special training, no supernatural powers, and no reason to be here — except you are. That ordinariness is exactly what makes you dangerous. People trust you. Monsters underestimate you.",
+      "baseStats": { "charm": 2, "cool": 1, "sharp": 0, "tough": 1, "weird": -1 },
+      "signatureMoves": [
+        {
+          "id": "mundane-always-the-victim",
+          "name": "Always The Victim",
+          "description": "When another hunter uses Protect Someone to protect you, they mark experience. When a monster captures, kidnaps, or targets you specifically, the team immediately takes +1 forward on all rolls to rescue or find you.",
+          "cost": "free",
+          "effect": "protect_bonus_exp"
+        },
+        {
+          "id": "mundane-trust-me",
+          "name": "Trust Me",
+          "description": "When you tell a normal person (non-hunter, non-monster) the truth about danger to protect them, roll +Charm. On 10+: they believe you, do what you say, and keep quiet. On 7–9: they believe you but need convincing — pick one: they need time, they ask for proof, or they'll tell someone else. Miss: they think you're unstable.",
+          "statUsed": "charm",
+          "cost": "scene_action",
+          "effect": "convince_normal"
+        },
+        {
+          "id": "mundane-lets-get-out-of-here",
+          "name": "Let's Get Out Of Here!",
+          "description": "If you can protect a hunter or bystander by directing their retreat — telling them exactly what to do and where to go — they escape without rolling. You do not have to escape yourself. Works once per confrontation scene.",
+          "cost": "special",
+          "effect": "emergency_exit"
+        }
+      ],
+      "gearOptions": [
+        [
+          { "id": "mundane-gear-vehicle", "name": "Personal Vehicle", "description": "Reliable and registered in your name. +1 forward when the team needs a fast exit." },
+          { "id": "mundane-gear-camera", "name": "Recording Device", "description": "Phone or dashcam footage counts as evidence. +1 forward on one Investigate roll per mystery where footage is relevant." }
+        ],
+        [
+          { "id": "mundane-gear-firstaid", "name": "First Aid Kit", "description": "Basic trauma kit. Heal 1 harm from any hunter once per mystery (outside of combat)." },
+          { "id": "mundane-gear-multitool", "name": "Multitool + Duct Tape", "description": "Improvised solutions. +1 forward once per mystery on any roll to fix, rig, or bypass something mechanical." }
+        ]
+      ],
+      "vulnerability": "You're out of your depth. The people around you — family, colleagues, neighbours — can be used against you. When the monster needs leverage, it will reach for the ones you care about.",
+      "bondCapacity": 4,
+      "bonusAssistBonds": ["helping_a_frightened_bystander", "protecting_someone_who_doesnt_know_the_truth"]
+    },
+    {
+      "id": "snoop",
+      "name": "The Snoop",
+      "description": "Investigative journalist with a nose for the wrong kind of story. You ask questions other people are afraid to ask, go places people say to avoid, and somehow keep finding the one thing the monster didn't want discovered.",
+      "baseStats": { "charm": 2, "cool": 1, "sharp": 1, "tough": 0, "weird": -1 },
+      "signatureMoves": [
+        {
+          "id": "snoop-what-does-that-feel-like",
+          "name": "What Does That Feel Like?",
+          "description": "When you put a camera or microphone in someone's face and ask them about what they experienced, they break off whatever they were doing and answer honestly — at least about what they witnessed. This doesn't require a roll. They may not tell you everything, but they won't lie about the core event.",
+          "cost": "scene_action",
+          "effect": "npc_honest_testimony"
+        },
+        {
+          "id": "snoop-press-accreditation",
+          "name": "Press Accreditation",
+          "description": "When you investigate a mystery by talking to witnesses, reading records, or attending official briefings, roll +Charm instead of +Sharp. Your credentials get you access others can't get — and people assume you already know more than you do.",
+          "cost": "free",
+          "effect": "investigate_bonus_charm"
+        },
+        {
+          "id": "snoop-the-mojo-wire",
+          "name": "The Mojo Wire",
+          "description": "When you spend time scanning news feeds, social media, and public records for patterns, the Keeper must tell you: (a) if there are similar incidents elsewhere in the region, (b) who was present at multiple sites, and (c) whether anything was suppressed or removed from public record. Costs one scene action.",
+          "cost": "scene_action",
+          "effect": "scan_for_patterns"
+        }
+      ],
+      "gearOptions": [
+        [
+          { "id": "snoop-gear-camera", "name": "Professional Camera Rig", "description": "High quality. Footage from this counts as hard evidence — can't be dismissed as a phone photo." },
+          { "id": "snoop-gear-recorder", "name": "Concealed Audio Recorder", "description": "Records without being noticed. Admissible testimony — and leverage." }
+        ],
+        [
+          { "id": "snoop-gear-credentials", "name": "Press Credentials (3 outlets)", "description": "Three different press IDs. At least one will get you past any security cordon." },
+          { "id": "snoop-gear-scanner", "name": "Police Scanner + Encrypted Comms", "description": "Know what emergency services know in real time. +1 forward when racing to a scene." }
+        ]
+      ],
+      "vulnerability": "You are constitutionally incapable of leaving a story untold. Your coverage could expose PORTAL's existence — or make you the monster's next target before the team knows you're in danger.",
+      "bondCapacity": 3
+    },
+    {
+      "id": "celebrity",
+      "name": "The Celebrity",
+      "description": "Famous for something — an actor, an influencer, a public figure. You stumbled into the supernatural and now you can't pretend it isn't real. Your fame opens doors — and makes you very, very visible.",
+      "baseStats": { "charm": 2, "cool": 1, "sharp": 0, "tough": -1, "weird": 1 },
+      "signatureMoves": [
+        {
+          "id": "celebrity-scream-queen",
+          "name": "Scream Queen",
+          "description": "When you use your fame and projected terror to frighten someone into fleeing or freezing, roll +Charm. On 10+: they flee or freeze — your choice — and don't act against the team this scene. On 7–9: they are shaken and at -1 forward, but don't fully break. Miss: they're angry and focus on you.",
+          "statUsed": "charm",
+          "cost": "scene_action",
+          "effect": "terrify_flee"
+        },
+        {
+          "id": "celebrity-i-have-people",
+          "name": "I Have People",
+          "description": "You have an entourage. Once per session, direct them to: gather information from a public or semi-public location (as if investigating), create a media distraction (+1 forward for the team for one scene), or obtain a specific ordinary item or access credential within 24 hours.",
+          "cost": "special",
+          "effect": "entourage_task"
+        },
+        {
+          "id": "celebrity-disarming",
+          "name": "Disarming",
+          "description": "When you use personal charm and vulnerability to defuse a tense situation — with a person, a crowd, or even a non-mindless entity — roll +Charm. On 10+: the tension dissolves completely; they stand down and are willing to talk. On 7–9: temporary ceasefire — they'll hold off for one scene. Miss: they find your performance insulting.",
+          "statUsed": "charm",
+          "cost": "scene_action",
+          "effect": "defuse_tension"
+        }
+      ],
+      "gearOptions": [
+        [
+          { "id": "celebrity-gear-entourage", "name": "Entourage (3 people)", "description": "Driver, assistant, and fixer. They can be directed once per session (see I Have People)." },
+          { "id": "celebrity-gear-publicist", "name": "Publicist on Speed Dial", "description": "Can suppress a story, plant an alternative narrative, or get you into any event within 24 hours." }
+        ],
+        [
+          { "id": "celebrity-gear-stunt", "name": "Stunt Training", "description": "You've done your own stunts. Once per mystery, you may reroll a failed Act Under Pressure result that involves physical risk you've trained for (falls, fights, vehicle chases)." },
+          { "id": "celebrity-gear-merch", "name": "Branded Merchandise (Social Leverage)", "description": "Unusual but effective. When you give someone your merch, they feel a connection — +1 forward on your next social roll with them." }
+        ]
+      ],
+      "vulnerability": "Your fame makes you a target on both sides. The supernatural finds you interesting. Your fans, your management, and the press are always watching — and your monsters make great content. Someone will try to exploit that.",
+      "bondCapacity": 2
+    }
+  ]
+}

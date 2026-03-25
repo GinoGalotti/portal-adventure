@@ -1,0 +1,14 @@
+{
+  "name": "high-armor",
+  "description": "Eszter with armor 6 instead of 4 — is she too tanky?",
+  "mysteryPath": "data/mysteries/mystery-001.json",
+  "mysteryOverrides": {
+    "monster": { "armor": 6 }
+  },
+  "hunters": [
+    { "playbookId": "expert", "name": "Rosa" },
+    { "playbookId": "mundane", "name": "Mack" }
+  ],
+  "strategies": ["balanced", "greedy"],
+  "runsPerStrategy": 200
+}

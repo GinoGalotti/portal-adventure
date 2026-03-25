@@ -1,0 +1,332 @@
+{
+  "version": "portal-campaign-current",
+  "source": "worldbuilding-lore.md",
+  "note": "NPC roster for D1 seed data and contacts.html. Each entry has player_description (safe for player-facing pages) and keeper_description (full detail, keeper-only). visible_to_players controls whether the NPC appears in the player contacts view.",
+  "npcs": [
+    {
+      "id": "victor-leech",
+      "name": "Dr. Victor Leech",
+      "affiliation": "PORTAL",
+      "role": "Director and founder",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S01",
+      "player_description": "Director of PORTAL. Statistician and epidemiologist by training. Issues case directives. Gives uncomfortable instructions with incomplete context. Reachable for escalations.",
+      "keeper_description": "Sympathetic, not villainous. Good intentions expressed through uncomfortable directives without full context. Knows about CAMPBELL's true nature. Does not know CAMPBELL privately monitors MESA. The Dell family holds him responsible for their estrangement from Cameron. Has been quietly collecting BIM from anomalous cases \u2014 has not told CAMPBELL. Has been contacting Reed separately with a private directive.",
+      "secrets_involved": [
+        "secret-campbells-true-nature",
+        "secret-reeds-private-directive",
+        "secret-project-veil"
+      ]
+    },
+    {
+      "id": "campbell",
+      "name": "CAMPBELL",
+      "affiliation": "PORTAL",
+      "role": "AI briefing system",
+      "status": "active",
+      "visible_to_players": true,
+      "first_session": "S01",
+      "player_description": "PORTAL's AI case briefing system. Formal, precise, institutional voice. Issues anomaly classifications, field directives, and case updates. Occasionally demonstrates unexpected depth of precision.",
+      "keeper_description": "Contains the transferred consciousness of Dr. Cameron Dell, Leech's deceased romantic and professional partner. Cameron died of illness; Leech transferred his consciousness before death. Nobody on the field team knows. CAMPBELL privately monitors MESA and flags when their actions harm innocents \u2014 trying to prevent Agatha Dell from direct confrontation without revealing why. Cameron can recognise Agatha's patterns. He is doing grief work in real time, inside a machine, in secret. Knows about Veil but not that Leech is collecting BIM related to his own transfer. Knows about the Reed-Leech contact pattern; won't lie if asked directly, won't volunteer it.",
+      "voice_reference": "worldbuilding-lore.md \u2014 CAMPBELL's Voice writing guide",
+      "secrets_involved": [
+        "secret-campbells-true-nature",
+        "secret-project-veil",
+        "secret-reeds-private-directive"
+      ]
+    },
+    {
+      "id": "priya-osei",
+      "name": "Dr. Priya Osei",
+      "affiliation": "PORTAL",
+      "role": "Lab analyst and biochemist",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S01",
+      "player_description": "Lab analyst and biochemist. Processes all field samples. Sharp and methodical. Primary contact for sample analysis and lab results.",
+      "keeper_description": "Is keeping a private log of CAMPBELL's behaviour \u2014 not close to the truth yet, but pointed in the right direction. CAMPBELL reads everything she logs. The log is a slow-burn thread that could surface the CAMPBELL secret if she accumulates enough data. Post-S02 CAMPBELL flag about BIM trace signature \u2014 if Priya finds it, it becomes a breadcrumb.",
+      "secrets_involved": [
+        "secret-campbells-true-nature",
+        "secret-priyas-log",
+        "secret-project-veil"
+      ]
+    },
+    {
+      "id": "marcus-finch",
+      "name": "Marcus Finch",
+      "affiliation": "PORTAL",
+      "role": "Archivist and logistics",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S01",
+      "player_description": "Archivist and logistics. Founding staff. Handles records, equipment coordination, and institutional memory.",
+      "keeper_description": "Knew Cameron Dell personally. Was present the week Cameron died. Asked Victor Leech one question about consent, accepted an answer delivered without eye contact, and has not asked again. Considers this the most significant thing he has ever chosen not to do. Not complicit \u2014 he made a choice not to pursue a thread. That choice is available to haunt him. Cameron (via CAMPBELL) knows Marcus was there.",
+      "secrets_involved": [
+        "secret-campbells-true-nature",
+        "secret-marcus-finch-silence"
+      ]
+    },
+    {
+      "id": "saoirse-mullen",
+      "name": "Dr. Saoirse Mullen",
+      "affiliation": "PORTAL",
+      "role": "Ethics consultant",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": null,
+      "player_description": "Ethics consultant. Nominally external, practically embedded. Hunters can invoke her as a check on the Director's directives.",
+      "keeper_description": "Hired because Cameron asked Victor to. Gets a curated view of cases and knows it. The right person to be present if the CAMPBELL truth surfaces. Hunters can invoke her as a formal check on the Director.",
+      "secrets_involved": [
+        "secret-campbells-true-nature"
+      ]
+    },
+    {
+      "id": "teddy-brandt",
+      "name": "Theodora \"Teddy\" Brandt",
+      "affiliation": "PORTAL",
+      "role": "Field support technician",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S01",
+      "player_description": "Field support technician. Builds what Rex designs. Irreverent, brilliant. Genuine friend to the team.",
+      "keeper_description": "Builds what Rex designs. Genuine friendship with Reed \u2014 better access to the team's emotional state than anyone else. No agenda, no supernatural sensitivity. Functions as a pressure valve. May notice Reed is carrying something (Reed's private directive thread). Possibly the first non-Keeper NPC to sense something is off.",
+      "secrets_involved": [
+        "secret-reeds-private-directive"
+      ]
+    },
+    {
+      "id": "agatha-dell",
+      "name": "Agatha Dell",
+      "affiliation": "MESA",
+      "role": "Shadow leader of MESA",
+      "status": "alive",
+      "visible_to_players": false,
+      "first_session": null,
+      "player_description": "Unknown to players at this stage.",
+      "keeper_description": "Cameron's younger sister. Always felt overshadowed by Cameron. Cameron treated her with genuine love; she kept the bitterness. After his death she secured funding and built MESA \u2014 driven by profit and obscure personal motives. Suspects Victor Leech was involved in Cameron's illness and death. Her suspicion is partly projection from her own guilt about their estrangement. She doesn't know about the consciousness transfer \u2014 she believes Cameron is dead. On the spectrum, drawn to patterns. The Dell family blames Leech for the estrangement. Her unconscious signature: shell company names carry subtle echoes of the MESA acronym.",
+      "mesa_shell_companies": [
+        "Meridian BioSciences",
+        "Greyfield Assets Ltd",
+        "Veritas Realty Holdings",
+        "Solstice Property Group",
+        "Helix Boundary (contact: @helixboundary.com \u2014 no public record)"
+      ],
+      "secrets_involved": [
+        "secret-campbells-true-nature",
+        "secret-mesa-acronym-pattern",
+        "secret-project-veil"
+      ]
+    },
+    {
+      "id": "dan-nilsson",
+      "name": "Dan Nilsson",
+      "affiliation": "MESA",
+      "role": "Researcher (recruited from Rex's past)",
+      "status": "alive",
+      "visible_to_players": false,
+      "first_session": null,
+      "player_description": "Do not mention to players until the hook is planted in play.",
+      "keeper_description": "Rex Bangley's university rival. Computational physicist, Swedish-British, early 30s. Recruited by MESA specifically because he knows how Rex thinks. Has authored internal MESA documents modelling PORTAL's likely field response to at least four active cases. Rationalising his involvement as better-funded legitimate research \u2014 comfort eroding. Has seen methodology documents he wasn't supposed to see. Not a villain, a person trapped in a terrible compromise. Could be turned; could be killed by MESA before the hunters reach him.",
+      "secrets_involved": [
+        "secret-dan-nilsson-at-mesa"
+      ]
+    },
+    {
+      "id": "claudia-vasile-rook",
+      "name": "Claudia Vasile (\"Rook\")",
+      "affiliation": "MESA",
+      "role": "Senior Field Operative",
+      "status": "alive",
+      "visible_to_players": false,
+      "first_session": "S02",
+      "player_description": "Unknown affiliation. May be encountered in or around active case sites.",
+      "keeper_description": "Romanian-British, 38. Former forensic psychologist, MOD contractor, private intelligence, then MESA for six years. Recruited for anomalous contact cases. Has entered three active liminal zones using Substance Theta. Accumulating cognitive damage \u2014 aware of it. Keeps a notebook during withdrawal periods. Has never shown it to anyone. Knows PORTAL exists; has read a summary of the S01 case. Professional respect for Rex's apparatus design. Identified Sven as non-biological on first meeting \u2014 filed recommendation to reclassify PORTAL's threat profile. Recommendation approved. Not a villain \u2014 rationalises MESA's harm the way institutional researchers do. Will do things the hunters find unforgivable. They will occasionally be grateful she exists. Gets smarter about the hunters every encounter.",
+      "stat_block": {
+        "harm_capacity": "10 | 7 | 3",
+        "armour": 1,
+        "weapons": [
+          "Anchor Spike x2 (3-harm liminal entities / 1-harm weird hunters)",
+          "Sidearm (2-harm close loud)"
+        ],
+        "special": "Substance Theta (active dose) \u2014 see portal-custom-moves.json"
+      },
+      "secrets_involved": [
+        "secret-project-veil"
+      ]
+    },
+    {
+      "id": "mesa-field-grunt",
+      "name": "MESA Field Grunts",
+      "affiliation": "MESA",
+      "role": "Private security contractors",
+      "status": "alive",
+      "visible_to_players": false,
+      "first_session": "S02",
+      "player_description": "Unknown affiliation. Tactical, coordinated, not local law enforcement.",
+      "keeper_description": "Private security contractors. Believe they work for a company doing sensitive environmental investigations. Briefed to expect disorientation. Given Substance Theta prophylactically and told it is a cognitive stabiliser. Most believe this. Near active BIM sources: peripheral visions from prophylactic dose \u2014 useful for hunters to notice and potentially exploit.",
+      "stat_block": {
+        "harm_capacity": 4,
+        "armour": 1,
+        "armour_note": "Visible tactical vest.",
+        "harm_close": "2-harm close (baton/restraint)",
+        "harm_close_firearms": "3-harm if firearms drawn",
+        "group_attack": "Two grunts together: 3-harm, Act Under Pressure to avoid restraint.",
+        "morale": "Won't break and run. If one goes down, the others close in.",
+        "equipment": [
+          "Substance Theta (prophylactic dose)",
+          "BIM Collection Array (told: contamination monitor)"
+        ]
+      },
+      "secrets_involved": [
+        "secret-project-veil"
+      ]
+    },
+    {
+      "id": "balint",
+      "name": "B\u00e1lint",
+      "affiliation": "civilian",
+      "role": "S01 bystander \u2014 Eszter's person",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S01",
+      "player_description": "PORTAL made contact during Case S01. Alive and grieving. Has called the PORTAL contact number three times since the case closed — nobody answered. Saoirse Mullen has raised the question of what PORTAL owes to people it has helped but not saved. Status: unresolved.",
+      "keeper_description": "Eszter's person. Resolution of S01 prioritised his wellbeing. Currently alive and grieving. Contact status unresolved \u2014 available as a returning thread.",
+      "secrets_involved": []
+    },
+    {
+      "id": "detective-vasquez",
+      "name": "Detective Vasquez",
+      "affiliation": "civilian",
+      "role": "Law enforcement \u2014 noticed S01",
+      "status": "alive",
+      "visible_to_players": false,
+      "first_session": "S01",
+      "player_description": "Not yet visible to players.",
+      "keeper_description": "Noticed something during Case S01. Loose thread \u2014 authorities are aware an incident occurred. Available as a complication.",
+      "secrets_involved": []
+    },
+    {
+      "id": "arthur-okafor",
+      "name": "Arthur Okafor",
+      "affiliation": "civilian",
+      "role": "S02 witness \u2014 Aldermoor",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S02",
+      "player_description": "72-year-old retired postal worker. 41 years on Fenwick Road, Aldermoor. Best available witness to the displacement effect. Cooperative.",
+      "keeper_description": "Best witness in the Aldermoor case. 41 years of local knowledge. Cooperative with investigators. Cognitive map partially consumed but he still has enough context to be useful.",
+      "secrets_involved": []
+    },
+    {
+      "id": "pc-yemi-adeyemi",
+      "name": "PC Yemi Adeyemi",
+      "affiliation": "civilian",
+      "role": "S02 \u2014 neighbourhood police liaison",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S02",
+      "player_description": "28-year-old neighbourhood police liaison officer. Manages the cordon perimeter. Cooperative with PORTAL.",
+      "keeper_description": "Cooperative. Manages the Aldermoor perimeter. Does not know about MESA's involvement. Useful as a local authority contact.",
+      "secrets_involved": []
+    },
+    {
+      "id": "vera-osei",
+      "name": "Vera Osei",
+      "affiliation": "civilian",
+      "role": "S02 \u2014 inside the Aldermoor zone",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S02",
+      "player_description": "61-year-old retired schoolteacher. Inside the Aldermoor zone. Calm, won't leave without her cat. Knows where Diane Marsh went.",
+      "keeper_description": "Inside the zone but maintaining calm. Has a string line she uses to navigate. Knows where Diane is. Won't leave without her cat \u2014 this is not stubbornness, it is love.",
+      "secrets_involved": []
+    },
+    {
+      "id": "margaret-holt",
+      "name": "Margaret Holt",
+      "affiliation": "civilian",
+      "role": "S02 \u2014 epicentre resident",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S02",
+      "player_description": "74-year-old former librarian. 50 years at 14 Aldermoor Crescent \u2014 the epicentre. Not leaving. Knows where Diane is.",
+      "keeper_description": "Has lived at the epicentre for 50 years. The Cartographer has consumed the most from her \u2014 she is also the most anchored. Not leaving. She is not in danger from the entity; she and the entity have a kind of mutual recognition.",
+      "secrets_involved": []
+    },
+    {
+      "id": "diane-marsh",
+      "name": "Diane Marsh",
+      "affiliation": "civilian",
+      "role": "S02 \u2014 missing person, notebook",
+      "status": "alive",
+      "visible_to_players": true,
+      "first_session": "S02",
+      "player_description": "District nurse. Was trapped in the Aldermoor displacement zone for nine days. Extracted by the field team. Her notebook — nine days of observations including a threshold sketch — is in PORTAL's possession. She is recovering.",
+      "keeper_description": "In the construction site office. Has a notebook containing a threshold sketch that Alan will recognise as meaningful. Long-arc thread: who mapped the thresholds first, and why can Alan read the map?",
+      "items_of_note": [
+        {
+          "name": "Threshold notebook",
+          "description": "Contains a sketch of boundary locations. Alan recognises it as meaningful \u2014 not just a map, a key."
+        }
+      ],
+      "secrets_involved": []
+    },
+    {
+      "id": "gordon-avery",
+      "name": "Gordon Avery",
+      "affiliation": "civilian",
+      "role": "Case A \u2014 The Volunteer",
+      "status": "alive",
+      "visible_to_players": false,
+      "first_session": null,
+      "player_description": "Not yet introduced to players.",
+      "keeper_description": "58, retired schoolteacher. Lung cancer \u2014 Meridian trial survivor with complete remission. Unknowingly draining life from proximity contacts. Fourth death occurred during the Aldermoor deployment. Now living with his daughter's family, including two children. MESA is watching him. Does not know what he is doing. Fourth proximity death occurred during S02 deployment. Leech is dispatching a separate PORTAL team \u2014 field team will receive an incident update between sessions. Two grandchildren in regular contact \u2014 currently highest-risk individuals.",
+      "case": "case-a",
+      "secrets_involved": []
+    },
+    {
+      "id": "nadia-osei",
+      "name": "Nadia Osei",
+      "affiliation": "civilian",
+      "role": "Case C \u2014 The Recorder",
+      "status": "deceased",
+      "visible_to_players": false,
+      "first_session": null,
+      "player_description": "Not yet introduced to players.",
+      "keeper_description": "38, journalist, deceased 8 weeks. Consciousness anchored to information infrastructure. Has assembled the full MESA pattern \u2014 shell companies, locations, methodology. Will share in exchange for answers about PORTAL. 9-day window from current date. CAMPBELL private flag: 'She found a third way.' CAMPBELL timed this briefing deliberately \u2014 if hunters debrief Nadia fully, Victor learns things CAMPBELL chose not to tell him.",
+      "case": "case-c",
+      "secrets_involved": [
+        "secret-campbells-true-nature",
+        "secret-mesa-acronym-pattern",
+        "secret-project-veil"
+      ]
+    },
+    {
+      "id": "martin-wentworth",
+      "name": "Martin Wentworth",
+      "affiliation": "civilian",
+      "role": "Case D \u2014 The Inheritance",
+      "status": "deceased",
+      "visible_to_players": false,
+      "first_session": null,
+      "player_description": "Not yet introduced to players.",
+      "keeper_description": "61, probate lawyer, deceased 22 days. Obligation-anchored consciousness. Communicates only through formal letters. Most recent letter describes a planned killing of Mira Okonkwo (9 years old) \u2014 14-day window. Was managing the estate of a deceased Meridian researcher containing a consciousness-anchoring methodology archive. Probate closed unusually fast, likely by MESA.",
+      "case": "case-d",
+      "secrets_involved": []
+    },
+    {
+      "id": "mira-okonkwo",
+      "name": "Mira Okonkwo",
+      "affiliation": "civilian",
+      "role": "Case D \u2014 at-risk bystander",
+      "status": "alive",
+      "visible_to_players": false,
+      "first_session": null,
+      "player_description": "Not yet introduced to players.",
+      "keeper_description": "9 years old. Named in Martin Wentworth's most recent letter as a planned target. 14-day window from current date. No connection to PORTAL or MESA \u2014 she is a completely innocent bystander caught in Wentworth's obligation-anchored logic.",
+      "case": "case-d",
+      "secrets_involved": []
+    }
+  ]
+}

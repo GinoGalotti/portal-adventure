@@ -1,0 +1,14 @@
+{
+  "name": "tight-clock",
+  "description": "Clock disasterAt=20 instead of 30 — more time pressure",
+  "mysteryPath": "data/mysteries/mystery-001.json",
+  "mysteryOverrides": {
+    "clockConfig": { "disasterAt": 20 }
+  },
+  "hunters": [
+    { "playbookId": "expert", "name": "Rosa" },
+    { "playbookId": "mundane", "name": "Mack" }
+  ],
+  "strategies": ["balanced", "greedy", "rush"],
+  "runsPerStrategy": 200
+}

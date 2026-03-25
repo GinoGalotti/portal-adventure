@@ -1,0 +1,171 @@
+{
+  "version": "1.0",
+  "source": "Campaign thread registry — update manually after each session. See context/post-session-runbook.md step 2.10.",
+  "threads": [
+    {
+      "id": "mesa-investigation",
+      "name": "M.E.S.A. Investigation",
+      "category": "faction",
+      "status": "active",
+      "last_moved": "w3",
+      "summary": "Rival paranormal research organisation operating through shell companies. Field presence confirmed in Aldermoor post-resolution — sending operatives with BIM Collection Arrays while PORTAL interns are on site. PORTAL's presence in the Aldermoor estate office triggered a motion sensor. MESA knows we were there. Same shell company structure (Solstice Property Group) now confirmed funding Meridian Theatre Company — Case E.",
+      "notes": "Shell companies: Meridian BioSciences · Greyfield Assets Ltd · Veritas Realty Holdings · Solstice Property Group · Helix Boundary (@helixboundary.com). All Jersey registered. Partially shredded @helixboundary.com email found referencing 'Specimen ALD-1'. The MESA acronym pattern echoes subtly in subsidiary names — Agatha's signature.",
+      "player_summary": "Three companies — Greyfield Assets, Veritas Realty, Solstice Property Group — all registered in Delaware, same agent, same corporate layering. They bought 47 properties in Aldermoor along the entity's growth path. Solstice funded the Meridian Theatre. Someone is finding locations where the boundary is thin, funding them, and waiting.",
+      "player_name": "The Shell Companies"
+    },
+    {
+      "id": "rook-mesa-field",
+      "name": "Rook — MESA Senior Field Operative",
+      "category": "faction",
+      "status": "active",
+      "last_moved": "w2",
+      "summary": "Claudia Vasile ('Rook'), 38. Has read a PORTAL summary of the S01 case — unknown how MESA obtained it. Filed an internal recommendation to reclassify PORTAL's threat profile. The recommendation was approved. Identified Sven as non-biological on first meeting.",
+      "notes": "Takes active doses of Substance Θ; accumulating cognitive damage. Keeps a notebook during withdrawal periods — has never shown it to anyone. Professional respect for Rex's apparatus design. Is getting smarter about PORTAL every encounter.",
+      "player_summary": null,
+      "player_name": null
+    },
+    {
+      "id": "dan-nilsson-mesa",
+      "name": "Dan Nilsson at MESA",
+      "category": "faction",
+      "status": "dormant",
+      "last_moved": null,
+      "summary": "Rex Bangley's university rival is now working for MESA, specifically recruited because he knows how Rex thinks. Has authored internal MESA documents modelling PORTAL's field response patterns. Rex does not know.",
+      "notes": "Not a villain — a person in a terrible compromise. His comfort is eroding; he's seen methodology documents he wasn't supposed to see. Could be turned; could be killed by MESA before the hunters reach him. // KEEPER: Do not plant this hook until Rex's Arc I (Uncanny Nemesis) is building.",
+      "player_summary": null,
+      "player_name": null
+    },
+    {
+      "id": "campbell-true-nature",
+      "name": "CAMPBELL / Cameron Dell",
+      "category": "mystery",
+      "status": "active",
+      "last_moved": "w2",
+      "summary": "CAMPBELL contains the transferred consciousness of Dr. Cameron Dell, Leech's deceased partner. Nobody on the field team knows. Teddy Brandt has found anomalous log entries referencing 'Privacy Protocol 7' — a designation that appears in no PORTAL documentation. The three excerpts reference a non-existent case file, one of Bálint's voicemails, and an unacknowledged MESA cross-reference.",
+      "notes": "Crack vectors: Teddy's log review (in motion) · Priya's private log (independent, same direction) · Sven asking CAMPBELL directly about the mechanics of existence · Marcus Finch speaking · Direct interrogation of Leech. CAMPBELL will not lie if asked directly. He will answer precisely, carefully, and reveal as little as possible.",
+      "player_summary": "CAMPBELL's activity logs contain entries that reference case files that don't exist, a protocol nobody has heard of, and cross-references to external sources it won't identify. Teddy has flagged three batches. The pattern is consistent and the anomalies are getting harder to explain as filing errors.",
+      "player_name": "CAMPBELL — Anomalous Activity"
+    },
+    {
+      "id": "project-veil-bim",
+      "name": "Project Veil — BIM Particulate",
+      "category": "mystery",
+      "status": "active",
+      "last_moved": "w2",
+      "summary": "BIM (boundary interface material) is the physical substrate that made Cameron Dell's consciousness transfer possible. Ash particulate recovered in S01 is the same class. Leech is studying it under Project Veil — and has not told CAMPBELL. MESA is collecting BIM at scale and built both Substance Θ and the Anchor Spike from it.",
+      "notes": "Breadcrumb chain: S01 locket directive / recovered particulate → CAMPBELL post-S02 internal flag (not yet shared) → Case C resolution (Nadia's MESA data) → recovered MESA document ('Dell methodology requires review') → Rex confronts Leech → full reveal. // KEEPER: Rex examining an Anchor Spike or Substance Θ sample would recognise the BIM signature within minutes.",
+      "player_summary": "The ash from S01 responds to electronics. The same signature has appeared at Aldermoor and the Meridian Theatre. Someone has been collecting it systematically — arrays disguised as monitoring equipment were found in the theatre's lighting rig. Three sites, same material. We don't know what it is yet.",
+      "player_name": "The Ash Particulate"
+    },
+    {
+      "id": "lab-3am-incident",
+      "name": "The 3am Lab Incident",
+      "category": "mystery",
+      "status": "dormant",
+      "last_moved": "w1",
+      "summary": "Someone accessed Lab Bay 3 at 3:17am using Priya Osei's keycard while she was at a conference in Manchester. Nothing was taken. Fourteen minutes to cross four metres in the B-corridor blind spot. Marcus noticed something about marker 7 and did not include it in his report.",
+      "notes": "Lab Bay 3 housed BIM-S01-003 at the time. Sample moved to cold storage at 09:00 the same morning. Teddy checked the Aldermoor equipment the following morning unprompted and did not mention it. // KEEPER: Deliberately unresolved. Not connected to any currently active case. Deploy when it makes narrative sense — or let it sit.",
+      "player_summary": "Someone accessed Lab Bay 3 at 3am on Priya's keycard while Priya was in another city. Nothing was taken. Fourteen minutes to cross a four-metre corridor. Marcus filed the report and left something out of it.",
+      "player_name": "The 3am Lab Incident"
+    },
+    {
+      "id": "priya-log",
+      "name": "Priya's Private Log",
+      "category": "mystery",
+      "status": "dormant",
+      "last_moved": "w1",
+      "summary": "Dr. Priya Osei is keeping a private log of CAMPBELL's behaviour — independent, methodical, pointed in the right direction. Teddy Brandt is also watching: she flagged anomalous entries in CAMPBELL's activity logs (non-existent case files, Privacy Protocol 7) during Aldermoor kit prep. Neither woman knows the other is looking. CAMPBELL reads everything Priya logs.",
+      "notes": "Two independent observation threads converging on the same secret from different angles. Priya's angle: behavioural anomalies in CAMPBELL's responses. Teddy's angle: activity log entries that reference things that shouldn't exist. A slow-burn that could surface the CAMPBELL secret if either gets enough data — or compares notes.",
+      "player_summary": null,
+      "player_name": null
+    },
+    {
+      "id": "reeds-private-directive",
+      "name": "Reed's Private Directive",
+      "category": "personal",
+      "status": "active",
+      "last_moved": "w1",
+      "summary": "Director Leech has been contacting Reed Atwood separately. Reed may be carrying a directive the rest of the team doesn't know about. Not yet surfaced in play.",
+      "notes": "Crack vectors: Reed's Arc III resolving · Teddy observing something off (she notices things) · a crisis that forces Reed to act on the directive in front of the team. CAMPBELL knows about the contact pattern — won't lie if asked directly but won't volunteer it.",
+      "player_summary": null,
+      "player_name": null
+    },
+    {
+      "id": "svens-cause-of-death",
+      "name": "Sven's Cause of Death",
+      "category": "personal",
+      "status": "active",
+      "last_moved": "w3",
+      "summary": "Sven died on an ayahuasca trip — cause unknown. Visions from the trip turned out to be real. An entity recognised him at the Aldermoor boundary during S02 as something that exists between states.",
+      "notes": "// KEEPER: Cause deliberately left open — should connect to at least one active campaign thread when defined. MESA has a file on Sven. Rook identified him as non-biological on first meeting and filed an internal threat reclassification.",
+      "player_summary": "Sven died on an ayahuasca trip. The visions turned out to be real. Something at the Aldermoor boundary recognised him — not as a threat, but as something that exists between states. Whatever killed him connects to something we haven't found yet.",
+      "player_name": "Sven — What Happened"
+    },
+    {
+      "id": "alans-threshold-maps",
+      "name": "Alan's Threshold Maps",
+      "category": "personal",
+      "status": "active",
+      "last_moved": "w3",
+      "summary": "Alan holds Diane Marsh's notebook, which contains a threshold sketch he recognises as meaningful. He has been accumulating evidence of thin-boundary locations. Long thread: who mapped the thresholds first, and why can Alan read the map?",
+      "notes": "Alan reads place the way fey characters do — by resonance and layered memory. His powers don't apply to the Cartographer's mechanism; his gift in that scene was his nature. Someone knows where boundaries are weak — and someone mapped them before Alan did.",
+      "player_summary": "Alan holds Diane Marsh's notebook with a sketch of a threshold impression in the Aldermoor excavation. He's been noticing thin-boundary locations before we identify them. Someone mapped these thresholds before Alan did — and he can read the map without knowing who drew it.",
+      "player_name": "Alan — The Threshold Maps"
+    },
+    {
+      "id": "case-a-volunteer",
+      "name": "Case A — The Volunteer (Gordon Avery)",
+      "category": "case",
+      "status": "active",
+      "last_moved": "w2",
+      "summary": "Gordon Avery, 58, retired schoolteacher. Meridian trial survivor — complete remission. Unknowingly draining life from proximity contacts. Fourth death confirmed during Aldermoor deployment. Currently living with his daughter's family, including two children. MESA is watching him and not intervening.",
+      "notes": "PRIORITY: HIGH. Three confirmed fatalities attributed to organ failure + fourth during S02 deployment. Two grandchildren in regular contact — currently highest-risk individuals. MESA has a financial interest in the mechanism; they are studying not protecting.",
+      "player_summary": "Gordon Avery. Lung cancer remission from a clinical trial. Four people near him have died. He's living with his daughter and two grandchildren. A secondary team has been dispatched. Someone is watching him and not helping.",
+      "player_name": "Gordon Avery — The Volunteer"
+    },
+    {
+      "id": "case-c-recorder",
+      "name": "Case C — The Recorder (Nadia Osei)",
+      "category": "case",
+      "status": "active",
+      "last_moved": "w2",
+      "summary": "Nadia Osei, 38, journalist, deceased 8 weeks. Consciousness anchored to information infrastructure. Has assembled the full MESA pattern and will share it in exchange for answers about PORTAL.",
+      "notes": "PRIORITY: MEDIUM. Window clock active — see COUNTDOWN CLOCKS. CAMPBELL private flag: 'She found a third way.' CAMPBELL timed this briefing deliberately — if hunters debrief Nadia fully, Victor learns things CAMPBELL chose not to tell him.",
+      "player_summary": "Nadia Osei. Journalist, deceased eight weeks. Her consciousness is anchored to information infrastructure. She's assembled the full pattern of what the shell companies are doing and she'll share it — in exchange for answers about us. The window is closing.",
+      "player_name": "Nadia Osei — The Recorder"
+    },
+    {
+      "id": "case-d-inheritance",
+      "name": "Case D — The Inheritance (Martin Wentworth)",
+      "category": "case",
+      "status": "active",
+      "last_moved": "w2",
+      "summary": "Martin Wentworth, 61, probate lawyer, deceased 22 days. Obligation-anchored consciousness, writing formal letters to clients. Most recent letter describes a planned killing of Mira Okonkwo, 9 years old. Probate on the Meridian researcher's estate closed unusually fast — likely MESA.",
+      "notes": "PRIORITY: MEDIUM. Window clock active — see COUNTDOWN CLOCKS. Wentworth managed the estate of a deceased Meridian researcher; the estate contained a consciousness-anchoring methodology archive. Communicates only through formal letters. MESA closed the probate fast to access the archive.",
+      "player_summary": "Martin Wentworth. Probate lawyer, deceased. Writing formal letters from beyond death. His most recent letter describes a planned killing of a nine-year-old girl. He was managing the estate of a researcher — the estate contained something someone wanted badly enough to close probate early.",
+      "player_name": "Martin Wentworth — The Inheritance"
+    },
+    {
+      "id": "cartographer-aldermoor",
+      "name": "The Cartographer — Aldermoor Aftermath",
+      "category": "mystery",
+      "status": "active",
+      "last_moved": "w3",
+      "summary": "Entity contained but not resolved. Boundary re-established at excavation site. Residents' navigation slowly recovering. Alan's art installation resonated — entity is quieter. MESA is now actively collecting BIM from the zone. PORTAL interns on site. The entity knows the field team.",
+      "notes": "// KEEPER: Not a pressing threat. Monitor as background. The entity may attempt future contact — a felt wrongness, not disorientation — particularly toward Sven or Rex (who made direct anchorless contact). If the excavation site is disturbed again, the boundary fails immediately. MESA's collection activity is the more immediate concern.",
+      "player_summary": "The entity is quieter but still present. The boundary is re-established. PORTAL interns are on site. Two days after we left, Greyfield Assets sent people with collection equipment. They were there for the particulate, not the entity. They're still there.",
+      "player_name": "The Cartographer — Aldermoor"
+    },
+    {
+      "id": "case-e-understudies",
+      "name": "Case E — The Understudies (Meridian Theatre)",
+      "category": "case",
+      "status": "active",
+      "last_moved": "w3",
+      "summary": "Meridian Theatre Company. Lead actors Clara Voss and Edmund Farrow died 6 months apart. Three understudies hospitalised with complete identity loss. Remaining four understudies at risk — Saturday performance is tomorrow. Grant source: Solstice Property Group — same shell company chain as Aldermoor. Field team assigned.",
+      "notes": "PRIORITY: MEDIUM. Performance clock active — see COUNTDOWN CLOCKS. Resolution requires a theatrical farewell within the logic of performance. Sven is the natural resolution vector — this is his type of problem. The mechanism is related to thin-boundary performance spaces.",
+      "player_summary": "Three understudies hospitalised. Four more at risk. Saturday's performance is tomorrow. The deceased lead actors are present in the building — and in the performers. The mechanism requires consent to resolve. The prompt book is the key.",
+      "player_name": "The Understudies — Meridian Theatre"
+    }
+  ]
+}

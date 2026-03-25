@@ -1,0 +1,204 @@
+{
+  "intersections": [
+    {
+      "from_hunter": "reed",
+      "from_prefix": "REED",
+      "from_label": "Arc III — The Private Directive",
+      "note": "Revelation lands hardest on <strong>Rex</strong> — the person Reed has been simultaneously protecting and betraying. Alan's moral judgment is also in play: he uses Reed as his compass, and the needle will move."
+    },
+    {
+      "from_hunter": "alan",
+      "from_prefix": "ALAN",
+      "from_label": "Arc III — The Map Before Territory",
+      "note": "Alan depends on <strong>Reed</strong> as moral compass before he can act on Diane Marsh's notebook. Reed's choices in Arc III bend Alan's options. If Reed is compromised, Alan's anchor is gone."
+    },
+    {
+      "from_hunter": "sven",
+      "from_prefix": "SVEN",
+      "from_label": "Arc III — What Killed Me",
+      "note": "<strong>Rex</strong> is researching the same thread from a different angle. They will converge before either is ready. Who discovers what first shapes whether this arc is Sven's triumph or Rex's grief."
+    },
+    {
+      "from_hunter": "rex",
+      "from_prefix": "REX",
+      "from_label": "Arc I — Uncanny Nemesis",
+      "note": "Dan Nilsson is inside MESA, and MESA is connected to <strong>Sven's</strong> death. Rex's nemesis may hold the answer Sven has been quietly looking for. Neither knows this yet."
+    },
+    {
+      "from_hunter": "sven",
+      "from_prefix": "SVEN",
+      "from_label": "Arc II — The Misguided Hunter",
+      "note": "The target of this arc — an operative pursuing the wrong lead for the right reasons — is <strong>Keeper's call</strong>. Assign it once a candidate emerges in play. Rex and Reed are both viable."
+    },
+    {
+      "from_hunter": "rex",
+      "from_prefix": "REX",
+      "from_label": "Arc III — What the Veil Costs",
+      "note": "Rex discovering Project Veil is a <strong>whole-team moment</strong>. How it lands depends on where Reed's Arc III, Alan's Arc III, and the CAMPBELL secret all stand at that point. Don't resolve this arc in isolation."
+    }
+  ],
+  "hunters": [
+    {
+      "id": "rex",
+      "name": "Rex Bangley",
+      "color": "#f0a500",
+      "playbook_note": "ACTION SCIENTIST · HALF-BROTHER TO SVEN",
+      "story_page": "../hunters/rex.html",
+      "arcs": [
+        {
+          "id": "rex-1",
+          "number": "I",
+          "title": "Uncanny Nemesis",
+          "type": "adapted",
+          "description": "Someone is modelling Rex's field decisions in advance — and getting it right. Rex will recognise the pattern eventually. He doesn't know the person yet. Dan Nilsson, his university rival, is inside MESA specifically because he knows how Rex thinks.",
+          "pressure": "// PRESSURE → SVEN: Dan Nilsson's MESA work connects to Sven's death investigation"
+        },
+        {
+          "id": "rex-2",
+          "number": "II",
+          "title": "The Greater Good?",
+          "type": "adapted",
+          "description": "Rex's work has always been dual-use. This arc surfaces the first time that becomes undeniable — when a tool Rex designed is turned against people he was trying to protect, and Rex has to decide whether the science or the harm comes first."
+        },
+        {
+          "id": "rex-3",
+          "number": "III",
+          "title": "What the Veil Costs",
+          "type": "portal",
+          "description": "Rex is the most likely operative to independently discover Project Veil. The ash from S01 is in the lab. Rex has the instincts to ask the right questions. The arc ends with what he does when he understands what Leech has been doing — and why he didn't tell the team.",
+          "pressure": "// PRESSURE → ALL: Don't resolve in isolation — where every other arc stands shapes the landing"
+        }
+      ]
+    },
+    {
+      "id": "reed",
+      "name": "Reed Atwood",
+      "color": "#3ab5b0",
+      "playbook_note": "SIDEKICK · IDOLISES REX · JOHN JOHNSON'S NEPHEW BY MARRIAGE",
+      "story_page": "../hunters/reed.html",
+      "arcs": [
+        {
+          "id": "reed-1",
+          "number": "I",
+          "title": "The Idol's Weakness",
+          "type": "adapted",
+          "description": "Rex is fallible. Reed knows this better than anyone. The arc asks whether protecting Rex from his own weaknesses is the same as enabling them — and what Reed becomes if he keeps absorbing the cost of that choice alone."
+        },
+        {
+          "id": "reed-2",
+          "number": "II",
+          "title": "Passing the Torch",
+          "type": "adapted",
+          "description": "Reed is beginning to act as an operative in his own right — not as Rex's extension. Rex has noticed. The arc is about Reed learning to ask for what he needs, and Rex learning what it means to have a partner rather than a Sidekick."
+        },
+        {
+          "id": "reed-3",
+          "number": "III",
+          "title": "The Private Directive",
+          "type": "portal",
+          "description": "Leech has been contacting Reed separately. Reed is carrying something the team doesn't know about. CAMPBELL knows, won't lie if asked directly, won't volunteer it. Teddy Brandt may have noticed something is off. This arc ends when containment fails — not if.",
+          "pressure": "// PRESSURE → REX + ALAN: Rex takes the revelation hardest. Alan's moral compass depends on Reed being honest."
+        }
+      ]
+    },
+    {
+      "id": "alan",
+      "name": "Alan Frazier",
+      "color": "#2ec4b6",
+      "playbook_note": "CHANGELING (FEY ORIGIN, UNDEFINED) · USES REED AS MORAL COMPASS",
+      "story_page": "../hunters/alan.html",
+      "arcs": [
+        {
+          "id": "alan-1",
+          "number": "I",
+          "title": "Villains Like Myself",
+          "type": "adapted",
+          "description": "Alan's capabilities overlap with the things they hunt in ways that are difficult to explain away. The arc asks whether that overlap is coincidence, inheritance, or design — and whether it matters how the line was drawn if Alan keeps crossing it."
+        },
+        {
+          "id": "alan-2",
+          "number": "II",
+          "title": "The Awakened One",
+          "type": "adapted",
+          "description": "Alan's fey nature was not random. Something chose him, or made him, or is waiting for him to understand what he is. Rex's experiment wasn't the beginning — it was the moment something that was always there became visible. What is watching Alan's development?"
+        },
+        {
+          "id": "alan-3",
+          "number": "III",
+          "title": "The Map Before the Territory",
+          "type": "portal",
+          "description": "Diane Marsh's notebook contains threshold sketches Alan recognises — not from training, from something older. Someone mapped the boundaries before PORTAL existed. Alan can read the map. The questions are: who made it first, why Alan can read it, and what it means that the map is still being updated.",
+          "pressure": "// PRESSURE → REED: Alan uses Reed as moral compass — Reed's Arc III choices directly shape what Alan can do here"
+        }
+      ]
+    },
+    {
+      "id": "sven",
+      "name": "Sven",
+      "color": "#a78bfa",
+      "playbook_note": "MONSTROUS (GHOST) · HALF-BROTHER TO REX · IMMUNE TO ALDERMOOR DISPLACEMENT",
+      "story_page": "../hunters/sven.html",
+      "arcs": [
+        {
+          "id": "sven-1",
+          "number": "I",
+          "title": "In My Footsteps",
+          "type": "adapted",
+          "description": "Someone is trying to do what Sven was doing before he died — the same investigations, the same locations, the same questions. They don’t know what they’re walking into. Sven does. Whether he gets there in time is the arc."
+        },
+        {
+          "id": "sven-2",
+          "number": "II",
+          "title": "The Misguided Hunter",
+          "type": "adapted",
+          "description": "One of the other operatives is pursuing the wrong thing for the right reasons. Sven can see it. The arc asks whether he says something, how he says it, and what it costs him either way.",
+          "keeper_note": "Assign target operative when a candidate emerges in play.",
+          "pressure": "// TARGET OPERATIVE: Keeper to determine — Rex and Reed both viable candidates",
+          "res_label": "// RESOLUTION NOTE / TARGET",
+          "res_placeholder": "Target operative + how it resolved…"
+        },
+        {
+          "id": "sven-3",
+          "number": "III",
+          "title": "What Killed Me",
+          "type": "portal",
+          "description": "Sven died on an ayahuasca trip. The visions turned out to be real. The cause of death connects to at least one active campaign thread — Keeper to confirm which. Sven is the only one quietly investigating. An entity recognised him at a boundary during S02. That recognition is a data point.",
+          "pressure": "// PRESSURE → REX: Same research thread, different angles. They converge. Who arrives first shapes everything.",
+          "res_label": "// CAUSE OF DEATH + RESOLUTION NOTE",
+          "res_placeholder": "Cause of death (Keeper decision) + how it resolved…"
+        }
+      ]
+    },
+    {
+      "id": "john",
+      "name": "John Johnson",
+      "color": "#c8ddd0",
+      "playbook_note": "THE FLAKE · REED’S UNCLE BY MARRIAGE",
+      "story_page": "../hunters/john.html",
+      "arcs": [
+        {
+          "id": "john-1",
+          "number": "I",
+          "title": "Deeper Conspiracy",
+          "type": "adapted",
+          "description": "John has been tracking a pattern — across corporate filings, university funding records, shell company registrations — that most people dismiss as noise. It’s not noise. This arc follows the first time the pattern reaches back."
+        },
+        {
+          "id": "john-2",
+          "number": "II",
+          "title": "The Benign Conspiracy",
+          "type": "adapted",
+          "description": "John discovers a group hiding for good reasons. The “benign conspiracy” turns out to be PORTAL’s own operational structure — a group of people hiding what they know in order to protect others. John now knows enough to blow their cover, and they know it."
+        },
+        {
+          "id": "john-3",
+          "number": "III",
+          "title": "The Pattern is Not a Theory",
+          "type": "portal",
+          "description": "John has been tracking the MESA acronym across 14 shell company registrations. He’s right. MESA’s formation procedure creates the pattern as a structural byproduct. John doesn’t know what MESA is — he just knows the pattern connects. Now MESA has flagged him as a data-collection liability.",
+          "pressure": "// PRESSURE → REED + ALL: John knowing the pattern is a campaign-level event. How much the team tells him — or doesn’t — shapes whether John becomes an asset or a loose thread MESA acts on."
+        }
+      ]
+    }
+  ]
+}

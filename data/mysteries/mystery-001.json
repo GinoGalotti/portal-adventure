@@ -1,0 +1,178 @@
+{
+  "_note": "First hand-authored mystery. Based on Eszter from PORTAL campaign entity E-001 (case S01: A Promise is a Promise). The entity and story are original to PORTAL — no IP concerns. This is a training/tutorial mystery: low threat, emotionally driven, weakness is social resolution not combat.",
+  "_story_notes": {
+    "premise": "An incorporeal spirit bound to an unfulfilled promise has returned to Keller University. Eszter Vásárhelyi died during her first year. Her childhood friend Bálint promised never to forget her. As Bálint has begun to move on with his life, Eszter returned — not malevolently, but compelled by grief. She cannot rest while the promise remains unresolved. Those who interfere with Bálint's wellbeing are harmed by her.",
+    "resolution": "Bálint must consciously release Eszter from her obligation — either by fulfilling it (acknowledging her meaningfully) or by sincerely asking her to let go. This requires the hunters to find the anchor (the ash locket), understand the promise, and facilitate the conversation. Combat will not dispel her — it will only provoke her.",
+    "tone": "Melancholy, not horror. The monster is a victim of grief. The ideal outcome is HUMANE — entity dispersed without violence. A win via combat is mechanically valid but narratively a loss.",
+    "bim_connection": "The ash locket contains trace BIM-class material. PORTAL will recover it regardless of confrontation outcome. This is Project Veil breadcrumb 1 — canon for later arcs."
+  },
+  "id": "mystery-001",
+  "monster": {
+    "id": "mon-eszter",
+    "type": "sorcerer",
+    "name": "Eszter",
+    "motivation": "preservation",
+    "weakness": {
+      "id": "w-promise-resolved",
+      "type": "brokenBond",
+      "description": "Bálint must consciously release Eszter from her obligation, or genuinely fulfil it. This requires locating the ash locket (anchor) and facilitating an honest conversation between Bálint and the hunters. A charm-based exploitWeakness roll represents guiding Bálint to say the words that free her.",
+      "statRequired": "charm"
+    },
+    "harm": 2,
+    "armor": 4,
+    "maxHarm": 6,
+    "attacks": [
+      "eszter_obligation_strike",
+      "eszter_grief_wave"
+    ],
+    "specialAbility": "Incorporeal — immune to physical weapons, bullets, and bladed weapons. Only weird-stat attacks (Use Magic, Ancient Fighting Arts with blessed weapon) or exploitWeakness rolls can reduce her harm. Her armour of 4 reflects this. She will not pursue hunters who are not near Bálint."
+  },
+  "locationDefs": [
+    {
+      "id": "loc-campus-grounds",
+      "name": "Keller University — Campus Grounds",
+      "type": "publicSpace",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-ash-trail",
+          "significance": "partial",
+          "description": "Grey ash residue forms a path between the memorial garden and the science building. It reappears within hours of being swept away. The ash is odourless, cannot be identified by standard lab analysis, and leaves no contamination — it simply exists.",
+          "locationId": "loc-campus-grounds",
+          "requiresAction": "investigate"
+        }
+      ],
+      "availableActions": ["investigate", "interview", "helpBystander"],
+      "adjacentLocationIds": ["loc-memorial-garden", "loc-science-lab"]
+    },
+    {
+      "id": "loc-student-dorms",
+      "name": "Keller University — Student Dormitories",
+      "type": "witnessHome",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-witness-sightings",
+          "significance": "partial",
+          "description": "Students near Bálint's corridor describe seeing a young woman late at night — quiet, leaving grey footprints, sometimes vanishing mid-corridor. None of them know her. Campus records show no female resident on this floor. Security footage shows a shape but not a face.",
+          "locationId": "loc-student-dorms",
+          "requiresAction": "interview"
+        },
+        {
+          "id": "clue-balint-confession",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "When confronted with the evidence — ash trail, witness accounts, the locket — Bálint finally breaks down. He confesses: Eszter was his closest childhood friend. She died in an accident at the end of her first year here. He visited her every day in hospital. As she was dying she made him promise he would never forget her. He said yes. Lately he has been moving on — starting to forget her face — and she came back. He doesn't know what to do. He's terrified of her and heartbroken in equal measure.",
+          "locationId": "loc-student-dorms",
+          "requiresAction": "interview"
+        }
+      ],
+      "availableActions": ["investigate", "interview"],
+      "adjacentLocationIds": ["loc-campus-grounds"]
+    },
+    {
+      "id": "loc-university-library",
+      "name": "Keller University — Library & Archives",
+      "type": "library",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-enrollment-record",
+          "significance": "key",
+          "description": "University archive records show Eszter Vásárhelyi enrolled at Keller University five years ago in the chemistry programme. She died in a cycling accident at the end of her first year, aged 19. Her listed emergency contact was Bálint Fehér — childhood friend, not family. He was her only regular visitor during her hospitalisation. The file contains a small photograph: a young woman, dark-haired, wearing a locket.",
+          "locationId": "loc-university-library",
+          "requiresAction": "investigate"
+        }
+      ],
+      "availableActions": ["investigate", "deepSearch"],
+      "adjacentLocationIds": ["loc-campus-grounds"]
+    },
+    {
+      "id": "loc-science-lab",
+      "name": "Keller University — Bálint's Research Lab",
+      "type": "hiddenArea",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-ash-locket",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Hidden at the back of Bálint's desk drawer: a small silver locket filled with grey ash. This is Eszter's memorial ash — given to Bálint by her family after her cremation. The locket is warm to the touch. Grey residue covers everything within two metres of it. When held, it pulses faintly — like a slow heartbeat. This is the physical anchor. Removing it from the room causes immediate manifestation of the entity.",
+          "locationId": "loc-science-lab",
+          "requiresAction": "deepSearch"
+        },
+        {
+          "id": "clue-lab-journal",
+          "significance": "key",
+          "description": "Bálint's personal lab notebook contains a recent entry, written in shaking handwriting: 'She visits again. Third time this week. I can see her at the window — looking in, not looking at me. She looks exactly the same as the day she died. I don't know if I should be afraid or relieved. The ash follows me everywhere. I think she knows I haven't been visiting her grave.'",
+          "locationId": "loc-science-lab",
+          "requiresAction": "investigate"
+        }
+      ],
+      "availableActions": ["investigate", "interview", "deepSearch"],
+      "adjacentLocationIds": ["loc-campus-grounds", "loc-memorial-garden"]
+    },
+    {
+      "id": "loc-memorial-garden",
+      "name": "Keller University — Memorial Garden",
+      "type": "crimeScene",
+      "threatLevel": 3,
+      "clueDefs": [
+        {
+          "id": "clue-manifestation-pattern",
+          "significance": "key",
+          "description": "The memorial garden has a stone bench with a plaque for students who have died. A circle of grey ash three metres across surrounds the bench. Campus CCTV footage shows a figure standing in this circle each night between 2am and 3am — same position, same time. She has been here every night for six weeks. The bench plaque does not list Eszter's name (she died off-campus), but there are fresh flowers placed here regularly, unsigned.",
+          "locationId": "loc-memorial-garden",
+          "requiresAction": "investigate"
+        }
+      ],
+      "availableActions": ["investigate", "deepSearch", "helpBystander"],
+      "adjacentLocationIds": ["loc-campus-grounds", "loc-science-lab"],
+      "startingMinions": 0
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Clock uses actionCost=1, travelCost=2. Miss adds +1 extra (total 2), success refunds 1 (total 0). Confrontation available at 10, disaster at 30. Expected runs: rush=10 (blind), balanced=18 (partial/informed), thorough=30 (prepared but at limit).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 2,
+      "missPenalty": 1,
+      "successRefund": 1,
+      "confrontationAt": 10,
+      "disasterAt": 30,
+      "stepThresholds": [5, 10, 15, 20, 25]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags anomalous ash traces at Keller University. No confirmed incidents. PORTAL sends a field team for assessment.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "First student harmed near Bálint — confusion, grey ash marks on hands and forearms, short-term memory disruption. Dismissed by campus health as a chemical exposure incident.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "Second student hospitalised. Grey ash found throughout their belongings. Campus security begins reviewing CCTV. Bálint is questioned by administration and gives an evasive statement.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "Bálint stops attending classes and meals. Colleagues report he looks unwell. The obligation is consuming him — he is caught between grief, guilt, and fear. He has moved the locket three times this week.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "Eszter manifests in daylight in the main campus dining hall during lunch. Mass panic. Campus goes into emergency lockdown. Local news vans arrive within the hour. PORTAL has 48 hours before this becomes a public containment problem.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "Bálint collapses in his lab. Pulse critically low. He is found by a colleague who calls emergency services. Eszter is standing outside the window. She has made her decision.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

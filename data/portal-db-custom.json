@@ -1,0 +1,72 @@
+{
+  "version": "portal-db-custom-v2",
+  "source": "entities.html Section III — PORTAL custom database entries",
+  "note": "Semantic schema: type/harm/armour/harm_color/harm_note/armour_detail/motivation/origin/attacks[]/weakness/custom_moves[]/notes[].",
+  "entries": [
+    {
+      "id": "shojo",
+      "custom": true,
+      "display_name": "Shōjō <span style=\"font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--keeper);letter-spacing:0.1em;margin-left:8px;\">// CUSTOM PORTAL ENTRY</span>",
+      "type": "sorcerer",
+      "harm": "8 harm",
+      "armour": "None (but see Spirits Cannot Lie)",
+      "extra_tags": [
+        {
+          "label": "VISIBLE ONLY WHEN DRUNK",
+          "color": "amber"
+        },
+        {
+          "label": "// CUSTOM",
+          "color": "purple"
+        }
+      ],
+      "motivation": "to drink the finest spirits — and punish those who hoard them from others",
+      "type_detail": "The Shōjō is an ancient Japanese sea-spirit defined by its love of sake and its hatred of those who abuse rare alcohol for status rather than joy. It is not evil. It simply has very strong opinions about hospitality and waste.",
+      "harm_color": "amber",
+      "harm_note": "// DOES NOT TARGET<br>THE GENUINELY KIND-HEARTED",
+      "armour_detail": "None. But see <strong>Spirits Cannot Lie</strong> — the Shōjō is invisible to the sober, and a hunter who is not drunk cannot meaningfully interact with it, let alone strike it. Effective armour in practice: <strong>3</strong> against sober hunters.",
+      "origin": "A creature from Japanese folklore — an orangutan-like sea spirit with flame-red hair, ruddy skin, and an expression of permanent pleased intensity. Smells powerfully of the best sake you've never tasted. Only fully visible to the intoxicated. The sober perceive it as a vague wrongness: a stool that feels occupied, a glass that refills itself, a presence at the bar that can't quite be looked at directly.",
+      "attacks": [
+        {
+          "name": "// ATTACK — THE TIDE COMES IN",
+          "value": "<strong>3-harm close forceful magic</strong> — the Shōjō calls on its sea-nature. A wave of force that smells of brine and ancient oak. If the target is already intoxicated, add the <em>loud</em> tag and +1 harm from disorientation. If the target is sober, this attack cannot be aimed — the Shōjō cannot see them clearly either.",
+          "full": true
+        },
+        {
+          "name": "// ATTACK — THE WRONG MEASURE",
+          "value": "<strong>2-harm intimate magic life-drain</strong> — for targets who have been hoarding, adulterating, or profiting from the sacred bottle. The Shōjō reaches into them and takes something. Not life exactly — more like the capacity for pleasure. Targets who suffer this attack cannot enjoy food, drink, or company normally until the Shōjō is satisfied or put to rest. On a miss against a bar owner or sommelier type: they forget the taste of everything they've stored.",
+          "full": true
+        }
+      ],
+      "weakness": "<strong>Genuine hospitality.</strong> Offering the Shōjō the finest available drink, freely and without pretension, immediately de-escalates. It cannot attack someone in the act of pouring for others. <strong>The \"top shelf\" bottle</strong> that triggered its arrival — if poured generously for everyone present, not just the paying customers — satisfies it. It may even leave a gift: the ability to always know when a drink is genuinely excellent versus performatively expensive. One use only.",
+      "custom_moves": [
+        {
+          "name": "Spirits Cannot Lie",
+          "text": "The Shōjō is fully visible only to those who are genuinely intoxicated. Stone sober: no perception. Slightly buzzed (1–2 drinks): peripheral awareness — a shape in the corner, a smell, a sense of being watched. Properly drunk (3+): full visibility and interaction. <strong>Hunters must actually drink to engage with it.</strong> Sober hunters can attempt a +Weird roll to perceive it, but on a miss they attract its attention without being able to see it coming back."
+        },
+        {
+          "name": "The Drunk Always Know",
+          "text": "A hunter who is drunk in the Shōjō's presence may roll +Weird to read its intentions. On a 10+, they understand exactly what it wants and what it considers an insult. On a 7–9, they get one piece of information — either its target or its trigger condition, Keeper's choice. On a miss, they find it completely compelling and must make a Cool roll to not simply sit down and drink with it for the rest of the scene."
+        },
+        {
+          "name": "What's on the Top Shelf?",
+          "text": "The Shōjō is drawn to rare or exceptionally fine alcohol — specifically alcohol that is being withheld, gatekept, or treated as a status symbol rather than shared. When such a bottle is opened in its vicinity, it arrives within the hour. It is not hostile on arrival. It is curious. Whether it stays curious depends entirely on what happens next. Hunters who are investigating the bar before it arrives can roll +Smarts to identify which bottle triggered it — it's always the most expensive one nobody's actually drinking."
+        },
+        {
+          "name": "Red in the Water",
+          "text": "The Shōjō's flame-red hair bleeds colour into its surroundings when it's angry — drinks in the vicinity slowly turn red, walls take on a faint coral tint, the lighting shifts warm. Hunters can use this as a gauge: the redder the room, the more agitated the Shōjō. A fully red room means it's about to act. Sober hunters can perceive this colour shift even when they can't see the entity itself."
+        }
+      ],
+      "notes": [
+        {
+          "label": "// KEEPER USAGE NOTES",
+          "text": "The core dramatic tension: <strong>the hunters have to get drunk to fight it — but getting drunk makes them worse at fighting.</strong> Lean into this. Give drunk hunters disadvantage on precision moves but advantage on weird/empathy moves. A very drunk hunter trying to negotiate is more likely to succeed than a very drunk hunter trying to punch it.<br><br>The Shōjō is not the villain. The bar owner who's been charging £400 a pour of a whisky nobody's allowed to taste is closer to the villain. The Shōjō is just doing the critique more physically than a Yelp review would."
+        },
+        {
+          "label": "// LORE — THE REAL SHŌJŌ",
+          "text": "From Japanese folklore: the Shōjō (猩々) is a sea creature, sometimes depicted as a type of orangutan, that lives in the ocean and loves sake above all things. It features prominently in Noh theatre. In some tellings, the Shōjō's sake grants immortality; in others it simply grants profound happiness. The red colour — hair, skin, flush — is consistent across depictions. It is associated with joy, intoxication, and the sea.<br><br>In the MotW context: the anger version triggers from scarcity and gatekeeping. The benevolent version rewards genuine hospitality. Both are present in the source material."
+        }
+      ]
+    }
+  ]
+}

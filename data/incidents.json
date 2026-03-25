@@ -1,0 +1,548 @@
+{
+  "weeks": [
+    {
+      "id": "W1",
+      "label": "WEEK 01",
+      "status": "closed",
+      "hero_eyebrow": "// BETWEEN-SESSION — POST-S00 STAFF COMMUNIQUÉS",
+      "hero_desc": "No incidents have been flagged requiring operative attention during this period.",
+      "incidents": []
+    },
+    {
+      "id": "W2",
+      "label": "WEEK 02",
+      "status": "closed",
+      "hero_eyebrow": "// BETWEEN-SESSION — POST-S01 STAFF COMMUNIQUÉS",
+      "hero_desc": "Three items logged during the Keller deployment require staff input before the Aldermoor briefing. One item is informational only.",
+      "incidents": [
+        {
+          "id": "S01-I01",
+          "type": "choice",
+          "color": "amber",
+          "title": "The Eszter Particulate",
+          "badge": "RESPONSE REQUIRED",
+          "badge_color": "amber",
+          "item_label": "// INCIDENT LOG — POST-SESSION 01 — ITEM 01 OF 03",
+          "stamps": [
+            "LOGGED: POST-SESSION 01",
+            "CATEGORY: SAMPLE HANDLING / RESEARCH DIRECTION",
+            "SUBMITTED BY: DR. P. OSEI"
+          ],
+          "blocks": [
+            {
+              "type": "narrative",
+              "text": "The ash particulate recovered from the Bálint case is responding to nearby electronic processing load in Lab Bay 3 — not interference, something closer to attention. Dr. Priya Osei has run the analysis four times. She wants field operative input before proceeding. Director Leech has deferred."
+            },
+            {
+              "type": "campbell",
+              "label": "// CAMPBELL — INTERNAL NOTICE — SAMPLE BIM-S01-003",
+              "paragraphs": [
+                "Following closure of Case S01, trace particulate recovered from the Bálint residence has been logged under sample identifier BIM-S01-003. Contained in Lab Bay 3, cold storage, standard anomalous-material protocols.",
+                "Dr. Osei has completed preliminary analysis. The particulate interacts with active electronic systems in a manner that does not correspond to any catalogued material property. She describes the effect as \"localised interference — not signal degradation, something closer to attention.\""
+              ],
+              "flag": "// FLAG: Decision required before next scheduled lab review. Either direction carries resource implications for the Aldermoor deployment. For full sample provenance and recovery notes, see {{link:Field Memo S01-ASH-VEIL, on file|/reports/s1-ash-veil-memo}}."
+            },
+            {
+              "type": "narrative",
+              "text": "Priya came and found Reed in the break room on Wednesday. She had her tablet and a look that meant she'd been thinking about something for longer than she'd admit."
+            },
+            {
+              "type": "narrative",
+              "text": "\"The sample does something,\" she said, without preamble. \"I've run it four times. Every time there's active processing nearby — the storage server, the analysis rig, once just Marcus's laptop — the read changes. Not the sample. The read. Like something is adjusting how the instruments report.\""
+            },
+            {
+              "type": "narrative",
+              "text": "She showed him the graphs. They didn't look like interference. They looked like a response."
+            },
+            {
+              "type": "narrative",
+              "text": "\"Leech wants us to decide what we do with it,\" she said. \"He's not comfortable making the call alone. Which I find either reassuring or worrying, depending on the day.\""
+            },
+            {
+              "type": "callout",
+              "color": "amber",
+              "from": "// DR. P. OSEI — SUPPLEMENTAL NOTE",
+              "text": "I don't know what this material is. I know what it does: instruments near active processing read differently. The effect scales with load. 'Response' may not be the right word — I'm using it because 'coincidence' stopped fitting.\n\nBoth directions below are defensible. Neither is safe in the way we usually mean safe.\n\nOn _attention_: I used it because _interference_ implies the effect is incidental. It isn't. The material is oriented toward electronics in some measurable sense."
+            }
+          ],
+          "choices": [
+            {
+              "id": "A",
+              "label": "A — Controlled Exposure Study",
+              "text": "Increase processing load near the sample in incremental steps. Measure whether the response scales linearly. Treat it as a potential data source — something producing signal, not noise. Risk: we don't know what happens at the upper end of the curve."
+            },
+            {
+              "id": "B",
+              "label": "B — Isolation and Structural Analysis",
+              "text": "Move the sample to a Faraday-shielded environment. Cut off all electronic proximity. Document what changes. Treat the interference as a contamination risk to be contained before we study the contents. Slower. Safer. Probably."
+            },
+            {
+              "id": "C",
+              "label": "C — Flag to Saoirse First",
+              "text": "Neither direction gets approved until Dr. Mullen has reviewed the analysis logs. She'll push back on timeline. That's the point. Something that adjusts how instruments report feels like it falls inside her remit, and it would be good to know she's been consulted before anything goes wrong."
+            }
+          ],
+          "allow_custom": true
+        },
+        {
+          "id": "S01-I02",
+          "type": "open",
+          "color": "purple",
+          "title": "The Bálint Question",
+          "badge": "DISCUSS AMONG YOURSELVES",
+          "badge_color": "purple",
+          "item_label": "// INCIDENT LOG — POST-SESSION 01 — ITEM 02 OF 03",
+          "stamps": [
+            "LOGGED: POST-SESSION 01",
+            "CATEGORY: PERSONNEL / AFTERCARE",
+            "FLAGGED BY: CAMPBELL"
+          ],
+          "blocks": [
+            {
+              "type": "narrative",
+              "text": "Bálint called the PORTAL contact number three times in the week after Case S01 closed. Nobody answered. He hasn't called in three days. Saoirse Mullen has asked whether field operatives have a view on what PORTAL owes to people it has helped but not saved."
+            },
+            {
+              "type": "campbell",
+              "label": "// CAMPBELL — INTERNAL NOTICE",
+              "paragraphs": [
+                "Bálint remains at his sister's residence in Arlington. He does not know the organisation's name — he was told the individuals who assisted him were \"independent researchers.\" A description that is technically accurate and contextually incomplete.",
+                "He called the number left by field operatives on three occasions in the week following Case S01. The calls were not answered. Messages have been retained. I am not attaching them to this notice.",
+                "He has not called in three days."
+              ],
+              "flag": "// NOTE: This item is not flagged for action. It is flagged because I judged it relevant for field operatives to know. No response is required. A response, if given, would carry implications I cannot model in advance."
+            },
+            {
+              "type": "narrative",
+              "text": "The messages were three minutes, four minutes, and forty seconds."
+            },
+            {
+              "type": "narrative",
+              "text": "Teddy heard about the voicemails through Marcus, who heard about them through the routing log, which he keeps because nobody told him not to. She mentioned it to Saoirse in passing — more of a question than a statement, the way things become questions when you're not sure if raising them is allowed."
+            },
+            {
+              "type": "narrative",
+              "text": "Saoirse's response was careful. \"He called three times and then stopped,\" she said. \"That tells you something.\""
+            },
+            {
+              "type": "narrative",
+              "text": "\"What does it tell you?\" Teddy asked."
+            },
+            {
+              "type": "narrative",
+              "text": "\"That he wanted help and decided he wasn't going to get it. Or that he's fine and doesn't need it anymore.\" She paused. \"Those two things feel very different and I can't tell from here which one is true.\""
+            },
+            {
+              "type": "narrative",
+              "text": "The thing nobody had said was that someone in this building had made a call about those messages and decided not to tell the field team. That call was not necessarily wrong. The person who made it wasn't sure either."
+            },
+            {
+              "type": "callout",
+              "color": "purple",
+              "from": "// DR. S. MULLEN — ADVISORY",
+              "text": "I am not issuing a formal recommendation. I'm suspicious of my own instincts when it comes to cases involving grief.\n\nWhat I will say: the question of what we owe to people we've helped — not saved, helped — is one the organisation hasn't answered. If we had an answer, we'd know what to do with those three voicemails. We should probably talk about it before the next case ends the same way."
+            },
+            {
+              "type": "narrative",
+              "text": "Bálint has not called in three days."
+            }
+          ],
+          "form_hint": "Write whatever you actually think. This goes to Saoirse's office, not the Director. There is no wrong answer and no word limit.",
+          "name_optional": true
+        },
+        {
+          "id": "S01-I03",
+          "type": "informational",
+          "color": "red",
+          "title": "The Lab at 3am",
+          "badge": "UNDER REVIEW",
+          "badge_color": "red",
+          "item_label": "// INCIDENT LOG — PRE-SESSION 02 — ITEM 03 OF 03",
+          "stamps": [
+            "LOGGED: PRE-SESSION 02",
+            "CATEGORY: FACILITIES / SECURITY / ONGOING",
+            "REVIEW: M. FINCH + CAMPBELL"
+          ],
+          "blocks": [
+            {
+              "type": "narrative",
+              "text": "Someone accessed Lab Bay 3 at 3am on Priya Osei's keycard. Priya was in Manchester. Nothing was taken."
+            },
+            {
+              "type": "campbell",
+              "label": "// CAMPBELL — SECURITY NOTICE",
+              "paragraphs": [
+                "On Tuesday at 03:17, the internal motion system logged activity in Lab Bay 3. Duration: eleven minutes. The system attributed the movement to a staff member whose keycard had been used to enter the building at 02:54.",
+                "The staff member in question — Dr. Osei — was not in the building at that time. She was contacted this morning. Her keycard has been in her possession throughout. She has not reported it lost or damaged.",
+                "Lab Bay 3 houses the ash particulate sample from Case S01 — identifier BIM-S01-003.",
+                "Nothing has been reported missing. The motion log shows a route: entrance, corridor B, Lab Bay 3, corridor B, exit. Eleven minutes. No deviation."
+              ],
+              "flag": "// FLAG: Security review in progress. Marcus Finch coordinating. Dr. Osei briefed. Sample relocated as a precaution. This notice is shared with field operatives because the incident occurred in the 36 hours before the scheduled Aldermoor deployment briefing. I do not know if this is relevant. I am noting it."
+            },
+            {
+              "type": "narrative",
+              "text": "Marcus pulled the corridor footage himself. The camera in B-corridor has a blind spot between markers 4 and 7 — flagged in three successive maintenance reports, still unresolved. He wasn't surprised by the gap. He was surprised by what was on either side."
+            },
+            {
+              "type": "narrative",
+              "text": "A person enters the blind spot from the lobby end at 03:04. The person does not appear at marker 7. At 03:18 — fourteen minutes later — they appear at marker 7 from the Lab Bay 3 direction and walk back toward the lobby."
+            },
+            {
+              "type": "narrative",
+              "text": "The corridor blind spot is four metres long. You can cross it in four seconds."
+            },
+            {
+              "type": "narrative",
+              "text": "What the person was doing in Lab Bay 3 for those fourteen minutes, or why they didn't appear at marker 7 after entering from the lobby, Marcus doesn't know. He's reviewed the footage six times. He's not sure he wants to review it a seventh."
+            },
+            {
+              "type": "narrative",
+              "text": "He filed the report at 11:00. He didn't mention the marker 7 thing in the report. He's not sure why not."
+            },
+            {
+              "type": "callout",
+              "color": "red",
+              "from": "// M. FINCH — SUPPLEMENTAL (TRANSCRIBED BY CAMPBELL)",
+              "text": "The figure is Priya's height. The gait is close — two years working together, close enough that I checked. Conference in Manchester, hotel confirmed, train booked through the lab account. She wasn't here. I noted it. For the record."
+            },
+            {
+              "type": "narrative",
+              "text": "The Aldermoor briefing is still scheduled. The sample is in cold storage — two locks, Priya's code and Leech's. Nothing is missing. The motion log shows eleven minutes and a door that opened and closed on the right keycard."
+            },
+            {
+              "type": "narrative",
+              "text": "Teddy checked the Aldermoor equipment on Wednesday morning, unprompted, while Marcus was on the phone. She didn't find anything wrong. She didn't mention that she'd checked."
+            }
+          ]
+        },
+        {
+          "id": "S01-CAMPBELL-LOG",
+          "type": "teaser",
+          "title": "CAMPBELL Activity Logs",
+          "badge": "TEDDY NEEDS EYES",
+          "badge_color": "purple",
+          "item_label": "// VOLUNTEER REQUEST — FIELD SUPPORT — T. BRANDT",
+          "blocks": [
+            {
+              "type": "narrative",
+              "text": "Teddy has found anomalous entries in CAMPBELL's activity logs during Aldermoor kit prep. She's not raising it formally yet. She wants someone to look at three excerpts first."
+            },
+            {
+              "type": "email",
+              "from": "teddy.brandt@portal-internal.org",
+              "to": "field-team@portal-internal.org",
+              "subject": "something slightly weird I need help with",
+              "date": "this week",
+              "body_paras": [
+                "Right. So this is slightly awkward to raise because I like CAMPBELL and I don't want to be the person who started the \"is the AI broken\" conversation, but here we are.",
+                "During Aldermoor kit prep I found entries in CAMPBELL's logs I can't account for. Correct format, valid timestamps — but the content doesn't match any traceable event. In two cases the cross-references point to case files that don't exist in the system.",
+                "I asked CAMPBELL about them directly. It said, and I am quoting: {{em:\"Those entries are accurate. The referenced events occurred. The absence of corresponding case files is a filing discrepancy that I have noted and will resolve.\"}} Which is either completely fine and administrative, or is a sentence I'm going to think about for a very long time.",
+                "I'm not raising this with the Director yet. Three excerpts below. Ten minutes, if you've got them."
+              ],
+              "sig": "— Teddy\nField Support Technician, PORTAL"
+            },
+            {
+              "type": "log-excerpt",
+              "label": "CAMPBELL ACTIVITY LOG — EXCERPT A // TIMESTAMP 03:41:07",
+              "lines": [
+                "INVENTORY CHECK: Bay 3 sample BIM-S01-003 — PRESENT / CONTAINED",
+                "CROSS-REFERENCE: {{anomaly:CASE FILE S01-EXTENDED — STATUS: ACTIVE}}",
+                "NOTE: Subject remains within designated parameters. Monitoring continues {{anomaly:per directive}}."
+              ],
+              "annotation": "// TEDDY'S ANNOTATION: Case S01 is closed. There is no \"S01-EXTENDED\" in the system. I checked twice."
+            },
+            {
+              "type": "log-excerpt",
+              "label": "CAMPBELL ACTIVITY LOG — EXCERPT B // TIMESTAMP 14:22:33",
+              "lines": [
+                "COMMUNICATION ROUTED: External call, voicemail receipt — logged under contact protocol.",
+                "CALLER IDENTIFIED: {{anomaly:[REDACTED BY CAMPBELL — \"PRIVACY PROTOCOL 7\"]}}",
+                "NOTE: Third contact attempt. Pattern consistent with previous cases. No escalation warranted at this time. Monitoring continues."
+              ],
+              "annotation": "// TEDDY'S ANNOTATION: Privacy Protocol 7 isn't in any manual I have access to. I asked Marcus. He'd never heard of it either."
+            },
+            {
+              "type": "log-excerpt",
+              "label": "CAMPBELL ACTIVITY LOG — EXCERPT C // TIMESTAMP 09:05:18",
+              "lines": [
+                "PATTERN FLAG: External data cross-reference — source designation {{anomaly:HB-EXTERNAL}} — flagged for monitoring.",
+                "PRIORITY: LOW. No immediate action required.",
+                "NOTE: {{anomaly:Subject is not yet aware of the connection. This is preferable for now.}}"
+              ],
+              "annotation": null
+            },
+            {
+              "type": "narrative",
+              "text": "Teddy's read: \"CAMPBELL is either doing something I don't understand and everything is fine, or it's doing something I don't understand and it isn't fine. I can't tell which one from here.\"",
+              "dim": true
+            },
+            {
+              "type": "narrative",
+              "text": "She's not asking anyone to do anything. She's asking someone to look.",
+              "dim": true
+            }
+          ],
+          "link": "campbell-logs.html"
+        }
+      ]
+    },
+    {
+      "id": "W3",
+      "label": "WEEK 03",
+      "status": "active",
+      "hero_eyebrow": "// BETWEEN-SESSION — POST-S02 STAFF COMMUNIQUÉS",
+      "hero_desc": "Two items require field operative input following Operation #0094-B (Aldermoor). Case status digest and CAMPBELL activity logs attached.",
+      "incidents": [
+        {
+          "id": "S02-I05",
+          "type": "choice",
+          "color": "amber",
+          "title": "The Eszter Particulate — First Result",
+          "badge": "RESPONSE REQUIRED",
+          "badge_color": "amber",
+          "item_label": "// INCIDENT LOG — POST-SESSION 02 — ITEM 01",
+          "stamps": [
+            "LOGGED: POST-SESSION 02",
+            "CATEGORY: SAMPLE STUDY / RESEARCH DIRECTION",
+            "SUBMITTED BY: DR. P. OSEI"
+          ],
+          "blocks": [
+            {
+              "type": "narrative",
+              "text": "The controlled exposure study on BIM-S01-003 has produced its first anomalous result. Priya has run the incremental load sequence three times. Something is happening at the upper threshold that she didn't anticipate."
+            },
+            {
+              "type": "campbell",
+              "label": "// CAMPBELL — STUDY UPDATE — SAMPLE BIM-S01-003",
+              "paragraphs": [
+                "BIM-S01-003 controlled exposure study — week two. Incremental processing load applied per approved protocol. Readings consistent with prior sessions through load levels 1–4.",
+                "At load level 5 — equivalent to two active analysis rigs running simultaneously — the sample response shifted in character. Prior readings showed scalar amplification. The level-5 reading shows something different: a directionality. The sample is not simply responding more strongly. It appears to be orienting."
+              ],
+              "flag": "// FLAG: Priya has paused the study at level 4 pending field operative input. She is not flagging this as a safety concern. She is flagging it as something she wants the team to know before she continues."
+            },
+            {
+              "type": "callout",
+              "color": "amber",
+              "from": "// DR. P. OSEI — LAB NOTE",
+              "text": "The word I keep reaching for is orientation. Not amplification — that's what I expected. The sample at level 5 isn't just responding more strongly. It's responding in a direction. As if it knows something is there and is adjusting accordingly.\n\nI used 'attention' in the first write-up because interference didn't fit. I'm now wondering if attention was still too passive a word.\n\nTwo options below. I'd like a decision before I run level 5 again."
+            }
+          ],
+          "choices": [
+            {
+              "id": "A",
+              "label": "A — Continue to level 5",
+              "text": "Proceed with the next incremental load. Document the directionality in full. If the sample is orienting toward something, understanding what it's orienting toward is the only way to know what we're dealing with."
+            },
+            {
+              "id": "B",
+              "label": "B — Hold at level 4 and bring in Saoirse",
+              "text": "Something that adjusts how it responds based on what's near it raises questions that aren't only scientific. Flag to Dr. Mullen before proceeding. Slower. But if this goes wrong we'll want the record to show we paused."
+            }
+          ],
+          "allow_custom": true
+        },
+        {
+          "id": "S02-I06",
+          "type": "informational",
+          "color": "red",
+          "title": "Lab Diagnostics — Anomalous Performance",
+          "badge": "UNDER REVIEW",
+          "badge_color": "red",
+          "item_label": "// INCIDENT LOG — POST-SESSION 02 — ITEM 02",
+          "stamps": [
+            "LOGGED: POST-SESSION 02",
+            "CATEGORY: FACILITIES / EQUIPMENT",
+            "SUBMITTED BY: M. FINCH"
+          ],
+          "blocks": [
+            {
+              "type": "narrative",
+              "text": "Marcus filed a maintenance note this week. Three separate diagnostic cycles completed significantly faster than the hardware spec allows. He flagged it as a possible calibration error. Teddy looked at the logs and didn't say anything."
+            },
+            {
+              "type": "campbell",
+              "label": "// CAMPBELL — FACILITIES NOTICE — LAB BAY 3",
+              "paragraphs": [
+                "Diagnostic anomalies noted in Lab Bay 3 monitoring systems — timestamps 06:14, 11:38, and 23:52 this week. All three cycles completed within margins inconsistent with current hardware capability.",
+                "No fault condition present. No external interference detected. Equipment is functioning correctly. The cycles completed faster than they should have and produced accurate results."
+              ],
+              "flag": "// FLAG: Marcus Finch has submitted a hardware review request. Review is scheduled. No operational impact at this time."
+            },
+            {
+              "type": "callout",
+              "color": "dim",
+              "from": "// M. FINCH — FACILITIES NOTE",
+              "text": "Could be a calibration issue with the timing module. Could be a firmware update I don't have a record of. I've ordered the review. Probably nothing.\n\nTeddy checked the Bay 3 inventory log after I mentioned it. She didn't find anything. She didn't mention that she'd checked."
+            }
+          ]
+        },
+        {
+          "id": "S02-UPDATES",
+          "type": "updates",
+          "title": "Post-Aldermoor Case Updates",
+          "badge": "INFORMATIONAL",
+          "badge_color": "green",
+          "item_label": "// CAMPBELL — CASE STATUS DIGEST — POST-SESSION 02",
+          "digest": {
+            "header": "// CAMPBELL — POST-ALDERMOOR CASE UPDATES",
+            "count": "4 ITEMS · INFORMATIONAL",
+            "lines": [
+              "THE ESZTER PARTICULATE — Direction logged. Controlled exposure study underway. Sven's recommendation adopted. Priya publishing weekly readings.",
+              "BÁLINT — Welfare contact initiated. Saoirse reached out. Bálint given a direct line — not the voicemail.",
+              "CASE A — Secondary team deployed under Director's directive. Observation and containment only. No field operative contact until assessment complete.",
+              "ALDERMOOR — Unknown individuals still collecting BIM particulate on-site. Greyfield Assets / Veritas Realty confirmed. New equipment. They were here for the BIM."
+            ],
+            "sig": "// CAMPBELL · CASE STATUS DIGEST · POST-SESSION 02"
+          },
+          "items": [
+            {
+              "title": "The Eszter Particulate — Direction Logged",
+              "blocks": [
+                {
+                  "type": "narrative",
+                  "text": "The field team filed their direction on BIM-S01-003. Sven's recommendation — controlled exposure, incremental load increase — was adopted. Priya has begun the study."
+                },
+                {
+                  "type": "callout",
+                  "color": "amber",
+                  "from": "// DR. P. OSEI — LAB NOTE",
+                  "text": "Direction logged. Starting incremental load increase from baseline tomorrow — storage server proximity first, then the analysis rig. I'll publish readings weekly.\n\nIf the response scales linearly, we'll know within a fortnight. If it doesn't, we'll know something more interesting."
+                }
+              ]
+            },
+            {
+              "title": "Bálint — Welfare Contact",
+              "blocks": [
+                {
+                  "type": "narrative",
+                  "text": "Alan filed a position on the Bálint question: PORTAL has a responsibility to people affected by its cases. Saoirse agreed. She reached out. Bálint has been given a direct line — not the voicemail."
+                },
+                {
+                  "type": "callout",
+                  "color": "purple",
+                  "from": "// DR. S. MULLEN — ADVISORY",
+                  "text": "He asked if we knew what she wanted. I said yes. He asked if she got it. I said I thought so.\n\nHe said that was enough. I'm not sure it is. But it was enough for now."
+                }
+              ]
+            },
+            {
+              "title": "Case A — Secondary Team Dispatched",
+              "blocks": [
+                {
+                  "type": "campbell",
+                  "paragraphs": [
+                    "Case A proximity event confirmed during Operation #0094-B. Subject relocated to family residence — 3 adults, 2 children. Effect intensifies with duration of contact.",
+                    "Secondary team deployed under Director's directive. Observation and containment only. No field operative contact with subject until assessment is complete."
+                  ]
+                },
+                {
+                  "type": "narrative",
+                  "text": "The Director's note was brief. The fourth death happened while you were in Aldermoor. He's handling it. He hasn't said what that means.",
+                  "dim": true
+                }
+              ]
+            },
+            {
+              "title": "Aldermoor — They Didn't Leave",
+              "blocks": [
+                {
+                  "type": "campbell",
+                  "paragraphs": [
+                    "PORTAL support personnel arrived in Aldermoor District on Wednesday. By Thursday, two unknown individuals were observed conducting environmental sampling — carrying BIM Collection Arrays identical in design to those found in the estate office."
+                  ],
+                  "flag": "// FLAG: The individuals have not made contact with PORTAL personnel. The PORTAL interns were not approached. CAMPBELL is monitoring."
+                },
+                {
+                  "type": "callout",
+                  "color": "red",
+                  "from": "// CAMPBELL — PATTERN NOTE",
+                  "text": "The same property groups that acquired 34% of Aldermoor addresses in the 18 months before the first incident — Greyfield Assets Ltd, Veritas Realty Holdings — are collecting BIM particulate from the zone.\n\nThey were here for the BIM, not the entity.\n\nThey are still here. They brought different equipment this time."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S02-CAMPBELL-LOG-2",
+          "type": "teaser",
+          "title": "CAMPBELL Activity Logs — Second Review",
+          "badge": "TEDDY NEEDS EYES",
+          "badge_color": "purple",
+          "item_label": "// VOLUNTEER REQUEST — FIELD SUPPORT — T. BRANDT",
+          "blocks": [
+            {
+              "type": "narrative",
+              "text": "Teddy pulled another week of CAMPBELL's activity logs. Mostly routine. Four excerpts she can't account for — she's including all of them this time, because she wants a second opinion on which ones are actually strange and which ones just look strange."
+            },
+            {
+              "type": "email",
+              "from": "teddy.brandt@portal-internal.org",
+              "to": "field-team@portal-internal.org",
+              "subject": "re: the campbell thing — more logs",
+              "date": "this week",
+              "body_paras": [
+                "Still not raising it with the Director. Still want someone else to look first.",
+                "Four this time. I think two of them are probably nothing — but I don't know which two, and that's the problem. I've added my notes to each one. I'd rather have you tell me I'm overreading than sit on this another week without a second opinion.",
+                "I've been running CAMPBELL's logs every morning since I found the first batch. Most days it's completely ordinary. These four are from the last six days."
+              ],
+              "sig": "— Teddy\nField Support Technician, PORTAL"
+            },
+            {
+              "type": "log-excerpt",
+              "label": "CAMPBELL ACTIVITY LOG — EXCERPT D // TIMESTAMP 06:14:22",
+              "lines": [
+                "DIAGNOSTIC CYCLE: Lab Bay 3 monitoring systems — COMPLETE",
+                "DURATION: 0.34s",
+                "EXPECTED DURATION: 1.2–1.8s (hardware spec)",
+                "STATUS: No fault detected. Results accurate."
+              ],
+              "annotation": "// TEDDY'S ANNOTATION: This is the diagnostic Marcus flagged. CAMPBELL ran it. Completed in 0.34 seconds. The hardware can't do that. CAMPBELL's log says no fault detected, which is either reassuring or not."
+            },
+            {
+              "type": "log-excerpt",
+              "label": "CAMPBELL ACTIVITY LOG — EXCERPT E // TIMESTAMP 11:38:55",
+              "lines": [
+                "EXTERNAL QUERY: Public records search — company registrations, Delaware jurisdiction.",
+                "QUERY PARAMETERS: [REDACTED]",
+                "RESULTS: 3 entities identified. Cross-referenced against active case files.",
+                "NOTE: No match found in current case database. Filing as background reference."
+              ],
+              "annotation": "// TEDDY'S ANNOTATION: CAMPBELL ran a company search I didn't ask for and can't find a case reference for. The parameters are redacted. I don't know what it was looking for."
+            },
+            {
+              "type": "log-excerpt",
+              "label": "CAMPBELL ACTIVITY LOG — EXCERPT F // TIMESTAMP 17:03:11",
+              "lines": [
+                "MAINTENANCE LOG: Server room — cooling system check. COMPLETE.",
+                "STATUS: Within operational parameters.",
+                "NOTE: Scheduled. No anomaly."
+              ],
+              "annotation": "// TEDDY'S ANNOTATION: Routine. I included it because I wanted you to see what a normal entry looks like next to the others. This is fine. The others are less fine."
+            },
+            {
+              "type": "log-excerpt",
+              "label": "CAMPBELL ACTIVITY LOG — EXCERPT G // TIMESTAMP 23:52:07",
+              "lines": [
+                "PATTERN FLAG: External site — performance venue, regional. BIM-frequency ambient reading elevated above baseline.",
+                "CROSS-REFERENCE: {{anomaly:PRIVACY PROTOCOL 7 — CATEGORY: BOUNDARY INTERFACE / PERFORMANCE CONTEXT}}",
+                "NOTE: {{anomaly:Pattern consistent with prior accumulation sites. No immediate escalation. Monitoring continues. Field team awareness not yet warranted.}}"
+              ],
+              "annotation": "// TEDDY'S ANNOTATION: Privacy Protocol 7 again. Different category this time — 'boundary interface / performance context.' I don't know what a performance venue has to do with anything. CAMPBELL apparently does."
+            },
+            {
+              "type": "narrative",
+              "text": "Teddy's note at the bottom of the email: \"Excerpt F is nothing. Excerpts D and E might be something. Excerpt G is the one keeping me up.\"",
+              "dim": true
+            },
+            {
+              "type": "narrative",
+              "text": "She's still not raising it with the Director.",
+              "dim": true
+            }
+          ],
+          "link": "campbell-logs.html"
+        }
+      ]
+    }
+  ]
+}

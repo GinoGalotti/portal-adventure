@@ -1,0 +1,460 @@
+{
+  "weeks": [
+    {
+      "id": "w01",
+      "label": "WEEK 01",
+      "status": "closed",
+      "title": "Post-Operation #0047-C (Keller University)",
+      "summary": "3 cases flagged · 1 high · 2 medium",
+      "header_note": "⚠ 3 CASES PREVIOUSLY RATED LOW PRIORITY — NOW FLAGGED FOR REVIEW",
+      "items": [
+        {
+          "type": "case",
+          "id": "case-a",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0091-F",
+          "title": "THE VOLUNTEER",
+          "subtitle": "HARGROVE MEDICAL CENTRE · BIOLOGICAL SIGNATURE · VITALITY DISPLACEMENT",
+          "priority": "high",
+          "priority_label": "PRIORITY: HIGH",
+          "rows": [
+            { "k": "LOCATION",          "v": "Hargrove Medical Centre, Outpatient Wing 3" },
+            { "k": "PATTERN",           "v": "Accelerated tissue regeneration — 1 subject (ID: REDACTED)" },
+            { "k": "CROSS-REF",         "v": "3 unexplained deaths, same ward, 14-day window", "color": "alert" },
+            { "k": "DATE FLAGGED",      "v": "41 days ago", "note": "// review queue: low priority" },
+            { "k": "DATE READ",         "v": "Today // pattern now critical", "color": "alert" },
+            { "divider": true },
+            { "k": "ENERGY SIG",        "v": "Class 3 Vitality Displacement — FIRST RECORDED INSTANCE", "color": "alert" },
+            { "k": "MECHANISM",         "v": "Anomalous life-force transfer. Source: unknown. Vector: proximity." },
+            { "k": "TRIAL SPONSOR",     "v": "Meridian BioSciences — dissolved 6 weeks ago", "color": "red" },
+            { "k": "TRIAL STATUS",      "v": "Shut down. 5 of 6 subjects deceased. 1 subject: unreachable.", "color": "red" },
+            { "divider": true },
+            { "k": "SUBJECT NOTE",      "v": "Terminal diagnosis 8 months ago. Currently in full remission." },
+            { "k": "WARD DEATHS",       "v": "Proximity correlation: 100%. Cause of death: unexplained systemic failure.", "color": "alert" },
+            { "k": "SUBJECT AWARENESS", "v": "// unknown", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — APPENDED THIS MORNING",
+            "paragraphs": [
+              "Vitality displacement mechanism directly relevant to PROJECT VEIL. If the anchoring process from the Meridian trial can be understood and stabilised, the implications are significant. Acquire tissue sample. Establish contact with subject. Do not spook them — they may not know what they are."
+            ],
+            "dim_note": "Secondary: identify who dissolved Meridian BioSciences and why."
+          },
+          "footer_status": "ACTIVE — FIELD ASSIGNMENT PENDING",
+          "footer_ref": "REPORT #0091-F",
+          "footer_class": "HARGROVE MEDICAL · BIOLOGICAL CLASS 3"
+        },
+        {
+          "type": "case",
+          "id": "case-b",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0094-B",
+          "title": "THE CARTOGRAPHER",
+          "subtitle": "ALDERMOOR DISTRICT · SPATIAL COGNITION DISRUPTION · TOPOGRAPHICAL DISTORTION",
+          "priority": "medium",
+          "priority_label": "PRIORITY: MEDIUM",
+          "rows": [
+            { "k": "LOCATION",     "v": "Aldermoor District, residential — 0.4 square mile radius" },
+            { "k": "PATTERN",      "v": "7 navigation failure reports, 14-day window", "color": "alert" },
+            { "k": "CROSS-REF",    "v": "1 missing person (day 9) · 1 hospitalisation (dissociative episode)", "color": "alert" },
+            { "k": "DATE FLAGGED", "v": "31 days ago", "note": "// review queue: low priority" },
+            { "k": "DATE READ",    "v": "Today // distortion radius expanding", "color": "alert" },
+            { "divider": true },
+            { "k": "ENERGY SIG",   "v": "Topographical distortion — Class 2, rate of expansion: +0.02mi/week", "color": "alert" },
+            { "k": "MECHANISM",    "v": "Spatial familiarity displacement. Affects long-term residents most severely." },
+            { "k": "EPICENTRE",    "v": "14 Aldermoor Crescent — resident uncontactable for 9 days" },
+            { "k": "DISTURBANCE",  "v": "Construction work, 18 months ago. Subsurface. CAMPBELL flags as likely trigger." },
+            { "divider": true },
+            { "k": "ANOMALY NOTE",  "v": "Property sale clustering — 34% of district addresses changed hands in 18 months", "color": "alert" },
+            { "k": "BUYER PATTERN", "v": "3 shell companies. Beneficial owner: unresolved. Acquisition predates first incident.", "color": "red" },
+            { "k": "CAMPBELL FLAG", "v": "// buyer knew. recommend field team establish this connection.", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — APPENDED THIS MORNING",
+            "paragraphs": [
+              "Establish safe perimeter before entry. Do not send field team into affected zone without anchor protocol — navigation failure affects trained personnel as severely as civilians. Identify epicentre entity and assess containment options.",
+              "The property acquisition pattern concerns me. Find out who is buying this neighbourhood and why they started before anyone got lost."
+            ]
+          },
+          "footer_status": "ACTIVE — FIELD ASSIGNMENT PENDING",
+          "footer_ref": "REPORT #0094-B",
+          "footer_class": "ALDERMOOR DISTRICT · SPATIAL CLASS 2"
+        },
+        {
+          "type": "case",
+          "id": "case-c",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0088-A",
+          "title": "THE RECORDER",
+          "subtitle": "BYLINE: NADIA OSEI · PRECOGNITIVE TEXT GENERATION · VERIFIED",
+          "priority": "info",
+          "priority_label": "PRIORITY: MEDIUM",
+          "rows": [
+            { "k": "SOURCE",             "v": "Byline \"Nadia Osei\" — public news blog" },
+            { "k": "SUBJECT STATUS",     "v": "Deceased — confirmed, 6 weeks ago", "color": "red" },
+            { "k": "POSTS SINCE DEATH",  "v": "3 published · 1 unpublished (acquired via CAMPBELL web scrape)", "color": "alert" },
+            { "k": "DATE FLAGGED",       "v": "38 days ago", "note": "// review queue: low priority" },
+            { "k": "DATE READ",          "v": "Today // post 3 is time-sensitive", "color": "alert" },
+            { "divider": true },
+            { "k": "POST 1",             "v": "Predicted warehouse fire (3 days prior) · {{alert:Verified accurate}}" },
+            { "k": "POST 2",             "v": "Predicted city council vote, exact margin (5 days prior) · {{alert:Verified accurate}}" },
+            { "k": "CAMPBELL CONFIDENCE","v": "97.3% accuracy based on prior posts", "color": "alert" },
+            { "divider": true },
+            { "k": "POST 3",             "v": "UNPUBLISHED · CONTENT: CLASSIFIED · TIME WINDOW: 11 DAYS", "color": "red" },
+            { "k": "POST 3 SUBJECT",     "v": "Describes death of named individual · Identity: REDACTED pending field briefing", "color": "red" },
+            { "k": "MECHANISM",          "v": "Consciousness anchored to information infrastructure. No prior recorded instance.", "color": "purple" },
+            { "k": "ENTITY AWARENESS",   "v": "High. Subject appears to have full cognitive function.", "color": "purple" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — APPENDED THIS MORNING",
+            "paragraphs": [
+              "Identify and make contact with the entity. Determine the mechanism of information-anchoring — this is directly relevant to PROJECT VEIL and unlike anything in our database.",
+              "Post 3 describes a killing that has not yet occurred. Field team is authorised to use judgment on publication. Be aware: publishing may expose PORTAL to parties we are not ready to face. Suppressing it has its own consequences."
+            ],
+            "dim_note": "// I want to know what she found before she died. — Director"
+          },
+          "footer_status": "ACTIVE — TIME SENSITIVE — 11 DAYS",
+          "footer_ref": "REPORT #0088-A",
+          "footer_class": "INFORMATIONAL CLASS · PRECOGNITIVE"
+        }
+      ],
+      "closing_note": {
+        "header": "// CAMPBELL — END OF PRIORITY QUEUE UPDATE",
+        "count": "3 CASES · 1 HIGH · 2 MEDIUM",
+        "lines": [
+          "ALL THREE CASES WERE FLAGGED PRIOR TO OPERATION #0047-C (KELLER UNIVERSITY).",
+          "NONE WERE ACTIONED.",
+          "PRIORITY ALGORITHM HAS BEEN RECALIBRATED FOLLOWING KELLER INCIDENT.",
+          "HUMAN REVIEW IS RECOMMENDED BEFORE NEXT DEPLOYMENT.",
+          "",
+          "NOTE: CASES #0091-F AND #0088-A SHARE A PARTIAL DATA SIGNATURE WITH",
+          "THE DISSOLVED ENTITY MERIDIAN BIOSCIENCES. CAMPBELL FLAGS THIS AS SIGNIFICANT.",
+          "CONFIDENCE: 61%. RECOMMEND FIELD TEAM AWARENESS."
+        ],
+        "sig": "// END TRANSMISSION — CAMPBELL · P.O.R.T.A.L ANOMALY DETECTION SYSTEM"
+      }
+    },
+    {
+      "id": "w02",
+      "label": "WEEK 02",
+      "status": "closed",
+      "title": "Post-Operation #0094-B (Aldermoor District)",
+      "summary": "4 cases active · 1 high · 3 medium",
+      "header_note": "⚠ 4 CASES ACTIVE — FIELD TEAM REQUIRED · ALDERMOOR CLOSED",
+      "header_timestamp": "// QUEUE UPDATE ISSUED 14 DAYS POST-OPERATION #0094-B (ALDERMOOR)",
+      "items": [
+        {
+          "type": "section-label",
+          "css_class": "carry-over",
+          "text": "// CARRY-OVER — CASES OPEN PRIOR TO ALDERMOOR DEPLOYMENT"
+        },
+        {
+          "type": "case",
+          "id": "case-a",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0091-F · UPDATED",
+          "title": "THE VOLUNTEER",
+          "subtitle": "HARGROVE MEDICAL CENTRE · BIOLOGICAL SIGNATURE · VITALITY DISPLACEMENT",
+          "priority": "high",
+          "priority_label": "PRIORITY: HIGH ↑",
+          "rows": [
+            { "k": "LOCATION",          "v": "Hargrove Medical Centre, Outpatient Wing 3" },
+            { "k": "PATTERN",           "v": "Accelerated tissue regeneration — 1 subject (ID: REDACTED)" },
+            { "k": "CROSS-REF",         "v": "4 unexplained deaths, same ward, 28-day window", "color": "alert", "note": "// +1 since last queue update" },
+            { "k": "DATE FLAGGED",      "v": "55 days ago", "note": "// unactioned during Aldermoor deployment" },
+            { "k": "DATE READ",         "v": "Today // fourth death occurred during our absence", "color": "alert" },
+            { "divider": true },
+            { "k": "ENERGY SIG",        "v": "Class 3 Vitality Displacement — FIRST RECORDED INSTANCE", "color": "alert" },
+            { "k": "MECHANISM",         "v": "Life-force transfer. Source: unknown. Vector: sustained proximity. Rate: increasing." },
+            { "k": "TRIAL SPONSOR",     "v": "Meridian BioSciences — dissolved 8 weeks ago", "color": "red" },
+            { "k": "TRIAL STATUS",      "v": "5 of 6 subjects deceased. 1 subject relocated — new address flagged by CAMPBELL.", "color": "red" },
+            { "divider": true },
+            { "k": "UPDATE",            "v": "Subject discharged from hospital 12 days ago. Now living with family — 3 adults, 2 children.", "color": "alert" },
+            { "k": "PROXIMITY NOTE",    "v": "Effect intensifies with duration of contact. Family members at risk.", "color": "red" },
+            { "k": "SUBJECT AWARENESS", "v": "// still unknown. No indication subject knows what they are.", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — UPDATED POST-ALDERMOOR",
+            "paragraphs": [
+              "The fourth death while we were occupied with Aldermoor is on us. Do not let this slip again. The subject has moved into a family home. Children present. This is now time-critical.",
+              "Priority remains: establish contact, assess awareness, collect tissue sample if possible. The anchoring mechanism from the Meridian trial is directly relevant to Project Veil — but the subject comes first. If they don't know, we have to decide how to tell them."
+            ],
+            "dim_note": "// Secondary: Meridian dissolved. Someone shut it down. Find out who gave the order. — Director"
+          },
+          "footer_status": "ACTIVE — TIME CRITICAL — FAMILY AT RISK",
+          "footer_ref": "REPORT #0091-F",
+          "footer_class": "HARGROVE MEDICAL · BIOLOGICAL CLASS 3"
+        },
+        {
+          "type": "case",
+          "id": "case-c",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0088-A · UPDATED",
+          "title": "THE RECORDER",
+          "subtitle": "BYLINE: NADIA OSEI · PRECOGNITIVE TEXT GENERATION · VERIFIED",
+          "priority": "info",
+          "priority_label": "PRIORITY: MEDIUM ↑",
+          "rows": [
+            { "k": "SOURCE",            "v": "Byline \"Nadia Osei\" — public news blog" },
+            { "k": "SUBJECT STATUS",    "v": "Deceased — confirmed, 8 weeks ago", "color": "red" },
+            { "k": "POSTS SINCE DEATH", "v": "4 published · 1 unpublished (acquired via CAMPBELL web scrape)", "color": "alert" },
+            { "k": "DATE FLAGGED",      "v": "52 days ago", "note": "// unactioned during Aldermoor deployment" },
+            { "k": "DATE READ",         "v": "Today // post 3 window has closed. Post 4 now active.", "color": "alert" },
+            { "divider": true },
+            { "k": "POST 3",            "v": "WINDOW CLOSED — EVENT OCCURRED 6 DAYS AGO", "color": "red", "note": "// we were in Aldermoor" },
+            { "k": "POST 3 OUTCOME",    "v": "Named individual is alive. Post 3 was not published. Someone intervened — not PORTAL.", "color": "alert" },
+            { "k": "CAMPBELL NOTE",     "v": "// entity appears aware that intervention occurred. Post 4 acknowledges this.", "color": "dim" },
+            { "divider": true },
+            { "k": "POST 4",            "v": "UNPUBLISHED · NEW CONTENT · CAMPBELL CONFIDENCE: 97.3%", "color": "purple" },
+            { "k": "POST 4 SUBJECT",    "v": "References PORTAL directly. Not by name — but the description is unambiguous.", "color": "purple" },
+            { "k": "POST 4 TIME WINDOW","v": "9 DAYS FROM TODAY", "color": "red" },
+            { "k": "MECHANISM",         "v": "Consciousness anchored to information infrastructure. Entity's reach is expanding.", "color": "purple" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — UPDATED POST-ALDERMOOR",
+            "paragraphs": [
+              "Post 3's event occurred while we were away. Someone else stopped it — which means someone else is watching Nadia Osei. We were not the only ones monitoring her feed.",
+              "Post 4 knows about us. I don't know how. Make contact before whoever stopped Post 3 does."
+            ],
+            "dim_note": "// If she found the edge of the conspiracy before she died, she's found more since. I want to know what she knows. — Director"
+          },
+          "footer_status": "ACTIVE — CONTACT URGENT — 9 DAYS",
+          "footer_ref": "REPORT #0088-A",
+          "footer_class": "INFORMATIONAL CLASS · PRECOGNITIVE · ESCALATING"
+        },
+        {
+          "type": "section-label",
+          "css_class": "new-cases-label",
+          "text": "// NEW — CASES FLAGGED DURING ALDERMOOR DEPLOYMENT · HUMAN REVIEW PENDING"
+        },
+        {
+          "type": "case",
+          "id": "case-d",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0102-G · NEW",
+          "title": "THE INHERITANCE",
+          "subtitle": "WENTWORTH & COLE SOLICITORS · POSTHUMOUS CORRESPONDENCE · OBLIGATION-ANCHORED",
+          "priority": "new",
+          "priority_label": "PRIORITY: MEDIUM · NEW",
+          "rows": [
+            { "k": "LOCATION",       "v": "Wentworth & Cole Solicitors, Clerkenwell — and 14 active client addresses" },
+            { "k": "SUBJECT",        "v": "Martin Wentworth, 61, probate lawyer — deceased 22 days ago" },
+            { "k": "CAUSE OF DEATH", "v": "// cardiac event. No suspicious circumstances recorded.", "color": "dim" },
+            { "k": "DATE FLAGGED",   "v": "8 days ago" },
+            { "divider": true },
+            { "k": "ANOMALY",        "v": "11 clients have received handwritten letters from Wentworth since his death", "color": "teal" },
+            { "k": "VERIFICATION",   "v": "Handwriting confirmed as Wentworth's — graphology analysis, 99% match", "color": "alert" },
+            { "k": "CONTENT",        "v": "Legal advice, corrections, warnings. All accurate. All information only Wentworth held." },
+            { "k": "MECHANISM",      "v": "Obligation-anchored consciousness. CAMPBELL classification: first recorded instance of duty-tethering.", "color": "teal" },
+            { "divider": true },
+            { "k": "CRITICAL FLAG",  "v": "Most recent letter — delivered 3 days ago — describes a planned killing.", "color": "red" },
+            { "k": "TARGET",         "v": "Named individual, minor, 9 years old. Identity: REDACTED pending field briefing.", "color": "red" },
+            { "k": "TIME WINDOW",    "v": "CAMPBELL estimate: 14 days. Confidence: 84%.", "color": "red" },
+            { "divider": true },
+            { "k": "ESTATE NOTE",    "v": "Wentworth was managing an estate containing documents relevant to CAMPBELL flag #MER-004", "color": "alert" },
+            { "k": "PROBATE STATUS", "v": "Closed — 2 days after Wentworth's death. Unusually fast. Documents now held by third party.", "color": "red" },
+            { "k": "CAMPBELL FLAG",  "v": "// Wentworth died one week before probate closed. Timing is anomalous.", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — INITIAL",
+            "paragraphs": [
+              "A dead lawyer writing to his clients is unusual. A dead lawyer warning us that a child is going to be killed is not something we can wait on.",
+              "Find out what he knew and who closed that estate so quickly after his death. If the documents he was managing connect to what we found in Aldermoor, that is not coincidence."
+            ],
+            "dim_note": "// Make contact with the entity. If it can write letters, it can talk to us. — Director"
+          },
+          "footer_status": "ACTIVE — CHILD AT RISK — 14 DAYS EST.",
+          "footer_ref": "REPORT #0102-G",
+          "footer_class": "CLERKENWELL · OBLIGATION CLASS · NEW"
+        },
+        {
+          "type": "case",
+          "id": "case-e",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0099-D · NEW",
+          "title": "THE UNDERSTUDIES",
+          "subtitle": "MERIDIAN THEATRE COMPANY · IDENTITY DISPLACEMENT · ROLE-ANCHORED",
+          "priority": "new-b",
+          "priority_label": "PRIORITY: MEDIUM · NEW",
+          "rows": [
+            { "k": "LOCATION",             "v": "Meridian Theatre Company, regional repertory — 3 active productions" },
+            { "k": "BACKGROUND",           "v": "// Two lead actors died in separate accidents — 6 months apart. Understudy productions continued.", "color": "dim" },
+            { "k": "DATE FLAGGED",         "v": "11 days ago" },
+            { "k": "TRIGGER",              "v": "3 understudies hospitalised — same week — identical presentation.", "color": "alert" },
+            { "divider": true },
+            { "k": "CLINICAL PRESENTATION","v": "Complete loss of personal identity. Patients respond only to character names.", "color": "rose" },
+            { "k": "DURATION",             "v": "Persistent — no remission after 11 days. No organic cause identified.", "color": "rose" },
+            { "k": "MECHANISM",            "v": "CAMPBELL classification: Role-anchored consciousness transfer. Entity source: the deceased actors.", "color": "rose" },
+            { "k": "PATTERN",              "v": "Audience reports of \"uncanny\" accuracy predate hospitalisations by 3 months." },
+            { "divider": true },
+            { "k": "ANOMALY",              "v": "Remaining understudies are still performing. Audience response: unusually intense emotional reaction.", "color": "alert" },
+            { "k": "CAMPBELL NOTE",        "v": "The deceased actors may be present in the performances. The understudies are not acting.", "color": "rose" },
+            { "divider": true },
+            { "k": "FINANCIAL FLAG",       "v": "Meridian Theatre received large anonymous arts grant — 20 months ago.", "color": "red" },
+            { "k": "GRANT SOURCE",         "v": "Traced to: Solstice Property Group — Aldermoor shell company. Same beneficial owner chain.", "color": "red" },
+            { "k": "CAMPBELL CONFIDENCE",  "v": "// 73%. Recommend field verification.", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — INITIAL",
+            "paragraphs": [
+              "The grant source is the same shell company structure we found in Aldermoor. Either this is a coincidence or someone is funding environments where the boundary between the living and the dead is thin.",
+              "Three people have lost themselves. The remaining understudies may be next. Get eyes on this before the weekend — there's a performance on Saturday."
+            ],
+            "dim_note": "// I want to know if the actors chose this or if it was done to them. — Director"
+          },
+          "footer_status": "ACTIVE — PERFORMANCE SATURDAY — UNDERSTUDIES AT RISK",
+          "footer_ref": "REPORT #0099-D",
+          "footer_class": "MERIDIAN THEATRE · IDENTITY CLASS · NEW"
+        }
+      ],
+      "closing_note": {
+        "header": "// CAMPBELL — POST-ALDERMOOR PRIORITY UPDATE",
+        "count": "4 CASES ACTIVE · 1 HIGH · 3 MEDIUM",
+        "lines": [
+          "OPERATION #0094-B (ALDERMOOR) CLOSED — ENTITY STATUS: CONTAINED / COMMUNICATED.",
+          "PRIORITY QUEUE UPDATED. 14-DAY DEPLOYMENT GAP NOTED.",
+          "",
+          "DURING ALDERMOOR DEPLOYMENT:",
+          "· CASE #0091-F (VOLUNTEER) — FOURTH PROXIMITY DEATH OCCURRED. SUBJECT RELOCATED TO FAMILY HOME.",
+          "· CASE #0088-A (RECORDER) — POST 3 WINDOW CLOSED. THIRD-PARTY INTERVENTION DETECTED.",
+          "· CASES #0102-G AND #0099-D — FLAGGED NEW DURING DEPLOYMENT. HELD FOR HUMAN REVIEW.",
+          "",
+          "CAMPBELL NOTES PATTERN: CASES #0091-F, #0088-A, AND #0099-D SHARE PARTIAL DATA",
+          "SIGNATURE WITH DISSOLVED ENTITY MERIDIAN BIOSCIENCES. CASE #0102-G SHARES ESTATE",
+          "DATA WITH MERIDIAN BIOSCIENCES DOCUMENT CHAIN. CAMPBELL FLAGS ALL FOUR AS CONNECTED.",
+          "CONFIDENCE: 68%.",
+          "",
+          "NOTE: THE RECORDER (POST 4) REFERENCES THIS ORGANISATION DIRECTLY.",
+          "RECOMMEND FIELD TEAM TREAT ALL FOUR CASES AS RELATED UNTIL DISPROVED."
+        ],
+        "sig": "// END TRANSMISSION — CAMPBELL · P.O.R.T.A.L ANOMALY DETECTION SYSTEM"
+      }
+    },
+    {
+      "id": "w03",
+      "label": "WEEK 03",
+      "status": "active",
+      "title": "Post-Operation #0094-B (Aldermoor District)",
+      "summary": "3 cases active · 1 high · 2 medium · 1 assigned",
+      "header_note": "⚠ 3 CASES ACTIVE — UNDERSTUDIES ASSIGNED · PERFORMANCE TOMORROW",
+      "header_timestamp": "// QUEUE UPDATE ISSUED POST-OPERATION #0094-B (ALDERMOOR)",
+      "items": [
+        {
+          "type": "section-label",
+          "css_class": "carry-over",
+          "text": "// CARRY-OVER — CASES OPEN PRIOR TO ALDERMOOR DEPLOYMENT"
+        },
+        {
+          "type": "case",
+          "id": "case-a",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0091-F · UPDATED",
+          "title": "THE VOLUNTEER",
+          "subtitle": "HARGROVE MEDICAL CENTRE · BIOLOGICAL SIGNATURE · VITALITY DISPLACEMENT",
+          "priority": "high",
+          "priority_label": "PRIORITY: HIGH",
+          "rows": [
+            { "k": "LOCATION",          "v": "Family residence — address on file. 3 adults, 2 children." },
+            { "k": "PATTERN",           "v": "Accelerated tissue regeneration — 1 subject (ID: REDACTED)" },
+            { "k": "CROSS-REF",         "v": "4 unexplained deaths, same proximity window, 28-day total", "color": "alert", "note": "// +1 during Aldermoor deployment" },
+            { "k": "STATUS",            "v": "Director has dispatched a second PORTAL team. Field team not involved.", "color": "dim" },
+            { "divider": true },
+            { "k": "ENERGY SIG",        "v": "Class 3 Vitality Displacement — FIRST RECORDED INSTANCE", "color": "alert" },
+            { "k": "MECHANISM",         "v": "Life-force transfer. Source: unknown. Vector: sustained proximity. Rate: increasing." },
+            { "k": "TRIAL SPONSOR",     "v": "Meridian BioSciences — dissolved 10 weeks ago", "color": "red" },
+            { "divider": true },
+            { "k": "PROXIMITY NOTE",    "v": "Effect intensifies with duration of contact. Family members at risk.", "color": "red" },
+            { "k": "SUBJECT AWARENESS", "v": "// still unknown.", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — UPDATED POST-ALDERMOOR",
+            "paragraphs": [
+              "A fourth death while we were in Aldermoor. I've assigned a second team. This is not your case to run right now — but you should know it's moving.",
+              "The mechanism is directly relevant to Project Veil. That is not why it's urgent. The subject is living with two children. That is why."
+            ],
+            "dim_note": "// Secondary: Meridian dissolved. Someone gave the order. Find out who. — Director"
+          },
+          "footer_status": "ACTIVE — SECOND TEAM ASSIGNED",
+          "footer_ref": "REPORT #0091-F",
+          "footer_class": "HARGROVE MEDICAL · BIOLOGICAL CLASS 3"
+        },
+        {
+          "type": "case",
+          "id": "case-c",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0088-A · UPDATED",
+          "title": "THE RECORDER",
+          "subtitle": "BYLINE: NADIA OSEI · PRECOGNITIVE TEXT GENERATION · VERIFIED",
+          "priority": "info",
+          "priority_label": "PRIORITY: MEDIUM",
+          "rows": [
+            { "k": "SOURCE",            "v": "Byline \"Nadia Osei\" — public news blog" },
+            { "k": "SUBJECT STATUS",    "v": "Deceased — confirmed, 10 weeks ago", "color": "red" },
+            { "k": "POSTS SINCE DEATH", "v": "4 published · 1 unpublished (acquired via CAMPBELL web scrape)", "color": "alert" },
+            { "k": "WINDOW CLOCK",      "v": "2/4 — tether weakening. No contact made.", "color": "alert" },
+            { "divider": true },
+            { "k": "POST 4",            "v": "UNPUBLISHED · REFERENCES PORTAL DIRECTLY · CAMPBELL CONFIDENCE: 97.3%", "color": "purple" },
+            { "k": "POST 4 TIME WINDOW","v": "9 DAYS FROM TODAY", "color": "red" },
+            { "k": "MECHANISM",         "v": "Consciousness anchored to information infrastructure. Entity's reach is expanding.", "color": "purple" },
+            { "k": "CAMPBELL FLAG",     "v": "// She found a third way. Recommend contact before window closes.", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — UPDATED POST-ALDERMOOR",
+            "paragraphs": [
+              "Post 4 knows about us. I don't know how. Make contact before the window closes — we have nine days and a tether that's fraying.",
+              "Whatever she found before she died, she's found more since. I want to know what she knows."
+            ],
+            "dim_note": "// If she's assembled the full pattern, we need to hear it before she disperses. — Director"
+          },
+          "footer_status": "ACTIVE — CONTACT URGENT — 9 DAYS",
+          "footer_ref": "REPORT #0088-A",
+          "footer_class": "INFORMATIONAL CLASS · PRECOGNITIVE · ESCALATING"
+        },
+        {
+          "type": "case",
+          "id": "case-d",
+          "report_id": "// CAMPBELL — ANOMALY REPORT #0102-G · UPDATED",
+          "title": "THE INHERITANCE",
+          "subtitle": "WENTWORTH & COLE SOLICITORS · POSTHUMOUS CORRESPONDENCE · OBLIGATION-ANCHORED",
+          "priority": "new",
+          "priority_label": "PRIORITY: MEDIUM",
+          "rows": [
+            { "k": "LOCATION",       "v": "14 active client addresses — and wherever the letters arrive" },
+            { "k": "SUBJECT",        "v": "Martin Wentworth, 61, probate lawyer — deceased 36 days ago" },
+            { "k": "WINDOW CLOCK",   "v": "3/6 — obligation intensifying.", "color": "alert" },
+            { "divider": true },
+            { "k": "CRITICAL FLAG",  "v": "Most recent letter addresses Mira Okonkwo, 9 years old, directly.", "color": "red" },
+            { "k": "TIME WINDOW",    "v": "CAMPBELL estimate: 10 days remaining. Confidence: 84%.", "color": "red" },
+            { "k": "ESTATE NOTE",    "v": "Probate archive — secured by third party 2 days after death. Likely MESA.", "color": "alert" },
+            { "k": "CAMPBELL FLAG",  "v": "// Leech has dispatched an observer. This is not yet a field assignment.", "color": "dim" }
+          ],
+          "directive": {
+            "label": "// DIRECTOR'S NOTE — UPDATED",
+            "paragraphs": [
+              "I've sent someone to observe. The child is not yet at immediate risk — but the clock is moving.",
+              "If the estate archive connects to what we found in Aldermoor, someone sealed it for a reason. That reason matters."
+            ],
+            "dim_note": "// Make contact with the entity when you can. If it can write letters, it can talk to us. — Director"
+          },
+          "footer_status": "ACTIVE — OBSERVER ASSIGNED — 10 DAYS EST.",
+          "footer_ref": "REPORT #0102-G",
+          "footer_class": "CLERKENWELL · OBLIGATION CLASS"
+        }
+      ],
+      "closing_note": {
+        "header": "// CAMPBELL — POST-ALDERMOOR PRIORITY UPDATE",
+        "count": "3 CASES ACTIVE · 1 HIGH · 2 MEDIUM · 1 ASSIGNED TO FIELD",
+        "lines": [
+          "OPERATION #0094-B (ALDERMOOR) CLOSED — ENTITY STATUS: CONTAINED.",
+          "BOUNDARY RE-ESTABLISHED AT EXCAVATION SITE. RESIDENTS' NAVIGATION RECOVERING.",
+          "",
+          "DIRECTOR HAS ASSIGNED SECONDARY TEAMS TO CASES #0091-F AND #0102-G.",
+          "CASE #0099-D (UNDERSTUDIES) — ASSIGNED TO FIELD TEAM. NOT SHOWN IN QUEUE.",
+          "PERFORMANCE: TOMORROW. CLOCK AT 3/4.",
+          "",
+          "CASE #0088-A (RECORDER) — WINDOW CLOCK AT 2/4. NO CONTACT MADE. TETHER WEAKENING.",
+          "",
+          "CAMPBELL NOTES: CASES #0091-F, #0088-A, #0099-D, AND #0102-G SHARE PARTIAL DATA",
+          "SIGNATURE WITH DISSOLVED ENTITY MERIDIAN BIOSCIENCES.",
+          "CASE #0099-D GRANT SOURCE MATCHES ALDERMOOR SHELL COMPANY STRUCTURE.",
+          "CAMPBELL FLAGS ALL FOUR AS CONNECTED. CONFIDENCE: 71%.",
+          "",
+          "NOTE: THE RECORDER (POST 4) REFERENCES THIS ORGANISATION DIRECTLY.",
+          "FIELD TEAM SHOULD TREAT ALL FOUR CASES AS RELATED UNTIL DISPROVED."
+        ],
+        "sig": "// END TRANSMISSION — CAMPBELL · P.O.R.T.A.L ANOMALY DETECTION SYSTEM"
+      }
+    }
+  ]
+}

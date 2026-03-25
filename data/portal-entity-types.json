@@ -1,0 +1,199 @@
+{
+  "version": "portal-entity-types-v1",
+  "source": "entities.html Section II — theoretical classification cards",
+  "note": "Entity classification archetypes and theoretical types on PORTAL's radar. Each entry describes a monster category or PORTAL-specific entity class. 'active_case' links to the specific instance in portal-entities.json. 'sections' has exactly two columns matching the tcard-body layout. Blurred keeper notes have blurred:true + blur_notice; they contain operational detail to surface when the linked arc or case opens.",
+  "types": [
+    {
+      "id": "t001",
+      "title": "Obligation Anchor",
+      "class_badge": "c2",
+      "class_label": "CLASS 2",
+      "subtitle": "SPIRIT · DUTY-BOUND · CASE D ACTIVE — THE INHERITANCE",
+      "tags": [
+        { "label": "CASE D — THE INHERITANCE", "color": "amber" },
+        { "label": "SPIRIT / ANCHOR TYPE", "color": "grey" },
+        { "label": "COMMUNICATES BY LETTER", "color": "grey" }
+      ],
+      "active_case": "the-inheritance",
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "A consciousness anchored not by love or grief but by <strong>unfulfilled professional obligation</strong>. The anchor is the incomplete task — not a person, not an object, but a duty with no one left to discharge it. Distinct from a standard spirit in that the entity has no interest in the hunters; it is trying to finish what it started, and the hunters are either useful or irrelevant.<br><br>Martin Wentworth (Case D — The Inheritance) is the active instance. Probate lawyer, deceased 22 days. Continues writing letters to clients whose affairs he has not yet closed. Most recent letter describes an imminent killing. He believes his cardiac event was arranged. Communicates only through formal correspondence."
+        },
+        {
+          "label": "// ENGAGEMENT NOTES",
+          "content": "<strong>How to reach him:</strong> Write a formal letter to his office address. He responds within 24 hours. He is precise, polite, and very difficult to emotionally move — he is not here because he feels things, he is here because a job is unfinished.<br><br><strong>What he knows:</strong> The Meridian researcher's methodology archive — the estate he was closing when he died — and who closed it two days after his death. He does not know they arranged his death. He suspects it. He will share what he knows in exchange for assurance that his remaining clients are protected."
+        }
+      ]
+    },
+    {
+      "id": "t002",
+      "title": "Consciousness Fragment",
+      "class_badge": "c3",
+      "class_label": "CLASS 3",
+      "subtitle": "ANCHOR · INFRASTRUCTURE · CASE C ACTIVE — THE RECORDER",
+      "tags": [
+        { "label": "CASE C — THE RECORDER", "color": "red" },
+        { "label": "THIRD WAY — CAMPBELL FLAGGED", "color": "purple" },
+        { "label": "INFORMATION NETWORK ANCHOR", "color": "grey" }
+      ],
+      "active_case": "the-recorder",
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "A consciousness that has anchored not to a physical object or a person but to <strong>information infrastructure</strong> — networks, databases, the act of recording itself. Extremely rare. CAMPBELL's private flag on the Nadia Osei case reads simply: <em>\"She found a third way.\"</em><br><br>Nadia Osei (journalist, deceased 8 weeks) is the active instance. Has assembled the complete MESA pattern from inside the information space she now inhabits. Her posts are now referencing PORTAL directly as \"the second watchers.\" She has a 9-day window before the pattern she's in closes. She will share everything she knows — in exchange for answers about what PORTAL is."
+        },
+        {
+          "label": "// ENGAGEMENT NOTES",
+          "content": "<strong>Unusual danger profile:</strong> Not hostile. Possibly the most valuable intelligence asset in PORTAL's current case list. She has already done the work — she has assembled the MESA pattern that CAMPBELL has been carefully not surfacing.<br><br><strong>CAMPBELL's conflict:</strong> Nadia knows more about MESA than CAMPBELL has officially reported. If the hunters debrief Nadia fully, Victor will learn things CAMPBELL chose not to tell him. Cameron has been managing this carefully. The window closing is not a coincidence — CAMPBELL flagged the case at the last possible moment. That should be noticed."
+        }
+      ]
+    },
+    {
+      "id": "t003",
+      "title": "Performance Anchor",
+      "class_badge": "c2",
+      "class_label": "CLASS 2",
+      "subtitle": "SPIRIT · ROLE-BOUND · CASE E ACTIVE — THE UNDERSTUDIES",
+      "tags": [
+        { "label": "CASE E — THE UNDERSTUDIES", "color": "amber" },
+        { "label": "MESA FUNDED — THIN BOUNDARY", "color": "red" },
+        { "label": "DISPLACING LIVING PERFORMERS", "color": "grey" }
+      ],
+      "active_case": "the-understudies",
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "Actors Clara Voss and Edmund Farrow died 6 months apart. The theatre, funded by Solstice Property Group (MESA shell company), was a thin-boundary environment — they could not fully leave when they died. They are still performing their roles. They do not know they are displacing the living understudies who stepped into those same parts.<br><br>Mechanism: the role itself is the anchor. Not the person, not the place, but the specific character performed in a specific space over a sustained period. The role has a shape in the thin-boundary environment, and both the dead and living performers are trying to inhabit the same shape."
+        },
+        {
+          "label": "// RESOLUTION NOTE",
+          "content": "<strong>A theatrical farewell within the logic of performance.</strong> Clara and Edmund need to be convinced to let go — not through argument or force, but through something that makes sense within the world of the play. The scene is its own climax. Saturday performance is the window.<br><br><strong>Sven</strong> is the obvious vector — peer conversation, something they'd actually believe. He knows what it's like to be present without being quite there. He can tell them what \"letting go\" means from experience without it being a speech about death."
+        }
+      ]
+    },
+    {
+      "id": "t004",
+      "title": "Life Leech (Involuntary)",
+      "class_badge": "c3",
+      "class_label": "CLASS 3",
+      "subtitle": "CONSCIOUSNESS ANCHOR · UNSTABLE · CASE A ACTIVE — THE VOLUNTEER",
+      "tags": [
+        { "label": "CASE A — THE VOLUNTEER", "color": "red" },
+        { "label": "MESA TRIAL SURVIVOR", "color": "red" },
+        { "label": "DOING GOOD — BADLY", "color": "grey" },
+        { "label": "CHILDREN IN PROXIMITY", "color": "amber" }
+      ],
+      "active_case": "the-volunteer",
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "A living person whose consciousness-anchoring mechanism has destabilised — drawing life-force from proximity contacts without intent or awareness. Gordon Avery (Case A) is the active instance. The only survivor of a Meridian BioSciences trial. In complete cancer remission. Four people in his proximity have died of accelerated organ failure since his recovery.<br><br><strong>Moral weight:</strong> Gordon is doing good things — running charitable programmes, supporting his community — and unknowingly killing the people closest to him. He has two grandchildren. MESA is watching him and not intervening."
+        },
+        {
+          "label": "// PROJECT VEIL SIGNIFICANCE",
+          "content": "CAMPBELL private note: <em>\"His anchoring mechanism is exactly what Project Veil studies — but unstable. The trial intended to produce this effect deliberately. Gordon is the one who survived the attempt. The question of whether what's happening to him can be stabilised is the question PORTAL has been building toward.\"</em><br><br>Rex will want to study the mechanism. Sven will recognise something in Gordon — the inverse of his own condition. The hunters will have to decide whether the right move is intervention, documentation, or both."
+        }
+      ]
+    },
+    {
+      "id": "t005",
+      "title": "The Replacer",
+      "class_badge": "c3",
+      "class_label": "CLASS 3",
+      "subtitle": "DOPPELGANGER · IDENTITY PREDATOR · THEORETICAL — NO ACTIVE CASE",
+      "tags": [
+        { "label": "DECK OF MONSTERS — DOPPELGANGER", "color": "grey" },
+        { "label": "ALAN HOOK — FEY ORIGIN", "color": "teal" },
+        { "label": "NO ACTIVE CASE", "color": "grey" }
+      ],
+      "active_case": null,
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "An entity that replaces a human being — taking their place in their social environment, family, and identity. Not a shapeshifter in the crude sense; the replacement is a gradual assumption, identity layered over identity over time. The original is displaced rather than destroyed.<br><br><strong>Fey connection:</strong> In some folkloric traditions, the replacer and the changeling are the same phenomenon seen from opposite ends — one is the thing left behind when a child is taken; one is the thing the child became. Alan Frazier was swapped at birth. The entity that took his place in the human world is still out there. Whether it knows Alan is now aware is unclear."
+        },
+        {
+          "label": "// KEEPER NOTE",
+          "blurred": true,
+          "blur_notice": "⬛ OPERATIONAL DETAIL — SURFACE WHEN ALAN'S THREAD OPENS",
+          "content": "This entry connects directly to Alan's fey origin thread. The entity that replaced him has been living a human life for approximately the same number of years Alan has. It may have built a family. It may not know what it is. The confrontation — when it comes — is not a fight. It is two people who are each other's shadow trying to decide what to do with that."
+        }
+      ]
+    },
+    {
+      "id": "t006",
+      "title": "The Hollow",
+      "class_badge": "c3",
+      "class_label": "CLASS 3",
+      "subtitle": "HUNGER ENTITY · CONSUMPTION · THEORETICAL — MESA THREAD",
+      "tags": [
+        { "label": "POSSIBLE MESA CREATION", "color": "red" },
+        { "label": "DECK OF MONSTERS — HUNGRY GHOST", "color": "grey" },
+        { "label": "NO ACTIVE CASE", "color": "grey" }
+      ],
+      "active_case": null,
+      "portal_entities_ref": "the-hollow",
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "A consciousness that was anchored through a thin-boundary experiment but failed to maintain coherence — the result is not a stable entity but a hunger. No memory, no motivation, no communication. It consumes proximity contacts not to sustain itself but because consuming is all that remains of the process that created it.<br><br>Distinct from Gordon Avery (involuntary, stable, aware): this entity has no awareness. It is the <strong>failure mode</strong> of the Meridian trial — what Gordon would have become if his anchoring had collapsed instead of stabilised. MESA's trial had five deaths. At least two of those deaths may have produced this type."
+        },
+        {
+          "label": "// KEEPER NOTE",
+          "blurred": true,
+          "blur_notice": "⬛ OPERATIONAL DETAIL — SURFACE VIA CASE C OR CASE D",
+          "content": "MESA knows two Hollows exist from the Meridian trial. They have been managing them quietly — the \"deaths\" from the trial were attributed to organ failure and the trial was shut down. The Hollows are not contained. They are being monitored. MESA has been observing their drift patterns for eight weeks. This is what Nadia Osei found before she died."
+        }
+      ]
+    },
+    {
+      "id": "t007",
+      "title": "Threshold Guardian",
+      "class_badge": "cx",
+      "class_label": "CLASS X",
+      "subtitle": "FEY-ADJACENT · PLANE BOUNDARY · THEORETICAL — ALAN THREAD",
+      "tags": [
+        { "label": "FEY ORIGIN — ALAN THREAD", "color": "teal" },
+        { "label": "THIN BOUNDARY LOCATIONS", "color": "purple" },
+        { "label": "NO ACTIVE CASE — LONG THREAD", "color": "grey" }
+      ],
+      "active_case": null,
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "An entity that exists specifically at the boundary between planes — not a native of either, but the space between. Fey mythology describes them as the ones who maintain the thresholds, who decide what passes and what does not. They are not aggressive; they are <strong>purposeful</strong>. Trespass is a different kind of threat than attack.<br><br><strong>Connection to Aldermoor:</strong> The \"threshold-shaped shadow\" in Diane Marsh's notebook — the thing that looked like a door but wasn't — may be evidence of a Guardian's mark on the reservoir excavation. Someone mapped these threshold points deliberately before MESA started buying the land around them."
+        },
+        {
+          "label": "// KEEPER NOTE",
+          "blurred": true,
+          "blur_notice": "⬛ LONG THREAD — DO NOT SURFACE UNTIL ALAN HAS BOTH DATA POINTS",
+          "content": "The question forming for Alan: who mapped the thresholds first? The Aldermoor reservoir, the Meridian Theatre, and at least two unconfirmed sites form a pattern that predates MESA's property acquisitions by decades. Someone mapped the thin-boundary locations — and the map exists somewhere. The Guardian knows where the thresholds are. It may have been the one who built them."
+        }
+      ]
+    },
+    {
+      "id": "t008",
+      "title": "The Mirror",
+      "class_badge": "c2",
+      "class_label": "CLASS 2",
+      "subtitle": "REFLECTION ENTITY · SELF-ORIGIN · THEORETICAL — NO ACTIVE CASE",
+      "tags": [
+        { "label": "DECK OF MONSTERS — DARK REFLECTION", "color": "grey" },
+        { "label": "SELF-ORIGIN ANCHOR", "color": "grey" },
+        { "label": "POTENTIAL: REX OR SVEN HOOK", "color": "amber" }
+      ],
+      "active_case": null,
+      "sections": [
+        {
+          "label": "// CLASSIFICATION",
+          "content": "An entity that originates from a person's suppressed or unacknowledged self — not a ghost or a spirit in the conventional sense, but a fragment of identity that separated and gained independent existence. Anchored to the original person by a psychological blind spot: the entity can only persist while the original refuses to acknowledge what it represents.<br><br>Typically manifests in environments of extreme self-suppression or radical identity transformation. <strong>Possible relevance:</strong> someone who reinvented themselves after a near-death experience. Someone who built an entirely new identity around their work. Someone who died and came back as something else and refuses to examine what they lost."
+        },
+        {
+          "label": "// KEEPER NOTE",
+          "content": "Sven is the obvious candidate — the person he was before the ayahuasca trip and the person he is now are not the same. He has not examined that gap. A Mirror originating from that gap would be drawn to him specifically, and would manifest as whoever he was trying to become before he died.<br><br>Rex is a secondary candidate — his serial killer expertise as a \"background\" for a person who studies weaponised violence is its own kind of suppressed material. The thing Rex looks at professionally is a thing he chose to understand rather than feel. That's a shape a Mirror could take."
+        }
+      ]
+    }
+  ]
+}

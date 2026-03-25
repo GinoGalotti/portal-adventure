@@ -1,0 +1,42 @@
+{
+  "name": "portal-field-ops-game",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:all": "vitest run && playwright test",
+    "simulate": "tsx simulation/cli.ts --count 1000 --strategies all",
+    "simulate:quick": "tsx simulation/cli.ts --count 100 --strategies all",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.3",
+    "i18next": "^23.16.4",
+    "react-i18next": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^5.4.11",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.8",
+    "tailwindcss": "^3.4.15",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "wrangler": "^3.91.0",
+    "@playwright/test": "^1.48.2",
+    "tsx": "^4.19.2"
+  }
+}

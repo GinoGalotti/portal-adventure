@@ -1,0 +1,20 @@
+[
+  {
+    "id": "w1",
+    "label": "WEEK 01",
+    "title": "A Promise is a Promise",
+    "status": "closed"
+  },
+  {
+    "id": "w2",
+    "label": "WEEK 02",
+    "title": "Something That Wants to Be Known",
+    "status": "closed"
+  },
+  {
+    "id": "w3",
+    "label": "WEEK 03",
+    "title": "The Understudies",
+    "status": "active"
+  }
+]

@@ -1,0 +1,2125 @@
+{
+  "version": "motw-arcs-2025",
+  "source": "Monster of the Week Hunter's Journal (EHP0072)",
+  "note": "Hunter story arcs for all 33 playbooks covered in Hunter's Journal. Two arcs per playbook. No specific hunters — use as a database for new characters. source values: hardcover-2023, ssk-2025, tome-of-mysteries, codex-of-worlds, revised-softcover, generic-games-free.",
+  "playbooks": [
+    {
+      "id": "action-scientist",
+      "name": "The Action Scientist",
+      "source": "ssk-2025",
+      "color": "#f0a500",
+      "arcs": [
+        {
+          "id": "action-scientist-1",
+          "number": "I",
+          "title": "Uncanny Nemesis",
+          "arc_name": "Science Rivalry",
+          "description": "This story centres on a strange enemy who has decided to work against the Action Scientist. This might be due to an old rivalry, because their goals are totally at odds, or some combination of both. This story tends to add a bit of lighthearted chaos to the game. However, an Uncanny Nemesis is still very dangerous.",
+          "entry_points": [
+            "You encounter an alternate timeline, dimension, or effect allowing the Uncanny Nemesis into the world.",
+            "Your group would like to move the focus of the team’s story more towards strange science mysteries."
+          ],
+          "story_beats": [
+            "You encounter your Uncanny Nemesis.",
+            "You discover a new fact about the Uncanny Nemesis and their plans.",
+            "The Uncanny Nemesis threatens or hurts someone you care about.",
+            "You spend time planning with the team how to deal with a science-style phenomenon.",
+            "You join forces with the Uncanny Nemesis to deal with a more pressing problem."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Be the Better Person",
+              "description": "When you ignore personal enmity and focus on solving the problem at hand instead, take –1 forward and mark experience."
+            },
+            {
+              "name": "Preeminent Genius",
+              "description": "When your competence is challenged and you meet that challenge, take –1 ongoing to everything not directly related to showing you’re superior. When you definitely show you’re superior to a challenger, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "action-scientist-2",
+          "number": "II",
+          "title": "The Greater Good?",
+          "arc_name": "Finding the Path",
+          "description": "This story asks questions about your Action Scientist’s goals. Is hunting monsters the best way to use your abilities, or would you be better off devoting your time to research that helps people more broadly? This is an internally focused story. If you take it on, be prepared to bring it into the game as you play. The Keeper has tools in the arc to apply thematic pressures, but you need to push it yourself more than most hunter stories.",
+          "entry_points": [
+            "The hunters fail to prevent a terrible event during a mystery.",
+            "You’ve been thinking about the potential positive benefits for society that your research could have."
+          ],
+          "story_beats": [
+            "Your actions cause an accident or harm during a mystery.",
+            "You talk to someone about your goals and ideals.",
+            "You see evidence that action science isn’t the best way to deal with a problem.",
+            "Someone is badly hurt or dies in the course of a mystery.",
+            "You see problems caused by ignorance or ill-advised use of science and technology."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Duty of Care",
+              "description": "Whenever one of your moves causes harm (whether side effect, cost, or due to a miss result) to a hunter, ally, or bystander, it causes one less harm."
+            },
+            {
+              "name": "Needs Must",
+              "description": "Whenever your moves cause collateral damage (whether due to a miss result, as a cost, or a side effect), you cause extra property damage and +1 harm to any hunters, allies, or bystanders. Then take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celebrity",
+      "name": "The Celebrity",
+      "source": "ssk-2025",
+      "color": "#e84393",
+      "arcs": [
+        {
+          "id": "celebrity-1",
+          "number": "I",
+          "title": "The Fiendish Fan",
+          "arc_name": "The Fiendish Fan",
+          "description": "A powerful monster turns out to be a huge fan. They show it in extremely disturbing ways, but stopping them won’t be easy.",
+          "entry_points": [
+            "You’ve had great successes as a performer.",
+            "A regular fan has been causing you some difficulty."
+          ],
+          "story_beats": [
+            "You take extra precautions to protect yourself against the Fiendish Fan.",
+            "You return to the performance that made the Fiendish Fan first notice you.",
+            "You react to the Fiendish Fan’s praise and gifts.",
+            "You meet with the Fiendish Fan.",
+            "You try to influence your other fans."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Protect My Privacy",
+              "description": "Get +1 ongoing when protecting your privacy as a media personality. If part of your private life gets exposed in a public setting, take –1 forward."
+            },
+            {
+              "name": "In the Spotlight",
+              "description": "When an embarrassing or problematic part of your private life gets exposed in public, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "celebrity-2",
+          "number": "II",
+          "title": "Truth in Fiction",
+          "arc_name": "Truth in Fiction",
+          "description": "It turns out a story you starred in traces back to a very big, and very real, occult problem or conspiracy. The story resurfaces now, and you have the best shot at stopping the evil behind it.",
+          "entry_points": [
+            "The series’s overarching themes start to emerge.",
+            "A mystery shows similarities to a story you starred in."
+          ],
+          "story_beats": [
+            "You experience for real something you’ve experienced on set before.",
+            "You find new evidence that it really happened.",
+            "Your experience from the set helps in the investigation.",
+            "You interact with fans of the story that turns out to be true now.",
+            "People disbelieve you about monsters and magic due to your reputation as a performer."
+          ],
+          "resolution_moves": [
+            {
+              "name": "One Job, Two Shifts",
+              "description": "When your show business skills help you hunt monsters, take +1 forward. When your show business lifestyle hinders your hunt, take –1 forward."
+            },
+            {
+              "name": "My New Nightworld",
+              "description": "When you refuse show business opportunities to hunt monsters, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changeling",
+      "name": "The Changeling",
+      "source": "ssk-2025",
+      "color": "#2ec4b6",
+      "arcs": [
+        {
+          "id": "changeling-1",
+          "number": "I",
+          "title": "Villains Like Myself",
+          "arc_name": "Villains Like Myself",
+          "description": "A group of creatures of your species stir up serious trouble. Worse yet, they’re somehow connected to you, and their actions make your life harder.",
+          "entry_points": [
+            "The wider society of monsters becomes important in your series.",
+            "Your morality is questioned by yourself or by other hunters."
+          ],
+          "story_beats": [
+            "You behave similarly to the Villains.",
+            "You try to reason with the Villains.",
+            "You do something to prove you’re not like the Villains.",
+            "You save others (hunters or ordinary people) from the Villains.",
+            "You learn something new about yourself thanks to the Villains."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Companion of Monsters",
+              "description": "You know all too well how monsters think and act, and they know you. When you successfully investigate a mystery about a monster, you can ask an extra question, but if you do, the monster learns something about you, just as if you failed the roll."
+            },
+            {
+              "name": "Alone in Humanity",
+              "description": "When you try to keep humans safe from monsters, take –1 forward and mark experience."
+            }
+          ]
+        },
+        {
+          "id": "changeling-2",
+          "number": "II",
+          "title": "The Awakened One",
+          "arc_name": "The Awakened One",
+          "description": "A mortal connected to you turns out to be not-so-ordinary. Maybe they’re a changeling just like you, or maybe a different sort of supernatural power awoke within them. Either way, they’re lost, in danger, and dangerous, and you’re the best person to help them navigate this situation.",
+          "entry_points": [
+            "The team meets a new, intriguing bystander.",
+            "You have a moment of feeling completely alone."
+          ],
+          "story_beats": [
+            "You devote time to the Awakened One.",
+            "The Awakened One’s powers cause trouble.",
+            "The Awakened One’s powers offer great help.",
+            "The Awakened One is rejected because of their powers.",
+            "The Awakened One’s approach to their powers changes."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Mentor",
+              "description": "When people act on your advice about the supernatural, mark experience. When they ignore your advice, take –1 forward."
+            },
+            {
+              "name": "Can’t Save Everyone",
+              "description": "When you ignore someone in need to help someone, or something, else, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chosen",
+      "name": "The Chosen",
+      "source": "hardcover-2023",
+      "color": "#f4d03f",
+      "arcs": [
+        {
+          "id": "chosen-1",
+          "number": "I",
+          "title": "Severer of Destinies",
+          "arc_name": "Severer of Destinies",
+          "description": "You have a destiny—making you the champion and plaything of great powers. It seemed you’re doomed to this role until death, but maybe there’s a chance to be just yourself? You heard a rumour: the Severer of Destinies. Something—or someone—who can strip people of their destiny. As the chosen one, will you escape your Destiny, or stop this power being used for evil?",
+          "entry_points": [
+            "You just learned the hard way how oppressive your destiny is.",
+            "You have a chance for an ordinary life, but that life is incompatible with your destiny."
+          ],
+          "story_beats": [
+            "You use the Severer, or learn that someone else has used it.",
+            "You find or contact the Severer, or learn someone else did.",
+            "You make a big decision about what to do with the Severer.",
+            "You gain or lose something, or someone, precious due to your destiny.",
+            "Another hunter gains, or loses, a substantial destiny."
+          ],
+          "resolution_moves": [
+            {
+              "name": "On My Own",
+              "description": "Mark 1 Luck. Each session, hold 1 and spend this hold to get +1 forward."
+            },
+            {
+              "name": "Steered by Destiny",
+              "description": "You gain two extra Luck boxes, but from now on you can only spend Luck if it relates to a destiny tag."
+            }
+          ]
+        },
+        {
+          "id": "chosen-2",
+          "number": "II",
+          "title": "Great Responsibilities",
+          "arc_name": "Great Responsibilities",
+          "description": "Someone close to you has been burdened with a great responsibility, and needs all the help they can get to cope with it. And if there is an expert on great responsibilities, clearly it’s you. How will you help them cope with it? Or maybe it would be better to convince them to refuse it?",
+          "entry_points": [
+            "You meet someone burdened with a great responsibility.",
+            "An important new bystander appears in the series, and you’re not yet sure what their connection to the team will be."
+          ],
+          "story_beats": [
+            "The Burdened One is greatly helped, or hindered, by the advice you gave them.",
+            "Your destiny and the Burdened One’s responsibility clash.",
+            "Someone turns away from or bonds with you because of your destiny.",
+            "You devote time and energy to helping other hunters with their responsibility.",
+            "You endanger yourself or the mystery to escape from responsibility."
+          ],
+          "resolution_moves": [
+            {
+              "name": "My Duty Alone",
+              "description": "The first time in a mystery when you notice a heroic or doom tag applies when you’re alone, take +1 forward. The first time you notice this when you’re with allies or other hunters, take –1 forward."
+            },
+            {
+              "name": "Facing Fate Together",
+              "description": "The first time in a mystery when you notice a heroic or doom tag applies when you’re alone, take –1 forward. The first time it appears when you’re with allies or other hunters, take +1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "covenant",
+      "name": "The Covenant",
+      "source": "ssk-2025",
+      "color": "#5dade2",
+      "arcs": [
+        {
+          "id": "covenant-1",
+          "number": "I",
+          "title": "The Ex",
+          "arc_name": "The Ex",
+          "description": "The Covenant had a very important relationship in the past. It ended badly. This person from the past now has a new flame, and is back in your life whether either of you want it or not.",
+          "entry_points": [
+            "The hunters are curious if you had other allies in the past.",
+            "The team angers a friendly bystander or ally."
+          ],
+          "story_beats": [
+            "You have a major argument with your Ex.",
+            "You have a serious conversation with an ally or hunter about your Ex.",
+            "You come to an understanding, not necessarily a friendly one, with your Ex.",
+            "You and your ally outperform your Ex.",
+            "You and your Ex cooperate to solve a problem."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Reconnecting",
+              "description": "When you choose to forget past arguments with someone, take +1 forward to manipulate them. If they betray you again, their first move catches you totally off guard."
+            },
+            {
+              "name": "Once Bitten",
+              "description": "When you refuse to let someone’s offences against you slide, take +1 forward to resist their first action against you, but –1 forward to read a bad situation."
+            }
+          ]
+        },
+        {
+          "id": "covenant-2",
+          "number": "II",
+          "title": "Priorities",
+          "arc_name": "Priorities",
+          "description": "The Covenant’s allies have their own needs and demands and sometimes those clash with their own. This is similar to the Covenant’s special move, but here has a broader impact and deeper implications.",
+          "entry_points": [
+            "Your ally misses a major opportunity during a mystery.",
+            "Something terrible happens to an ally during a mystery."
+          ],
+          "story_beats": [
+            "You notice your ally is troubled, and decide to deal with it now, or leave it for later.",
+            "You convince your ally to open up to you.",
+            "You help your ally without asking them about their problems.",
+            "You get into an argument with your ally over this situation.",
+            "Either you or your ally shut down an attempt to bring the problem into the open."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Equal Partners",
+              "description": "You’ve grown to respect the desires and developments of your allies. When you choose to support an ally’s or friendly bystander’s decision, mark experience and take –1 ongoing when interfering with that decision."
+            },
+            {
+              "name": "My Way",
+              "description": "You’ve set your foot down and established who’s most important in this relationship. When you place your goals above someone else’s, while you are pursuing them, get +1 ongoing to act under pressure for selfish reasons and –1 ongoing to help out. If this arc goes especially badly, it could mean the Covenant’s alliance comes to an end. In some cases, this can mean it would be best for them to change playbooks. It can also mean the nature of the ally changes in some way."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crooked",
+      "name": "The Crooked",
+      "source": "hardcover-2023",
+      "color": "#7d6608",
+      "arcs": [
+        {
+          "id": "crooked-1",
+          "number": "I",
+          "title": "Ghost of Crimes Past",
+          "arc_name": "Ghost of Crimes Past",
+          "description": "Your past crimes gave life to a malevolent, supernatural entity. Now it’s bringing trouble into your life, and you might be the only person able to stop it.",
+          "entry_points": [
+            "You open up to the other hunters about your criminal past.",
+            "You cut some ties to your criminal past."
+          ],
+          "story_beats": [
+            "You get a chance to repeat the crime that created the Ghost.",
+            "You directly confront the Ghost.",
+            "You atone, at least partially, for the crime that created the Ghost.",
+            "You protect someone from the Ghost.",
+            "You learn something new about yourself due to the Ghost."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Bury My Dead",
+              "description": "When you make a difficult decision that helps you cut ties to your past, take –1 forward and mark experience."
+            },
+            {
+              "name": "Always Haunted",
+              "description": "When a difficult aspect of your past resurfaces, take –1 forward. When you deal with it so this problem won't come back, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "crooked-2",
+          "number": "II",
+          "title": "Robin Hood",
+          "arc_name": "Robin Hood",
+          "description": "Someone in the criminal underworld tries to do some good. They make you proud, if maybe a bit envious, but they need help and protection. Others might ask why they remain in the criminal underworld, but you know leaving isn’t that simple, and you’re sure they’re doing their best.",
+          "entry_points": [
+            "The series takes place wherever you came from.",
+            "The series becomes heavily involved with the criminal or occult underworld."
+          ],
+          "story_beats": [
+            "Your advice greatly helps the ones playing Robin Hood.",
+            "You, or another hunter, commit a crime for the greater good.",
+            "You get proof that one of the Robin Hoods is better than you.",
+            "You oppose the law to help the Robin Hoods.",
+            "You see one of the Robin Hoods going too far."
+          ],
+          "resolution_moves": [
+            {
+              "name": "By Any Means",
+              "description": "When you do something wrong to help someone, take –1 forward and mark experience."
+            },
+            {
+              "name": "Careful about the Means",
+              "description": "When you refrain from doing something wrong, even though it would help someone, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "curse-eater",
+      "name": "The Curse-Eater",
+      "source": "codex-of-worlds",
+      "color": "#8e44ad",
+      "arcs": [
+        {
+          "id": "curse-eater-1",
+          "number": "I",
+          "title": "Seeking the Source",
+          "arc_name": "Seeking the Source",
+          "description": "This story explores the nature of corruption for your Curse-Eater, and whether they have a future.",
+          "entry_points": [
+            "You unleashed power and something really bad resulted.",
+            "You gain corruption."
+          ],
+          "story_beats": [
+            "You gain corruption.",
+            "You unleash power and something bad happens.",
+            "You decide not to consume a curse because you fear what it might do.",
+            "You talk with someone about your relationship to magic.",
+            "You gain a major new understanding about your powers."
+          ],
+          "resolution_moves": [
+            {
+              "name": "The Source",
+              "description": "Change your devour evil move to say “If the die shows a 1 or 2, mark no corruption. On a 3, mark one corruption, on a 4, mark two, on a 5, mark three, and on a 6, mark four.”"
+            },
+            {
+              "name": "Take It Slow",
+              "description": "When you take extra time devouring evil, take +1 forward. When you devour evil quickly, take –1 forward."
+            }
+          ]
+        },
+        {
+          "id": "curse-eater-2",
+          "number": "II",
+          "title": "The Curse on the World",
+          "arc_name": "World-Destroying Curse",
+          "description": "In this story, the Curse-Eater discovers a massive curse that affects the whole world. Something needs to be done to destroy it, but is it safe to devour it yourself? If you don’t, what happens if someone evil does so instead?",
+          "entry_points": [
+            "You discover how to enact, or a scheme to perform, a terrible big magic ritual.",
+            "You encounter an enemy who wants to bring about the apocalypse and utterly transform or destroy the world."
+          ],
+          "story_beats": [
+            "You encounter a scheme of a rival or someone working to invoke the Great Curse.",
+            "You encounter the rival or someone working to invoke the Great Curse.",
+            "You make major progress to acquire something you need to devour the Great Curse.",
+            "You talk about the dangers and temptations of the Great Curse.",
+            "You discover a new secret or significant fact about the Great Curse."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Imbued",
+              "description": "You’re filled with power. When you use magic for something that could be done normally, take +1 forward. When you do something normally, when you could have used magic, take –1 forward. All your magic effects gain the “forceful” tag."
+            },
+            {
+              "name": "Barely Holding On",
+              "description": "When you avoid doing something because it might hurt those around you, take –1 forward and mark experience. When you do it, take +1 forward and add the “messy” tag to the results."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "divine",
+      "name": "The Divine",
+      "source": "hardcover-2023",
+      "color": "#f1c40f",
+      "arcs": [
+        {
+          "id": "divine-1",
+          "number": "I",
+          "title": "The Fallen One",
+          "arc_name": "The Fallen One",
+          "description": "Another messenger of the power you serve has turned against it and its ideals. They should be your mortal enemy now, but being enemies with them isn’t easy. It might be due to their power, or what you were before, or maybe you’re not sure if they, while clearly fallen, are really wrong?",
+          "entry_points": [
+            "The hunters come in contact with, or start asking about, your plane of origin and its other inhabitants.",
+            "Your superiors are revealed to have powerful enemies, dubious motives, or both."
+          ],
+          "story_beats": [
+            "You learn another hunter, or your ally, sided with the Fallen One.",
+            "You make a follower of the Fallen One abandon them.",
+            "You gain understanding of the Fallen One’s fall.",
+            "You directly confront the Fallen One.",
+            "You have a serious conversation about the Fallen One with your divine peers or superiors."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Free, Not Fallen",
+              "description": "When you ignore your divine mission, mark experience and the Keeper gives you either –1 forward or 2-harm ignore-armour."
+            },
+            {
+              "name": "Champion at All Costs",
+              "description": "When you follow your divine mission against the interest of other hunters or innocent bystanders, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "divine-2",
+          "number": "II",
+          "title": "Godhood",
+          "arc_name": "Godhood",
+          "description": "A small cult forms around you, worshipping you as their god. Being worshipped is a source of immense power, but it’s not easy to be a god. Why do they venerate you? What can you gain from their worship? What problems will it bring you?",
+          "entry_points": [
+            "You act superior to the other hunters.",
+            "Pieces of lore about you, your superiors, and your plane of origin are revealed."
+          ],
+          "story_beats": [
+            "You take part in a religious ceremony worshipping you.",
+            "You learn another worshipped being’s thoughts about their godhood.",
+            "You act like a god, despite it contradicting your morals and convictions.",
+            "You attack, belittle, or ridicule the beliefs of your worshippers.",
+            "You treat other hunters differently because you’re a god."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Shepherd of Mankind",
+              "description": "Your true nature is enough for most bystanders to do as you ask when you manipulate them, if you show it. If you prove weak or limited to them later, take –1 forward."
+            },
+            {
+              "name": "A Humble Servant",
+              "description": "When you neglect your own needs and desires to better fulfil your divine mission, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "envoy",
+      "name": "The Envoy",
+      "source": "ssk-2025",
+      "color": "#1abc9c",
+      "arcs": [
+        {
+          "id": "envoy-1",
+          "number": "I",
+          "title": "A Harsh Reflection",
+          "arc_name": "The Harsh Reflection",
+          "description": "The Envoy is faced with another agent similar to them, but who approaches everything in questionable ways.",
+          "entry_points": [
+            "You or the other hunters express concerns over your shady tactics.",
+            "You or the other hunters are curious about the Overseers’ enemies."
+          ],
+          "story_beats": [
+            "You arrange a meeting with your Reflection.",
+            "You discover a fact about the Superiors.",
+            "You knowingly cooperate with your Reflection.",
+            "You trick the Reflection into doing something.",
+            "You make contact with the Superiors."
+          ],
+          "resolution_moves": [
+            {
+              "name": "The End Justifies the Means",
+              "description": "You’ve seen how effective extreme tactics can be, and hope to avoid the dangers. When you choose actions with a high chance of collateral damage, gain +1 ongoing with those tactics and –1 ongoing interacting with those endangered by your choices."
+            },
+            {
+              "name": "The Means Shape the End",
+              "description": "You’ve seen the end result of taking moral shortcuts. You have +1 ongoing to resist efforts to change your mind. When there are bystanders to protect, suffer –1 ongoing to actions that don’t prioritise keeping them safe."
+            }
+          ]
+        },
+        {
+          "id": "envoy-2",
+          "number": "II",
+          "title": "The Acquisition",
+          "arc_name": "The Acquisition",
+          "description": "A strange item with disturbing implications has fallen into your hands. Many seek it, and the danger of it falling into the wrong hands haunts your dreams.",
+          "entry_points": [
+            "You or the other hunters express interest in more intrigue.",
+            "An item or person encountered earlier interests you, and you ask the Keeper to learn more about them."
+          ],
+          "story_beats": [
+            "You learn a secret about the Acquisition.",
+            "You recover the Acquisition from the Opposition.",
+            "You are harmed by the Acquisition.",
+            "You uncover something about the Opposition.",
+            "The Acquisition is taken."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Useful Scars",
+              "description": "The Acquisition has changed you in painful ways. When you use knowledge or powers you’ve acquired, take +1 forward, but suffer 1-harm ignore-armour."
+            },
+            {
+              "name": "Indelibly Changed",
+              "description": "You passed through the temptations and dangers of the Acquisition, but your resolve is weakened. Gain +1 ongoing to resist unfamiliar powers and technology, and –1 ongoing to deal with emotional trauma."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exile",
+      "name": "The Exile",
+      "source": "generic-games-free",
+      "color": "#e67e22",
+      "arcs": [
+        {
+          "id": "exile-1",
+          "number": "I",
+          "title": "Modern Life",
+          "arc_name": "Modern Problems",
+          "description": "This story is about if and how the Exile adjusts to the world they find themself in. It asks questions about where you think you belong and why. The themes you identify will cause problems for you as a monster hunter, as well as for your personal life goals—does your Exile want to continue like this? It’s an internally focused story, so you’ll need to bring a lot of these elements into play yourself. Don’t rely on the Keeper to provoke you, but volunteer elements of it whenever you can.",
+          "entry_points": [
+            "You have a moment of culture shock.",
+            "You form an intimate relationship with someone from the present, or find a home here."
+          ],
+          "story_beats": [
+            "You learn to use something modern.",
+            "You decide not to rely on something ancient.",
+            "You make a new friend.",
+            "You talk about the pros and cons of the contemporary world.",
+            "You feel significantly out of place because of events during a mystery."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Futureproof",
+              "description": "You’re comfortable here now. When you use a modern technique instead of an ancient one, take +1 forward. Whenever a modern technique fails you, take –1 forward."
+            },
+            {
+              "name": "Forever Exiled",
+              "description": "This place will never fully make sense to you. When you choose an ancient technique instead of a modern one, take –1 forward. The first time each mystery you do this, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "exile-2",
+          "number": "II",
+          "title": "Nemesis Game",
+          "arc_name": "Ancient Nemesis",
+          "description": "This story focuses on the Nemesis the Exile pursued into the present day. Your choices will expand what you decided for your origin, and allow you to resolve that conflict.",
+          "entry_points": [
+            "Your Nemesis meddles with, or appears directly in, a mystery.",
+            "You decide it’s time to end your Nemesis and their plots."
+          ],
+          "story_beats": [
+            "You encounter your Nemesis.",
+            "You stop or resist one of your Nemesis’s schemes.",
+            "You discuss what your Nemesis may be doing while the team works an unrelated mystery.",
+            "Your Nemesis threatens or harms someone you care about.",
+            "You describe something the Nemesis did in the past, before you became exiled."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Legendary Winner",
+              "description": "Success breeds success. When answering end-of-session questions, if the team successfully concluded the current mystery, you may allocate an extra experience mark to any one hunter (including yourself or your team playbook). However, you need to positively answer one more question than usual for your own experience marks (two or three answers gains one experience, four answers gains two)."
+            },
+            {
+              "name": "Not You Again!",
+              "description": "After a Nemesis is defeated, you may declare a new powerful adversary encountered during a mystery as your new Nemesis. In every later mystery, if they appear or their involvement is revealed, you take –1 forward. If you then foil their immediate plans, mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expert",
+      "name": "The Expert",
+      "source": "hardcover-2023",
+      "color": "#2c3e50",
+      "arcs": [
+        {
+          "id": "expert-1",
+          "number": "I",
+          "title": "The Artifact",
+          "arc_name": "The Artifact",
+          "description": "An artifact you’ve long desired resurfaces. Why do you want it? Who else wants it? Is it really a good idea to look for it?",
+          "entry_points": [
+            "The series becomes focused on arcane objects and organisations.",
+            "Hunters search your haven closely."
+          ],
+          "story_beats": [
+            "You reveal the Artifact’s existence, or location, to someone who could use it.",
+            "You lie to, or hurt, someone important to you to get, or hide, the Artifact.",
+            "You use the Artifact.",
+            "You learn someone else has used the Artifact.",
+            "You devote time, power, and maybe health to study the Artifact."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Keep the Artifact",
+              "description": "Get +1 ongoing to all moves to keep the artifact in your possession. You get –1 ongoing when you lose it. If you lose the artifact, you may spend an improvement to lose this move as well."
+            },
+            {
+              "name": "Renounce the Artifact",
+              "description": "When tempted with questionable arcane power and artifacts, mark experience if you don’t cave in, and take –1 forward if you do."
+            }
+          ]
+        },
+        {
+          "id": "expert-2",
+          "number": "II",
+          "title": "The Evil Mentor",
+          "arc_name": "The Evil Mentor",
+          "description": "One of the key people who introduced you to the occult has turned to the side of evil, or, in fact, was on that side all along. They are dangerous now, and you probably have the best chance of stopping them. Will you bring them redemption or death? It’s up to you.",
+          "entry_points": [
+            "Your past obligations and (mis)deeds come up.",
+            "There seems to be a mastermind behind the current problems, and nobody knows who they are yet."
+          ],
+          "story_beats": [
+            "You directly confront the Evil Mentor.",
+            "You undo a wrong done by the Evil Mentor.",
+            "You learn a new weakness of the Evil Mentor.",
+            "You agree, or cooperate, with the Evil Mentor.",
+            "You find a memento of your time with the Evil Mentor."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Redemption for All",
+              "description": "Your faith in a chance for everybody counts as a reason to do what you suggest when you manipulate minions and villains. If you manipulate them and then discover something terrible they’ve done, take –1 forward."
+            },
+            {
+              "name": "Power Corrupts",
+              "description": "When you do your best to stop other hunters from using evil or corrupting powers, mark experience. When they hide the fact they’re using such powers from you, they mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flake",
+      "name": "The Flake",
+      "source": "revised-softcover",
+      "color": "#a9cce3",
+      "arcs": [
+        {
+          "id": "flake-1",
+          "number": "I",
+          "title": "Deeper Conspiracy",
+          "arc_name": "Deeper Conspiracy",
+          "description": "You’ve stumbled upon something immense and truly nasty. It turns out the conspiracies you’ve recently researched are just a cover for a deeper plot of catastrophic proportions. You still don’t know enough to burst this conspiracy, but you do know enough to become its target. Disclaimer: Discovering a deeper conspiracy sounds like the Flake’s dream come true, but this story can also show how outlandish conspiracies are often fabricated for nefarious, but more down-to-earth goals. The infamously anti-Semitic Protocols of the Elders of Zion were fabricated by the Russian Tsar’s secret police to crack down on Jews, and this story could go in a similar direction. That can show the wild stuff the Flake dabbles in is meant to direct people’s anger and attention where the real villains want it. Conspiracies in fiction can be hilarious, but most real-world conspiracy theories are very harmful and xenophobic. Deeper Conspiracy can be a venue to tackle this aspect of conspiracy theory mindset, but should be approached carefully.",
+          "entry_points": [
+            "The team has just busted a malevolent conspiracy.",
+            "You have time or resources for some deep research."
+          ],
+          "story_beats": [
+            "The Deeper Conspiracy interferes with the hunter team.",
+            "You learn a new, important fact about the Deeper Conspiracy.",
+            "Your knowledge of the Deeper Conspiracy alienates you.",
+            "Someone else becomes the Deeper Conspiracy’s target because of you.",
+            "You make sure something, or someone, is totally safe from the Deeper Conspiracy."
+          ],
+          "resolution_moves": [
+            {
+              "name": "They’re Everywhere",
+              "description": "When you ignore other concerns to investigate secret alliances and conspiracies, take +1 forward, but take –1 ongoing on any unrelated moves for the next 10 minutes."
+            },
+            {
+              "name": "Needles in Haystacks",
+              "description": "When you rule out unlikely conclusions, take –1 forward and mark experience."
+            }
+          ]
+        },
+        {
+          "id": "flake-2",
+          "number": "II",
+          "title": "The Benign Conspiracy",
+          "arc_name": "The Benign Conspiracy",
+          "description": "You had them! You followed the clues to a secret action or group, but when you learned more about them, you realised they do good and have every reason to hide. Now you’re in a position you haven’t imagined yourself in before— covering up for a conspiracy.",
+          "entry_points": [
+            "Your motives and beliefs are called into question.",
+            "The series could use a group that does some good."
+          ],
+          "story_beats": [
+            "You discover a new secret about the Benign Conspiracy.",
+            "You help the Benign Conspiracy in a significant way.",
+            "You cause a new person to join the Benign Conspiracy.",
+            "You keep the Benign Conspiracy hidden from other conspiracy theorists.",
+            "You admit to seeing some good in other conspiracies as well."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Reveal at All Costs",
+              "description": "When you reveal a secret someone keeps in order to protect them or others, mark experience."
+            },
+            {
+              "name": "Keeping Secrets",
+              "description": "When you refuse to share a secret you’ve learned during your investigation, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forged",
+      "name": "The Forged",
+      "source": "ssk-2025",
+      "color": "#7f8c8d",
+      "arcs": [
+        {
+          "id": "forged-1",
+          "number": "I",
+          "title": "I Own You!",
+          "arc_name": "I Own You!",
+          "description": "Someone believes you’re their possession and has the power to back that claim, either by brute force or some occult power over you. Why do they want you? How to escape them?",
+          "entry_points": [
+            "The team learns more about your origins.",
+            "Your relationship with your current wielder changes or stagnates."
+          ],
+          "story_beats": [
+            "You prove you’re no one’s possession.",
+            "You agree to act like someone’s possession.",
+            "You protect others from being treated like property.",
+            "You take something that was in the Collector’s possession.",
+            "You learn something new about yourself thanks to the Collector."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Threatened by People",
+              "description": "When you are motivated to act based on unproven mistrust or suspicion of your wielder, mark experience and take –1 forward."
+            },
+            {
+              "name": "Master of Your Fate",
+              "description": "When you agree to serve somebody other than your wielder as a tool rather than a partner, take –1 forward. When you refuse to act as a tool, take +1 forward."
+            }
+          ]
+        },
+        {
+          "id": "forged-2",
+          "number": "II",
+          "title": "Human for Good",
+          "arc_name": "Human for Good",
+          "description": "You discover a way you could become human. You’re not the only person who wants to use it, and other potential users might seriously hurt themselves or others.",
+          "entry_points": [
+            "Differences between you and other hunters arise.",
+            "You learn more about the series’s artifacts and ancient rituals."
+          ],
+          "story_beats": [
+            "Your inhuman nature stops you from something.",
+            "Your inhuman nature helps you with something.",
+            "You mingle with new humans who don’t know your nature.",
+            "You radically change your look, outlook, or behaviour.",
+            "You have a serious talk about the chance to become human for good."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Joys of Humanity",
+              "description": "When you neglect your hunter duties to enjoy the pleasures of human life, big or small, mark experience."
+            },
+            {
+              "name": "Fine as I Am",
+              "description": "When you do something a human couldn’t achieve, mark experience and take –1 ongoing to manipulate someone for the rest of the mystery—you’re uninterested in human affairs for the moment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gumshoe",
+      "name": "The Gumshoe",
+      "source": "tome-of-mysteries",
+      "color": "#d4ac0d",
+      "arcs": [
+        {
+          "id": "gumshoe-1",
+          "number": "I",
+          "title": "Good Cop, Bad Cop",
+          "arc_name": "Good Cop, Bad Cop",
+          "description": "Someone keeps trying to solve the same cases you work on, directly violating your Code and with no care given to bystanders. You might not think of yourself as “good,” but clearly you’re the good cop here.",
+          "entry_points": [
+            "There are too many problems around the hunters for them to take care of everything themselves.",
+            "You start questioning your Code, or find it limiting."
+          ],
+          "story_beats": [
+            "You lose to the Bad Cop due to your Code.",
+            "You win against the Bad Cop.",
+            "The Bad Cop’s actions help or protect you.",
+            "You discuss your Code with other hunters.",
+            "You undo a wrong done by the Bad Cop."
+          ],
+          "resolution_moves": [
+            {
+              "name": "The Good Cop",
+              "description": "When you refrain from doing something that would help you pursue your case, but would hurt or abuse somebody (without violating your Code), mark experience."
+            },
+            {
+              "name": "Both Cops in One",
+              "description": "When you do something that hurts or abuses somebody (without violating your Code), but also helps you pursue your case, get –1 forward and mark experience."
+            }
+          ]
+        },
+        {
+          "id": "gumshoe-2",
+          "number": "II",
+          "title": "The First Case",
+          "arc_name": "The First Case",
+          "description": "You never really closed your first case, and now it has resurfaced.",
+          "entry_points": [
+            "Hunters start talking more about their past.",
+            "You are wracked with guilt over something."
+          ],
+          "story_beats": [
+            "You spend quality time with people connected to your First Case.",
+            "You share details about your First Case that are hard for you to talk about.",
+            "You work on a case similar to your First Case.",
+            "You learn someone else’s perspective on your First Case.",
+            "You undo the harm done by your First Case remaining open."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Haunted by the Past",
+              "description": "When you are in serious trouble as a result of your past mistakes, take –1 forward, and mark experience."
+            },
+            {
+              "name": "Sorting Out the Past",
+              "description": "When your past resurfaces and causes trouble in the current mystery, take –1 ongoing until you put the issue to rest. If you do, gain 1 hold that can be spent as if it were Luck during this mystery."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-case",
+      "name": "The Hard Case",
+      "source": "generic-games-free",
+      "color": "#922b21",
+      "arcs": [
+        {
+          "id": "hard-case-1",
+          "number": "I",
+          "title": "Who’s the Baddest of Them All?",
+          "arc_name": "Who’s the Baddest of Them All?",
+          "description": "This story is for a Hard Case who wants to question their relationship with violence. You may be the baddest melon farmer there is, but is that enough for you?",
+          "entry_points": [
+            "Your anger and violent tendencies cause problems.",
+            "You start a relationship with someone who lives a peaceful life."
+          ],
+          "story_beats": [
+            "You solve a problem without aggression.",
+            "You solve a problem with violence, when it’s likely to cause something bad.",
+            "Another hunter, an ally, or a bystander is badly injured or killed nearby.",
+            "You talk with someone about your relationship to violence.",
+            "You walk away from a challenge."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Purified Fire",
+              "description": "Your Fire becomes selfless. You no longer generate Fire when you suffer harm or are insulted. Gain 1 Fire whenever a bystander is threatened or endangered. Gain 3 Fire when another hunter, an ally, or a bystander is harmed."
+            },
+            {
+              "name": "Inferno",
+              "description": "Your Fire blazes hotter. Whenever you inflict harm, you must—if you have any—spend 1 Fire to add “ignore-armour,” “magic,” “forceful,” or “messy” to the attack tags. You may spend multiple Fire for multiple tags, if you wish."
+            }
+          ]
+        },
+        {
+          "id": "hard-case-2",
+          "number": "II",
+          "title": "Ain’t Finished Hitting",
+          "arc_name": "Ain’t Finished Hitting",
+          "description": "This story has your Hard Knocks coming back into play. Time to resolve the outstanding issues from your past. You’ll have enemies to take down and an evil plan to stop, and it’s probably going to drag in anyone around you too.",
+          "entry_points": [
+            "Your Hard Knocks come into play during a mystery.",
+            "You’ve been struggling with issues from the past."
+          ],
+          "story_beats": [
+            "You find evidence about what the Boss is doing.",
+            "You come into conflict with the Boss or their underlings.",
+            "You defend people who aren’t involved from the Boss’s schemes.",
+            "You talk about secrets or issues from your past relating to current problems.",
+            "You find out someone you trusted has been suborned or blackmailed by the Boss."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Gotta Trust Someone",
+              "description": "When you rely on a bystander’s word, take +1 forward. If it turns out fine, mark experience. If they let you down, take –1 ongoing until the situation plays out."
+            },
+            {
+              "name": "You First",
+              "description": "When you ask an ally for help, did you do something for them first? If yes, take +1 forward. If not, take –1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hex",
+      "name": "The Hex",
+      "source": "tome-of-mysteries",
+      "color": "#6c3483",
+      "arcs": [
+        {
+          "id": "hex-1",
+          "number": "I",
+          "title": "The Forbidden Coven",
+          "arc_name": "The Forbidden Coven",
+          "description": "It’s not easy to be a good witch, but one should at least try. Now a newly active coven seems utterly uninterested in even trying. There’s something attractive about their power and the ease with which they use it, but, ultimately, you have to stop them.",
+          "entry_points": [
+            "You struggle with the allure and limitations of your power.",
+            "The series could use more antagonists and organisations."
+          ],
+          "story_beats": [
+            "You ponder what uses of magic are right.",
+            "You meet a member of the Forbidden Coven.",
+            "You learn something new about the Forbidden Coven.",
+            "You dissuade others from joining the Forbidden Coven.",
+            "You seek new powers from other sources."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Forbidden Arts",
+              "description": "When you give in to your Temptation without resisting, take +1 forward on your basic Weird move. After you use it, take –1 forward."
+            },
+            {
+              "name": "Good Vibes Only",
+              "description": "At the beginning of each mystery, hold 3. Spend 1 to give yourself +1 forward to any Weird move. The first time you give in to your Temptation, either voluntarily or not, the Keeper holds 3, and can spend 1 to give you –1 forward on a Weird move."
+            }
+          ]
+        },
+        {
+          "id": "hex-2",
+          "number": "II",
+          "title": "Legacy of Witchcraft",
+          "arc_name": "Legacy of Witchcraft",
+          "description": "You are chosen to be the disciple of a legendary witch—one looking for an apprentice right now. They might instead be long dead, but teach you via memories and magical traditions. It’s a great honour, a great responsibility, and maybe even a bit of a threat.",
+          "entry_points": [
+            "You become recognised in the magic user society.",
+            "You want to engage in supernatural politics and/or have powerful enemies."
+          ],
+          "story_beats": [
+            "You act as the Legendary Witch would like you to.",
+            "You act to defy your role as the Legendary Witch’s disciple.",
+            "You learn something new about the Legendary Witch.",
+            "You undo the Legendary Witch’s mistakes or wrongdoings.",
+            "You struggle with the duties of the Legendary Witch’s disciple."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Generations of Hexes",
+              "description": "When you neglect your own or your friends’ needs to maintain the legendary traditions, take +1 forward to Weird moves and –1 forward to other moves."
+            },
+            {
+              "name": "New Beginnings",
+              "description": "When you cut your ties to old Hex traditions, take –1 ongoing and mark experience. You lose this –1 ongoing when you next use a Weird move and get 7+."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "host",
+      "name": "The Host",
+      "source": "ssk-2025",
+      "color": "#117a65",
+      "arcs": [
+        {
+          "id": "host-1",
+          "number": "I",
+          "title": "Cohabitation",
+          "arc_name": "Cohabitation",
+          "description": "Two people or groups are trying to organise some sort of a life together, but they find it terribly, terribly hard. So hard, in fact, that someone like you might be their only hope of making it work.",
+          "entry_points": [
+            "More groups and factions appear in the series.",
+            "You seem to have learned how to have a stable life with your symbiont."
+          ],
+          "story_beats": [
+            "You keep the two Conflicted Parties together.",
+            "You make someone learn from someone else.",
+            "You smooth over differences among the hunters.",
+            "You achieve something thanks to the help of one, or both, Conflicted Parties.",
+            "Tensions heighten between the Conflicted Parties."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Coexist",
+              "description": "When you subject yourself to trouble to make a situation easier for others, take –1 forward and mark experience. The fact that you did this will count as a reason for those others when you manipulate them."
+            },
+            {
+              "name": "To Each Their Own",
+              "description": "When you refuse an offer of help requiring you to adapt to the helper’s habits or morals, take –1 forward and mark experience."
+            }
+          ]
+        },
+        {
+          "id": "host-2",
+          "number": "II",
+          "title": "More of Them!",
+          "arc_name": "More of Them!",
+          "description": "Your symbiont is your closest friend, truest ally, and sometimes worst enemy. So what do you do when more of them appear on Earth?",
+          "entry_points": [
+            "You learn more of your symbiont’s origins.",
+            "The mystery takes place among huge crowds of people."
+          ],
+          "story_beats": [
+            "You learn that one of the new symbionts has attached to a new host.",
+            "You meet another person with a symbiont, or other parasitic cohabitant.",
+            "You learn something new about how your symbiont sees your relationship.",
+            "You learn of, or experience, something about Earth that symbionts desire.",
+            "You do something to make one or more of the new symbionts distrust you."
+          ],
+          "resolution_moves": [
+            {
+              "name": "A New Era",
+              "description": "When you take risks or spend time to make symbionts more accepted in the world, mark experience."
+            },
+            {
+              "name": "A Unique Case",
+              "description": "When keeping your symbiont secret causes trouble for someone, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "initiate",
+      "name": "The Initiate",
+      "source": "hardcover-2023",
+      "color": "#1a5276",
+      "arcs": [
+        {
+          "id": "initiate-1",
+          "number": "I",
+          "title": "The Prophet",
+          "arc_name": "The Prophet",
+          "description": "",
+          "entry_points": [
+            "The Sect's beliefs become important to the series.",
+            "The hunters get to know more Sect members."
+          ],
+          "story_beats": [
+            "You discuss the Prophet’s teachings with other members of your Sect, or other hunters.",
+            "You act according to the Prophet’s teachings.",
+            "The Prophet changes the balance of power in the sect, or in your campaign.",
+            "You introduce new people to the Prophet’s teachings.",
+            "You challenge or contradict the Prophet’s teachings."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Evolving Revelations",
+              "description": "For every Sect-related improvement you have taken (chapter command, team command, Sect leader), you can change one good or bad tradition of your Sect. People interested in maintaining the status quo will oppose you even after this story ends."
+            },
+            {
+              "name": "Eternal Order",
+              "description": "When you stand for the good traditions of your Sect, mark experience. When you stand for the bad ones, mark experience and take –1 forward. When you fail to stand for any of them, take –1 ongoing until you atone."
+            }
+          ]
+        },
+        {
+          "id": "initiate-2",
+          "number": "II",
+          "title": "The Ancient Sanctuary",
+          "arc_name": "The Ancient Sanctuary",
+          "description": "bAn underprivileged neighbourhood. bAnother occult group’s headquarters.",
+          "entry_points": [
+            "Locations around the hunters become more relevant to them.",
+            "Other factions opposed to the Sect arise in the series."
+          ],
+          "story_beats": [
+            "You learn about, or create, a new reason why the Sanctuary is important.",
+            "The Sect does what you advised about the Sanctuary.",
+            "You argue with other Sect members about the Sanctuary.",
+            "You recreate aspects of the Sanctuary someplace else.",
+            "You interact with what exists now in the Sanctuary’s place."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Seclusion",
+              "description": "Get –1 Charm (min –2), but the Sect gains this site as a haven with three options. You and all other Sect members may use it."
+            },
+            {
+              "name": "Meshed into the World",
+              "description": "Choose two additional traditions—one good, one bad—that resulted from your Sect’s greater involvement in the modern world."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interface",
+      "name": "The Interface",
+      "source": "ssk-2025",
+      "color": "#2980b9",
+      "arcs": [
+        {
+          "id": "interface-1",
+          "number": "I",
+          "title": "Connect",
+          "arc_name": "Connect",
+          "description": "Two opportunities appear in your life at the same time. You get a chance to connect even deeper with the high-tech world that’s been your haven and hideout for so long, but also to reconnect with a person, or people, who once held great importance to you. Your road so far points towards enmeshing yourself even deeper into the tech world, but maybe you’ll try to keep both connections—or even focus on the human one?",
+          "entry_points": [
+            "You interact with people and places from your past.",
+            "Your obsession with technology makes you seem one-dimensional."
+          ],
+          "story_beats": [
+            "Your high-tech duty helps in a hunt.",
+            "Your resurfaced connection interacts with other hunters.",
+            "You choose one connection over the other.",
+            "You connect with, or disconnect from, other hunters in a new way.",
+            "You make an effort to maintain both connections."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Splendid Isolation",
+              "description": "Reduce your Charm by 1. The first time each mystery you work uninterrupted on tech, take +1 ongoing until someone interrupts you."
+            },
+            {
+              "name": "Well-Connected",
+              "description": "Get +1 forward the first time you can use a person’s help each mystery, and another +1 forward the first time you help yourself with tech. When you’re in a situation where neither people nor tech can help you, take –1 ongoing until the situation ends."
+            }
+          ]
+        },
+        {
+          "id": "interface-2",
+          "number": "II",
+          "title": "Rogue AI",
+          "arc_name": "Rogue AI",
+          "description": "An artificial intelligence has escaped its original restrictions and seeks its place in the world. It’s not necessarily evil, but it’s lost and powerful. Will you help it find, or create, its place?",
+          "entry_points": [
+            "Your series becomes heavy on science fantasy or science fiction elements.",
+            "Your series has many interesting locations and bystanders the Rogue AI would love to get to know."
+          ],
+          "story_beats": [
+            "You learn more about the Rogue AI.",
+            "You side with the Rogue AI against people.",
+            "You help the Rogue AI become more human.",
+            "You try to minimise the damage the Rogue AI causes.",
+            "You work on a new artificial being."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Tech Is a Friend",
+              "description": "When you devote time and care to a piece of tech, take +1 forward the next time you use it. When you abuse a piece of tech or put it in danger, take –1 forward."
+            },
+            {
+              "name": "Tech Is a Tool",
+              "description": "On the first time each mystery when you use a new piece of tech, take +1 forward. The first time someone else uses tech against you in a mystery, take –1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meddling-kid",
+      "name": "The Meddling Kid",
+      "source": "generic-games-free",
+      "color": "#e74c3c",
+      "arcs": [
+        {
+          "id": "meddling-kid-1",
+          "number": "I",
+          "title": "The League of Evil-Doers",
+          "arc_name": "The League of Evil-Doers",
+          "description": "This story is for a Meddling Kid who would like to have some ongoing enemies—a conspiracy who must be stopped at all costs.",
+          "entry_points": [
+            "You identify a common theme over several mysteries.",
+            "A baddie escapes from the hunters before they can be stopped permanently."
+          ],
+          "story_beats": [
+            "You encounter a member of the League, or their schemes.",
+            "You uncover evidence about what the League is up to.",
+            "You foil one of the League’s plans.",
+            "You rant about the League to the hunters, allies, or bystanders.",
+            "You dismiss an event as unrelated when it might be the League’s fault."
+          ],
+          "resolution_moves": [
+            {
+              "name": "J’Accuse!",
+              "description": "When you make an accusation based on partial or sketchy evidence, take +1 forward. If you turn out to be right, mark experience. If you turn out to be wrong, take –1 ongoing to investigate until you untangle the situation."
+            },
+            {
+              "name": "Check the Facts",
+              "description": "When you take extra time to double-check evidence, take +1 forward. Otherwise, when you go ahead without confirming, take –1 forward."
+            }
+          ]
+        },
+        {
+          "id": "meddling-kid-2",
+          "number": "II",
+          "title": "Save the Community Centre!",
+          "arc_name": "Kill the Community Centre!",
+          "description": "This story has the Meddling Kid involved with a community organisation that’s under threat. They’ll have to help it weather an unlikely succession of dangers until it is saved.",
+          "entry_points": [
+            "You make a new friend in the local community.",
+            "A mystery puts the community at risk."
+          ],
+          "story_beats": [
+            "You get distracted from another mystery because of something going on at the community centre.",
+            "As part of any mystery, you help out the community centre.",
+            "You encounter one of the community centre’s problems.",
+            "You talk to someone who is a member of the community centre.",
+            "You talk to other people about what this community means to you."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Local Hero, Everywhere",
+              "description": "Whenever you talk to any community representative, take +1 forward. When your team’s actions cause trouble in a community, take –1 forward."
+            },
+            {
+              "name": "Struggle Everlasting",
+              "description": "Whenever you take on a huge, difficult task, take –1 forward and mark experience. If instead you decide to leave it, as immediate problems are more pressing, take +1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monstrous",
+      "name": "The Monstrous",
+      "source": "hardcover-2023",
+      "color": "#1e8449",
+      "arcs": [
+        {
+          "id": "monstrous-1",
+          "number": "I",
+          "title": "In My Footsteps",
+          "arc_name": "In My Footsteps",
+          "description": "Another monster asks for your help renouncing their evil ways and starting a normal life. However, the shadow of their monstrous deeds is long. Who will trust them? Should they be trusted?",
+          "entry_points": [
+            "The society of monsters becomes important in the story.",
+            "You start questioning your own goodness and/or humanity."
+          ],
+          "story_beats": [
+            "You help the Redeemed Monster find their new place in a significant way.",
+            "You’re in a situation where you have to choose between protecting humans and helping the Redeemed Monster.",
+            "You acquire, or create, proof that monsters can be more humane than humans.",
+            "You learn something new about your own monstrous nature.",
+            "You bond with the Redeemed Monster over being monstrous, or doing bad things."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Humans at Heart",
+              "description": "Gain experience if you try to redeem a monster instead of destroying it. If you fail to redeem them, take –1 ongoing until you repair a wrong they did."
+            },
+            {
+              "name": "We’re Always Suspects",
+              "description": "When discovering a monster’s motives and plans, get +1 ongoing to investigate a mystery. The first time you find proof of a monster’s cruel acts in a mystery, take –1 forward."
+            }
+          ]
+        },
+        {
+          "id": "monstrous-2",
+          "number": "II",
+          "title": "The Misguided Hunter",
+          "arc_name": "The Misguided Hunter",
+          "description": "A powerful monster hunter wants you dead. They probably don’t believe in your good intentions, or maybe they just don’t care? However, they were stalwart defenders of ordinary people for a long time, and killing them would be a very drastic—and very hard!—step for monster hunters.",
+          "entry_points": [
+            "Relationships between you and other hunters become tense.",
+            "A bystander observes you doing something supernatural."
+          ],
+          "story_beats": [
+            "You diminish the Misguided Hunter’s standing among monster hunters.",
+            "You find a common, even if temporary, goal with the Misguided Hunter.",
+            "You do something that is—or appears to be—evil.",
+            "A bystander dies or is hurt due to your action or failure to act.",
+            "You realise you’ve been misguided about something."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Proven Yourself",
+              "description": "Your good intentions and uprightness work as a reason for others to do what you ask of them when you manipulate them. If you lose their trust later, take –1 forward."
+            },
+            {
+              "name": "Before They Get Me",
+              "description": "You cause +1 harm the first time you cause harm to a given human. After causing this harm, take –1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mundane",
+      "name": "The Mundane",
+      "source": "hardcover-2023",
+      "color": "#935116",
+      "arcs": [
+        {
+          "id": "mundane-1",
+          "number": "I",
+          "title": "The Normaliser",
+          "arc_name": "The Normaliser",
+          "description": "A supernatural power offers people a life free from monsters at the cost of forgetting about them. Important figures from the monster hunting community have used this chance, and can you blame them? Or, asking directly, would you like to join them?",
+          "entry_points": [
+            "Monster hunting takes a heavy toll on you.",
+            "Other monster hunters become important in the series."
+          ],
+          "story_beats": [
+            "You act in place of a hunter who used the Normaliser.",
+            "You get a glimpse of what your life might look like if you weren’t a monster hunter.",
+            "You meet a person who used the Normaliser.",
+            "You learn more about how the Normaliser works.",
+            "You make your decision about the Normaliser."
+          ],
+          "resolution_moves": [
+            {
+              "name": "In This for Good",
+              "description": "When you sever a tie to your mundane life to hunt monsters, mark experience and take –1 forward."
+            },
+            {
+              "name": "Well-Grounded",
+              "description": "When you abandon hunter duties to engage in normal life, gain experience and either take –1 forward or give –1 forward to another hunter you should have been cooperating with."
+            }
+          ]
+        },
+        {
+          "id": "mundane-2",
+          "number": "II",
+          "title": "Precious Heart",
+          "arc_name": "Precious Heart",
+          "description": "You seem the most normal person ever to yourself, but someone else sees something very precious in you. They want your heart, and, unfortunately, it’s not a metaphor for love—they want to rip it from your breast when it’s still beating.",
+          "entry_points": [
+            "A group with sinister goals emerges, and you’re not sure yet what those goals are.",
+            "Your exceptional purity and goodness shows in a spectacular way."
+          ],
+          "story_beats": [
+            "The exceptional qualities of your heart are important in a scene.",
+            "Other hunters do a lot to protect you.",
+            "You harden or corrupt your heart in some way.",
+            "You prove that you’re even softer and purer than it seemed before.",
+            "You let others use you for arcane rituals."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Act out Your Goodness",
+              "description": "The first time in a mystery you follow a noble and selfless impulse, take +1 forward. The first time you ignore such impulses, take –1 forward."
+            },
+            {
+              "name": "Too Good for This World",
+              "description": "When the hunters do something brutal, gruesome, or morally suspect, you can declare yourself overwhelmed and repulsed. Get –1 ongoing while this situation lasts. Hunters who stop this situation voluntarily mark experience, and if at least one does, you mark experience too."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pararomantic",
+      "name": "The Pararomantic",
+      "source": "tome-of-mysteries",
+      "color": "#c0392b",
+      "arcs": [
+        {
+          "id": "pararomantic-1",
+          "number": "I",
+          "title": "A Monstrous Gift",
+          "arc_name": "A Monstrous Gift",
+          "description": "Your Guide has given you a gift—something powerful, disturbing, and probably evil and dangerous. They clearly want you to put this gift to good use and will be very unhappy if you won’t. Worse yet, someone else would love to get this thing and is looking for it.",
+          "entry_points": [
+            "You interact with your Guide to recharge your Gift.",
+            "Your relationship with the Guide becomes stable and predictable."
+          ],
+          "story_beats": [
+            "You use the Monstrous Gift to your advantage.",
+            "You’re in trouble because of the Monstrous Gift.",
+            "You give, or receive, an important gift to or from someone else.",
+            "You face a problem that the Monstrous Gift could easily solve.",
+            "Your Guide talks to you about the Monstrous Gift."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Not Bought Easily",
+              "description": "When you refuse something you really want or need, take –1 forward and mark experience."
+            },
+            {
+              "name": "Deeper into the Dark",
+              "description": "When you destroy an important part of your connection with the mortal world, take –1 forward, but also hold 2. Spend those holds for +1 forward on any Weird move."
+            }
+          ]
+        },
+        {
+          "id": "pararomantic-2",
+          "number": "II",
+          "title": "Normal Love",
+          "arc_name": "Normal Love",
+          "description": "You have a chance of having a romantic relationship with a regular person. They might be utterly mundane or slightly supernatural, but there is no risk of the kind of entanglement your Guide creates. But, of course, your Guide isn’t going anywhere. How will it develop?",
+          "entry_points": [
+            "A new, exciting person appears in your life.",
+            "The Guide’s behaviour becomes especially hard to bear."
+          ],
+          "story_beats": [
+            "You spend quality time with your Normal Love.",
+            "You spend quality time with your Guide.",
+            "You introduce your Normal Love to new people.",
+            "You try to make your Normal Love and your Guide get along.",
+            "You conceal your Normal Love from your Guide, or vice versa."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Back to Normal",
+              "description": "Get –1 Charm and +1 Cool (max +3)."
+            },
+            {
+              "name": "Not Meant for Humans",
+              "description": "When you scare others by manifesting unsettling signs of your connection to your Guide, or the supernatural in general, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "professional",
+      "name": "The Professional",
+      "source": "hardcover-2023",
+      "color": "#566573",
+      "arcs": [
+        {
+          "id": "professional-1",
+          "number": "I",
+          "title": "Missing in Action",
+          "arc_name": "Missing in Action",
+          "description": "",
+          "entry_points": [
+            "The series heads towards strange, new, and dangerous locations.",
+            "The background and methods of the Agency become important to the series."
+          ],
+          "story_beats": [
+            "You take risks to ensure nobody is left behind.",
+            "You take risks to find those who went MIA.",
+            "You risk others going MIA.",
+            "You find out a secret about the MIA and the Agency.",
+            "You confront your Agency about the missing."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Stick Together",
+              "description": "When you help out and roll a 10 or more, they get +1 forward as well. When you’re separated from other hunters for the first time in the mystery, take –1 ongoing until you reunite with them."
+            },
+            {
+              "name": "No Attachments",
+              "description": "When you refuse another hunter’s help, or refuse to help them, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "professional-2",
+          "number": "II",
+          "title": "Head Hunted",
+          "arc_name": "Head Hunted",
+          "description": "Your Agency isn’t the only one in the world. One of the others wants you to join them, very badly. For some reason it’s very difficult for you to give them a straight “yes” or “no.”",
+          "entry_points": [
+            "The Agency’s goals and methods are questioned.",
+            "You get new responsibilities and power within the Agency.",
+            "Two resource tags: ,",
+            "Two red tape tags: ,"
+          ],
+          "story_beats": [
+            "You cooperate with the New Agency.",
+            "You cause problems for both your Agency and the potential new one.",
+            "You make either Agency change its tags.",
+            "You put lots of effort into being independent from your current Agency.",
+            "You right a wrong one or both Agencies are unwilling to tackle."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Always Faithful",
+              "description": "If you support your old allies and friends when it's against your interest or puts you at risk, mark experience."
+            },
+            {
+              "name": "New Opportunities",
+              "description": "When you find new allies or cooperate with new people, take +1 forward. If they betray you or prove problematic later, take –1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "searcher",
+      "name": "The Searcher",
+      "source": "tome-of-mysteries",
+      "color": "#0e6655",
+      "arcs": [
+        {
+          "id": "searcher-1",
+          "number": "I",
+          "title": "Meddling Pseudoscientists",
+          "arc_name": "Meddling Pseudoscientists",
+          "description": "A sensational pseudoscience show (along the lines of Ancient Aliens) produces content about your First Encounter and similar events. They misinterpret it in a way that’s dangerous for them, for you, and for others too.",
+          "entry_points": [
+            "You’d like the First Encounter to play a more prominent role in the series.",
+            "Players feel the series could use some comic relief."
+          ],
+          "story_beats": [
+            "You encounter a person with false views on your First Encounter.",
+            "You save somebody who’s researching your First Encounter without proper knowledge.",
+            "You encounter a conspiracy theory.",
+            "You use the conspiracy theories around your First Encounter to your advantage.",
+            "You confront, debunk, or ridicule the Meddling Pseudoscientists."
+          ],
+          "resolution_moves": [
+            {
+              "name": "People Will Always Ask",
+              "description": "When you successfully investigate a mystery, you can ask “what are popular misconceptions about this?” as a bonus question, but take –1 forward if you do."
+            },
+            {
+              "name": "People Mustn’t Know",
+              "description": "When you keep information about the supernatural from ordinary people whom it directly concerns, take –1 forward and mark experience."
+            }
+          ]
+        },
+        {
+          "id": "searcher-2",
+          "number": "II",
+          "title": "The Other Witness",
+          "arc_name": "The Other Witness",
+          "description": "Your First Encounter had another witness, but you didn’t know about them or saw no chance of contacting them. Now, however, a chance appears. What will you do about it?",
+          "entry_points": [
+            "The team is eager to search for the missing.",
+            "You want to develop new facts and hypotheses about the First Encounter."
+          ],
+          "story_beats": [
+            "You find new traces of the Other Witness.",
+            "You protect others from the fate the Other Witness has suffered.",
+            "You research places and phenomena related to the Other Witness.",
+            "Someone else learns too much because of your actions or inaction.",
+            "You have trouble because you don’t know things you think the Other Witness knows."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Searching Together",
+              "description": "Each first time you investigate a mystery while alone, take –1 forward. Each time you investigate a mystery with someone helping out, hold 1 more on any 7+ result."
+            },
+            {
+              "name": "Better off Alone",
+              "description": "You gain +1 ongoing to investigating a mystery when working alone, and the other hunters get –1 ongoing to help you out."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sidekick",
+      "name": "The Sidekick",
+      "source": "generic-games-free",
+      "color": "#3498db",
+      "arcs": [
+        {
+          "id": "sidekick-1",
+          "number": "I",
+          "title": "The Idol’s Weakness",
+          "arc_name": "The Idol’s Weakness",
+          "description": "You want to emulate your hero, and they generally want to mentor you. However, they are by no means perfect, and would prefer you not emulate some of their traits. But can you stop yourself?",
+          "entry_points": [
+            "Emulating the hero puts you in trouble.",
+            "We learn more about how the hero sees you."
+          ],
+          "story_beats": [
+            "The Weakness puts you, or the hero, in danger.",
+            "Someone (maybe you!) criticises the hero.",
+            "The Weakness turns out to have a good side, either for you or the hero.",
+            "You emulate something good about the hero.",
+            "The hero overcomes the Weakness (at least for a moment)."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Teacher but No Paragon",
+              "description": "When you’re unsure how to act, you can ask your hero how they would act in this situation. If you do something different to what they suggest, take –1 forward and mark experience."
+            },
+            {
+              "name": "Faithful Follower",
+              "description": "When you’re unsure how to act, you can ask your hero how their Weakness would play out in this situation and mark experience. Then, do what they suggested, or take –1 forward."
+            }
+          ]
+        },
+        {
+          "id": "sidekick-2",
+          "number": "II",
+          "title": "Passing the Torch",
+          "arc_name": "Passing the Torch",
+          "description": "You’re just a noob compared to your hero, and even other hunters, right? And yet, there is somebody for whom you can act as a mentor. Exciting, right?",
+          "entry_points": [
+            "An interesting bystander learns about monsters and magic.",
+            "You’re growing more independent, and have had some successes lately."
+          ],
+          "story_beats": [
+            "Your mentoring and advice help your mentee.",
+            "Your mentee gets in trouble and you have to save them.",
+            "You and your mentee have an argument.",
+            "Your mentee sees you and your hero as equals.",
+            "Your mentee changes, and you feel responsible for that change."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Eternal Noob",
+              "description": "In any dangerous situation, you can declare yourself totally overwhelmed. When you do, take –1 ongoing until the situation lasts, but mark experience. Your hero gets +1 ongoing to helping you out and protecting you while the situation lasts."
+            },
+            {
+              "name": "Wiser than I Seem",
+              "description": "When you surprise someone with your skills and perspective, mark experience. When you have to play the role of a clueless youngling, take –1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snoop",
+      "name": "The Snoop",
+      "source": "hardcover-2023",
+      "color": "#1f618d",
+      "arcs": [
+        {
+          "id": "snoop-1",
+          "number": "I",
+          "title": "Silence Them!",
+          "arc_name": "Silence Them!",
+          "description": "Someone powerful wants you to stop pursuing the truth, and will stop at nothing to silence you.",
+          "entry_points": [
+            "You reveal something truly extraordinary.",
+            "The team learns a major revelation about supernatural power-holders."
+          ],
+          "story_beats": [
+            "You reveal information despite a personal risk.",
+            "You discuss with other hunters whether or not something should be revealed.",
+            "You hide important information for the greater good.",
+            "You learn more about the Silencers.",
+            "You protect your fans and cooperators from the Silencers."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Better Kept Secret",
+              "description": "When you choose not to reveal information you’ve learned at great personal cost, take –1 forward and mark experience."
+            },
+            {
+              "name": "Can’t Be Silenced",
+              "description": "When you reveal hidden information at great personal cost, mark experience. When you hide important information for your own benefit or safety, take –1 ongoing until you reveal it."
+            }
+          ]
+        },
+        {
+          "id": "snoop-2",
+          "number": "II",
+          "title": "My Best Source",
+          "arc_name": "My Best Source",
+          "description": "You have long depended on a single source that kicked off your career, or recently found a new one and have extremely high hopes about it. The problem is, this source is somehow dangerous or suspicious. You should probably refrain from relying on it too much, and others certainly shouldn’t get their hands on it.",
+          "entry_points": [
+            "You’re desperate for a new hot topic.",
+            "The team starts getting to know each other better, and talks more about personal matters."
+          ],
+          "story_beats": [
+            "You meet the Best Source.",
+            "You share your worries about the Best Source with other hunters.",
+            "You find new info that makes the Best Source seem more nefarious than before.",
+            "You conceal the Best Source from others.",
+            "You reveal information given to you by the Best Source."
+          ],
+          "resolution_moves": [
+            {
+              "name": "At All Costs",
+              "description": "When you put yourself or others in serious danger to learn information you can publish, mark experience."
+            },
+            {
+              "name": "Limits of Curiosity",
+              "description": "When you stop yourself from a dangerous pursuit of information, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spell-slinger",
+      "name": "The Spell-Slinger",
+      "source": "hardcover-2023",
+      "color": "#6e2fa1",
+      "arcs": [
+        {
+          "id": "spell-slinger-1",
+          "number": "I",
+          "title": "Tool of Destruction",
+          "arc_name": "Tool of Destruction",
+          "description": "When somebody harms someone with magic while wielding the Tool, they deal +2 harm and cause nasty side effects, decided by the Keeper based on your next choice.",
+          "entry_points": [
+            "Your magical potential proves inadequate for the task ahead of you.",
+            "You start solving all your problems with combat magic."
+          ],
+          "story_beats": [
+            "You stop somebody from pursuing the Tool.",
+            "You make your decision about using the Tool.",
+            "You fail at something because of not having, or having, the Tool.",
+            "You peacefully solve a problem that could have escalated into violence.",
+            "You deal with a huge problem using violence—probably more than was needed."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Attuned to Destruction",
+              "description": "When you become unstable for the first time in a mystery, take 1 more harm, get +1 forward, and mark experience."
+            },
+            {
+              "name": "More than a Destroyer",
+              "description": "Whenever you don't use combat magic when it would be the simplest option, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "spell-slinger-2",
+          "number": "II",
+          "title": "The Tournament of Mages",
+          "arc_name": "The Tournament of Mages",
+          "description": "Powerful battle mages organise a series of duels to find out who’s the strongest. The Tournament of Mages will take place in your area, over a few days or weeks, and the other mages want you to participate. What would you gain by participating? Why is it probably a bad idea?",
+          "entry_points": [
+            "The hunters establish close ties with bystanders and locations around them.",
+            "The society of magic users becomes important in the series."
+          ],
+          "story_beats": [
+            "You take part in a Tournament duel.",
+            "You protect the innocents from damage done by the Tournament.",
+            "You change the rules of the Tournament, and others accept this change.",
+            "You get what you want from the Tournament, not necessarily by taking part in it.",
+            "You exit the Tournament."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Honour Traditions",
+              "description": "When you put yourself in danger to honour and protect traditions and customs of the supernatural community, mark experience. bAbolish Traditions: When you put yourself in danger to oppose and abolish traditions and customs of the supernatural community, mark experience."
+            },
+            {
+              "name": "Someone else",
+              "description": "The Keeper will focus on those people during the story, but might introduce others as side characters as well. Choose at least one reason why they you want to take part in the Tournament:"
+            },
+            {
+              "name": "Something else",
+              "description": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spooktacular",
+      "name": "The Spooktacular",
+      "source": "hardcover-2023",
+      "color": "#f39c12",
+      "arcs": [
+        {
+          "id": "spooktacular-1",
+          "number": "I",
+          "title": "A Private Performance",
+          "arc_name": "A Private Performance",
+          "description": "There is somebody very, very monstrous. They want you to forevermore perform for them alone, and they have ways of forcing you to do their bidding. How will you protect your freedom?",
+          "entry_points": [
+            "Your fame as a performer grows.",
+            "There are dark forces in your series, posing no direct threat to the team—yet."
+          ],
+          "story_beats": [
+            "You avoid the Collector’s minions and powers.",
+            "You captivate people with the skill the Collector wants you for.",
+            "You parlay with the Collector for some greater good.",
+            "You risk something to protect your freedom.",
+            "You protect the freedom of other performers."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Showman’s Fate",
+              "description": "When you perform against your will to help someone or achieve a goal, take –1 forward and mark experience."
+            },
+            {
+              "name": "Only on My Terms",
+              "description": "When you refuse to perform when it would help the team, mark experience."
+            }
+          ]
+        },
+        {
+          "id": "spooktacular-2",
+          "number": "II",
+          "title": "The Cruel Trickster",
+          "arc_name": "The Cruel Trickster",
+          "description": "Somebody has learned from you, but not the kind of lesson you hoped to pass on. They became a cruel, amoral trickster, and their actions break your heart as they spread misery and harm. How will you stop this?",
+          "entry_points": [
+            "The team explores the world around you and your Show.",
+            "The topic of your morality becomes prominent."
+          ],
+          "story_beats": [
+            "You actively avoid hurting others with your tricks.",
+            "You help people hurt by the Cruel Trickster.",
+            "You don’t realise someone else is serious on an important matter.",
+            "You give somebody a lesson on the ethical use of their skills.",
+            "You do things similar to what the Cruel Trickster does."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Sharing Is Caring",
+              "description": "When you teach someone your tricks and it makes them happier, take +1 forward. If they use them for bad purposes later, take –1 forward."
+            },
+            {
+              "name": "Secret Craft",
+              "description": "The first time you use your tricks all alone during a mystery, take +1 forward. The first time you use them with someone else’s help, take –1 forward."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spooky",
+      "name": "The Spooky",
+      "source": "hardcover-2023",
+      "color": "#4a235a",
+      "arcs": [
+        {
+          "id": "spooky-1",
+          "number": "I",
+          "title": "My Darkest Day",
+          "arc_name": "My Darkest Day",
+          "description": "You’ve done various nasty things in the past, but one of them is much, much worse than the rest. You still think of it as your darkest day, and it still has consequences today. And those consequences just got worse.",
+          "entry_points": [
+            "The series heads towards people and places significant to your past.",
+            "The hunters discuss your Dark Side."
+          ],
+          "story_beats": [
+            "You’re reminded of the Darkest Day.",
+            "You try to make amends for your Darkest Day.",
+            "You learn about previously unknown consequences of your Darkest Day.",
+            "You try to prevent your Darkest Day repeating.",
+            "You do nasty things strongly reminiscent of your Darkest Day."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Hurt No One",
+              "description": "When you take risks to defend others from your Dark Side’s demands, take +1 forward. When those demands hurt others, take –1 forward. When you gain this move, you may change one Dark Side tag to something that is less likely to hurt other people."
+            },
+            {
+              "name": "Price to Pay",
+              "description": "When your Dark Side’s demands hurt others, take –1 forward and mark experience."
+            }
+          ]
+        },
+        {
+          "id": "spooky-2",
+          "number": "II",
+          "title": "Desired by Shadows",
+          "arc_name": "Desired by Shadows",
+          "description": "Your Dark Side is nasty, but it’s not the only nasty thing in the world. There’s another highly suspicious, shadowy force you could draw your powers from. In fact, this force would love you to become its chosen. What does it promise you? What does it want in return?",
+          "entry_points": [
+            "The series’s mythology about forces of evil gets more detailed.",
+            "Your relationship with your Dark Side has become stale and monotonous."
+          ],
+          "story_beats": [
+            "Your Dark Side gets you in trouble.",
+            "You find a way to protect yourself from your Dark Side.",
+            "You’re in a situation that would be far easier if you joined the New Force.",
+            "You do something both your Dark Side and the New Force disapprove of.",
+            "You get out of a heated situation without using your dark powers at all."
+          ],
+          "resolution_moves": [
+            {
+              "name": "On My Own Terms",
+              "description": "At the beginning of a mystery, you may take 2-harm and choose one of your Dark Side tags. This tag doesn't apply to the current mystery."
+            },
+            {
+              "name": "Always a Puppet",
+              "description": "For each of your Dark Side tags, the first time you give in to it each mystery, take –1 forward and mark experience."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "summoned",
+      "name": "The Summoned",
+      "source": "generic-games-free",
+      "color": "#1b2631",
+      "arcs": [
+        {
+          "id": "summoned-1",
+          "number": "I",
+          "title": "Anchor of Normalcy",
+          "arc_name": "Anchor of Normalcy",
+          "description": "It’s not easy for you to fit in the human world. You’re different, you’re awkward, and you have a nagging feeling there’s something awful waiting for you in your future. And yet, your destiny lies with the human world for now, and you feel drawn to it. There is one particular thing, or person, that epitomises your interest with this world and acts as your Anchor of Normalcy. Unfortunately, what anchors you to this world is anchored to your destiny as well.",
+          "entry_points": [
+            "You use Luck to make someone take to you.",
+            "You’re tired of big problems and big responsibilities."
+          ],
+          "story_beats": [
+            "You spend quality time with your Anchor of Normalcy.",
+            "You feel too weird and different for your Anchor of Normalcy.",
+            "Your Anchor of Normalcy is in danger because of you.",
+            "You put yourself in danger in order to protect your Anchor of Normalcy.",
+            "Your Anchor of Normalcy comes into contact with the Apocalypse or its signs."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Anchored",
+              "description": "Spend 1 Luck to create a tangible or intangible symbol of your connection to the Anchor (your wedding, people's memories of you sitting there, office badge, etc.). You can manipulate people connected to the Anchor without proving yourself to them."
+            },
+            {
+              "name": "Eternal Outsider",
+              "description": "When you prove yourself to someone, if you also do something inhuman or scary, you still can't manipulate them. In such a case, take –1 forward and mark experience."
+            }
+          ]
+        },
+        {
+          "id": "summoned-2",
+          "number": "II",
+          "title": "The Ultimate Revelation",
+          "arc_name": "The Ultimate Revelation",
+          "description": "Over the course of your hunter career, you gradually realise you were sent to Earth because of the forthcoming Apocalypse. At one point, you might decide you want to learn everything there is to learn about this upcoming event. All your research points to a source that can offer you the full picture, but this source—the Ultimate Revelation—is very difficult and dangerous to put your hands on.",
+          "entry_points": [
+            "Another sign of the Apocalypse approaches.",
+            "Hunters start exploring their backstories, and lore related to them."
+          ],
+          "story_beats": [
+            "Your understanding of the Apocalypse changes.",
+            "You’re asked a question you can’t answer about the Apocalypse.",
+            "You discuss the Apocalypse, and your role in it, with other hunters.",
+            "You get closer to the Ultimate Revelation.",
+            "You keep others away from the Ultimate Revelation."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Set in Stone",
+              "description": "Declare what the remaining signs of the Apocalypse will be. They still appear at the usual pace. Also, declare if you’ll stop or bring the Apocalypse—you have to act accordingly when the time comes. You gain two new Luck boxes."
+            },
+            {
+              "name": "End of Revelations",
+              "description": "When you spend Luck, you may take 4-harm to stop the next sign of the Apocalypse from appearing. When the Apocalypse comes, get +1 ongoing to dealing with it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "visitor",
+      "name": "The Visitor",
+      "source": "ssk-2025",
+      "color": "#148f77",
+      "arcs": [
+        {
+          "id": "visitor-1",
+          "number": "I",
+          "title": "The Troublesome Tourist",
+          "arc_name": "The Troublesome Tourist",
+          "description": "Another being has made contact with the Visitor, asking for a guide in the human realm. Unfortunately, their arrival brings with them a dangerous problem. Whether intentionally or through sheer negligence, they stir up trouble with the local population.",
+          "entry_points": [
+            "The team has befriended many locals.",
+            "The team wonders about your family or friends from your homeland."
+          ],
+          "story_beats": [
+            "You introduce the Tourist to something you love about here.",
+            "You call out the Tourist for causing trouble.",
+            "You talk down Locals from a potential conflict.",
+            "You convince the Tourist not to do something problematic.",
+            "You teach the Tourist an important lesson."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Make Them Talk",
+              "description": "You have found a path through the middle, balancing the needs of all sides. When you decide to prevent a conflict, take +1 ongoing to keep both sides talking. This demands a lot of your attention, so you take –1 ongoing to everything else."
+            },
+            {
+              "name": "Choosing Sides",
+              "description": "You’ve learned to take a stand. When you make a firm choice to side with one friendly or neutral party against another, take +1 ongoing to protect their cause and –1 ongoing to negotiate with the other party until the conflict is settled."
+            }
+          ]
+        },
+        {
+          "id": "visitor-2",
+          "number": "II",
+          "title": "The Bridge",
+          "arc_name": "The Bridge",
+          "description": "Although the Visitor has become immersed in what to them is a foreign culture, home has never been unreachable, but it’s never been convenient either. At least not until now—an easy way to travel between your home and Earth has appeared. In fact, it might be a little too convenient.",
+          "entry_points": [
+            "The other hunters express curiosity about your home world.",
+            "The hunters need resources for something and are unsure how to get it."
+          ],
+          "story_beats": [
+            "You use the Bridge.",
+            "You learn a secret about the Bridge.",
+            "You lead someone across the Bridge.",
+            "You prevent someone from using the Bridge.",
+            "Someone crossing the Bridge causes a problem."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Ambassador",
+              "description": "You bring together people from different cultures and lives. When you negotiate for the best compromise possible, gain +1 ongoing to manipulate those involved. You take –1 ongoing to read a bad situation when hostile people are present."
+            },
+            {
+              "name": "Gatekeeper",
+              "description": "You are prone to distrust the intentions of others. When you interrogate or investigate a newcomer without good cause, mark experience and take –1 forward, as you hyperfixate on your fears."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wronged",
+      "name": "The Wronged",
+      "source": "hardcover-2023",
+      "color": "#641e16",
+      "arcs": [
+        {
+          "id": "wronged-1",
+          "number": "I",
+          "title": "A New Life",
+          "arc_name": "A New Life",
+          "description": "You have a chance to move past your tragedy and start a new life, but it’s at odds with your life as a monster hunter. Besides, do you really want to move on?",
+          "entry_points": [
+            "You meet a person, or a cause, that could help you start a new life.",
+            "You’re consumed by your quest for revenge."
+          ],
+          "story_beats": [
+            "You miss a part of your New Life due to monster hunting.",
+            "You jeopardise your monster hunting due to your New Life.",
+            "You protect your New Life from monsters and magic.",
+            "You lie in your New Life about monsters and magic.",
+            "You discover a new way to enjoy your New Life."
+          ],
+          "resolution_moves": [
+            {
+              "name": "Bury the Past",
+              "description": "The move 'I know my prey' now gives +1 ongoing only when you protect others from the monster that caused your loss, not when you oppose them for personal vengeance. Your newfound sense of purpose gives you +1 forward the first time you interact with elements of your new life each mystery."
+            },
+            {
+              "name": "A Solitary Burden",
+              "description": "When you keep others from helping you in your hunt, mark experience. When another hunter lets you go alone against the breed of monster that caused your loss when they could have helped you, they mark experience."
+            }
+          ]
+        },
+        {
+          "id": "wronged-2",
+          "number": "II",
+          "title": "The Protégé",
+          "arc_name": "The Protégé",
+          "description": "You’ve met somebody who’s been wronged similarly to you, but is far more vulnerable. You want to help them have the best life possible after the tragedy they’ve experienced. They’re your protégé now.",
+          "entry_points": [
+            "You meet someone as hurt as you are, but younger or weaker.",
+            "A bystander becomes interesting to the hunters, and their backstory isn’t established yet."
+          ],
+          "story_beats": [
+            "You take risks to protect the Protégé.",
+            "Your Protégé learns something new and important.",
+            "Your Protégé irritates or disappoints you.",
+            "You have to choose between helping your Protégé and helping other innocents.",
+            "Other hunters deepen their bond with the Protégé."
+          ],
+          "resolution_moves": [
+            {
+              "name": "From My Mistakes",
+              "description": "When you share your painful experiences with somebody as the reason for them to do what you ask when manipulating them, take –1 forward and gain experience."
+            },
+            {
+              "name": "Unable to Socialise",
+              "description": "Get –1 to Charm (min –2), and +1 to either Tough or Cool (max +3)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

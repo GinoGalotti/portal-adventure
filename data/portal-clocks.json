@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "source": "Campaign countdown clocks — update filled/ticks manually after each session. See context/post-session-runbook.md step 2.10.",
+  "clocks": [
+
+    {
+      "id": "clock-nadia-window",
+      "label": "Case C — Nadia's Window",
+      "description": "Nadia Osei's consciousness is tethered to information infrastructure. The tether frays with time. When it goes, she disperses — and the MESA pattern she assembled goes with her.",
+      "segments": 4,
+      "filled": 2,
+      "status": "active",
+      "segment_labels": [
+        "Window open — contact possible",
+        "Tether weakening — window narrowing",
+        "Critical — last contact opportunity",
+        "Window closed — consciousness dispersed"
+      ],
+      "advancement_note": "Advance 1 tick per session in which hunters make no contact with Nadia. At 4/4: Nadia disperses, MESA pattern is lost, Case C closes without resolution.",
+      "notes": "CAMPBELL timed this briefing deliberately. If hunters debrief Nadia fully, Victor learns things CAMPBELL chose not to report."
+    },
+
+    {
+      "id": "clock-mira-okonkwo",
+      "label": "Case D — Mira Okonkwo",
+      "description": "Martin Wentworth's obligation mechanism is building toward a specific act. His most recent letter names a target: Mira Okonkwo, 9 years old.",
+      "segments": 6,
+      "filled": 3,
+      "status": "active",
+      "segment_labels": [
+        "Letters continue — pattern unresolved",
+        "Target identified in correspondence",
+        "Wentworth's letters address Mira directly",
+        "Obligation intensifies — mechanism accelerating",
+        "Mira is at immediate risk",
+        "Mira is killed"
+      ],
+      "advancement_note": "Advance 1 tick per session of no hunter engagement. Advance 2 ticks if MESA closes the estate archive before hunters access it. At 6/6: Mira dies; Case D closes as a failure.",
+      "notes": "Wentworth communicates only through formal letters. The estate archive — which MESA likely secured — may contain the method for resolving the mechanism."
+    },
+
+    {
+      "id": "clock-understudies-performance",
+      "label": "Case E — Saturday's Performance",
+      "description": "The remaining four understudies are rehearsing. The performance space has a thin-boundary resonance — the same mechanism that took the first three. After Saturday's show, four more identities may be lost.",
+      "segments": 4,
+      "filled": 3,
+      "status": "active",
+      "segment_labels": [
+        "Rehearsals ongoing — window open",
+        "Opening night approaches — dress rehearsal complete",
+        "Day before — last chance to intervene before the performance",
+        "Saturday's show — four understudies lost"
+      ],
+      "advancement_note": "Advance 1 tick when Saturday approaches in the fiction. At 4/4: four understudies lose their identities; Case E closes as a failure. Sven is the natural resolution vector — prioritise if clock reaches 3.",
+      "notes": "Grant source: Solstice Property Group (MESA shell company). The mechanism requires a theatrical farewell within the logic of performance. Clara Voss and Edmund Farrow's deaths are the anchoring event."
+    },
+
+    {
+      "id": "clock-mesa-response",
+      "label": "MESA — Response to PORTAL",
+      "description": "MESA detected PORTAL's presence at the Aldermoor estate office. The internal threat reclassification was approved. They are profiling PORTAL's field team and modelling future responses.",
+      "segments": 4,
+      "filled": 3,
+      "status": "active",
+      "segment_labels": [
+        "Unaware of PORTAL field presence",
+        "Aware — gathering intelligence",
+        "Profiling — threat reclassified, PORTAL modelled",
+        "Direct action against PORTAL operatives"
+      ],
+      "advancement_note": "Advance 1 tick when: hunters make further contact with MESA assets, a MESA operative identifies a hunter by name, or Dan Nilsson's modelling produces actionable intelligence. At 4/4: MESA moves directly against PORTAL — Rook arrives with a specific objective.",
+      "notes": "Rook's reclassification approved post-S02. Dan Nilsson is actively modelling PORTAL's field responses. Substance Θ, Anchor Spikes, and BIM Collection Arrays may be deployed against the team."
+    },
+
+    {
+      "id": "clock-cartographer-stability",
+      "label": "Aldermoor — Cartographer Stability",
+      "description": "The Cartographer retracted to its pre-expansion boundary after the field team's intervention. The excavation site is sealed but not filled. If MESA's BIM collection disturbs the substrate, the boundary fails.",
+      "segments": 4,
+      "filled": 0,
+      "status": "active",
+      "segment_labels": [
+        "Contained — boundary stable, residents recovering",
+        "Substrate disturbed — minor boundary fluctuation",
+        "BIM collection breaches excavation seal — expansion resumes",
+        "Full re-expansion — Aldermoor zone active again"
+      ],
+      "advancement_note": "Advance 1 tick if MESA's collection activity intensifies or the excavation site is physically disturbed. Advance 2 ticks if MESA intentionally breaches the seal. Do not advance if PORTAL intervenes to halt collection.",
+      "notes": "Background clock. Not urgent unless MESA escalates. The Cartographer is quiet — it knows the team. A direct attempt to communicate (especially from Sven or Rex) could stabilise the clock permanently."
+    }
+
+  ]
+}

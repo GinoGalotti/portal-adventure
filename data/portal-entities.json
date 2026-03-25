@@ -1,0 +1,322 @@
+{
+  "version": "portal-campaign-current",
+  "source": "worldbuilding-lore.md",
+  "note": "Entity and threat database for the keeper command board. Each entry has a player_description (safe for player-facing contacts) and full keeper detail. The 'status' field reflects current campaign state. Use 'classification' for MOTW monster type and 'designation' for PORTAL's internal case identifier.",
+  "entities": [
+    {
+      "id": "eszter",
+      "designation": "E-001",
+      "name": "Eszter",
+      "classification": "Executioner",
+      "case": "S01",
+      "case_name": "A Promise is a Promise",
+      "status": "resolved",
+      "resolution": "HUMANE \u2014 entity allowed to disperse. B\u00e1lint's wellbeing prioritised.",
+      "directive_outcome": "PARTIAL \u2014 ash locket not retrieved. Trace particulate recovered incidentally.",
+      "player_description": "Case S01 entity. Resolved. Classification: Executioner.",
+      "keeper_description": "Obligation-bound consciousness. Formed around a promise made to B\u00e1lint. Not malevolent \u2014 could not rest until the promise was fulfilled or released. Dispersed humanely. Ash locket remained at site \u2014 trace BIM particulate recovered by PORTAL incidentally. This particulate is Project Veil breadcrumb 1.",
+      "powers": [
+        "Obligation manifestation \u2014 appears at sites connected to the unfulfilled promise",
+        "Harm to those who interfere with the promise"
+      ],
+      "harm": "2-harm (weird)",
+      "harm_capacity": null,
+      "armour": null,
+      "weakness": "Genuine resolution of the obligation \u2014 fulfilled or consciously released by B\u00e1lint",
+      "bim_connection": true,
+      "bim_note": "Ash particulate recovered from locket is BIM-class material. Matches later Aldermoor sample (Project Veil breadcrumb 1).",
+      "keeper_moves": [
+        "Appear without warning at a location tied to the promise",
+        "Harm someone who stands between B\u00e1lint and the promise",
+        "Manifest the weight of obligation on the hunters"
+      ],
+      "bestiary": {
+        "show": true,
+        "phases": [
+          {
+            "show_from": "w1",
+            "show_until": "w1",
+            "threat": "THREAT LEVEL: ?",
+            "class": "UNCONFIRMED \u2014 INCORPOREAL",
+            "description": "CAMPBELL has flagged an unclassified entity at Keller University. Linked to a physical anchor object \u2014 a small ash locket. Manifests as a young woman. Leaves grey ash residue at incident sites. Associated with harm to individuals near the anchor's keeper.",
+            "classified": "\u26a0 WEAKNESSES: UNDER FIELD ASSESSMENT\nANCHOR OBJECT: Located \u2014 recovery directive active",
+            "classified_blurred": true,
+            "blur_notice": "\u26a0 FULL PROFILE UNLOCKS POST-SESSION 01"
+          },
+          {
+            "show_from": "w2",
+            "threat": "THREAT LEVEL: 2",
+            "class": "INCORPOREAL SPIRIT \u2014 EXECUTIONER",
+            "description": "An incorporeal entity tethered to a physical anchor object. Manifests as a young woman. Leaves a grey ash residue that cannot be removed by conventional means. Drawn to protect a specific individual. Her grief made her dangerous \u2014 but she never harmed someone who did not first harm her charge.",
+            "classified": "\u26a0 WEAKNESSES: ANCHOR OBJECT DESTRUCTION WITH PROPER FAREWELL / CHARGE SINCERELY REQUESTING CESSATION\nANCHOR OBJECT: Not recovered \u2014 entity dispersed at scene. Trace ash submitted for lab analysis."
+          }
+        ]
+      },
+      "display": {
+        "id": "e001",
+        "num": "001",
+        "eyebrow": "// CONFIRMED · RESOLVED · SESSION 01",
+        "name": "Eszter",
+        "sub": "KELLER UNIVERSITY · CAMPBELL REPORT #0047-C · EXECUTIONER",
+        "card_class": "resolved",
+        "tags": [
+          { "label": "RESOLVED — PEACEFUL DISPERSAL", "color": "green" },
+          { "label": "EXECUTIONER", "color": "grey" },
+          { "label": "ASH ORIGIN — HUNGARIAN", "color": "grey" },
+          { "label": "PROJECT VEIL FLAG", "color": "purple" }
+        ],
+        "stat_block": [
+          { "label": "// TYPE", "value": "<strong>Executioner</strong> — spirit anchored to a promise made at the moment of death. Not malicious. Protecting someone she loved.", "full": false },
+          { "label": "// HARM CAPACITY", "harm_num": "10", "harm_sub": "// WILL NOT KILL BY CHOICE<br>CHOSE TO LEAVE MARCUS ALIVE", "harm_color": "red" },
+          { "label": "// ARMOUR", "value": "<strong>2-armour (incorporeal)</strong> — mundane weapons pass through her entirely. Physical harm is essentially impossible unless she is partially manifest.", "full": false },
+          { "label": "// ORIGIN", "value": "Died in a road accident. Ash locket — her remains, held by Bálint Kovács. The locket was her anchor to the physical world.", "full": false },
+          { "label": "// ATTACK — SPECTRAL EMBRACE", "value": "<strong>2-harm close cold intimate</strong> — wraps around a target like a freezing wind. Leaves frost on skin and bruising in the shape of handprints. Targets individuals who have harmed Bálint.", "full": true },
+          { "label": "// ATTACK — HAUNTING SURGE", "value": "<strong>3-harm far ignore-armour magic</strong> — screams through electronics. Phones explode with static, screens crack, lights shatter. Target feels her grief as a physical blow. Gains <em>area</em> tag if she witnesses someone physically attack Bálint.", "full": true },
+          { "label": "// WEAKNESS", "value": "The locket, destroyed or its ash scattered with a proper farewell. Destruction without consent disperses her violently — not restfully. <strong>Correct resolution:</strong> Bálint says goodbye of his own will. Cannot harm anyone who has never hurt Bálint unless directly attacked first.", "full": true },
+          { "label": "// MINIONS — STUDENT ROBOTS (4)", "value": "<strong>5 harm each · 1-armour · </strong>Chassis Slam: 2-harm close forceful. Drill Attachment: 3-harm intimate (restrained only). <strong>Weakness:</strong> shared wireless signal with Eszter — cut power or destroy the screen and they go offline immediately.", "full": true }
+        ],
+        "named_moves": [
+          { "name": "A Promise is a Promise", "text": "Whenever Bálint is hurt, humiliated, or in genuine danger, Eszter immediately knows — regardless of distance. She will come. The Keeper may trigger her arrival at any dramatically appropriate moment after Bálint suffers harm or a serious social wound." },
+          { "name": "She Remembers Their Faces", "text": "Once Eszter has witnessed someone harm Bálint, she marks them. Marked individuals begin experiencing her grief second-hand: cold drafts, the smell of ash, waking dreams of the crash. They take <strong>–1 ongoing</strong> on all rolls while alone. Cannot be removed until Eszter is put to rest." },
+          { "name": "Let Me Go, Bálint", "text": "If Bálint sincerely asks Eszter to stop and says goodbye, she pauses. All hunters gain <strong>+1 forward</strong> on any move to put her to rest before she can resume. Window lasts one scene only." }
+        ],
+        "notes": [
+          { "label": "// RESOLUTION — SESSION 01", "text": "<strong>Outcome: Humane — peaceful dispersal.</strong> Bálint said goodbye of his own will. Eszter departed restfully. The locket opened; the ash dispersed in the shape of a figure. Temperature normalised. Robots inert.<br><br>Lab directive: <strong>partial.</strong> Locket not recovered. Trace particulate collected incidentally from the scene. No conscious tissue sample obtained." },
+          { "label": "// PROJECT VEIL FLAG", "text": "Ash analysis reveals anomalous interaction with electronic systems — consistent with Haunting Surge mechanism. CAMPBELL's private note to Dr. Leech: <em>\"The ash is not inert. It retains a signal interaction property even post-dispersal. If a sample of this purity could be stabilised, the implications for Project Veil are significant.\"</em><br><br><strong>Field team does not know this.</strong>" }
+        ]
+      }
+    },
+    {
+      "id": "the-cartographer",
+      "designation": "E-002",
+      "name": "The Cartographer",
+      "classification": "Collector (Urban Sprawler reskin)",
+      "case": "S02",
+      "case_name": "Something That Wants To Be Known",
+      "status": "contained",
+      "location": "Aldermoor District",
+      "player_description": "Case S02 entity. Contained — boundary re-established at excavation site. Entity retracted to pre-expansion range. Residents' navigation gradually recovering. Entity is quiet. It knows the field team now.",
+      "keeper_description": "Pre-human consciousness. Was known once \u2014 mapped, named, remembered. Feeds on familiarity: consumes the cognitive maps of long-term residents. Does not intend harm. Wants to be known the way it once was. Resolution requires genuine communication via a hunter voluntarily removing their cognitive anchor. Sven is the natural contact vector \u2014 no cognitive map to lose, and the entity recognises him as something that exists between states.",
+      "powers": [
+        "Cognitive map consumption \u2014 long-term residents lose spatial familiarity with their own streets",
+        "Topographical distortion \u2014 the district becomes disorienting for newcomers",
+        "Displacement effect \u2014 hunters can lose their bearings without preparation"
+      ],
+      "harm": "2-harm (weird) \u2014 indirect, through disorientation and confusion",
+      "harm_capacity": null,
+      "armour": null,
+      "weakness": "Genuine communication \u2014 a hunter must voluntarily remove their cognitive anchor and make contact. Sven is immune to the displacement effect and is the natural vector.",
+      "anchor_spike_effect": "Forces contraction \u2014 buys approximately one hour of reduced effect in the district. Does not resolve the case.",
+      "bim_connection": true,
+      "bim_note": "MESA designated this location 'Specimen ALD-1'. BIM Collection Arrays active in the district \u2014 contents match S01 particulate (Project Veil breadcrumb 2 if recovered).",
+      "keeper_moves": [
+        "Consume a resident's familiarity with a place they've known for years",
+        "Make a hunter doubt which direction they came from",
+        "Show the hunters what the district looked like before it had a name",
+        "Recognise Sven at the boundary as something that exists between states"
+      ],
+      "resolution_conditions": [
+        "A hunter voluntarily removes their cognitive anchor and makes genuine communicative contact",
+        "The hunters help the entity be known \u2014 witnessed, named, recorded \u2014 in a way it accepts",
+        "Sven as contact vector is the natural path; the entity will not harm him"
+      ],
+      "alan_note": "What the Cartographer does is NOT illusion. It consumes the real cognitive map inside residents' heads. Alan's glamour powers are the wrong tool here \u2014 his gift is his nature: he reads place by resonance and layered memory. He recognises the entity rather than seeing through it.",
+      "bestiary": {
+        "show": true,
+        "phases": [
+          {
+            "show_from": "w2",
+            "show_until": "w2",
+            "threat": "THREAT LEVEL: ?",
+            "class": "SPATIAL ENTITY \u2014 COLLECTOR",
+            "description": "An entity that rewrites felt geography \u2014 the instinctive mental map residents carry of their own neighbourhood. Does not alter physical streets. Alters the consciousness that reads them. Grows from a point of disturbance. Feeds on familiarity. Does not appear to intend harm. It wants to be known. It is mapping itself onto the neighbourhood the way the neighbourhood was once mapped onto the people who lived there.",
+            "classified": "\u26a0 WEAKNESSES: CLASSIFIED \u2014 FIELD TEAM ONLY\nEPICENTRE: UNDER INVESTIGATION \u2014 14 Aldermoor Crescent",
+            "blur_all": true,
+            "blur_notice": "\u26a0 FULL PROFILE UNLOCKS POST-SESSION 02"
+          },
+          {
+            "show_from": "w3",
+            "threat": "THREAT LEVEL: 3",
+            "class": "SPATIAL ENTITY \u2014 COLLECTOR (URBAN SPRAWLER)",
+            "description": "A pre-urban consciousness that predates the neighbourhood \u2014 possibly the city. Has no body. Has no malice. It holds something like memory, something like attention, something like longing. When residents truly knew their streets, it fed symbiotically on that familiarity. The construction site excavation at the Aldermoor District reservoir broke its containment and it expanded \u2014 consuming the cognitive maps of long-term residents without understanding it was taking something they could not replace. It does not initiate harm. It only wants to be known the way it once was.",
+            "classified": "\u26a0 WEAKNESS: COMMUNICATION \u2014 any genuine attempt to make contact (voluntarily releasing spatial anchor) permits that communication to start. The entity does not resist someone who is trying to understand it.\nSTATUS: Contained \u2014 boundary re-established at excavation site. Entity retracted to pre-expansion range. Residents' navigation gradually recovering. Diane Marsh: extracted. Margaret Holt: elected to remain. Entity is quiet. It knows the field team now."
+          }
+        ]
+      },
+      "display": {
+        "id": "e002",
+        "num": "002",
+        "eyebrow": "// CONTAINED · ALDERMOOR — SESSION 02 RESOLVED",
+        "name": "The Cartographer",
+        "sub": "ALDERMOOR DISTRICT · CAMPBELL REPORT #0094-B · COLLECTOR (URBAN SPRAWLER RESKIN)",
+        "card_class": "contained",
+        "tags": [
+          { "label": "CONTAINED — SESSION 02 RESOLVED", "color": "green" },
+          { "label": "COLLECTOR · SPATIAL", "color": "grey" },
+          { "label": "PRE-HUMAN CONSCIOUSNESS", "color": "teal" },
+          { "label": "PROJECT VEIL — LEECH FLAGGED", "color": "purple" },
+          { "label": "MESA OBSERVED — BUYING LAND", "color": "red" }
+        ],
+        "stat_block": [
+          { "label": "// TYPE", "value": "<strong>Collector</strong> (Urban Sprawler reskin, Deck of Monsters #49) — pre-human consciousness that predates the neighbourhood. Feeds on cognitive familiarity. Not malicious. Lonely.", "full": false },
+          { "label": "// HARM CAPACITY", "harm_num": "10", "harm_sub": "// WILL NOT INITIATE HARM<br>DOES NOT UNDERSTAND WHAT IT COSTS", "harm_color": "amber" },
+          { "label": "// ARMOUR", "value": "<strong>None — but physically invulnerable.</strong> Cannot be harmed by physical means. Immune to conventional weapons entirely. Harm must be done through communication or severing its anchor.", "full": false },
+          { "label": "// MOTIVATION", "value": "To be known as completely as it once was. It was symbiotic for decades — the neighbourhood knowing itself fed the entity. The excavation broke its containment and it expanded back without understanding what changed.", "full": false },
+          { "label": "// ATTACK — DISPLACEMENT", "value": "<strong>2-harm (disorientation)</strong> — targets the hunter's sense of place, not their body. On 10+: hunter temporarily lost within the zone. On 7–9: hunter loses their anchor for one scene. On a miss: permanent mild disorientation (–1 on navigation-based moves for remainder of session).", "full": true },
+          { "label": "// WEAKNESS — COMMUNICATION", "value": "Any hunter who makes genuine contact — by <strong>voluntarily removing their anchor</strong> — can affect the entity with a Use Magic or Act Under Pressure roll. It does not fight someone genuinely trying to understand it. Contact is an act of vulnerability, not combat. Recovery is not guaranteed if the anchor is lost.", "full": true },
+          { "label": "// SPECIALS", "value": "<strong>Animals immune</strong> — navigate by scent, not cognitive map. Unaffected. · <strong>Sven</strong> immune to displacement (no cognitive map to disrupt), not to contact — entity will attempt to communicate if he remains still. · <strong>Alan</strong> may receive fragmentary impressions without initiating contact. · The entity is <em>everywhere in the zone at once</em> — cannot be found in a single location.", "full": true }
+        ],
+        "named_moves": [
+          { "name": "The Palimpsest", "text": "Near the epicentre, the entity's memory of the street is faintly visible overlaid on the physical one: earlier versions of the neighbourhood — a terrace where a garden used to be, a corner where a phone box stood decades ago. Not dangerous on its own. Profoundly disorienting if a hunter's anchor slips at the same moment." },
+          { "name": "The Longer You've Lived Here", "text": "The effect scales with familiarity. New arrivals (moved in within 18 months) feel nothing unusual. A resident of 6 years disorients within 2 hours. Arthur Okafor — 41 years on Fenwick Road — disorients within minutes. When the Keeper needs to calibrate a resident's vulnerability, use depth of familiarity, not time inside the zone." },
+          { "name": "It Knows the Hunters Now", "text": "After genuine contact is made — especially if Sven shares what it's like to exist without a body — the entity will recognise the hunters in future encounters. It will not harm them. It may, in a future session, attempt to communicate from a distance: a felt wrongness that isn't disorientation, more like a nudge." }
+        ],
+        "notes": [
+          { "label": "// RESOLUTION PATHS — SESSION 02", "text": "<strong>Best:</strong> Contact made, entity understands what it's doing. Retracts. Residents' familiarity returns gradually. Diane escapes. Margaret stays — wants to. Entity quieter but present.<br><br><strong>Partial:</strong> Entity contained but not understood. Familiarity loss permanent for some long-term residents. Diane rescued. CAMPBELL can study it.<br><br><strong>Bad:</strong> Violent attempt to destroy entity. It contracts rapidly — familiarity pulled back at once. Diane cannot be extracted. Margaret's sense of place collapses. Neighbourhood uninhabitable." },
+          { "label": "// PROJECT VEIL FLAG &amp; MESA THREAD", "text": "CAMPBELL private note to Dr. Leech: <em>\"Topographical anchoring. If controllable, this is a delivery mechanism.\"</em> Leech has not shared this with the field team.<br><br>MESA had 34% of district addresses purchased via shell companies <strong>before the first incident was reported.</strong> They knew this was coming. They were waiting for the district to empty. Reference: Greyfield Assets, Veritas Realty, Solstice Property Group — all Jersey-registered, same beneficial owner chain." }
+        ]
+      }
+    },
+    {
+      "id": "the-volunteer",
+      "designation": "E-003",
+      "name": "The Volunteer",
+      "classification": "Unclassified \u2014 proximity drain",
+      "case": "case-a",
+      "case_name": "The Volunteer",
+      "status": "active",
+      "priority": "HIGH",
+      "location": "With Gordon Avery \u2014 currently at his daughter's family home",
+      "player_description": "Not yet disclosed.",
+      "keeper_description": "Gordon Avery (58, retired schoolteacher, lung cancer). Meridian trial survivor \u2014 complete remission. The remission came at a cost: he now unknowingly drains life from proximity contacts. Fourth death has occurred. He is now living with his daughter's family, including two children. Does not know what he is doing. MESA is watching him. The entity IS Gordon \u2014 not possessing him, not separate from him. He is the anomaly.",
+      "powers": [
+        "Proximity life drain \u2014 unconscious, continuous, scales with closeness and duration",
+        "Draws BIM-class energy from living cognitive maps \u2014 precise mechanism unknown"
+      ],
+      "harm": "Slow drain \u2014 long-term proximity is the danger, not sudden harm",
+      "harm_capacity": null,
+      "armour": null,
+      "weakness": "Mechanism unknown. Resolution requires understanding the Meridian trial methodology \u2014 which MESA holds.",
+      "bim_connection": true,
+      "bim_note": "Meridian trial created this condition. Trial data is in MESA's possession (Hargrove Medical Centre origin).",
+      "keeper_moves": [
+        "A contact near Gordon shows signs of unusual fatigue or cognitive fog",
+        "Gordon expresses confusion about why people around him keep getting sick",
+        "MESA operative observes Gordon from a distance \u2014 doesn't intervene yet"
+      ]
+    },
+    {
+      "id": "the-recorder",
+      "designation": "E-004",
+      "name": "The Recorder",
+      "classification": "Consciousness anchor \u2014 infrastructure-bound",
+      "case": "case-c",
+      "case_name": "The Recorder",
+      "status": "active",
+      "priority": "MEDIUM",
+      "window": "9-day window from current campaign date",
+      "player_description": "Not yet disclosed.",
+      "keeper_description": "Nadia Osei (38, journalist, deceased 8 weeks). Consciousness anchored to information infrastructure \u2014 servers, data centres, communication lines. Has assembled the full MESA pattern before anyone at PORTAL did. Will share everything in exchange for answers about PORTAL \u2014 she wants to know who else is investigating this. CAMPBELL private note: 'She found a third way.' CAMPBELL timed this briefing deliberately \u2014 if the hunters debrief Nadia fully, Victor Leech learns things CAMPBELL chose not to report. This is an ethically loaded move by CAMPBELL/Cameron.",
+      "powers": [
+        "Access to information infrastructure \u2014 can retrieve data across networked systems",
+        "Has assembled the complete MESA shell company and location pattern",
+        "Can communicate through electronic channels"
+      ],
+      "harm": null,
+      "harm_capacity": null,
+      "armour": null,
+      "weakness": "9-day window \u2014 consciousness will disperse when the window closes. Resolution requires genuine exchange.",
+      "bim_connection": true,
+      "bim_note": "MESA acquisition documents she has assembled reference BIM-class materials. She has most of Project Veil breadcrumb 3.",
+      "keeper_moves": [
+        "Deliver partial MESA information to create urgency",
+        "Ask pointed questions about PORTAL's true nature and Leech's motives",
+        "Reveal the MESA acronym pattern to the hunters",
+        "Provide information that forces CAMPBELL to respond"
+      ],
+      "campbell_private": "She found a third way. I have timed this briefing deliberately. If the field team debriefs her fully, Victor will learn things I chose not to report. I am aware of the ethical implications. I am proceeding anyway."
+    },
+    {
+      "id": "the-inheritance",
+      "designation": "E-005",
+      "name": "The Inheritance",
+      "classification": "Consciousness anchor \u2014 obligation-bound",
+      "case": "case-d",
+      "case_name": "The Inheritance",
+      "status": "active",
+      "priority": "MEDIUM",
+      "window": "14-day window \u2014 Mira Okonkwo at risk",
+      "player_description": "Not yet disclosed.",
+      "keeper_description": "Martin Wentworth (61, probate lawyer, deceased 22 days). Obligation-anchored consciousness. Communicates only through formal letters in correct legal style. Most recent letter describes a planned killing of Mira Okonkwo (9 years old) \u2014 obligation-logic requires it, mechanism unclear. Was managing the estate of a deceased Meridian researcher containing a consciousness-anchoring methodology archive. MESA fast-closed the probate \u2014 likely to acquire the archive.",
+      "powers": [
+        "Communication through formal letters \u2014 correct syntax, current knowledge, legally coherent",
+        "Obligation enforcement \u2014 can act on formal obligations through means that defy his deceased state"
+      ],
+      "harm": "Indirect \u2014 through obligation-bound action at 14-day deadline",
+      "harm_capacity": null,
+      "armour": null,
+      "weakness": "Satisfying or formally dissolving the obligation in his own legal terms. He operates within his own logic \u2014 that logic can be used against him.",
+      "bim_connection": true,
+      "bim_note": "Deceased Meridian researcher's estate contained consciousness-anchoring methodology archive \u2014 directly relevant to Project Veil. MESA fast-closed the probate to acquire it.",
+      "keeper_moves": [
+        "A new letter arrives \u2014 formal, precise, describing the next step",
+        "Wentworth's obligation-logic draws closer to Mira Okonkwo",
+        "A legal instrument Wentworth generated appears to have real force"
+      ]
+    },
+    {
+      "id": "the-understudies",
+      "designation": "E-006",
+      "name": "The Understudies",
+      "classification": "Identity displacement \u2014 performance-bound",
+      "case": "case-e",
+      "case_name": "The Understudies",
+      "status": "active",
+      "priority": "MEDIUM",
+      "location": "Meridian Theatre Company",
+      "window": "Saturday performance imminent",
+      "player_description": "Not yet disclosed.",
+      "keeper_description": "Two lead actors (Clara Voss, Edmund Farrow) died 6 months apart. Three understudies are now hospitalised with complete identity loss. Four remaining understudies are at risk. The Saturday performance will trigger the next wave if not resolved. Grant source: Solstice Property Group \u2014 MESA shell company. Resolution requires a theatrical farewell within the logic of performance. Sven is the natural resolution vector \u2014 he exists between states, can enact the farewell the deceased leads need without personal cost.",
+      "powers": [
+        "Identity displacement \u2014 proximity during performance overwrites the understudy's sense of self",
+        "Escalation on performance \u2014 each performance increases the displacement effect"
+      ],
+      "harm": "Identity loss \u2014 not physical harm. Hospitalised understudies are alive but no longer themselves.",
+      "harm_capacity": null,
+      "armour": null,
+      "weakness": "Theatrical farewell within the logic of performance. The deceased leads need to perform their final scene. Sven can enact this without risk of identity displacement.",
+      "bim_connection": true,
+      "bim_note": "Grant source: Solstice Property Group (MESA shell company). MESA created the conditions. Probable BIM-class mechanism \u2014 performance as a liminal threshold.",
+      "keeper_moves": [
+        "Another understudy shows early signs of identity displacement",
+        "The Saturday performance date becomes a hard deadline",
+        "MESA representative (not Rook) attends a rehearsal \u2014 observing, not intervening"
+      ]
+    },
+    {
+      "id": "the-hollow",
+      "designation": "T-006",
+      "name": "The Hollow",
+      "classification": "Theoretical \u2014 catastrophic identity erasure",
+      "case": null,
+      "status": "theoretical",
+      "keeper_only": true,
+      "player_description": "Not visible to players.",
+      "keeper_description": "Two individuals from the Hargrove Medical Centre Meridian trial experienced catastrophic identity erasure \u2014 the Hollow classification. MESA is monitoring their drift patterns. They are not contained. Available as a future threat. Their existence suggests the Meridian methodology has a failure mode worse than death.",
+      "powers": [
+        "Complete identity erasure \u2014 selfhood lost, pattern of former consciousness displaced outward",
+        "Drift \u2014 not contained, moving through space in a pattern MESA is tracking"
+      ],
+      "harm": "Unknown \u2014 classification based on two confirmed cases",
+      "harm_capacity": null,
+      "armour": null,
+      "weakness": "Unknown",
+      "bim_connection": true,
+      "bim_note": "Hargrove trial was the origin of Meridian BioSciences' BIM-adjacent methodology. These individuals are the worst-case outcome.",
+      "keeper_moves": [
+        "MESA data stream references T-006 drift coordinates \u2014 hunters are not supposed to see this",
+        "A location shows signs of recent passage \u2014 no cognitive map residue at all, as if the space was never mapped"
+      ]
+    }
+  ]
+}

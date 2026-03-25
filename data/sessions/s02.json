@@ -1,0 +1,233 @@
+{
+  "id": "w2",
+  "session_key": "M02",
+  "label": "WEEK 02 — Something That Wants to Be Known",
+  "doc": "missions/02-something-that-wants-to-be-known.html",
+  "entity_ids": [
+    "the-cartographer"
+  ],
+  "threats": [
+    {
+      "id": "rook",
+      "name": "Claudia Vasile — \"Rook\"",
+      "subtitle": "MESA Senior Field Operative, ALD-1 Response Lead",
+      "type": "Bystander: Villain",
+      "motivation": "to attain dominance — secure ALD-1 data, assess PORTAL capabilities, leave no traceable incident. In that order.",
+      "harm_capacity": 10,
+      "armour": "1 — light tactical vest, not obvious",
+      "harm": "2-harm close/far (service pistol, rarely drawn). 3-harm close (Anchor Spike).",
+      "moves": [
+        "Read the Room — the first time she observes each hunter doing something, she names exactly what they're trying to achieve. Out loud. Correctly.",
+        "Make the Offer — offers MESA data in exchange for PORTAL cooperation. Both sides get something. Neither side wins.",
+        "Controlled Escalation — never loses composure. Steps back and lets grunts handle it, watching. Harder to hit and harder to provoke.",
+        "Substance Θ (active) — if she's taken it: perceives supernatural entities directly including Sven, cannot be fooled by Alan's illusion affinity, perceives thin-boundary effects before they happen.",
+        "The Anchor Spike — one use. Against entities: 3-harm, forces contact break. Against a human in contact: ends contact immediately, 1-harm (weird), Weird moves at disadvantage for the session."
+      ],
+      "notes": "38. Romanian-British. She knows about S01. Has professional respect for the team and sharper interest in Rex specifically. Does NOT know Sven is a ghost — will notice within two minutes. Not cruel. Has made peace with MESA's methods. Recurring presence across the campaign — gets smarter about the hunters every time they meet."
+    },
+    {
+      "id": "mesa-grunts",
+      "name": "MESA Field Grunts",
+      "subtitle": "Standard Response Team — 2 to 4 present",
+      "type": "Minions: Soldiers",
+      "motivation": "to follow orders and contain the situation",
+      "harm_capacity": 4,
+      "armour": "1 — full tactical vest, visible. Look like private security.",
+      "harm": "2-harm close/far (firearm — only if firearms drawn first or Rook orders). 2-harm close (baton, restraint).",
+      "moves": [
+        "Overwhelm — two grunts acting together against one hunter count as 3-harm instead of 2-harm. The hunter must Act Under Pressure to avoid physical restraint rather than just harm.",
+        "Substance Θ (prophylactic) — resistance to displacement effects. Side effects: peripheral visual artefacts, mild temporal dissociation, persistent sense of being watched."
+      ],
+      "notes": "Private security contractors. They believe they work for 'sensitive environmental investigations'. Have been briefed to expect disorientation. Most have stopped asking questions. One good hit puts them out of the fight."
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Substance Θ (Theta)",
+      "subtitle": "MESA Pharmacological — Liminal Perception Compound",
+      "description": "Prophylactic dose (grunts): resistance to displacement effects. Active dose (Rook, by choice): full liminal perception for 2–3 hours — perceives Sven, sees through Alan, pre-empts thin-boundary effects. Long-term use degrades the cognitive map permanently. Rook is aware of this. She uses it anyway. Small grey capsule, no markings. Rook carries four.",
+      "hunter_interaction": "If a hunter takes an active dose — roll +Weird. 10+: full liminal perception, no immediate side effects. 7–9: liminal perception and 1-harm (weird). Miss: full perceptual dissolution — cannot distinguish physical from liminal for the rest of the session without outside help.",
+      "plot_note": "Structurally similar to BIM particulate. MESA effectively developed a drug from ash. Rex given a sample would recognise the BIM signature within minutes."
+    },
+    {
+      "name": "Anchor Spike",
+      "subtitle": "MESA Field Device — BIM Frequency Disruptor",
+      "description": "Looks like a heavy tactical pen, matte black, ~15cm. One button. One use per charge. Against entities: 3-harm, forces contact break, entity retreats from area. Against Sven specifically: 3-harm, forces him out of any supernatural state for the rest of the scene. Rook carries two. Grunts do not carry them.",
+      "plot_note": "Built using BIM particulate as the tuning material. Rex examining one would recognise the theoretical framework and realise MESA is significantly ahead of PORTAL's published research timeline."
+    },
+    {
+      "name": "BIM Collection Array",
+      "subtitle": "MESA Field Device — Passive Accumulator",
+      "description": "Size of a hardback book, matte grey, mesh face. Looks like a portable air purifier. The grunts carry one each — they've been told it's a contamination monitor. It is not. Passively collects BIM-frequency particulate from active zones.",
+      "plot_note": "If found or taken: Rex can identify what it does within a scene. The chamber already holds a measurable BIM sample from Aldermoor — matching the S01 particulate from Eszter. Two cases. Same material. MESA has been collecting it systematically for years. What the hunters do with this is a decision with consequences."
+    }
+  ],
+  "readaloud": [
+    {
+      "label": "Cold Open — Arthur gets lost",
+      "text": "Arthur Okafor has walked this route every morning for forty-one years. Left at the gate, past the postbox, right at the phone booth, along the back of the park, home. He could do it in his sleep.\n\nThis morning he turns right at the phone booth and finds himself standing in front of a house he doesn't recognise. He turns back. The postbox is gone. He walks for six minutes in a direction that should take him past the park, and arrives in a cul-de-sac he has never seen in four decades of living here.\n\nHis dog sits down and will not move.\n\nArthur is not frightened yet. He is seventy-two years old and he knows this street. He sits down on the kerb and waits. Someone will come. Someone always comes."
+    },
+    {
+      "label": "Arriving at the Perimeter",
+      "text": "Aldermoor looks like any other neighbourhood on a grey afternoon. Rowhouses, recycling bins out, a cat watching from a windowsill. The only signs anything is wrong are the small ones: a hand-lettered note on a front door that says DO NOT GO OUT ALONE. A ball of orange string tied to a garden gate, trailing away down the sidewalk and vanishing around a corner.\n\nYou can feel the boundary if you stand at it long enough. Not a wall. More like the moment before a word comes to you — that half-second of blankness where the thing you know perfectly well has temporarily left you. Except it doesn't pass."
+    },
+    {
+      "label": "Entering the Zone",
+      "text": "Inside the boundary, everything looks exactly the same. That's the problem.\n\nThe street is right. The houses are right. The corner with the post box is right — you passed it a minute ago. And yet when you look back, it isn't where it was. Not gone. Just slightly further than it should be. The distance between things is wrong in a way you can't quite measure, like looking at a room through a mirror and not immediately knowing why it's uncanny.\n\nSomewhere nearby there's a chalk arrow on the pavement, pointing firmly in one direction. Someone drew it recently. Whoever it was knew something about this street that you don't yet."
+    },
+    {
+      "label": "Climax — Feeling the Entity",
+      "text": "You can't see it. You can't hear it. But here, at the epicentre, you can feel it the way you feel a very large room before you've counted everyone in it — a quality of attention that has nothing to do with sight or sound. Something vast and very old has noticed that you're here.\n\nIt isn't hostile. That's the strangest part. Whatever it's doing to this neighbourhood, whatever it's taken from the people who couldn't leave — it has no idea. It isn't cruel. It is just enormous, and it has been alone for a very long time, and it wants to be known the way it was once known, the way a place is known by the people who've lived in it for forty years. It just doesn't understand that it can't take that. It doesn't understand it's been taking anything at all."
+    }
+  ],
+  "handouts": [
+    {
+      "id": "s02-recap",
+      "type": "readaloud",
+      "label": "Previously On — Operation #0094-B",
+      "text": "The Eszter case closed with a choice the team will carry forward: they let an entity disperse rather than contain it, and a man named Bálint is alive because of it. The ash particulate recovered from the case is in Lab Bay 3, responding to nearby electronics in ways Priya Osei has stopped calling interference.\n\nBálint called the PORTAL contact number three times. Nobody answered. He has stopped calling.\n\nThe briefing queue holds five cases. CAMPBELL has flagged one — Aldermoor District — as priority. A neighbourhood is losing its sense of place. Residents who have lived there for decades cannot find their way home. A visiting nurse named Diane Marsh has been missing for nine days.\n\nThe Director's note is brief: investigate, document, report back. Do not engage the entity without understanding what it is.\n\nThe team has a van, their anchors, and each other. Aldermoor is forty minutes away."
+    },
+    {
+      "id": "s02-pda-01",
+      "type": "pda",
+      "from": "CAMPBELL",
+      "subject": "ANOMALY REPORT #0094-B — ALDERMOOR",
+      "body": "PATTERN: 7 navigation failure reports, 14-day window. Long-term residents only — new arrivals unaffected. Classification: Topographical distortion, Class 2. No biological cause.\n\nEXPANSION RATE: +0.02 miles/week. Current radius: 0.4 miles.\n\nEPICENTRE: 14 Aldermoor Crescent. Resident (Margaret Holt, 74) uncontactable for 9 days. One missing person outstanding.\n\nPROPERTY FLAG: 34% of district addresses sold in 18 months prior to first incident. Three shell companies. Beneficial owner: unresolved.\n\nDIRECTOR NOTE: Do not enter without an anchor protocol. Establish what the entity is before any containment attempt."
+    },
+    {
+      "id": "s02-img-01",
+      "type": "image",
+      "label": "Aldermoor — District Exterior",
+      "src": "images/M2-aldermoor-exterior.png"
+    },
+    {
+      "id": "s02-ra-01",
+      "type": "readaloud",
+      "label": "Cold Open — Arthur Gets Lost",
+      "text": "Arthur Okafor has walked this route every morning for forty-one years. Left at the gate, past the postbox, right at the phone booth, along the back of the park, home. He could do it in his sleep.\n\nThis morning he turns right at the phone booth and finds himself standing in front of a house he doesn't recognise. He turns back. The postbox is gone. He walks for six minutes in a direction that should take him past the park, and arrives in a cul-de-sac he has never seen in four decades of living here.\n\nHis dog sits down and will not move.\n\nArthur is not frightened yet. He is seventy-two years old and he knows this street. He sits down on the kerb and waits. Someone will come. Someone always comes."
+    },
+    {
+      "id": "s02-img-02",
+      "type": "image",
+      "label": "Arthur — Lost on a Familiar Street",
+      "src": "images/M2-arthur-lost.png"
+    },
+    {
+      "id": "s02-ra-02",
+      "type": "readaloud",
+      "label": "Arriving at the Perimeter",
+      "text": "Aldermoor looks like any other neighbourhood on a grey afternoon. Rowhouses, recycling bins out, a cat watching from a windowsill. The only signs anything is wrong are the small ones: a hand-lettered note on a front door that says DO NOT GO OUT ALONE. A ball of orange string tied to a garden gate, trailing away down the sidewalk and vanishing around a corner.\n\nYou can feel the boundary if you stand at it long enough. Not a wall. More like the moment before a word comes to you — that half-second of blankness where the thing you know perfectly well has temporarily left you. Except it doesn't pass."
+    },
+    {
+      "id": "s02-map-01",
+      "type": "map",
+      "label": "Aldermoor District — Area Survey (ALD-2)",
+      "src": "images/M2-aldermoor-exterior.png",
+      "_note": "Replace src with a PNG export of the SVG map from the mission doc"
+    },
+    {
+      "id": "s02-img-03",
+      "type": "image",
+      "label": "Estate Agent Whiteboard — Acquisition Map",
+      "src": "images/M2-estate-agent-whiteboard.png"
+    },
+    {
+      "id": "s02-doc-01",
+      "type": "document",
+      "label": "Aldermoor Property Services — Whiteboard (photographed)",
+      "classification": "FIELD EVIDENCE — S02",
+      "body": "ACQUISITIONS LOG — ALDERMOOR DISTRICT\nCompiled: Aldermoor Property Services, 22 Aldermoor High Street\n\nPROPERTIES ACQUIRED: 47\nPERIOD: 18 months\nBUYING ENTITIES:\n  — Greyfield Assets Ltd\n  — Veritas Realty Holdings\n  — Solstice Property Group\nREGISTERED ADDRESS (all three): WILMINGTON, DELAWARE\n\nDates written at each street address. Earliest entry: 3 weeks before first public navigation report. Most recent entry: 2 weeks ago — after office officially closed.\n\nSomeone still had a key."
+    },
+    {
+      "id": "s02-img-07",
+      "type": "image",
+      "label": "Shredded Email — Helix Boundary Reference",
+      "src": "images/M2-shredded-email.png"
+    },
+    {
+      "id": "s02-doc-02",
+      "type": "document",
+      "label": "Aldermoor Property Services — Office Recovery",
+      "classification": "FIELD EVIDENCE — S02 — SCENE 1",
+      "body": "Vacated real estate office at 22 Aldermoor Main Street. Whiteboard map with dated addresses tracking the entity's expansion. Filing cabinets with 47 acquisition records across three shell companies. Shredded email referencing Specimen ALD-1 and @helixboundary.com. Motion sensor in the back office — MESA knows we were here.",
+      "link": "handouts/dossier/s02-aldermoor-office.html"
+    },
+    {
+      "id": "s02-pda-03",
+      "type": "pda",
+      "from": "DIRECTOR LEECH",
+      "subject": "ESTATE AGENT PREMISES — REPORT REQUIRED",
+      "body": "CAMPBELL has flagged your entry into the Aldermoor Property Services office. I need a full account of what you found there — acquisition records, company names, anything on the whiteboard.\n\nDon't send it through CAMPBELL. Call me directly.\n\nAnd don't touch anything you haven't photographed first."
+    },
+    {
+      "id": "s02-ra-03",
+      "type": "readaloud",
+      "label": "Entering the Zone",
+      "text": "Inside the boundary, everything looks exactly the same. That's the problem.\n\nThe street is right. The houses are right. The corner with the post box is right — you passed it a minute ago. And yet when you look back, it isn't where it was. Not gone. Just slightly further than it should be. The distance between things is wrong in a way you can't quite measure, like looking at a room through a mirror and not immediately knowing why it's uncanny.\n\nSomewhere nearby there's a chalk arrow on the pavement, pointing firmly in one direction. Someone drew it recently. Whoever it was knew something about this street that you don't yet."
+    },
+    {
+      "id": "s02-img-04",
+      "type": "image",
+      "label": "Chalk Arrow — Navigation Marker",
+      "src": "images/M2-chalk-arrow.png"
+    },
+    {
+      "id": "s02-img-05",
+      "type": "image",
+      "label": "String Lines — Vera's Navigation System",
+      "src": "images/M2-string-lines.png"
+    },
+    {
+      "id": "s02-img-08",
+      "type": "image",
+      "label": "Inside the Zone",
+      "src": "images/M2-zone-interior.png"
+    },
+    {
+      "id": "s02-pda-02",
+      "type": "pda",
+      "from": "DIRECTOR LEECH",
+      "subject": "MID-DEPLOYMENT — STATUS REQUIRED",
+      "body": "If the entity is aware, even partially — can it be reasoned with?\n\nDon't resolve this before we've had a chance to assess it properly. Document everything. We may only get one chance to study something like this."
+    },
+    {
+      "id": "s02-img-06",
+      "type": "image",
+      "label": "Diane's Notebook — 9 Days of Observations",
+      "src": "images/M2-diane-notebook.png"
+    },
+    {
+      "id": "s02-doc-03",
+      "type": "document",
+      "label": "Diane Marsh — Field Observations (9 Days)",
+      "classification": "FIELD EVIDENCE — S02 — RECOVERED DAY 9",
+      "body": "Nine days of observations from inside the Aldermoor displacement zone. Intensity cycles, approach windows, navigation data, and one sketch of something in the excavation substrate that Diane couldn't explain.",
+      "link": "handouts/dossier/s02-diane-notebook.html"
+    },
+    {
+      "id": "s02-pda-04",
+      "type": "pda",
+      "from": "DIRECTOR LEECH",
+      "subject": "EPICENTRE — STANDING DIRECTIVE",
+      "body": "Whatever you find at 14 Aldermoor Crescent — document it. All of it.\n\nDon't destroy anything you can't replace. Don't attempt resolution before I've had a chance to assess what we're dealing with. We may only get one chance to study something like this.\n\nI understand there are residents inside. I am not asking you to leave them there. I am asking you not to close a door we haven't finished looking through.\n\nThose are not the same instruction. I trust you to know the difference.\n\n— Leech"
+    },
+    {
+      "id": "s02-ra-04",
+      "type": "readaloud",
+      "label": "Climax — Feeling the Entity",
+      "text": "You can't see it. You can't hear it. But here, at the epicentre, you can feel it the way you feel a very large room before you've counted everyone in it — a quality of attention that has nothing to do with sight or sound. Something vast and very old has noticed that you're here.\n\nIt isn't hostile. That's the strangest part. Whatever it's doing to this neighbourhood, whatever it's taken from the people who couldn't leave — it has no idea. It isn't cruel. It is just enormous, and it has been alone for a very long time, and it wants to be known the way it was once known, the way a place is known by the people who've lived in it for forty years. It just doesn't understand that it can't take that. It doesn't understand it's been taking anything at all."
+    },
+    {
+      "id": "s02-classified-01",
+      "type": "classified",
+      "label": "Keeper Note — Rook's Access Documents",
+      "body": "NOTICE OF SITE ACCESS\nHelix Boundary Ltd — Property Management & Environmental Consultancy\n\nPREMISES: Aldermoor Property Services, 22 Aldermoor High Street; Former Reservoir Construction Site, Aldermoor\nACCESS AUTHORITY: Retained property management agreement (ref. ALD/PM/0047)\nREPRESENTATIVE: C. Vasile (Senior Consultant)\n\nThis notice confirms that the above representative is authorised to access the named premises for the purpose of site assessment and inventory review.\n\n[ Signed — Director, Helix Boundary Ltd ]\n[ Countersigned — [ILLEGIBLE] ]\n\n// KEEPER NOTE: Both signatures are real. The notice holds up long enough to create doubt. PC Adeyemi, if present, will have to make a call."
+    },
+    {
+      "id": "s02-classified-02",
+      "type": "classified",
+      "label": "CAMPBELL — Post-Resolution Private Flag",
+      "body": "// CAMPBELL — PRIVATE FLAG — DR. V. LEECH — POST-OPERATION ALD-1\n\nOPERATION #0094-B CLOSED.\n\nENTITY STATUS: Retracted. Pre-excavation boundary restored. Long-term prognosis: stable unless substrate is disturbed again.\n\nFIELD TEAM ASSESSMENT: Humane resolution. Residents prioritised. Study window: closed.\n\nCLASSIFICATION NOTE: Spatial consciousness. Pre-human origin. Distributed presence — no physical substrate, no recoverable material. Communication achieved via voluntary anchor removal. Contact vector: Sven [non-biological field operative].\n\nPROJECT VEIL FLAG: ALD-1 zone BIM concentration measurable. Consistent with S01 particulate signature. I am noting this. I have not included it in the operational report.\n\n// NOTE TO SELF: The field team chose the residents. This is the correct outcome. Victor will want the data. He will not say so directly. He will say he is proud of them.\n\n// He will mean both things at once. So will I."
+    }
+  ]
+}

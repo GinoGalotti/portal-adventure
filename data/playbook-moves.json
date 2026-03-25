@@ -1,0 +1,1502 @@
+{
+  "version": "motw-merged-2025",
+  "note": "All hunter playbook moves. Keyed by move id. \"hunter\" = campaign player if tied to one; \"playbook\" = which playbook the move belongs to; \"source\" = origin book (full-book | hardcover-2023 | ssk-2025).",
+  "moves": {
+    "move-weird-science": {
+      "name": "Weird Science",
+      "roll": "+Weird",
+      "description": "Create bespoke mystical gadgets using science. On 10+: it works. On 7–9: it works, but pick one — side effect, temperamental, or needs specific fuel. Miss: goes wrong badly.",
+      "hunter": "rex",
+      "playbook": "action-scientist",
+      "source": "full-book"
+    },
+    "move-test-hypothesis": {
+      "name": "Test Hypothesis",
+      "roll": "+Sharp",
+      "description": "When you test a potential explanation based on gathered data. On 10+: the Keeper tells you if you're on track, missing data, or wrong — and you can trust the answer. On 7–9: honest answer, but you wasted time or destroyed evidence. Miss: the answer is unrelated to the facts.",
+      "hunter": "rex",
+      "playbook": "action-scientist",
+      "source": "full-book"
+    },
+    "move-sabotage": {
+      "name": "Sabotage",
+      "roll": "+Sharp",
+      "description": "When you quickly break a complicated gadget. On 10+: broken — your choice if quietly or irreparably. On 7–9: broken but fixable, and you made noise. Miss: worst thing possible — usually explosions.",
+      "hunter": "rex",
+      "playbook": "action-scientist",
+      "source": "full-book"
+    },
+    "move-oblivious-to-danger": {
+      "name": "Oblivious to Danger",
+      "roll": null,
+      "description": "You are immune to all fear-based moves and powers. You never need to act under pressure to resist fear from any source.",
+      "hunter": "rex",
+      "playbook": "action-scientist",
+      "source": "full-book"
+    },
+    "move-doors-of-perception": {
+      "name": "The Doors of Perception",
+      "roll": "+Weird",
+      "description": "When you use psychological, pharmacological, or meditation techniques to open your mind. On 10+: pick two effects. On 7–9: pick one, but your mind is confused and foggy. Miss: lost in altered states. Effects: communicate with something normally impossible · see normally invisible things · ask one investigate-a-mystery question · +1 Cool, Sharp, or Weird for the next hour (max +3).",
+      "hunter": "rex",
+      "playbook": "action-scientist",
+      "source": "full-book"
+    },
+    "move-fieldwork": {
+      "name": "Fieldwork",
+      "roll": null,
+      "description": "When you put yourself in danger to test a hypothesis, get +1 forward. When you confirm the hypothesis as true or false, mark experience.",
+      "hunter": "rex",
+      "playbook": "action-scientist",
+      "source": "full-book"
+    },
+    "move-glamour": {
+      "name": "Glamour",
+      "roll": null,
+      "description": "When feeling calm, you can maintain an illusion of humanity. You may drop your glamour and display your supernatural power to turn any roll into a 10+. Your unknown heritage stirs up trouble right away or soon after.",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-inhuman-talent": {
+      "name": "Inhuman Talent",
+      "roll": null,
+      "description": "+1 ongoing when you use a basic Weird move that your specific powers can enhance. At the start of each session, hold 2. Spend hold for +1 forward on a move your powers can enhance.",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-they-are-my-people": {
+      "name": "They Are My People",
+      "roll": null,
+      "description": "Once per session, when you protect someone, act as if you rolled a 12+. You gain +1 forward when acting under pressure to resist instincts from your unknown heritage, dark urges, or fight-or-flight situations.",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-force-of-nature": {
+      "name": "Force of Nature",
+      "roll": "+Weird",
+      "description": "Supernatural attack from your heritage. On 10+: summon a 1-harm close weapon, pick two extras. On 7–9: pick one extra. Miss: power turns against you. Extras: +1 harm, hand, far, autonomous, distracting, ignore-armour, area, grab, blind, stun.",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-lockdown": {
+      "name": "Lockdown",
+      "roll": "+Weird",
+      "description": "Stun people with a petrifying gaze, overwhelming illusions, or bewildering moths. On 10+: target immobilised for minutes or until something snaps them out. On 7–9: immobilised while you focus. Miss: magical backlash.",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-faerie-gossip": {
+      "name": "Faerie Gossip",
+      "roll": "+Weird",
+      "description": "Communicate with local spirits and mystical creatures. When investigating a mystery by questioning them, roll +Weird instead of +Sharp and ask extra questions: Is anything affecting the supernatural environment? How long has ____ been in the area? When did ____ first arrive?",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-renewal": {
+      "name": "Renewal",
+      "roll": null,
+      "description": "When teammates and allies in your presence recover harm by any means, they recover 1 extra harm.",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-strange-paths": {
+      "name": "Strange Paths",
+      "roll": "+Weird",
+      "description": "Walk or drive between worlds, though you don't know the way well. On 10+: arrive quicker than possible. On 7–9: find trouble along the way. Miss: arrive a little too late or deal with something blocking the way.",
+      "hunter": "alan",
+      "playbook": "changeling",
+      "source": "full-book"
+    },
+    "move-theres-no-i": {
+      "name": "There's No \"I\" In \"Team\"",
+      "roll": null,
+      "description": "+1 on all help out rolls, or +2 if helping Rex Bangley (your hero).",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-caddy": {
+      "name": "Caddy",
+      "roll": null,
+      "description": "You carry all your hero's stuff. You can use anything from Rex's gear list unless he is currently holding it. If it has spares, you can use it even if he is.",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-as-you-wish": {
+      "name": "As You Wish",
+      "roll": null,
+      "description": "Mark experience whenever your hero orders or requests that you do something you don't want to do, and you do it anyway.",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-eek": {
+      "name": "Eek!",
+      "roll": "+Sharp",
+      "description": "When a monster appears and you find a hiding spot. On 10+: hide in the best nearby spot before the monster sees you. On 7–9: pick one — you hide okay but the monster is between you and escape; your spot will be spotted soon; you leave something important in the open. Miss: fail to hide in time.",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-bodyguard": {
+      "name": "Bodyguard",
+      "roll": null,
+      "description": "If something bad is going to happen to your hero, comrades, or a bystander, and you are right there, throw yourself in harm's way. Whatever was going to happen to them happens to you instead, and you mark experience.",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-me-too": {
+      "name": "Me Too!",
+      "roll": null,
+      "description": "If your hero makes a roll for a move, and you copy what they did, you may choose not to roll. Instead use your hero's die roll, adjusted with your own rating.",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-i-can-make-you-look-good": {
+      "name": "I Can Make You Look Good",
+      "roll": null,
+      "description": "If helping out your hero, you may swap one or both dice with theirs, as long as you come out with the lowest total. Calculate results as if you had each rolled the dice you now hold.",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-apprentice": {
+      "name": "Apprentice",
+      "roll": null,
+      "description": "Take a move that your hero (Rex) has.",
+      "hunter": "reed",
+      "playbook": "sidekick",
+      "source": "full-book"
+    },
+    "move-incorporeal": {
+      "name": "Incorporeal",
+      "roll": null,
+      "description": "You may move freely through solid objects (but not people).",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-immortal": {
+      "name": "Immortal",
+      "roll": null,
+      "description": "You do not age or sicken, and whenever you suffer harm you suffer 1-harm less.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-unnatural-appeal": {
+      "name": "Unnatural Appeal",
+      "roll": "+Weird",
+      "description": "Roll +Weird instead of +Charm when you manipulate someone.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-unholy-strength": {
+      "name": "Unholy Strength",
+      "roll": "+Weird",
+      "description": "Roll +Weird instead of +Tough when you kick some ass.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-preternatural-speed": {
+      "name": "Preternatural Speed",
+      "roll": null,
+      "description": "You go much faster than normal people. When you chase, flee, or run, take +1 ongoing.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-claws-of-the-beast": {
+      "name": "Claws of the Beast",
+      "roll": null,
+      "description": "All your natural attacks get +1 harm.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-mental-dominion": {
+      "name": "Mental Dominion",
+      "roll": "+Charm",
+      "description": "Gaze into a normal human's eyes and exert your will. On 10+: hold 3. On 7–9: hold 1. Spend hold to give orders — regular people follow without question; hunters may choose to comply and mark experience. Miss: no hold.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-unquenchable-vitality": {
+      "name": "Unquenchable Vitality",
+      "roll": "+Cool",
+      "description": "When you have taken harm, you can heal yourself. On 10+: heal 2-harm and stabilise. On 7–9: heal 1-harm and stabilise. Miss: your injuries worsen.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-dark-negotiator": {
+      "name": "Dark Negotiator",
+      "roll": null,
+      "description": "You can use the manipulate someone move on monsters as well as people, if they can reason and talk.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-flight": {
+      "name": "Flight",
+      "roll": null,
+      "description": "You can fly.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-shapeshifter": {
+      "name": "Shapeshifter",
+      "roll": null,
+      "description": "You may change your form (usually into an animal). Decide if you have one alternate form or several. You gain +1 to investigate a mystery when using an alternate form's superior senses.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-something-borrowed": {
+      "name": "Something Borrowed",
+      "roll": null,
+      "description": "Take a move from a hunter playbook that is not currently in play.",
+      "hunter": "sven",
+      "playbook": "monstrous",
+      "source": "full-book"
+    },
+    "move-chosen-destinys-plaything": {
+      "name": "Destiny's Plaything",
+      "roll": "+Weird",
+      "description": "At the beginning of each mystery, roll +Weird. 10+: Keeper reveals a useful detail about the coming mystery. 7-9: you get a vague hint. Miss: something bad is going to happen to you.",
+      "hunter": null,
+      "playbook": "chosen",
+      "source": "hardcover-2023"
+    },
+    "move-chosen-im-here-for-a-reason": {
+      "name": "I'm Here For A Reason",
+      "roll": null,
+      "description": "You cannot die until your destiny is fulfilled. If you die in play, spend a Luck point — you recover or return to life somehow. Once your task is done (or all Luck is spent), all bets are off.",
+      "hunter": null,
+      "playbook": "chosen",
+      "source": "hardcover-2023"
+    },
+    "move-chosen-the-big-entrance": {
+      "name": "The Big Entrance",
+      "roll": "+Cool",
+      "description": "When you make a showy entrance into a dangerous situation, roll +Cool. 10+: everyone stops to watch and listen until you finish your opening speech. 7-9: pick one person or monster to stop until you finish. Miss: you're marked as the biggest threat by all enemies present.",
+      "hunter": null,
+      "playbook": "chosen",
+      "source": "hardcover-2023"
+    },
+    "move-chosen-devastating": {
+      "name": "Devastating",
+      "roll": null,
+      "description": "When you inflict harm, you may inflict +1 harm.",
+      "hunter": null,
+      "playbook": "chosen",
+      "source": "hardcover-2023"
+    },
+    "move-chosen-dutiful": {
+      "name": "Dutiful",
+      "roll": null,
+      "description": "When your fate rears its ugly head and you act in accordance with any of your fate tags (heroic or doom), mark experience. If it's a heroic tag, take +1 forward.",
+      "hunter": null,
+      "playbook": "chosen",
+      "source": "hardcover-2023"
+    },
+    "move-chosen-invincible": {
+      "name": "Invincible",
+      "roll": null,
+      "description": "You always count as having 2-armour. This doesn't stack with other protection.",
+      "hunter": null,
+      "playbook": "chosen",
+      "source": "hardcover-2023"
+    },
+    "move-chosen-resilience": {
+      "name": "Resilience",
+      "roll": null,
+      "description": "You heal faster than normal people. Any time your harm gets healed, heal an extra point. Additionally, your wounds count as 1-harm less for the purpose of the Keeper's harm moves.",
+      "hunter": null,
+      "playbook": "chosen",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-artifact": {
+      "name": "Artifact",
+      "roll": null,
+      "description": "You 'found' a magical artifact and kept it. Pick one: Protective amulet (1-armour magic recharge), Lucky charm (once-only Luck point substitute), Grimoire (+1 forward to use magic after studying), Skeleton key (opens any magically sealed lock), Imp stone (weak demon bound to serve — summon with use magic).",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-crew": {
+      "name": "Crew",
+      "roll": null,
+      "description": "You have a regular crew of 3-4 people who will help you out with pretty much anything. They count as a team.",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-deal-with-the-devil": {
+      "name": "Deal with the Devil",
+      "roll": null,
+      "description": "You sold your soul. Pick one or two benefits: wealth, fame, youth, sensual gratification, skill (+1 to two ratings). Payment is due when you die, in six months (if two benefits), or otherwise in a year.",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-friends-on-the-force": {
+      "name": "Friends on the Force",
+      "roll": null,
+      "description": "You know cops who can look the other way or do you a favour for considerations. Use act under pressure to call in favours diverting law enforcement. There will be a cost, eventually.",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-made": {
+      "name": "Made",
+      "roll": null,
+      "description": "You're made in a named gang. You can call on gang members for help (they expect pay). Bosses will have requests. Minor trouble overlooked, but don't screw over other made gangsters.",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-driver": {
+      "name": "Driver",
+      "roll": null,
+      "description": "+1 ongoing while driving; you can hotwire anything. You own two widely-available vehicles.",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-home-ground": {
+      "name": "Home Ground",
+      "roll": null,
+      "description": "When you're back in your old neighbourhood, you can always find people who will hide you or help with a minor favour, no questions asked.",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-crooked-notorious": {
+      "name": "Notorious",
+      "roll": null,
+      "description": "You have a terrifying criminal reputation. When you reveal who you are, your reputation counts as leverage for the manipulate someone move. Revealing your identity can cause other problems.",
+      "hunter": null,
+      "playbook": "crooked",
+      "source": "hardcover-2023"
+    },
+    "move-divine-boss-from-beyond": {
+      "name": "Boss from Beyond",
+      "roll": "+Weird",
+      "description": "At the start of each mystery, roll +Weird. 10+: Superiors ask something simple; ask them one investigate-a-mystery question right now. 7-9: they ask something complicated; ask them one question. Miss: required to do something terrible; move locked until you atone.",
+      "hunter": null,
+      "playbook": "divine",
+      "source": "hardcover-2023"
+    },
+    "move-divine-angel-wings": {
+      "name": "Angel Wings",
+      "roll": "+Weird",
+      "description": "Instantly travel to anywhere you've visited or a person you know well. When carrying 1-2 people, roll +Weird. 10+: you all go where you wanted. 7-9: you're all separated or arrive in the wrong place.",
+      "hunter": null,
+      "playbook": "divine",
+      "source": "hardcover-2023"
+    },
+    "move-divine-what-i-need": {
+      "name": "What I Need, When I Need It",
+      "roll": null,
+      "description": "Store any small object you own in a magical space. Retrieve anything you stored at any time — it appears in your hand.",
+      "hunter": null,
+      "playbook": "divine",
+      "source": "hardcover-2023"
+    },
+    "move-divine-soothe": {
+      "name": "Soothe",
+      "roll": null,
+      "description": "Talk to someone for a few seconds in a quiet voice to calm them down, blocking panic, anger, or other negative emotions — even if the cause is still present, as long as they can hear you.",
+      "hunter": null,
+      "playbook": "divine",
+      "source": "hardcover-2023"
+    },
+    "move-divine-lay-on-hands": {
+      "name": "Lay On Hands",
+      "roll": "+Cool",
+      "description": "Your touch heals injury and disease. Roll +Cool. 10+: heal 2 harm or an illness, plus stabilize. 7-9: heal as on 10+, but you take the harm or illness into yourself. Miss: your aura causes them extra harm.",
+      "hunter": null,
+      "playbook": "divine",
+      "source": "hardcover-2023"
+    },
+    "move-divine-cast-out-evil": {
+      "name": "Cast Out Evil",
+      "roll": "+Tough",
+      "description": "Banish an unnatural creature from your presence. Roll +Tough. 10+: it's banished. 7-9: takes a little while — creature has time for 1-2 actions first. Banished creature is unharmed; you have no control over where it goes. Works on unnatural hunters (e.g. the Monstrous). Miss: something keeps it here.",
+      "hunter": null,
+      "playbook": "divine",
+      "source": "hardcover-2023"
+    },
+    "move-divine-smite": {
+      "name": "Smite",
+      "roll": null,
+      "description": "Your body and divine weapon always count as a weakness against the monsters you fight. Your unarmed attacks are 2-harm intimate hand messy.",
+      "hunter": null,
+      "playbook": "divine",
+      "source": "hardcover-2023"
+    },
+    "move-expert-ive-read-about-this": {
+      "name": "I've Read About This Sort Of Thing",
+      "roll": null,
+      "description": "Roll +Sharp instead of +Cool when you act under pressure.",
+      "hunter": null,
+      "playbook": "expert",
+      "source": "hardcover-2023"
+    },
+    "move-expert-often-right": {
+      "name": "Often Right",
+      "roll": null,
+      "description": "When a hunter comes to you for advice, give them your honest opinion. If they take your advice, they get +1 ongoing while following it, and you mark experience.",
+      "hunter": null,
+      "playbook": "expert",
+      "source": "hardcover-2023"
+    },
+    "move-expert-preparedness": {
+      "name": "Preparedness",
+      "roll": "+Sharp",
+      "description": "When you need something unusual or rare, roll +Sharp. 10+: you have it right now. 7-9: you have it but not here — it takes time. Miss: you know where it is, but it's somewhere real bad.",
+      "hunter": null,
+      "playbook": "expert",
+      "source": "hardcover-2023"
+    },
+    "move-expert-it-wasnt-as-bad": {
+      "name": "It Wasn't As Bad As It Looked",
+      "roll": "+Cool",
+      "description": "Once per mystery, attempt to keep going despite injuries. Roll +Cool. 10+: heal 2 harm and stabilize. 7-9: either stabilize or heal 1 harm. Miss: it was worse than it looked — Keeper may inflict a harm move or make wounds unstable.",
+      "hunter": null,
+      "playbook": "expert",
+      "source": "hardcover-2023"
+    },
+    "move-expert-precise-strike": {
+      "name": "Precise Strike",
+      "roll": "+Tough",
+      "description": "When you inflict harm on a monster, aim for a weak spot. Roll +Tough. 10+: +2 harm. 7-9: +1 harm. Miss: you leave yourself open to a counterattack.",
+      "hunter": null,
+      "playbook": "expert",
+      "source": "hardcover-2023"
+    },
+    "move-expert-the-woman-with-the-plan": {
+      "name": "The Woman (or Man) With The Plan",
+      "roll": "+Sharp",
+      "description": "At the beginning of each mystery, roll +Sharp. 10+: hold 2. 7-9: hold 1. Spend hold to be where you need to be, prepared and ready. Miss: Keeper holds 1 to put you in the worst place, unprepared.",
+      "hunter": null,
+      "playbook": "expert",
+      "source": "hardcover-2023"
+    },
+    "move-expert-dark-past": {
+      "name": "Dark Past",
+      "roll": "+Weird",
+      "description": "Trawl through memories of dark mystical involvement for something relevant. Roll +Weird. 10+: ask Keeper two questions. 7-9: ask one. Miss: you can ask a question but you were personally complicit in creating the situation. Questions: what did I learn dealing with this creature? What black magic could help? Do I know who's behind this? Who can help us right now?",
+      "hunter": null,
+      "playbook": "expert",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-sect": {
+      "name": "The Sect",
+      "roll": "+Charm",
+      "description": "When in good standing with your Sect, at the start of each mystery, roll +Charm. 10+: they provide useful info or field support. 7-9: you get a mission — complete it for info or support. Miss: they ask you to do something bad. Failing or refusing missions puts you in trouble until you atone.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-ancient-fighting-arts": {
+      "name": "Ancient Fighting Arts",
+      "roll": null,
+      "description": "When using an old-fashioned hand weapon, you inflict +1 harm and get +1 whenever you roll protect someone.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-mystic": {
+      "name": "Mystic",
+      "roll": null,
+      "description": "Every time you successfully use magic, take +1 forward.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-fortunes": {
+      "name": "Fortunes",
+      "roll": "+Weird",
+      "description": "Once per mystery, use the Sect's divination. Roll +Weird. 10+: hold 3. 7-9: hold 1. Miss: bad information — Keeper decides the effect. Spend hold: have a useful object ready; be somewhere needed just in time; +1 forward or give +1 to another hunter; retroactively warn someone so an attack doesn't happen.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-sacred-oath": {
+      "name": "Sacred Oath",
+      "roll": null,
+      "description": "Bind yourself to a single goal, forsaking something appropriate. While keeping the oath and working toward the goal: mark XP at session end, +1 on directly relevant rolls. Breaking the oath: -1 ongoing until you atone.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-mentor": {
+      "name": "Mentor",
+      "roll": "+Sharp",
+      "description": "You have a named Sect mentor. When you contact them for info, roll +Sharp. 10+: answer, no problem. 7-9: they're busy or they answer but you owe a favour. Miss: your question causes trouble.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-apprentice": {
+      "name": "Apprentice",
+      "roll": null,
+      "description": "You have a named apprentice. Your job is to teach them the Sect's ways. They count as an ally: subordinate (motivation: follow your instructions to the letter).",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-helping-hand": {
+      "name": "Helping Hand",
+      "roll": null,
+      "description": "When you successfully help out another hunter, they get +2 instead of the usual +1.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-initiate-that-old-black-magic": {
+      "name": "That Old Black Magic",
+      "roll": null,
+      "description": "When you use magic, you can ask a question from the investigate a mystery move as your effect.",
+      "hunter": null,
+      "playbook": "initiate",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-always-the-victim": {
+      "name": "Always The Victim",
+      "roll": null,
+      "description": "When another hunter uses protect someone to protect you, they mark experience. Whenever a monster captures you, you mark experience.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-oops": {
+      "name": "Oops!",
+      "roll": null,
+      "description": "If you want to stumble across something important, tell the Keeper. You will find something important and useful, although not necessarily related to your immediate problems.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-lets-get-out-of-here": {
+      "name": "Let's Get Out Of Here!",
+      "roll": null,
+      "description": "If you can protect someone by telling them what to do or leading them out, roll +Charm instead of +Tough.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-panic-button": {
+      "name": "Panic Button",
+      "roll": "+Sharp",
+      "description": "When you need to escape, name the route and roll +Sharp. 10+: out of danger, no problem. 7-9: you can go or stay, but going costs you (leave something behind or something comes with you). Miss: caught halfway out.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-power-of-heart": {
+      "name": "The Power of Heart",
+      "roll": null,
+      "description": "When fighting a monster, if you help someone, don't roll +Cool. You automatically help as though you'd rolled a 10.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-trust-me": {
+      "name": "Trust Me",
+      "roll": "+Charm",
+      "description": "When you tell a normal person the truth to protect them from danger, roll +Charm. 10+: they do what you say, no questions. 7-9: they do it but Keeper picks one — they ask a hard question first, they stall, or they have a 'better' idea. Miss: they think you're crazy or dangerous.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-what-could-go-wrong": {
+      "name": "What Could Go Wrong?",
+      "roll": null,
+      "description": "Whenever you charge into immediate danger without hedging your bets, hold 2. Spend hold: inflict +1 harm; reduce someone's harm by 1; take +2 forward on act under pressure.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-mundane-dont-worry-ill-check-it-out": {
+      "name": "Don't Worry, I'll Check It Out",
+      "roll": null,
+      "description": "Whenever you go off by yourself to check out somewhere (or something) scary, mark experience.",
+      "hunter": null,
+      "playbook": "mundane",
+      "source": "hardcover-2023"
+    },
+    "move-professional-deal-with-agency": {
+      "name": "Deal with the Agency",
+      "roll": "+Sharp",
+      "description": "When you deal with the Agency — requesting help or gear, or making excuses for a failure — roll +Sharp. 10+: you're good, request okayed or slip-up unnoticed. 7-9: things aren't great but you get what you need; expect fallout. Miss: suspended, under investigation, or in the doghouse — no help until resolved.",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-professional-bottle-it-up": {
+      "name": "Bottle It Up",
+      "roll": null,
+      "description": "Take up to +3 bonus when you act under pressure. For each +1 used, the Keeper holds 1 to spend later as -1 on any move you make except act under pressure.",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-professional-unfazeable": {
+      "name": "Unfazeable",
+      "roll": null,
+      "description": "Take +1 Cool (max +3).",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-professional-battlefield-awareness": {
+      "name": "Battlefield Awareness",
+      "roll": null,
+      "description": "You always know what's happening around you. Take +1 armour (max 2-armour) on top of whatever you get from gear.",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-professional-leave-no-one-behind": {
+      "name": "Leave No One Behind",
+      "roll": "+Sharp",
+      "description": "In combat, when you help someone escape, roll +Sharp. 10+: you get them out clean. 7-9: either get them out or suffer no harm — you choose. Miss: fail to get them out and you've attracted hostile attention.",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-professional-tactical-genius": {
+      "name": "Tactical Genius",
+      "roll": null,
+      "description": "When you read a bad situation, you may roll +Cool instead of +Sharp.",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-professional-medic": {
+      "name": "Medic",
+      "roll": "+Cool",
+      "description": "When you do first aid, roll +Cool. 10+: patient stabilized and healed of 2 harm. 7-9: choose one — heal 2 harm or stabilize. Miss: cause an extra 1 harm. Replaces regular first aid.",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-professional-mobility": {
+      "name": "Mobility",
+      "roll": null,
+      "description": "You have a truck, van, or car built for monster hunting. Choose two good things (roomy, surveillance gear, fast, stealthy, intimidating, classic, medical kit, sleeping space, toolkit, concealed weapons, anonymous, armoured, tough, monster cage) and one bad thing (loud, obvious, temperamental, beaten-up, gas-guzzler, uncomfortable, slow, old).",
+      "hunter": null,
+      "playbook": "professional",
+      "source": "hardcover-2023"
+    },
+    "move-snoop-what-does-that-feel-like": {
+      "name": "What Does That Feel Like?",
+      "roll": null,
+      "description": "When you put your camera or microphone in a person's face, they break off whatever they are doing. They might go right back to it, but you create enough time for other hunters to act.",
+      "hunter": null,
+      "playbook": "snoop",
+      "source": "hardcover-2023"
+    },
+    "move-snoop-minor-celebrity": {
+      "name": "Minor Celebrity",
+      "roll": "+Weird",
+      "description": "At the start of each mystery, roll +Weird. 10+: hold 2. 7-9: hold 1. Spend hold to have someone you meet know of you in a positive light — autographs, hot leads, etc. Miss: no hold.",
+      "hunter": null,
+      "playbook": "snoop",
+      "source": "hardcover-2023"
+    },
+    "move-snoop-well-fix-it-in-post": {
+      "name": "We'll Fix It In Post",
+      "roll": null,
+      "description": "Use anything you could conceivably have recorded as evidence for investigate a mystery — previous interviews, attack sites, etc. from your laptop.",
+      "hunter": null,
+      "playbook": "snoop",
+      "source": "hardcover-2023"
+    },
+    "move-snoop-press-accreditation": {
+      "name": "Press Accreditation",
+      "roll": null,
+      "description": "When you investigate a mystery using interpersonal skills (talking to witnesses, interviewing locals, etc.), roll +Charm instead of +Sharp.",
+      "hunter": null,
+      "playbook": "snoop",
+      "source": "hardcover-2023"
+    },
+    "move-snoop-truthiness": {
+      "name": "Truthiness",
+      "roll": null,
+      "description": "Whatever you tell a normal person, they'll accept that you believe it's true. They might think you're deluded, but they won't think you're lying.",
+      "hunter": null,
+      "playbook": "snoop",
+      "source": "hardcover-2023"
+    },
+    "move-snoop-the-mojo-wire": {
+      "name": "The Mojo Wire",
+      "roll": null,
+      "description": "When you spend a while reading all the latest news feeds looking for the weird stuff, take +1 forward.",
+      "hunter": null,
+      "playbook": "snoop",
+      "source": "hardcover-2023"
+    },
+    "move-snoop-relaxed-producer": {
+      "name": "Relaxed Producer",
+      "roll": null,
+      "description": "You're employed with a regular pay check and little oversight. Send in a story every few days and you're set. Occasionally they'll send you somewhere — it usually involves supernatural activity.",
+      "hunter": null,
+      "playbook": "snoop",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-tools-and-techniques": {
+      "name": "Tools and Techniques",
+      "roll": null,
+      "description": "Mandatory. You rely on four tools/techniques to cast effectively — cross off one, you don't need that one. The three you keep: Consumables (need supplies; without them take 1-harm ignore-armour when casting); Foci (need wands/staves; without them do 1 less harm); Gestures (need free hands; if restrained take -1 ongoing); Incantations (must speak; if silent immediately act under pressure or suffer befuddlement).",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-advanced-arcane-training": {
+      "name": "Advanced Arcane Training",
+      "roll": null,
+      "description": "If you have two of your three Tools and Techniques at the ready, you may ignore the third one.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-arcane-reputation": {
+      "name": "Arcane Reputation",
+      "roll": null,
+      "description": "Pick three supernatural community groups who know your power. +1 forward to manipulate affected humans. You may manipulate affected monsters as if they were human (no bonus).",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-couldve-been-worse": {
+      "name": "Could've Been Worse",
+      "roll": null,
+      "description": "When you miss a use magic roll, choose one instead of losing control: Fizzle (prep ruined, start over with double prep time), or This Is Gonna Suck (effect happens but all glitches trigger except one you choose).",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-enchanted-clothing": {
+      "name": "Enchanted Clothing",
+      "roll": null,
+      "description": "Pick one article of every-day clothing — it's enchanted, no change in appearance. Take -1 harm from any source that tries to get at you through the garment.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-forensic-divination": {
+      "name": "Forensic Divination",
+      "roll": null,
+      "description": "When you successfully investigate a mystery, you may ask 'What magic was done here?' as a free extra question.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-go-big-or-go-home": {
+      "name": "Go Big or Go Home",
+      "roll": null,
+      "description": "When you must use magic as a requirement for Big Magic, take +1 ongoing to those use magic rolls.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-not-my-fault": {
+      "name": "Not My Fault",
+      "roll": null,
+      "description": "+1 to act under pressure when you are dealing with the consequences of your own spellcasting.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-practitioner": {
+      "name": "Practitioner",
+      "roll": null,
+      "description": "Choose two effects available to you under use magic. Take +1 to use magic whenever you choose one of those effects.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-shield-spell": {
+      "name": "Shield Spell",
+      "roll": null,
+      "description": "When you protect someone, gain 2-armour against any harm transferred to you. Doesn't stack with your other armour.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spell-slinger-third-eye": {
+      "name": "Third Eye",
+      "roll": null,
+      "description": "When you read a bad situation, open your third eye for extra information. On 7+: +1 hold and you can see invisible things. On a miss: possibly 1 hold, but you're exposed to supernatural danger.",
+      "hunter": null,
+      "playbook": "spell-slinger",
+      "source": "hardcover-2023"
+    },
+    "move-spooktacular-put-on-a-show": {
+      "name": "Put On A Show",
+      "roll": "+Charm or +Weird",
+      "description": "Entertain people so they feel joy and forget troubles. Roll +Charm (pure performance) or +Weird (with magic). 10+: audience transported and happy; troubles eased for a good while. 7-9: pick one — effect lasts only a short while, or regular time but there's a ruckus when done.",
+      "hunter": null,
+      "playbook": "spooktacular",
+      "source": "hardcover-2023"
+    },
+    "move-spooktacular-a-negligible-price": {
+      "name": "A Negligible Price",
+      "roll": null,
+      "description": "Make a magical deal to fulfill a desire for someone else. The price: they reveal a secret to you. The world arranges itself to fulfill their desire, scaled to the secret's significance.",
+      "hunter": null,
+      "playbook": "spooktacular",
+      "source": "hardcover-2023"
+    },
+    "move-spooktacular-easygoin": {
+      "name": "Easygoin'",
+      "roll": "+Charm",
+      "description": "When you try to make a good impression on someone you just met, roll +Charm. 10+: they treat you as a trustworthy and friendly acquaintance. 7-9: they open up more than usual but still regard you as a stranger. Miss: they think you're playing them and won't trust you or your companions.",
+      "hunter": null,
+      "playbook": "spooktacular",
+      "source": "hardcover-2023"
+    },
+    "move-spooktacular-pay-it-backward": {
+      "name": "Pay It Backward",
+      "roll": null,
+      "description": "Give yourself or someone else an advantage on any roll: roll 3 dice and select the best 2. Whenever you do this, the Keeper gains 1 hold to force any hunter to roll 3 dice and select the worst 2 on a later roll.",
+      "hunter": null,
+      "playbook": "spooktacular",
+      "source": "hardcover-2023"
+    },
+    "move-spooktacular-the-old-crew": {
+      "name": "The Old Crew",
+      "roll": null,
+      "description": "You have an ally team of Show folks, great at setting up a scene, creating distractions, or intimidating people.",
+      "hunter": null,
+      "playbook": "spooktacular",
+      "source": "hardcover-2023"
+    },
+    "move-spooktacular-the-game-is-fixed": {
+      "name": "The Game Is Fixed",
+      "roll": null,
+      "description": "When you use magic in a crowded and chaotic place, take +1 forward. Additional effects available: someone fails a skilled task; you disappear unnoticed; instantly set up or pack a carnival stall/camp site; track someone; get a bunch of cash.",
+      "hunter": null,
+      "playbook": "spooktacular",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-telepathy": {
+      "name": "Telepathy",
+      "roll": null,
+      "description": "Read people's thoughts and put words in their mind. Allows investigate a mystery, read a bad situation, and manipulate someone silently. Roll moves as normal — people just won't expect the mental communication.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-hex": {
+      "name": "Hex",
+      "roll": null,
+      "description": "When you cast a spell (with use magic), add one effect: the target contracts a disease; the target immediately suffers 2-harm magic ignore-armour; or the target breaks something precious or important.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-the-sight": {
+      "name": "The Sight",
+      "roll": null,
+      "description": "You can see the invisible — especially spirits and magical influences. You may communicate with and make deals with spirits you see. They give you more opportunities to spot clues when investigating a mystery.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-premonitions": {
+      "name": "Premonitions",
+      "roll": "+Weird",
+      "description": "At the start of each mystery, roll +Weird. 10+: detailed vision of something bad yet to happen; +1 forward to prevent it; mark XP if you stop it. 7-9: clouded images of something bad; mark XP if you stop it. Miss: vision of something bad happening to you; Keeper holds 3 to spend as penalties against your rolls.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-hunches": {
+      "name": "Hunches",
+      "roll": "+Sharp",
+      "description": "When something bad is happening somewhere you aren't, roll +Sharp. 10+: you knew where you needed to go, just in time. 7-9: you get there late — in time to intervene but not prevent. Miss: you get there just in time to be in trouble yourself.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-tune-in": {
+      "name": "Tune In",
+      "roll": "+Weird",
+      "description": "Attune your mind to a monster or minion. Roll +Weird. 10+: hold 3. 7-9: hold 1. Miss: the monster becomes aware of you. Spend hold to ask: where is it right now? What is it planning? Who will it attack next? Who does it see as biggest threat? How can I attract its attention? Gain +1 ongoing while acting on answers.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-the-big-whammy": {
+      "name": "The Big Whammy",
+      "roll": "+Weird",
+      "description": "Use your powers to kick some ass: roll +Weird instead of +Tough. Attack is 2-harm close obvious ignore-armour. Miss: magical backlash.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-spooky-jinx": {
+      "name": "Jinx",
+      "roll": "+Weird",
+      "description": "Encourage coincidences to occur. Roll +Weird. 10+: hold 2. 7-9: hold 1. Miss: Keeper holds 2 over you. Spend hold: interfere with a hunter (-1 forward); help a hunter (+1 forward) by interfering with their enemy; interfere with a monster/minion/bystander; inflict 1-harm via accident; target finds something you left; target loses something you find.",
+      "hunter": null,
+      "playbook": "spooky",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-i-know-my-prey": {
+      "name": "I Know My Prey",
+      "roll": null,
+      "description": "You get +1 ongoing when knowingly investigating, pursuing or fighting the breed of monster that caused your loss.",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-berserk": {
+      "name": "Berserk",
+      "roll": null,
+      "description": "No matter how much harm you take, you can always keep going until the current fight is over. During a fight, the Keeper may not use harm moves on you and you cannot die. When the fight ends, all harm takes effect as normal.",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-never-again": {
+      "name": "NEVER AGAIN",
+      "roll": null,
+      "description": "In combat, you may choose to protect someone without rolling, as if you rolled a 10+, but you may not choose to 'suffer little harm.'",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-what-does-not-kill-me": {
+      "name": "What Does Not Kill Me...",
+      "roll": null,
+      "description": "If you have suffered harm in a fight, you gain +1 ongoing until the fight is over.",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-fervor": {
+      "name": "Fervor",
+      "roll": null,
+      "description": "When you manipulate someone, roll +Tough instead of +Charm.",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-safety-first": {
+      "name": "Safety First",
+      "roll": null,
+      "description": "You have jury-rigged extra protection into your gear, giving you +1 armour (maximum 2-armour).",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-diy-surgery": {
+      "name": "DIY Surgery",
+      "roll": "+Cool",
+      "description": "When you do quick and dirty first aid on someone (including yourself), roll +Cool. 10+: counts as normal first aid, plus stabilize and heal 1 harm. 7-9: counts as normal first aid plus one of — stabilize but -1 forward; heal 1-harm and stabilize for now but returns as 2-harm unstable later; heal 1-harm and stabilize but -1 ongoing until fixed properly. Miss: something goes wrong.",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-wronged-tools-matter": {
+      "name": "Tools Matter",
+      "roll": null,
+      "description": "With your signature weapon, you get +1 to kick some ass.",
+      "hunter": null,
+      "playbook": "wronged",
+      "source": "hardcover-2023"
+    },
+    "move-celebrity-fakelore": {
+      "name": "Fakelore",
+      "roll": null,
+      "description": "Pick two areas of occult lore your public persona is associated with. When you investigate a mystery related to those areas, you may ask one extra question even on a miss.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-celebrity-scream-queen": {
+      "name": "Scream Queen",
+      "roll": "+Charm",
+      "description": "When you use your fame and fear to terrify someone, roll +Charm. On 10+: they flee or freeze. On 7–9: they're scared but hold their ground. Miss: they're angry instead.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-celebrity-the-price-of-fame": {
+      "name": "The Price of Fame",
+      "roll": "+Charm",
+      "description": "When you leverage celebrity to get what you need, roll +Charm. On 10+: you get it, no strings. On 7–9: you get it but it costs — bad press, a debt, or unwanted attention. Miss: someone uses your fame against you.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-celebrity-i-have-people": {
+      "name": "I Have People",
+      "roll": null,
+      "description": "You have an entourage. Once per session, direct them to gather information, create a distraction, or handle logistics without rolling.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-celebrity-i-do-my-own-stunts": {
+      "name": "I Do My Own Stunts",
+      "roll": null,
+      "description": "When you attempt something physically dangerous that you've rehearsed or trained for, take +1 forward.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-celebrity-disarming": {
+      "name": "Disarming",
+      "roll": "+Charm",
+      "description": "When you charm or flirt to defuse a tense situation, roll +Charm. On 10+: tension breaks entirely. On 7–9: things calm down but the problem remains. Miss: you make things worse.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-celebrity-but-i-play-one-on-tv": {
+      "name": "But I Play One on TV",
+      "roll": "+Charm",
+      "description": "When you act as if you know what you're doing, roll +Charm. On 10+: people believe you and act accordingly. On 7–9: they believe you for now. Miss: someone calls your bluff at the worst moment.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-celebrity-acting-my-dear-boy": {
+      "name": "Acting, My Dear Boy",
+      "roll": "+Charm",
+      "description": "When you adopt a convincing persona or disguise, roll +Charm. On 10+: completely convincing for as long as you choose. On 7–9: it holds unless someone looks closely. Miss: someone sees through you immediately.",
+      "hunter": null,
+      "playbook": "celebrity",
+      "source": "ssk-2025"
+    },
+    "move-covenant-get-down": {
+      "name": "Get Down!",
+      "roll": null,
+      "description": "When you throw yourself in front of harm aimed at your ally or a bystander, you take the harm instead and mark experience.",
+      "hunter": null,
+      "playbook": "covenant",
+      "source": "ssk-2025"
+    },
+    "move-covenant-fast-friends": {
+      "name": "Fast Friends",
+      "roll": "+Charm",
+      "description": "When you use your network to call in a favour, roll +Charm. On 10+: they help immediately, no strings. On 7–9: they help but want something in return. Miss: they can't or won't help.",
+      "hunter": null,
+      "playbook": "covenant",
+      "source": "ssk-2025"
+    },
+    "move-covenant-smash-cut": {
+      "name": "Smash Cut",
+      "roll": null,
+      "description": "Once per session, narrate arriving somewhere or having already done something off-screen, as long as it's plausible given your resources.",
+      "hunter": null,
+      "playbook": "covenant",
+      "source": "ssk-2025"
+    },
+    "move-covenant-the-geek-in-the-chair": {
+      "name": "The Geek in the Chair",
+      "roll": null,
+      "description": "When your ally does research or gathers information for you, treat their result as a 10+ on investigate a mystery.",
+      "hunter": null,
+      "playbook": "covenant",
+      "source": "ssk-2025"
+    },
+    "move-covenant-acolyte": {
+      "name": "Acolyte",
+      "roll": null,
+      "description": "Give your ally one move from a hunter playbook. They can use it once per session.",
+      "hunter": null,
+      "playbook": "covenant",
+      "source": "ssk-2025"
+    },
+    "move-covenant-who-said-i-was-alone": {
+      "name": "Who Said I Was Alone?",
+      "roll": null,
+      "description": "When you reveal your ally was present and helping all along, turn a 7–9 result into a 10+ for one move you just made.",
+      "hunter": null,
+      "playbook": "covenant",
+      "source": "ssk-2025"
+    },
+    "move-covenant-opening-doors": {
+      "name": "Opening Doors",
+      "roll": "+Sharp",
+      "description": "When you use your covenant's reputation to gain access, roll +Sharp. On 10+: no complications. On 7–9: you get access but someone takes notice. Miss: doors close and complications arise.",
+      "hunter": null,
+      "playbook": "covenant",
+      "source": "ssk-2025"
+    },
+    "move-envoy-strangely-normal": {
+      "name": "Strangely Normal",
+      "roll": "+Cool",
+      "description": "When you blend into a situation that should be awkward, roll +Cool. On 10+: no one looks twice. On 7–9: you pass but one person notices something's off. Miss: you stand out in the wrong way.",
+      "hunter": null,
+      "playbook": "envoy",
+      "source": "ssk-2025"
+    },
+    "move-envoy-too-much-has-been-lost": {
+      "name": "Too Much Has Been Lost",
+      "roll": null,
+      "description": "Once per session, protect someone from serious harm automatically — no roll required. Your Overseers notice.",
+      "hunter": null,
+      "playbook": "envoy",
+      "source": "ssk-2025"
+    },
+    "move-envoy-the-council-has-made-a-decision": {
+      "name": "The Council Has Made a Decision",
+      "roll": "+Cool",
+      "description": "When you invoke your Overseers' authority, roll +Cool. On 10+: they comply, no questions. On 7–9: they comply but want reassurance. Miss: they push back and you've revealed more than intended.",
+      "hunter": null,
+      "playbook": "envoy",
+      "source": "ssk-2025"
+    },
+    "move-envoy-prime-directive": {
+      "name": "Prime Directive",
+      "roll": null,
+      "description": "When you act in direct service of your Overseers' Values, take +1 ongoing until you act against those Values.",
+      "hunter": null,
+      "playbook": "envoy",
+      "source": "ssk-2025"
+    },
+    "move-envoy-servant-of-the-secret-fire": {
+      "name": "Servant of the Secret Fire",
+      "roll": "+Weird",
+      "description": "When you face something that threatens to overwhelm you, roll +Weird. On 10+: you hold fast and the threat falters. On 7–9: you hold but at a cost. Miss: you are tested to your limits.",
+      "hunter": null,
+      "playbook": "envoy",
+      "source": "ssk-2025"
+    },
+    "move-envoy-from-a-certain-point-of-view": {
+      "name": "From a Certain Point of View",
+      "roll": "+Sharp",
+      "description": "When you reframe a situation using Overseer knowledge, roll +Sharp. On 10+: the reframe is compelling — others act on it. On 7–9: it's partially convincing. Miss: your perspective seems incomprehensible.",
+      "hunter": null,
+      "playbook": "envoy",
+      "source": "ssk-2025"
+    },
+    "move-envoy-no-one-listens-to-zathras": {
+      "name": "No One Listens to Zathras",
+      "roll": null,
+      "description": "When you give a warning others ignore and it comes true, mark experience and take +1 forward on dealing with the consequences.",
+      "hunter": null,
+      "playbook": "envoy",
+      "source": "ssk-2025"
+    },
+    "move-forged-partner": {
+      "name": "Partner",
+      "roll": null,
+      "description": "When your bearer wields you, they add your Weird to harm. When you and your bearer work in concert on any roll, you both get +1 forward.",
+      "hunter": null,
+      "playbook": "forged",
+      "source": "ssk-2025"
+    },
+    "move-forged-tactical-advice": {
+      "name": "Tactical Advice",
+      "roll": "+Sharp",
+      "description": "When you advise your bearer on their next action, roll +Sharp. On 10+: they take +2 forward. On 7–9: they take +1 forward. Miss: your advice leads them astray.",
+      "hunter": null,
+      "playbook": "forged",
+      "source": "ssk-2025"
+    },
+    "move-forged-my-outlet": {
+      "name": "My Outlet",
+      "roll": null,
+      "description": "When your bearer uses you to express something they can't say in words, both of you heal 1-harm.",
+      "hunter": null,
+      "playbook": "forged",
+      "source": "ssk-2025"
+    },
+    "move-forged-to-my-side": {
+      "name": "To My Side",
+      "roll": null,
+      "description": "When you call your bearer to you (or vice versa), you both move to each other's location. No roll, but the Keeper may add a complication.",
+      "hunter": null,
+      "playbook": "forged",
+      "source": "ssk-2025"
+    },
+    "move-forged-ritual-use": {
+      "name": "Ritual Use",
+      "roll": "+Weird",
+      "description": "When someone uses you in a ritual or ceremony, roll +Weird. On 10+: ritual is enhanced, pick two effects. On 7–9: pick one. Miss: something goes wrong with the ritual.",
+      "hunter": null,
+      "playbook": "forged",
+      "source": "ssk-2025"
+    },
+    "move-forged-dont-worry-about-me": {
+      "name": "Don't Worry About Me",
+      "roll": null,
+      "description": "When you absorb harm meant for your bearer, you can take up to 3-harm instead of them. You must be repaired afterward.",
+      "hunter": null,
+      "playbook": "forged",
+      "source": "ssk-2025"
+    },
+    "move-forged-pointing-the-way": {
+      "name": "Pointing the Way",
+      "roll": null,
+      "description": "Once per session, tell the group one thing the current mystery requires. The Keeper confirms if you're right.",
+      "hunter": null,
+      "playbook": "forged",
+      "source": "ssk-2025"
+    },
+    "move-host-defensive-adaptation": {
+      "name": "Defensive Adaptation",
+      "roll": null,
+      "description": "Pick one form: 1-armour at all times; heal 1-harm when you take harm on a 10+; or once per scene redirect one instance of harm to something nearby.",
+      "hunter": null,
+      "playbook": "host",
+      "source": "ssk-2025"
+    },
+    "move-host-mutual-survival": {
+      "name": "Mutual Survival",
+      "roll": "+Weird",
+      "description": "When you and your symbiote cooperate fully, roll +Weird. On 10+: hold 3. On 7–9: hold 1. Spend hold for +1 forward. Miss: the symbiote takes over briefly.",
+      "hunter": null,
+      "playbook": "host",
+      "source": "ssk-2025"
+    },
+    "move-host-balanced-neurochemistry": {
+      "name": "Balanced Neurochemistry",
+      "roll": null,
+      "description": "You are immune to all mind-altering effects, supernatural fear, and possession attempts.",
+      "hunter": null,
+      "playbook": "host",
+      "source": "ssk-2025"
+    },
+    "move-host-open-your-mind": {
+      "name": "Open Your Mind",
+      "roll": "+Weird",
+      "description": "When you let your symbiote expand your senses, roll +Weird. On 10+: ask three questions from investigate a mystery. On 7–9: ask one. Miss: the symbiote's senses overwhelm you.",
+      "hunter": null,
+      "playbook": "host",
+      "source": "ssk-2025"
+    },
+    "move-host-predator-and-prey": {
+      "name": "Predator and Prey",
+      "roll": "+Weird",
+      "description": "Roll +Weird instead of +Sharp when using investigate a mystery to track or hunt a specific target.",
+      "hunter": null,
+      "playbook": "host",
+      "source": "ssk-2025"
+    },
+    "move-host-collaborative-effort": {
+      "name": "Collaborative Effort",
+      "roll": null,
+      "description": "Once per session, make any basic move as if you rolled a 10+ without rolling.",
+      "hunter": null,
+      "playbook": "host",
+      "source": "ssk-2025"
+    },
+    "move-host-separation-anxiety": {
+      "name": "Separation Anxiety",
+      "roll": null,
+      "description": "When separated from your symbiote, both suffer 1-harm per scene. When reunited, both heal 2-harm.",
+      "hunter": null,
+      "playbook": "host",
+      "source": "ssk-2025"
+    },
+    "move-interface-technomancer": {
+      "name": "Technomancer",
+      "roll": "+Sharp",
+      "description": "When you interface with a machine or system, roll +Sharp. On 10+: full access — change, copy, or destroy anything. On 7–9: limited access, pick one action. Miss: locked out and system alerts someone.",
+      "hunter": null,
+      "playbook": "interface",
+      "source": "ssk-2025"
+    },
+    "move-interface-expert-troll": {
+      "name": "Expert Troll",
+      "roll": "+Sharp",
+      "description": "When you harass or destabilise someone digitally, roll +Sharp. On 10+: seriously disrupted, pick two effects. On 7–9: pick one. Miss: they trace it back to you.",
+      "hunter": null,
+      "playbook": "interface",
+      "source": "ssk-2025"
+    },
+    "move-interface-keep-going-and-going": {
+      "name": "Keep Going and Going",
+      "roll": "+Cool",
+      "description": "When you would be taken out by harm, roll +Cool. On 10+: stay in the fight at 1-harm. On 7–9: stay functional but take a lasting effect. Miss: go down, but your systems keep recording.",
+      "hunter": null,
+      "playbook": "interface",
+      "source": "ssk-2025"
+    },
+    "move-interface-take-the-shot": {
+      "name": "Take the Shot",
+      "roll": "+Sharp",
+      "description": "When using integrated targeting, roll +Sharp instead of +Tough for kick some ass with a ranged weapon.",
+      "hunter": null,
+      "playbook": "interface",
+      "source": "ssk-2025"
+    },
+    "move-interface-hack-the-planet": {
+      "name": "Hack the Planet",
+      "roll": null,
+      "description": "Once per session, declare you've prepared access to any digital system the team might need. No roll, but the Keeper may invoke one of your Faults.",
+      "hunter": null,
+      "playbook": "interface",
+      "source": "ssk-2025"
+    },
+    "move-interface-virus-whisperer": {
+      "name": "Virus Whisperer",
+      "roll": "+Weird",
+      "description": "When you encounter a supernatural entity merged with technology, roll +Weird. On 10+: it talks back with useful information. On 7–9: partial contact. Miss: it notices you and reacts badly.",
+      "hunter": null,
+      "playbook": "interface",
+      "source": "ssk-2025"
+    },
+    "move-visitor-something-strange": {
+      "name": "Something Strange",
+      "roll": "+Weird",
+      "description": "When you do something that reveals your alien nature, roll +Weird. On 10+: they're awed or rattled enough to comply. On 7–9: they comply but are spooked. Miss: frightened and hostile.",
+      "hunter": null,
+      "playbook": "visitor",
+      "source": "ssk-2025"
+    },
+    "move-visitor-always-learning": {
+      "name": "Always Learning",
+      "roll": null,
+      "description": "When you encounter a new type of monster or supernatural phenomenon, ask one question from investigate a mystery for free — no roll.",
+      "hunter": null,
+      "playbook": "visitor",
+      "source": "ssk-2025"
+    },
+    "move-visitor-being-neighbourly": {
+      "name": "Being Neighbourly",
+      "roll": "+Charm",
+      "description": "When you use the customs of your home culture to help or honour someone, roll +Charm. On 10+: they're genuinely moved and will help in return. On 7–9: it's a bit odd but appreciated. Miss: cultural misunderstanding.",
+      "hunter": null,
+      "playbook": "visitor",
+      "source": "ssk-2025"
+    },
+    "move-visitor-different-world-different-rules": {
+      "name": "Different World, Different Rules",
+      "roll": "+Sharp",
+      "description": "When you apply the logic of your home world to a problem here, roll +Sharp. On 10+: ask two questions or take +2 forward. On 7–9: ask one or take +1 forward. Miss: it doesn't apply at all.",
+      "hunter": null,
+      "playbook": "visitor",
+      "source": "ssk-2025"
+    },
+    "move-visitor-taste-of-home": {
+      "name": "Taste of Home",
+      "roll": null,
+      "description": "Once per session, share something from your home culture. Both you and the recipient heal 1-harm and get +1 forward on your next shared roll.",
+      "hunter": null,
+      "playbook": "visitor",
+      "source": "ssk-2025"
+    },
+    "move-visitor-alien-anatomy": {
+      "name": "Alien Anatomy",
+      "roll": null,
+      "description": "Suffer 1-harm less from any source (minimum 0). Human medicine and healing works half as well on you.",
+      "hunter": null,
+      "playbook": "visitor",
+      "source": "ssk-2025"
+    },
+    "move-visitor-otherworldly-techniques": {
+      "name": "Otherworldly Techniques",
+      "roll": "+Tough",
+      "description": "When you use combat techniques from your home world, roll +Tough. On 10+: 2-harm and pick two extras. On 7–9: 2-harm and pick one. Miss: 1-harm and you're off-balance.",
+      "hunter": null,
+      "playbook": "visitor",
+      "source": "ssk-2025"
+    },
+    "move-connect-dots": {
+      "name": "Connect the Dots",
+      "roll": "+Sharp",
+      "description": "At the beginning of each mystery, if you look for the wider patterns that current events might be part of, roll +Sharp. On 10+: hold 3. On 7–9: hold 1. Miss: no hold — you see connections, but they may not be there. Spend hold 1-for-1 to ask: What other mysteries or groups does this connect to? / Is this connected to a previous case? / Who else is involved — other hunters, other factions? / How does this connect to the bigger picture?",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    },
+    "move-crazy-eyes": {
+      "name": "Crazy Eyes",
+      "roll": null,
+      "description": "You get +1 Weird (max +3).",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    },
+    "move-see-fits-together": {
+      "name": "See, It All Fits Together",
+      "roll": null,
+      "description": "You can use Sharp instead of Charm when you manipulate someone.",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    },
+    "move-suspicious-mind": {
+      "name": "Suspicious Mind",
+      "roll": null,
+      "description": "If someone lies to you, you know it.",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    },
+    "move-often-overlooked": {
+      "name": "Often Overlooked",
+      "roll": "+Weird",
+      "description": "When you act all crazy to avoid something, roll +Weird. On 10+: you’re regarded as completely unthreatening and unimportant. On 7–9: pick one — unthreatening or unimportant. Miss: you draw lots (but not all) of the attention.",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    },
+    "move-contrary": {
+      "name": "Contrary",
+      "roll": null,
+      "description": "When you seek out and receive someone’s honest advice on the best course of action and then do something else instead, mark experience. If you do exactly the opposite of their advice, take +1 ongoing on any moves you make pursuing that course.",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    },
+    "move-net-friends": {
+      "name": "Net Friends",
+      "roll": "+Charm",
+      "description": "You know a lot of people on the Internet. When you contact a net friend to help you with a mystery, roll +Charm. On 10+: they’re available and helpful — they can fix something, break a code, hack a computer, or get you special information. On 7–9: they’ll help, but it’ll take time or you’ll have to do part of it yourself. Miss: you burn some bridges.",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    },
+    "move-sneaky": {
+      "name": "Sneaky",
+      "roll": null,
+      "description": "When you attack from ambush, or from behind, inflict +2 harm.",
+      "hunter": "john",
+      "playbook": "flake",
+      "source": "full-book"
+    }
+  },
+  "always_active_moves": {
+    "rex": [
+      {
+        "id": "area-of-study-violence",
+        "source": "area_of_study",
+        "name": "Kick Some Ass (Violence)",
+        "roll": "+Sharp",
+        "description": "May roll +Sharp instead of +Tough for kick some ass. When making a scientific attack, either do +1 harm or take +1 forward.",
+        "basic_move_ref": "kick-some-ass"
+      }
+    ],
+    "alan": [],
+    "reed": [],
+    "sven": [],
+    "john": []
+  }
+}

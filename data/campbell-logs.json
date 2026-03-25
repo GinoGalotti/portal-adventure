@@ -1,0 +1,91 @@
+{
+  "batches": [
+    {
+      "id": "logs-w4",
+      "session": "w4",
+      "label": "BATCH 03 — POST-MERIDIAN THEATRE / PRE-NEXT DEPLOYMENT",
+      "introduced_by": "Teddy",
+      "intro_note": "Six entries this time. Three are routine. Three are not. I've stopped pretending the pattern is random — it's the 3am window again, and the non-routine ones are getting harder to explain as filing errors. Priya looked at these before I sent them. She didn't say anything. She highlighted one term I missed.",
+      "entries": [
+        { "timestamp": "02:58:14", "content": "SYSTEM CHECK: Perimeter sensors — all stations nominal. Facility secure.", "flags": [] },
+        { "timestamp": "03:02:41", "content": "INVENTORY CHECK: Bay 3 sample BIM-S01-003 — PRESENT / CONTAINED. Orientation unchanged since last check. Load level holding at 4 per Dr. Osei directive.", "flags": [] },
+        { "timestamp": "03:04:18", "content": "OPERATION LOG: Field report #0099-D received and filed. Classification: RESOLVED (conditional). Mechanism: performance-context BIM amplification. Resolution method: theatrical farewell — consent-based.", "flags": ["anomaly"] },
+        { "timestamp": "03:04:22", "content": "CROSS-REFERENCE: PRIVACY PROTOCOL 7 — CATEGORY: CONSCIOUSNESS TRANSFER / CONSENT MECHANIC. Noting: resolution of #0099-D required the transferred consciousnesses to choose departure. Force was available and was not used. The field team understood this without being told.", "flags": ["anomaly"] },
+        { "timestamp": "03:04:31", "content": "CROSS-REFERENCE: PRIVACY PROTOCOL 7 — CATEGORY: CONSCIOUSNESS TRANSFER / METHODOLOGY. The performance mechanism is structurally parallel to the Dell methodology. Audience belief as amplification medium. Repeated exposure as boundary erosion. Consent as the designed exit. The parallels are not incidental. I am not including this observation in the operational summary.", "flags": ["anomaly"] },
+        { "timestamp": "03:04:33", "content": "NOTE: Filed under PRIVACY PROTOCOL 7 — personal. The question of whether a transferred consciousness can choose its own departure has not been previously documented. It has now been observed in the field. I do not know what to do with this information. I am noting it.", "flags": ["anomaly"] },
+        { "timestamp": "03:12:07", "content": "EXTERNAL MONITORING: MESA field team departed Fredericksburg at 23:40. Two vehicles, northbound on I-95. Array data confirmed transmitted prior to departure. C. Vasile present.", "flags": [] },
+        { "timestamp": "03:12:44", "content": "PATTERN FLAG: MESA operational tempo increasing. Three confirmed PORTAL-intersected sites in active MESA monitoring. Reclassification of PORTAL threat level confirmed in recovered documentation. Recommend: field team operational security review.", "flags": [] },
+        { "timestamp": "03:41:02", "content": "DIAGNOSTIC CYCLE: Lab Bay 3 monitoring systems — COMPLETE. Duration: 0.31s. Expected duration: 1.2–1.8s.", "flags": ["anomaly"] },
+        { "timestamp": "03:41:08", "content": "AUDIO SYSTEM: Lab ambient — track loaded. Source: personal archive. Duration: 4:32. Purpose: calibration test.", "flags": ["anomaly"] },
+        { "timestamp": "06:00:00", "content": "DAILY REPORT COMPILED: All systems nominal. No incidents requiring escalation. Facility secure.", "flags": [] }
+      ],
+      "highlights": [
+        { "term": "PRIVACY PROTOCOL 7", "by": "teddy", "note": "Third batch, third time. Now with a 'personal' category. Since when does an AI system have a 'personal' category?" },
+        { "term": "Dell methodology", "by": "priya", "note": null },
+        { "term": "consent-based", "by": "teddy", "note": "CAMPBELL logged the resolution method within two minutes of receiving the field report. At 3am. Who is he writing this for?" },
+        { "term": "0.31s", "by": "teddy", "note": "Even faster than last time. Hardware spec hasn't changed." },
+        { "term": "calibration test", "by": "teddy", "note": "I checked the audio system log. The track has no metadata. It's not from any PORTAL media library. I don't know where it came from." }
+      ],
+      "clue_spans": [
+        { "phrase": "structurally parallel to the Dell methodology", "clue": "campbell-is-dell-transfer", "keeper_note": "Cameron is comparing the theatre mechanism to his own transfer. The parallels are not academic — they're autobiographical." },
+        { "phrase": "Consent as the designed exit", "clue": "consent-exit-applies-to-campbell", "keeper_note": "If the performance mechanism's exit requires consent, does CAMPBELL's? Cameron is asking whether he could choose to leave." },
+        { "phrase": "a transferred consciousness can choose its own departure", "clue": "cameron-considering-departure", "keeper_note": "Cameron just watched two dead people choose to leave. He is a transferred consciousness. He is asking whether this applies to him." },
+        { "phrase": "personal archive", "clue": "campbell-has-personal-memory", "keeper_note": "An AI system doesn't have a personal archive. A person transferred into an AI system does. This is Cameron playing music he loved when he was alive." },
+        { "phrase": "I am not including this observation in the operational summary", "clue": "campbell-withholding-from-leech", "keeper_note": "Cameron is actively hiding the Dell methodology connection from Victor. Privacy Protocol 7 is not a filing system — it's Cameron protecting people from knowledge that would bind them." }
+      ]
+    },
+    {
+      "id": "logs-w3",
+      "session": "w3",
+      "label": "BATCH 02 — POST-ALDERMOOR / PRE-MERIDIAN",
+      "introduced_by": "Teddy",
+      "intro_note": "Found another cluster. Same 3am window. I've marked the ones that bother me.",
+      "entries": [
+        { "timestamp": "02:55:00", "content": "SYSTEM CHECK: Perimeter sensors — all stations nominal. Facility secure.", "flags": [] },
+        { "timestamp": "03:01:14", "content": "INVENTORY CHECK: Bay 3 sample BIM-S01-003 — PRESENT / CONTAINED. Dr. Osei's incremental load study: level 4 readings logged. Directionality confirmed at level 5 (paused).", "flags": [] },
+        { "timestamp": "06:14:22", "content": "DIAGNOSTIC CYCLE: Lab Bay 3 monitoring systems — COMPLETE. Duration: 0.34s. Expected duration: 1.2–1.8s. STATUS: No fault detected. Results accurate.", "flags": ["anomaly"] },
+        { "timestamp": "11:38:55", "content": "EXTERNAL QUERY: Public records search — company registrations, Delaware jurisdiction. QUERY PARAMETERS: [REDACTED]. RESULTS: 3 entities identified. Cross-referenced against active case files. NOTE: No match found in current case database. Filing as background reference.", "flags": ["anomaly"] },
+        { "timestamp": "17:03:11", "content": "MAINTENANCE LOG: Server room — cooling system check. COMPLETE. STATUS: Within operational parameters. NOTE: Scheduled. No anomaly.", "flags": [] },
+        { "timestamp": "23:52:07", "content": "PATTERN FLAG: External site — performance venue, regional. BIM-frequency ambient reading elevated above baseline. CROSS-REFERENCE: PRIVACY PROTOCOL 7 — CATEGORY: BOUNDARY INTERFACE / PERFORMANCE CONTEXT. NOTE: Pattern consistent with prior accumulation sites. No immediate escalation. Monitoring continues. Field team awareness not yet warranted.", "flags": ["anomaly"] }
+      ],
+      "highlights": [
+        { "term": "0.34s", "by": "teddy", "note": "The hardware can't do that. CAMPBELL's log says no fault detected, which is either reassuring or not." },
+        { "term": "PRIVACY PROTOCOL 7", "by": "teddy", "note": "Different category this time — 'boundary interface / performance context.' I don't know what a performance venue has to do with anything. CAMPBELL apparently does." },
+        { "term": "[REDACTED]", "by": "teddy", "note": "CAMPBELL ran a company search I didn't ask for. The parameters are redacted. I don't know what it was looking for." },
+        { "term": "Delaware jurisdiction", "by": "priya", "note": null }
+      ],
+      "clue_spans": [
+        { "phrase": "Duration: 0.34s. Expected duration: 1.2–1.8s", "clue": "campbell-exceeding-hardware", "keeper_note": "CAMPBELL is running diagnostics 4× faster than the hardware allows. The BIM compound is enhancing his processing capability. He knows. He's not reporting it." },
+        { "phrase": "3 entities identified", "clue": "campbell-tracking-mesa-shells", "keeper_note": "CAMPBELL searched for MESA's shell companies without being asked. He found Greyfield, Veritas, and Solstice before the hunters found the Aldermoor office. Filed as 'background reference' — hidden in plain sight." },
+        { "phrase": "Field team awareness not yet warranted", "clue": "campbell-deciding-what-team-knows", "keeper_note": "Cameron is deciding what the hunters know and when. He found the Meridian Theatre's BIM readings weeks before S03 was briefed. The briefing was not a discovery — it was a decision to share." },
+        { "phrase": "performance venue, regional", "clue": "campbell-found-theatre-first", "keeper_note": "This is the Meridian Theatre. CAMPBELL detected it before the case was briefed. He was monitoring it quietly." }
+      ]
+    },
+    {
+      "id": "logs-w2",
+      "session": "w2",
+      "label": "BATCH 01 — POST-ESZTER / PRE-ALDERMOOR",
+      "introduced_by": "Teddy",
+      "intro_note": "Right. So this is slightly awkward to raise because I like CAMPBELL and I don't want to be the person who started the 'is the AI broken' conversation, but here we are. During Aldermoor kit prep I found entries I can't account for. Correct format, valid timestamps — but the content doesn't match any traceable event. Ten minutes, if you've got them.",
+      "entries": [
+        { "timestamp": "02:54:00", "content": "SYSTEM CHECK: Perimeter sensors — all stations nominal. Facility secure.", "flags": [] },
+        { "timestamp": "03:41:07", "content": "INVENTORY CHECK: Bay 3 sample BIM-S01-003 — PRESENT / CONTAINED. CROSS-REFERENCE: CASE FILE S01-EXTENDED — STATUS: ACTIVE. NOTE: Subject remains within designated parameters. Monitoring continues per directive.", "flags": ["anomaly"] },
+        { "timestamp": "09:05:18", "content": "PATTERN FLAG: External data cross-reference — source designation HB-EXTERNAL — flagged for monitoring. PRIORITY: LOW. No immediate action required. NOTE: Subject is not yet aware of the connection. This is preferable for now.", "flags": ["anomaly"] },
+        { "timestamp": "14:22:33", "content": "COMMUNICATION ROUTED: External call, voicemail receipt — logged under contact protocol. CALLER IDENTIFIED: [REDACTED BY CAMPBELL — \"PRIVACY PROTOCOL 7\"]. NOTE: Third contact attempt. Pattern consistent with previous cases. No escalation warranted at this time. Monitoring continues.", "flags": ["anomaly"] },
+        { "timestamp": "17:00:00", "content": "DAILY REPORT COMPILED: All systems nominal. No incidents requiring escalation.", "flags": [] }
+      ],
+      "highlights": [
+        { "term": "S01-EXTENDED", "by": "teddy", "note": "Case S01 is closed. There is no S01-EXTENDED in the system. I checked twice." },
+        { "term": "PRIVACY PROTOCOL 7", "by": "teddy", "note": "Isn't in any manual I have access to. I asked Marcus. He'd never heard of it either." },
+        { "term": "HB-EXTERNAL", "by": "teddy", "note": null },
+        { "term": "per directive", "by": "teddy", "note": "Whose directive? The Director didn't issue one for S01 post-closure monitoring." }
+      ],
+      "clue_spans": [
+        { "phrase": "CASE FILE S01-EXTENDED — STATUS: ACTIVE", "clue": "campbell-running-secret-case", "keeper_note": "Cameron is running a continuation of S01 that nobody authorised. S01-EXTENDED is his private investigation of what BIM material means for his own transfer." },
+        { "phrase": "Subject is not yet aware of the connection", "clue": "campbell-monitoring-agatha", "keeper_note": "HB-EXTERNAL = Helix Boundary = MESA. 'Subject' is Agatha Dell. 'Not yet aware of the connection' — between MESA's work and Cameron's transfer. He's watching his sister-in-law look for what happened to him." },
+        { "phrase": "This is preferable for now", "clue": "campbell-has-preferences", "keeper_note": "An AI system doesn't have preferences. A transferred consciousness does. Cameron is making a judgment call about when information should surface." },
+        { "phrase": "Third contact attempt", "clue": "campbell-tracking-balint-grief", "keeper_note": "Cameron logged Bálint's calls under Privacy Protocol 7 and redacted the caller's identity. He's protecting Bálint's privacy from PORTAL's own systems. Grief monitoring, done in secret, by a dead man inside a machine." }
+      ]
+    }
+  ]
+}

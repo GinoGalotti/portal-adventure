@@ -1,0 +1,94 @@
+{
+  "version": "portal-campaign-current",
+  "source": "worldbuilding-lore.md \u2014 campaign-specific rules and MESA field equipment mechanics",
+  "note": "Custom and house-rule moves for the PORTAL campaign. Stored separately from motw-basic-moves.json and motw-playbooks.json. The roll interface should merge these with the standard move lists at runtime.",
+  "custom_moves": [
+    {
+      "id": "substance-theta-active-dose",
+      "name": "Substance Theta \u2014 Active Dose",
+      "category": "mesa_equipment",
+      "trigger": "When you take an active dose of Substance Theta",
+      "roll": "weird",
+      "description": "A proprietary pharmacological compound developed by Meridian BioSciences. The active dose restructures the cognitive map, granting full liminal perception for 2-3 hours. Long-term use permanently degrades the cognitive map.",
+      "outcomes": {
+        "10_plus": "Full liminal perception for 2-3 hours \u2014 direct sight of entities, perception of BIM frequency effects before they manifest, navigation by liminal topology. No immediate side effects.",
+        "7_9": "Full liminal perception for 2-3 hours, but take 1-harm (weird). Withdrawal: 12-18 hours of unreliable normal perception afterwards.",
+        "miss": "Perceptual dissolution \u2014 you cannot distinguish physical from liminal for the rest of the session without help from another hunter or intervention."
+      },
+      "tags": [
+        "weird",
+        "pharmacological",
+        "liminal",
+        "bim-adjacent"
+      ],
+      "availability": "MESA operatives. Rook carries active doses at her discretion. Prophylactic doses are standard issue to MESA field grunts (no roll \u2014 grants resistance to displacement effects only).",
+      "keeper_notes": {
+        "bim_connection": "The active compound is structurally similar to BIM particulate. MESA built a perception drug from ash. Rex examining a sample recognises the BIM signature within minutes \u2014 direct Project Veil breadcrumb.",
+        "long_term_damage": "Rook has taken three active doses in two years. Cognitive map degradation is accumulating. She is aware of this.",
+        "prophylactic_dose": "No roll required. Grants resistance to displacement effects in distortion zones. Side effects near active BIM sources: peripheral visual artefacts, mild temporal dissociation. Duration 4-6 hours."
+      }
+    },
+    {
+      "id": "anchor-spike-discharge",
+      "name": "Anchor Spike \u2014 Discharge",
+      "category": "mesa_equipment",
+      "trigger": "When the Anchor Spike is used against a target",
+      "roll": null,
+      "description": "A matte black tactical device, 15cm, looks like a heavy pen. One button. One use per charge; recharging requires lab equipment. Rook carries two. Emits a focused electrostatic discharge tuned to BIM frequency.",
+      "outcomes": {
+        "general": "Effect varies by target. No roll required \u2014 Keeper determines whether it connects based on fictional positioning."
+      },
+      "target_effects": [
+        {
+          "target": "liminal_entity",
+          "effect": "3-harm. Forces contraction and retreat. Does not destroy \u2014 hurts, in whatever way something without a nervous system experiences hurt."
+        },
+        {
+          "target": "hunter_in_supernatural_contact",
+          "effect": "Breaks contact immediately. 1-harm (weird). Disadvantage on Weird moves for the rest of the session."
+        },
+        {
+          "target": "sven",
+          "effect": "3-harm. Forced out of any supernatural state for the rest of the scene. Rook will then know what he is. He will know she knows.",
+          "keeper_note": "This is a significant revelation moment \u2014 use deliberately."
+        },
+        {
+          "target": "cartographer_at_aldermoor_epicentre",
+          "effect": "Forces contraction. Does not advance the doom clock, but buys approximately one hour of reduced effect in the district."
+        }
+      ],
+      "tags": [
+        "bim-tuned",
+        "electrostatic",
+        "one-use-per-charge"
+      ],
+      "keeper_notes": {
+        "bim_connection": "Built using BIM particulate as tuning material. Rex examining one would recognise the theoretical framework and realise MESA is significantly ahead of PORTAL's research timeline. Direct Project Veil breadcrumb.",
+        "rook_carries": "Two units. Standard kit in active liminal zones."
+      }
+    },
+    {
+      "id": "bim-collection-array-recovery",
+      "name": "BIM Collection Array \u2014 Recovered Sample",
+      "category": "mesa_equipment",
+      "trigger": "When a hunter recovers a BIM Collection Array from a MESA operative",
+      "roll": null,
+      "description": "Hardback-book-sized, matte grey, mesh face, sealed chamber. Looks like an air purifier. Grunts carry one each; told it is a contamination monitor. Vacuum-accumulates BIM-frequency particulate from active liminal zones.",
+      "outcomes": {
+        "general": "The device is recovered. Its contents are scientifically significant \u2014 BIM signature matches the S01 particulate from Eszter's case. Two cases, same material. Someone has been collecting this for years."
+      },
+      "tags": [
+        "bim-collection",
+        "plot-significant",
+        "mesa-equipment"
+      ],
+      "keeper_notes": {
+        "significance": "Most plot-significant retrievable object from a MESA encounter. The BIM signature match is Project Veil breadcrumb 2.",
+        "grunts_believe": "Grunts are told it is a contamination monitor. Most believe this.",
+        "analysis": "Rex identifying the contents connects S01 to S02 and MESA to Project Veil in a single move."
+      }
+    }
+  ],
+  "house_rules": [],
+  "house_rules_note": "Add campaign-specific rule modifications here. Format matches custom_moves entries. Examples: modified harm rules, custom clocks, PORTAL-specific investigation mechanics."
+}

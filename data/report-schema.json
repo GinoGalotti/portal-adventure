@@ -1,0 +1,209 @@
+[
+  {
+    "session_id": "S01",
+    "week_id": "W01",
+    "week_label": "Week 01",
+    "week_subtitle": "A Promise is a Promise",
+    "keeper_threads": [
+      "PROJECT VEIL", "MESA", "CAMPBELL", "SVEN'S DEATH",
+      "ALAN'S ORIGIN", "REED'S DIRECTIVE", "DR. LEECH",
+      "BIM / ASH", "ESZTER", "BÁLINT", "KELLER UNIVERSITY", "GORDON AVERY"
+    ],
+    "keeper_clocks": [
+      { "id": "gordon-avery",     "label": "Gordon Avery clock" },
+      { "id": "nadia",            "label": "Nadia — 9-day window" },
+      { "id": "martin-mira",      "label": "Martin / Mira — 14-day window" },
+      { "id": "meridian-theatre", "label": "Meridian Theatre (Saturday)" },
+      { "id": "mesa-presence",    "label": "MESA presence at Keller" },
+      { "id": "campbell-flag",    "label": "CAMPBELL internal flag" }
+    ],
+    "keeper_scenes": [
+      {
+        "id": "eszter-resolution",
+        "label": "ESZTER RESOLUTION",
+        "prompt": "How did the team resolve Eszter's haunting? What did they promise Bálint? What remains unfinished or ambiguous?"
+      },
+      {
+        "id": "mesa-keller",
+        "label": "MESA AT KELLER",
+        "prompt": "What did MESA want at Keller University? Did they interfere directly? What did the team learn, gain, or lose in that encounter?"
+      },
+      {
+        "id": "bim-usage",
+        "label": "BIM COLLECTION ARRAY",
+        "prompt": "Was the BIM used? What was collected? Any unexpected readings, effects, or side-consequences?"
+      }
+    ],
+    "player_scenes": [
+      {
+        "id": "eszter-balint",
+        "label": "ESZTER & BÁLINT",
+        "prompt": "The ghost of Eszter protecting Bálint was the emotional heart of this week. How did that story land for you? Did the resolution feel right — and how did you feel about what Bálint asked of the team?"
+      },
+      {
+        "id": "portal-directive",
+        "label": "THE PORTAL DIRECTIVE",
+        "prompt": "The lab wanted the ash sample — the locket. There was a tension between the mission objective and doing right by Bálint. How did your operative feel about that pull? What did the team decide, and did it sit right with you?"
+      },
+      {
+        "id": "your-moment",
+        "label": "YOUR OPERATIVE'S MOMENT",
+        "prompt": "Was there a specific moment — a choice, a line, a beat — where your operative really felt like themselves? What was it?"
+      }
+    ],
+    "canon_slots": []
+  },
+  {
+    "session_id": "S02",
+    "week_id": "W02",
+    "week_label": "Week 02",
+    "week_subtitle": "Something That Wants to Be Known",
+    "keeper_threads": [
+      "PROJECT VEIL", "MESA", "ROOK", "DAN NILSSON",
+      "CAMPBELL", "SVEN'S DEATH", "ALAN'S ORIGIN", "REED'S DIRECTIVE",
+      "DR. LEECH", "BIM / ASH", "THE CARTOGRAPHER", "MESA SAMPLES"
+    ],
+    "keeper_clocks": [
+      { "id": "gordon-avery",     "label": "Gordon Avery clock" },
+      { "id": "nadia",            "label": "Nadia — 9-day window" },
+      { "id": "martin-mira",      "label": "Martin / Mira — 14-day window" },
+      { "id": "meridian-theatre", "label": "Meridian Theatre (Saturday)" },
+      { "id": "mesa-presence",    "label": "MESA presence in Aldermoor" },
+      { "id": "campbell-flag",    "label": "CAMPBELL internal flag" }
+    ],
+    "keeper_scenes": [
+      {
+        "id": "cartographer",
+        "label": "THE CARTOGRAPHER",
+        "prompt": "How did the team encounter the Cartographer? What did it reveal, take, or change? Who did it affect most, and how?"
+      },
+      {
+        "id": "aldermoor",
+        "label": "ALDERMOOR DISTRICT",
+        "prompt": "Key events in Aldermoor. What changed about the location itself? What did the team leave behind — physically or otherwise?"
+      },
+      {
+        "id": "veil-thread",
+        "label": "PROJECT VEIL THREAD",
+        "prompt": "Any new Project Veil breadcrumbs discovered? What do the hunters now suspect, fear, or know that they didn't before?"
+      }
+    ],
+    "player_scenes": [
+      {
+        "id": "cartographer",
+        "label": "THE CARTOGRAPHER",
+        "prompt": "The Cartographer was the central entity this week. How did it land for you — frightening, fascinating, confusing, all of the above? What did you make of it?"
+      },
+      {
+        "id": "aldermoor",
+        "label": "ALDERMOOR DISTRICT",
+        "prompt": "The investigation took you through Aldermoor. Did the location feel alive? What detail or moment from the district stuck with you?"
+      },
+      {
+        "id": "your-moment",
+        "label": "YOUR OPERATIVE'S MOMENT",
+        "prompt": "A moment this week where your operative surprised you, struggled with something, or changed. What was it?"
+      }
+    ],
+    "canon_slots": []
+  },
+  {
+    "session_id": "S03",
+    "week_id": "W03",
+    "week_label": "Week 03",
+    "week_subtitle": "The Understudies",
+    "keeper_threads": [
+      "M.E.S.A. INVESTIGATION",
+      "ROOK — MESA FIELD OPERATIVE",
+      "CAMPBELL / CAMERON DELL",
+      "PROJECT VEIL — BIM PARTICULATE",
+      "THE UNDERSTUDIES — MERIDIAN THEATRE",
+      "CASE A — GORDON AVERY",
+      "CASE C — NADIA OSEI",
+      "CASE D — MARTIN WENTWORTH",
+      "SVEN'S CAUSE OF DEATH",
+      "ALAN'S THRESHOLD MAPS",
+      "REED'S PRIVATE DIRECTIVE",
+      "CARTOGRAPHER — ALDERMOOR AFTERMATH"
+    ],
+    "keeper_clocks": [
+      { "id": "clock-understudies-performance", "label": "Case E — Saturday's Performance" },
+      { "id": "clock-mesa-response",            "label": "MESA — Response to PORTAL" },
+      { "id": "clock-nadia-window",             "label": "Case C — Nadia's Window" },
+      { "id": "clock-mira-okonkwo",             "label": "Case D — Mira Okonkwo" },
+      { "id": "clock-cartographer-stability",   "label": "Aldermoor — Cartographer Stability" }
+    ],
+    "keeper_scenes": [
+      {
+        "id": "investigation",
+        "label": "THE INVESTIGATION",
+        "prompt": "Which investigation routes did the team pursue — hospital (Route A), theatre (Route B), paper trail (Route C)? What did they find, what did they miss, and what did the three hospitalised understudies reveal about the mechanism's layers?"
+      },
+      {
+        "id": "mesa-confrontation",
+        "label": "MESA AT THE LOADING BAY",
+        "prompt": "How did the Scene 3 confrontation with Rook unfold — negotiation, pressure, or escalation? What did MESA learn about the team? Did anyone copy or remove the BIM array data, and did Rook notice? What did Rook say to Sven?"
+      },
+      {
+        "id": "climax-resolution",
+        "label": "SATURDAY'S PERFORMANCE",
+        "prompt": "How was the theatrical farewell resolved? Did Sven go onstage? Did Clara choose? Where was the prompt book? What happened to the understudies — full recovery, partial, or clock fired? What did the team leave behind in the theatre?"
+      }
+    ],
+    "player_scenes": [
+      {
+        "id": "the-understudies",
+        "label": "THE UNDERSTUDIES",
+        "prompt": "Edmund was warm, cooperative, and completely wrong about what he was doing. How did that land — unsettling, sad, something else? Was there a moment in the hospital or the theatre where the wrongness of the situation really hit your operative?"
+      },
+      {
+        "id": "the-performance",
+        "label": "THE PERFORMANCE",
+        "prompt": "The session ended in a sold-out theatre, in front of four hundred people, with something extraordinary happening on stage. How did your operative experience the climax — from the wings, from the stalls, from the stage itself? What did they take away from it?"
+      },
+      {
+        "id": "your-moment",
+        "label": "YOUR OPERATIVE'S MOMENT",
+        "prompt": "Was there a moment this week where your operative really felt like themselves — or really didn't? A decision, a line, a reaction that surprised you? What was it?"
+      }
+    ],
+    "canon_slots": [
+      {
+        "id": "bim-scanner-design",
+        "category": "GADGET",
+        "label": "Rex's BIM Frequency Scanner",
+        "prompt": "If Rex built the scanner — what did he call it, what does it look like, and does it have any quirks? Whatever the player described is now canon."
+      },
+      {
+        "id": "array-copy-method",
+        "category": "GADGET",
+        "label": "Rex's Method for Copying the MESA Array Data",
+        "prompt": "If Rex copied the BIM array data rather than taking the hardware — how did he do it? What device or method did he use? Lock it in."
+      },
+      {
+        "id": "victorian-actor-name",
+        "category": "TEXTURE",
+        "label": "The Victorian Actor Associated with the Prompt Book",
+        "prompt": "If players investigated the prompt book's provenance and named the actor — that name is now his. If they described the handwriting, that is the handwriting."
+      },
+      {
+        "id": "theatre-atmosphere",
+        "category": "TEXTURE",
+        "label": "The Meridian Theatre's Atmosphere",
+        "prompt": "What did the theatre smell like, sound like between rehearsals, feel like in the wings before curtain? Any player description that the keeper riffed on is now canon."
+      },
+      {
+        "id": "clara-edmund-choice",
+        "category": "THEORY",
+        "label": "Did Clara and Edmund Choose to Stay, or Were They Left Behind?",
+        "prompt": "How did the players resolve this question — through Edmund's conversation, Clara's dressing room contact, the farewell itself? Their reading is canon."
+      },
+      {
+        "id": "mechanism-theory",
+        "category": "THEORY",
+        "label": "Player Theory on Why the Mechanism Works",
+        "prompt": "If any player developed a theory about the relationship between audience belief and BIM amplification — or about what Clara and Edmund actually are — and the keeper adopted it, note it here."
+      }
+    ]
+  }
+]

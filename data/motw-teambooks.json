@@ -1,0 +1,1922 @@
+{
+  "version": "motw-merged-2025",
+  "source": "Monster of the Week: Slayer's Survival Kit (EHP0073)",
+  "note": "Team playbooks are shared resources for the whole group, not individual hunters. One team playbook is active per campaign. PORTAL uses Research Lab.",
+  "team_playbooks": [
+    {
+      "id": "research-lab",
+      "name": "Research Lab",
+      "active": true,
+      "campaign_style": "Action Science",
+      "description": "The hunters are staff and residents of a research lab, making them uniquely equipped to handle fringe science problems in the world around them.",
+      "recommended_playbooks": [
+        "Expert",
+        "Flake",
+        "Searcher",
+        "Action Scientist"
+      ],
+      "flavour_note": "Magic-focused hunters may need tweaking — frame their powers in a parapsychological way.",
+      "getting_started": [
+        "Pick your style (and associated advancement question).",
+        "Pick a starting team enemy, ally, move, and assets.",
+        "Join the group message server and brainstorm."
+      ],
+      "improvement_track": {
+        "marks_to_advance": 5,
+        "on_fill": [
+          "Gain a new team move.",
+          "Gain a new team ally.",
+          "Gain two new asset selections.",
+          "Make the next mystery about your team enemy, giving you a chance to interfere in their plans."
+        ]
+      },
+      "styles": [
+        {
+          "id": "middle-of-nowhere",
+          "name": "Middle of Nowhere",
+          "description": "There's nothing around you but a small town and weird stuff going on.",
+          "end_of_session_question": "Did we stop a threat from spreading beyond the town?"
+        },
+        {
+          "id": "zero-days-since-last-incident",
+          "name": "0 Days Since Last Incident",
+          "description": "There are constantly accidents here. At least, you hope they're accidents.",
+          "end_of_session_question": "Did we uncover or fix something our lab caused?"
+        },
+        {
+          "id": "explorers",
+          "name": "Explorers",
+          "description": "Your team and facility seek out and send expeditions to study strange events.",
+          "end_of_session_question": "Did we discover something that amazed the scientific community?"
+        },
+        {
+          "id": "hazardous-research",
+          "name": "Hazardous Research",
+          "description": "Your facility has discovered things with as much potential for evil as good.",
+          "end_of_session_question": "Did we find safe and beneficial applications for the dangerous things we learned about?"
+        },
+        {
+          "id": "action-science",
+          "name": "Action Science",
+          "description": "It's not real research if it can't bite you — or destroy the world!",
+          "end_of_session_question": "Did we defeat extreme danger with science?",
+          "portal_active": true
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "Define your own team story and end-of-session question.",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "enemies": [
+        "Dr J. Douglas, the former lab director who turned out to be evil.",
+        "Canopy Research, a shadowy corporation turning people into monsters.",
+        "Thaphaeth, an alien warlord trying to establish a beachhead on our world.",
+        "The mothman, an extra-dimensional entity sowing chaos.",
+        "All the aliens.",
+        "Muramasa Heavy Industries, a weapons company.",
+        "Custom: FILL_FROM_SESSION"
+      ],
+      "allies": [
+        {
+          "id": "kana-harlison",
+          "name": "Kana Harlison",
+          "tagline": "cat burglar, stealth specialist",
+          "description": "A cat burglar with a taste for helping out in a crisis. Stealth is their deal, but they can't resist stealing things if they get a chance."
+        },
+        {
+          "id": "dalia-amin",
+          "name": "Dalia Amin",
+          "tagline": "community leader, local cooperation",
+          "description": "A local community leader. They'll get cooperation from locals, whether it's taking cover or getting some manual labour done. They want you to look after the community, too."
+        },
+        {
+          "id": "sergeant-qeb-gomez",
+          "name": "Sergeant Qeb Gomez",
+          "tagline": "law enforcement liaison",
+          "description": "Local law enforcement. He can keep the team aware of what the cops plan to do, and act as your liaison."
+        },
+        {
+          "id": "campbell",
+          "name": "CAMBELL (sic), the lab AI",
+          "tagline": "lab AI, virtual scenario testing",
+          "description": "Handles most background computation and maintenance tasks. Exceptionally good at creating virtual scenarios to test theories.",
+          "portal_note": "Intentional single-L spelling in source. In the PORTAL campaign this maps directly to CAMPBELL — the team's lab AI briefing system."
+        },
+        {
+          "id": "dr-yos-sokha",
+          "name": "Dr Yos Sokha",
+          "tagline": "former colleague, cross-team research",
+          "description": "A former colleague. Can provide research and data from different teams and different viewpoints."
+        },
+        {
+          "id": "questerr-and-wrexy",
+          "name": "Questerr and Wrexy",
+          "tagline": "alien diplomats, advanced tech",
+          "description": "Diplomats from a friendly alien civilisation. They're also concerned about your ongoing troubles, and sometimes provide you with rare resources or advanced technology."
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "rl-scientific-method",
+          "name": "Scientific Method",
+          "default_starting": true,
+          "description": "When the team investigates a mystery, they can ask one of the following questions in addition to the usual result.",
+          "choices": [
+            "Which of our ideas is wrong?",
+            "What weird energies or materials are present?"
+          ]
+        },
+        {
+          "id": "rl-trial-and-error",
+          "name": "Trial and Error",
+          "description": "When a team member rolls a 10+ on kick some ass or protect someone, you can choose to ask a question from investigate a mystery in addition to your normal option."
+        },
+        {
+          "id": "rl-repurpose-old-junk",
+          "name": "Repurpose Old Junk",
+          "description": "Once per session, ignore all but one requirement for weird science or any similar move."
+        },
+        {
+          "id": "rl-pattern-recognition",
+          "name": "Pattern Recognition",
+          "description": "Once per session, after a team member successfully reads a bad situation, they may ask a follow-up question about ensuring or preventing a specific outcome.",
+          "choices_note": "Fill in: 'How do I ensure or prevent _______ happening?'"
+        },
+        {
+          "id": "rl-button-mashing",
+          "name": "Button Mashing",
+          "description": "When presented with technology beyond your experience, work together to study it. Each team member who helps out gets +1 forward."
+        },
+        {
+          "id": "rl-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "rl-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style. You now use that one instead of the one you first chose."
+        }
+      ],
+      "assets": {
+        "mandatory": {
+          "id": "rl-asset-the-lab",
+          "name": "The Lab",
+          "description": "A well-stocked and extensive laboratory complex that can be used for weird science and high-tech big magic, and has space for all your gear and instruments. There's even some crash space for when you need to pull an all-nighter."
+        },
+        "pick_one": [
+          {
+            "id": "rl-asset-sensor-array",
+            "name": "Sensor Array",
+            "marks_required": 1,
+            "description": "Instruments allowing you to keep track of weird phenomena in the area."
+          },
+          {
+            "id": "rl-asset-cutting-edge-analysis",
+            "name": "Cutting-Edge Analysis",
+            "marks_required": 1,
+            "description": "Access to any current device (no matter how expensive)."
+          },
+          {
+            "id": "rl-asset-manufacturing-bays",
+            "name": "Manufacturing Bays",
+            "marks_required": 2,
+            "description": "A blend of 3D printers and old-school assembly lines. You can build any test device or prototype you want (but no mass production)."
+          },
+          {
+            "id": "rl-asset-medical-bay",
+            "name": "Medical Bay",
+            "marks_required": 1,
+            "description": "High-tech medical facilities equivalent to staying in a hospital."
+          },
+          {
+            "id": "rl-asset-unobtanium",
+            "name": "Unobtanium",
+            "marks_required": 1,
+            "description": "Access to a unique resource, allowing extreme science. Pick a name and use for the resource, and a research area that it helps you with. All work in that area is enhanced.",
+            "fields": {
+              "resource_name": "FILL_FROM_SESSION",
+              "research_area": "FILL_FROM_SESSION"
+            }
+          },
+          {
+            "id": "rl-asset-more-unobtanium",
+            "name": "More Unobtanium",
+            "marks_required": 1,
+            "description": "Select another special resource and the research area it helps with.",
+            "fields": {
+              "resource_name": "FILL_FROM_SESSION",
+              "research_area": "FILL_FROM_SESSION"
+            }
+          },
+          {
+            "id": "rl-asset-even-more-unobtanium",
+            "name": "Even More Unobtanium",
+            "marks_required": 1,
+            "description": "Select another special resource and the research area it helps with.",
+            "fields": {
+              "resource_name": "FILL_FROM_SESSION",
+              "research_area": "FILL_FROM_SESSION"
+            }
+          },
+          {
+            "id": "rl-asset-vehicle-bay",
+            "name": "Vehicle Bay",
+            "marks_required": 1,
+            "description": "The lab has a small fleet of vehicles. Describe a standard sort of ground vehicle and a single air vehicle.",
+            "fields": {
+              "ground_vehicle": "FILL_FROM_SESSION",
+              "air_vehicle": "FILL_FROM_SESSION"
+            }
+          },
+          {
+            "id": "rl-asset-housing",
+            "name": "Housing",
+            "marks_required": 1,
+            "description": "Each team member has comfortable and secure housing, either a small house or a comfortable condo. Loaded with tech."
+          },
+          {
+            "id": "rl-asset-containment",
+            "name": "Containment",
+            "marks_required": 2,
+            "description": "The lab has facilities to keep live creatures or dangerous materials securely contained."
+          },
+          {
+            "id": "rl-asset-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      },
+      "player_choices": {
+        "style": "action-science",
+        "enemy": "FILL_FROM_SESSION",
+        "starting_ally": "FILL_FROM_SESSION",
+        "starting_move": "rl-scientific-method",
+        "starting_asset": "FILL_FROM_SESSION",
+        "notes": "Style confirmed: Action Science (end-of-session question: 'Did we defeat extreme danger with science?'). Starting move defaulting to Scientific Method per book recommendation. Enemy, ally, and asset picks need recording from session 01."
+      },
+      "keeper_notes": {
+        "tone": "Fieldwork and lab work should both feel important. 'You found a sample you need to get back to the lab' is a valid investigate-a-mystery answer. Lab equipment can be a requirement for weird science or science-based big magic.",
+        "variety_tips": [
+          "Set a mystery entirely within the lab — enemies lay siege to the facility.",
+          "Cut the team off from their lab entirely via natural disaster or sinister plot.",
+          "Let hunter precautions pay off later when the same threat returns."
+        ]
+      }
+    },
+    {
+      "id": "artifact-collectors",
+      "name": "Artifact Collectors",
+      "description": "The hunters are collectors, archivists, or custodians of dangerous supernatural objects. The artefacts find them as much as they find the artefacts.",
+      "keeper_note": "Be careful about narratives that lean into colonial acquisition or theft. Discuss with your group.",
+      "styles": [
+        {
+          "id": "vault-of-curses",
+          "name": "Vault of Curses",
+          "description": "Everything you hold is dangerous. Containment is survival.",
+          "end_of_session_question": "Did we prevent an artefact from causing catastrophic harm?"
+        },
+        {
+          "id": "arcane-study",
+          "name": "Arcane Study",
+          "description": "Understanding is your goal. You collect to learn.",
+          "end_of_session_question": "Did we learn something significant about a supernatural object?"
+        },
+        {
+          "id": "unworthy-hands",
+          "name": "Unworthy Hands",
+          "description": "You take these things away from people who'd misuse them.",
+          "end_of_session_question": "Did we recover something from someone who had no right to it?"
+        },
+        {
+          "id": "safe-storage",
+          "name": "Safe Storage",
+          "description": "You're custodians, not researchers. Keeping things secure is the job.",
+          "end_of_session_question": "Did we prevent a breach or loss from our collection?"
+        },
+        {
+          "id": "my-precious",
+          "name": "My Precious",
+          "description": "You know some of you are getting too attached. That's a problem.",
+          "end_of_session_question": "Did someone resist the pull of an artefact they really wanted?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "Define your own team story.",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "enemies": [
+        "A famous museum whose acquisitions are shadier than they look",
+        "Turner Jamison, a private collector with no ethics",
+        "Jyika, a naga who considers your collection theirs",
+        "Zeus (yes, that one), who wants a specific artefact back",
+        "A criminal gang that moves supernatural contraband",
+        "Custom: FILL_FROM_SESSION"
+      ],
+      "allies": [
+        {
+          "id": "felis-quinn",
+          "name": "Felis Quinn",
+          "description": "A fence and appraiser who knows what things are worth and what they do."
+        },
+        {
+          "id": "marie-allison",
+          "name": "Marie Allison",
+          "description": "A retired hunter who now works as a researcher for your team."
+        },
+        {
+          "id": "farrok-andant",
+          "name": "Farrok Andant",
+          "description": "A customs officer who looks the other way for you — mostly."
+        },
+        {
+          "id": "nalani",
+          "name": "Nalani",
+          "description": "A protective spirit bound to one of your artefacts, grudgingly cooperative."
+        },
+        {
+          "id": "zof-enarra",
+          "name": "Zof Enarra",
+          "description": "A dimensional entity who helps catalogue objects from their plane of origin."
+        },
+        {
+          "id": "robot-pants-studios",
+          "name": "Robot Pants Studios",
+          "description": "A tech startup that builds your containment hardware. Don't ask why the name."
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "ac-check-the-manifest",
+          "name": "Check the Manifest",
+          "default_starting": true,
+          "description": "When you investigate a supernatural object, roll +Sharp. On 10+: you know exactly what it is, what it does, and how to contain or destroy it. On 7–9: you know two of the three.",
+          "roll": "+Sharp"
+        },
+        {
+          "id": "ac-i-smell-fudge",
+          "name": "I Smell Fudge",
+          "description": "When you detect a fake or misidentified artefact, you know. Ask the Keeper one question about the real item's location or nature."
+        },
+        {
+          "id": "ac-where-in-the-world",
+          "name": "Where in the World?",
+          "description": "Once per session, trace any supernatural object's current location, no matter where it is."
+        },
+        {
+          "id": "ac-quicktime",
+          "name": "Quicktime",
+          "description": "When you need to get an artefact somewhere fast, it gets there — complications come later, not now."
+        },
+        {
+          "id": "ac-youre-not-worthy",
+          "name": "You're Not Worthy",
+          "description": "When you deny someone access to an artefact by force or argument, take +1 ongoing for the scene."
+        },
+        {
+          "id": "ac-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "ac-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style. You now use that one instead of the one you first chose."
+        }
+      ],
+      "assets": {
+        "starting_picks": 2,
+        "options": [
+          {
+            "id": "ac-mobile-base",
+            "name": "Mobile Base",
+            "marks_required": 1,
+            "description": "A vehicle large enough to transport and store artefacts securely."
+          },
+          {
+            "id": "ac-mobile-base-2",
+            "name": "Mobile Base (upgrade)",
+            "marks_required": 1,
+            "description": "A second or upgraded mobile base."
+          },
+          {
+            "id": "ac-smuggler-connections",
+            "name": "Smuggler Connections",
+            "marks_required": 1,
+            "description": "People who can move items across borders without questions."
+          },
+          {
+            "id": "ac-approved-artifacts",
+            "name": "Approved Artifacts",
+            "marks_required": 1,
+            "description": "A selection of supernatural items sanctioned for your team's use."
+          },
+          {
+            "id": "ac-approved-artifacts-2",
+            "name": "Approved Artifacts (more)",
+            "marks_required": 1,
+            "description": "Additional sanctioned items."
+          },
+          {
+            "id": "ac-transportation",
+            "name": "Transportation",
+            "marks_required": 1,
+            "description": "Reliable vehicles for fieldwork."
+          },
+          {
+            "id": "ac-halls-of-academia",
+            "name": "Halls of Academia",
+            "marks_required": 1,
+            "description": "University or museum connections for research and authentication."
+          },
+          {
+            "id": "ac-vault",
+            "name": "Vault",
+            "marks_required": 1,
+            "description": "Secure supernaturally-reinforced storage."
+          },
+          {
+            "id": "ac-vault-2",
+            "name": "Vault (expanded)",
+            "marks_required": 1,
+            "description": "A second or expanded vault."
+          },
+          {
+            "id": "ac-headquarters",
+            "name": "Headquarters",
+            "marks_required": 1,
+            "description": "A fixed base of operations."
+          },
+          {
+            "id": "ac-front-business",
+            "name": "Front Business",
+            "marks_required": 1,
+            "description": "A legitimate business that explains your activities."
+          },
+          {
+            "id": "ac-official-connections",
+            "name": "Official Connections",
+            "marks_required": 1,
+            "description": "Contacts in government, law enforcement, or customs."
+          },
+          {
+            "id": "ac-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "coven",
+      "name": "Coven",
+      "description": "The hunters are a magical group united by shared power and a mark of kinship. Each carries something of the supernatural, and together that's more than the sum of its parts.",
+      "mark_of_kinship": {
+        "note": "Each hunter gains a Mark of Kinship when they join this team. Pick one type per hunter:",
+        "options": [
+          "Gain a curse (as Monstrous) and one Monstrous move",
+          "Gain 2 rotes (as Initiate) and a Temptation",
+          "Gain one Spooky move and 2 Dark Secrets",
+          "Gain the Unknown Heritage tag system (as Changeling)"
+        ]
+      },
+      "styles": [
+        {
+          "id": "villains-to-heroes",
+          "name": "Villains to Heroes",
+          "description": "You used to be the threat. Now you're the solution.",
+          "end_of_session_question": "Did we use our power for protection rather than self-interest?"
+        },
+        {
+          "id": "superheroes-with-fangs",
+          "name": "Superheroes with Fangs",
+          "description": "Embrace the monster aesthetic. You protect the world anyway.",
+          "end_of_session_question": "Did we protect someone who feared us?"
+        },
+        {
+          "id": "forgotten-history",
+          "name": "Forgotten History",
+          "description": "Your coven has roots going back further than anyone remembers.",
+          "end_of_session_question": "Did we uncover or honour something from our coven's past?"
+        },
+        {
+          "id": "ulterior-motives",
+          "name": "Ulterior Motives",
+          "description": "You're not sure everyone in the group has the same agenda.",
+          "end_of_session_question": "Did we keep the coven together despite conflicting interests?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "Define your own.",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "cov-bound-in-blood",
+          "name": "Bound in Blood",
+          "default_starting": true,
+          "description": "When you spend 1-harm to help an ally, you can assist them from any distance, not just when nearby.",
+          "roll": null
+        },
+        {
+          "id": "cov-how-awful-goodness-is",
+          "name": "How Awful Goodness Is",
+          "description": "When one of you makes a hard moral choice that costs them personally, the whole coven marks experience."
+        },
+        {
+          "id": "cov-our-strength-is-the-pack",
+          "name": "Our Strength Is the Pack",
+          "description": "When three or more coven members work together on a roll, add +1 to the result on top of any help bonuses."
+        },
+        {
+          "id": "cov-laws-of-hospitality",
+          "name": "Laws of Hospitality",
+          "description": "Creatures and entities that follow supernatural codes of conduct cannot directly attack you while you observe those codes. Breaks when you violate them."
+        },
+        {
+          "id": "cov-bell-book-and-candle",
+          "name": "Bell, Book and Candle",
+          "description": "Once per session, perform a binding or banishment without the usual requirements for use magic."
+        },
+        {
+          "id": "cov-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "cov-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style."
+        }
+      ],
+      "assets": {
+        "starting_picks": 2,
+        "options": [
+          {
+            "id": "cov-headquarters",
+            "name": "Headquarters",
+            "marks_required": 1,
+            "description": "A base of operations with ritual space."
+          },
+          {
+            "id": "cov-sanctuaries",
+            "name": "Sanctuaries",
+            "marks_required": 1,
+            "description": "Safe locations warded against supernatural intrusion."
+          },
+          {
+            "id": "cov-scrying-device",
+            "name": "Scrying Device",
+            "marks_required": 1,
+            "description": "A tool for remote observation."
+          },
+          {
+            "id": "cov-scrying-device-2",
+            "name": "Scrying Device (upgraded)",
+            "marks_required": 1,
+            "description": "A more powerful or additional scrying tool."
+          },
+          {
+            "id": "cov-wards-and-barriers",
+            "name": "Wards and Barriers",
+            "marks_required": 1,
+            "description": "Protective workings that make your base hard to attack supernaturally."
+          },
+          {
+            "id": "cov-wards-and-barriers-2",
+            "name": "Wards and Barriers (expanded)",
+            "marks_required": 1,
+            "description": "Wards extended to additional locations."
+          },
+          {
+            "id": "cov-archive",
+            "name": "Archive",
+            "marks_required": 1,
+            "description": "A library of occult knowledge and grimoires."
+          },
+          {
+            "id": "cov-armoury",
+            "name": "Armoury",
+            "marks_required": 1,
+            "description": "Supernaturally-enhanced weapons and protective gear."
+          },
+          {
+            "id": "cov-leyline-map",
+            "name": "Leyline Map",
+            "marks_required": 1,
+            "description": "Detailed knowledge of local supernatural geography."
+          },
+          {
+            "id": "cov-leyline-map-2",
+            "name": "Leyline Map (expanded)",
+            "marks_required": 1,
+            "description": "Regional or global leyline knowledge."
+          },
+          {
+            "id": "cov-ritual-cupboard",
+            "name": "Ritual Cupboard",
+            "marks_required": 1,
+            "description": "A well-stocked supply of ritual components."
+          },
+          {
+            "id": "cov-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "escaped-experiments",
+      "name": "Escaped Experiments",
+      "description": "You were made, modified, or created by a project called The Project. You got out. Now you're dealing with the world while The Project is still out there.",
+      "the_project": {
+        "note": "Define The Project together.",
+        "modification_techniques": [
+          "Genetic engineering",
+          "Cybernetic augmentation",
+          "Psychic conditioning",
+          "Alchemical treatments",
+          "Magical binding"
+        ],
+        "goals": [
+          "Military applications",
+          "Supernatural containment",
+          "Population control",
+          "Transcendence",
+          "Something the players define"
+        ],
+        "escape_method": [
+          "Riot",
+          "Help from inside",
+          "Exploited an accident",
+          "Someone opened the door",
+          "We still don't know how"
+        ]
+      },
+      "scrubs_vs_gowns": {
+        "note": "Each hunter chooses a role: Scrub (Project staff who turned) or Gown (Project subject who escaped).",
+        "scrub_abilities": [
+          "Access to Project protocols and jargon",
+          "Inside knowledge of Project operations",
+          "One contact still inside (unreliable)"
+        ],
+        "gown_abilities": [
+          "One modification from The Project (treat as a Monstrous move)",
+          "Better at resisting Project recapture attempts",
+          "Others in your position recognise you as one of them"
+        ]
+      },
+      "styles": [
+        {
+          "id": "hostile-acquisition",
+          "name": "Hostile Acquisition",
+          "description": "The Project is coming for you. You're going to them first.",
+          "end_of_session_question": "Did we strike a meaningful blow against The Project?"
+        },
+        {
+          "id": "scales-from-the-eyes",
+          "name": "Scales from the Eyes",
+          "description": "You're learning the truth of what was done to you.",
+          "end_of_session_question": "Did we uncover something true about The Project or ourselves?"
+        },
+        {
+          "id": "never-asked-for-this",
+          "name": "Never Asked for This",
+          "description": "You want a normal life. That's not possible. You're handling it.",
+          "end_of_session_question": "Did someone manage to live as a person, not a weapon, even briefly?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "allies": [
+        {
+          "id": "maya-kaseem",
+          "name": "Maya Kaseem",
+          "description": "A journalist documenting Project abuses. Brave and reckless."
+        },
+        {
+          "id": "britt-ravyn",
+          "name": "Britt Ravyn",
+          "description": "A security specialist who helped you escape. Still owes you, or you still owe them."
+        },
+        {
+          "id": "oracle-chantesuta",
+          "name": "Oracle Chantesuta",
+          "description": "A psychic who can sometimes predict Project movements."
+        },
+        {
+          "id": "little-sister-ai",
+          "name": "Little Sister",
+          "description": "An AI that was also a Project creation. Now autonomous and on your side. Mostly."
+        },
+        {
+          "id": "raisa-neri",
+          "name": "Raisa Neri",
+          "description": "A lawyer who specialises in illegal human experimentation cases."
+        },
+        {
+          "id": "jay-wage-donohue",
+          "name": "Jay 'Wage' Donohue",
+          "description": "A black-market supplier who doesn't ask questions about what you need or why."
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "ee-ethical-concerns",
+          "name": "Ethical Concerns",
+          "default_starting": true,
+          "description": "When you investigate something related to human experimentation or supernatural modification, you may ask two extra questions beyond the normal result.",
+          "roll": null
+        },
+        {
+          "id": "ee-camera-shy",
+          "name": "Camera Shy",
+          "description": "You cannot be captured on film, recorded, or tracked electronically unless you choose to allow it."
+        },
+        {
+          "id": "ee-strike-back",
+          "name": "Strike Back",
+          "description": "When you fight back against the Project or their agents, take +1 ongoing for the scene."
+        },
+        {
+          "id": "ee-shared-pain",
+          "name": "Shared Pain",
+          "description": "When any team member takes harm, all members may share it equally (round down per person). Must be agreed before the harm is dealt."
+        },
+        {
+          "id": "ee-cross-training",
+          "name": "Cross-Training",
+          "description": "Each team member may take one move from another team member's playbook once."
+        },
+        {
+          "id": "ee-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "ee-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style."
+        }
+      ],
+      "assets": {
+        "starting_picks": 2,
+        "options": [
+          {
+            "id": "ee-caches",
+            "name": "Caches",
+            "marks_required": 1,
+            "description": "Hidden supply caches throughout the area."
+          },
+          {
+            "id": "ee-bolt-hole",
+            "name": "Bolt-Hole",
+            "marks_required": 1,
+            "description": "An emergency refuge the Project doesn't know about."
+          },
+          {
+            "id": "ee-headquarters",
+            "name": "Headquarters",
+            "marks_required": 1,
+            "description": "A base of operations."
+          },
+          {
+            "id": "ee-under-the-table",
+            "name": "Under the Table",
+            "marks_required": 1,
+            "description": "Access to black-market supplies and off-the-books services."
+          },
+          {
+            "id": "ee-improvised-clinic",
+            "name": "Improvised Clinic",
+            "marks_required": 1,
+            "description": "Medical facilities that can treat modified physiology."
+          },
+          {
+            "id": "ee-improvised-clinic-2",
+            "name": "Improvised Clinic (upgraded)",
+            "marks_required": 1,
+            "description": "Better-equipped clinic."
+          },
+          {
+            "id": "ee-armoury",
+            "name": "Armoury",
+            "marks_required": 1,
+            "description": "Weapons and gear."
+          },
+          {
+            "id": "ee-transportation",
+            "name": "Transportation",
+            "marks_required": 1,
+            "description": "Reliable vehicles."
+          },
+          {
+            "id": "ee-mobile-base",
+            "name": "Mobile Base",
+            "marks_required": 1,
+            "description": "A vehicle that doubles as a headquarters."
+          },
+          {
+            "id": "ee-mobile-base-2",
+            "name": "Mobile Base (expanded)",
+            "marks_required": 1,
+            "description": "A larger or better-equipped mobile base."
+          },
+          {
+            "id": "ee-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "good-monsters",
+      "name": "Good Monsters",
+      "description": "Every hunter is a monster of some kind. You've made a choice about what to do with that. So far.",
+      "monster_sides": {
+        "note": "Each hunter plays their main playbook plus a Monstrous overlay. Pick a curse and one natural attack (mandatory for all). Optionally, one hunter may be fully human instead.",
+        "human_option": "A human hunter gets 1 extra Luck box. If they become a monster during play, they lose that Luck box permanently."
+      },
+      "styles": [
+        {
+          "id": "walk-the-line",
+          "name": "Walk the Line",
+          "description": "You're monsters who choose every day not to be. That choice is everything.",
+          "end_of_session_question": "Did everyone resist their monstrous nature when it counted?"
+        },
+        {
+          "id": "outcasts",
+          "name": "Outcasts",
+          "description": "Humans won't have you. Monsters don't trust you. You have each other.",
+          "end_of_session_question": "Did we help each other when the world pushed back?"
+        },
+        {
+          "id": "being-human",
+          "name": "Being Human",
+          "description": "You're learning what humanity means from the outside.",
+          "end_of_session_question": "Did someone do something that felt genuinely human?"
+        },
+        {
+          "id": "on-the-inside",
+          "name": "On the Inside",
+          "description": "You work within monster society to make it better.",
+          "end_of_session_question": "Did we change something about how monsters and humans interact?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "extra_improvements": [
+        "Get +1 Weird, max +3",
+        "Take another natural attack pick"
+      ],
+      "extra_advanced_improvements": [
+        "Free yourself from your curse — lose 1 Weird",
+        "Turn evil (again) — retire this character as a Keeper threat"
+      ],
+      "moves": [
+        {
+          "id": "gm-normal-human-activity",
+          "name": "Normal Human Activity",
+          "default_starting": true,
+          "description": "When you attempt to pass off supernatural events or your own monstrous behaviour as mundane, roll +Cool. On 10+: completely convincing, no one looks further. On 7–9: convincing for now. Miss: someone knows.",
+          "roll": "+Cool"
+        },
+        {
+          "id": "gm-mark-of-evil",
+          "name": "Mark of Evil",
+          "description": "Other supernatural entities recognise you as kin. Once per session, call on that recognition to get information, safe passage, or assistance from a monster."
+        },
+        {
+          "id": "gm-rite-of-empowerment",
+          "name": "Rite of Empowerment",
+          "description": "Once per session, perform a brief ritual to give one team member +1 forward on their next roll."
+        },
+        {
+          "id": "gm-too-many-monsters",
+          "name": "Too Many Monsters!",
+          "description": "When you face a monster that shares your type, you understand them instinctively. Take +1 ongoing and ask one free question about their nature."
+        },
+        {
+          "id": "gm-mystic-radio",
+          "name": "Mystic Radio",
+          "description": "The team can communicate supernaturally across any distance, once per session without any gear."
+        },
+        {
+          "id": "gm-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "gm-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style."
+        }
+      ],
+      "assets": {
+        "starting_picks": 2,
+        "options": [
+          {
+            "id": "gm-mobile-base",
+            "name": "Mobile Base",
+            "marks_required": 1,
+            "description": "A vehicle-based headquarters."
+          },
+          {
+            "id": "gm-mobile-base-2",
+            "name": "Mobile Base (expanded)",
+            "marks_required": 1,
+            "description": "Larger or better-equipped mobile base."
+          },
+          {
+            "id": "gm-individual-transport",
+            "name": "Individual Transport",
+            "marks_required": 1,
+            "description": "Each team member has their own vehicle."
+          },
+          {
+            "id": "gm-normality-wardings",
+            "name": "Normality Wardings",
+            "marks_required": 1,
+            "description": "Magical disguises that make you read as human to supernatural detection."
+          },
+          {
+            "id": "gm-headquarters",
+            "name": "Headquarters",
+            "marks_required": 1,
+            "description": "A fixed base that accepts monsters."
+          },
+          {
+            "id": "gm-headquarters-2",
+            "name": "Headquarters (expanded)",
+            "marks_required": 1,
+            "description": "Larger or better-equipped headquarters."
+          },
+          {
+            "id": "gm-mystical-workroom",
+            "name": "Mystical Workroom",
+            "marks_required": 1,
+            "description": "A space set up for supernatural work."
+          },
+          {
+            "id": "gm-mystical-workroom-2",
+            "name": "Mystical Workroom (expanded)",
+            "marks_required": 1,
+            "description": "A more powerful workroom."
+          },
+          {
+            "id": "gm-workshop",
+            "name": "Workshop",
+            "marks_required": 1,
+            "description": "Tools and space for crafting and repair."
+          },
+          {
+            "id": "gm-disguises",
+            "name": "Disguises",
+            "marks_required": 1,
+            "description": "Gear and techniques for passing as human."
+          },
+          {
+            "id": "gm-self-management-setup",
+            "name": "Self-Management Setup",
+            "marks_required": 1,
+            "description": "Resources to manage your monstrous needs — feeding, containment, rituals."
+          },
+          {
+            "id": "gm-map-of-the-moonlight-pathways",
+            "name": "Map of the Moonlight Pathways",
+            "marks_required": 1,
+            "description": "Knowledge of supernatural routes between locations, usable by those with Weird powers."
+          },
+          {
+            "id": "gm-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "medical-team",
+      "name": "Medical Team",
+      "description": "The hunters work from a medical facility. They patch up people others can't explain, treat things no textbook covers, and try not to lose too many patients.",
+      "styles": [
+        {
+          "id": "morgue",
+          "name": "Morgue",
+          "description": "Most of what you deal with comes in on a slab.",
+          "end_of_session_question": "Did we uncover the cause of a supernatural death?"
+        },
+        {
+          "id": "all-hours-clinic",
+          "name": "All-Hours Clinic",
+          "description": "You're open when no one else is, for people with nowhere else to go.",
+          "end_of_session_question": "Did we help someone who had no other options?"
+        },
+        {
+          "id": "general-practitioner",
+          "name": "General Practitioner",
+          "description": "You're embedded in a community. You see everything.",
+          "end_of_session_question": "Did we protect our patients' trust?"
+        },
+        {
+          "id": "hospital",
+          "name": "Hospital",
+          "description": "Big institution. Politics. But also the best equipment.",
+          "end_of_session_question": "Did we keep the supernatural out of public records?"
+        },
+        {
+          "id": "medical-school",
+          "name": "Medical School",
+          "description": "Teaching the next generation — carefully.",
+          "end_of_session_question": "Did we teach something useful without revealing too much?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "enemies": [
+        "The Riddleman Group, a pharmaceutical company with supernatural interests",
+        "The Rijpma family, who blame you for a death",
+        "A spirit of death that resents your interference",
+        "Dr Horner, a colleague who knows too much and has the wrong values",
+        "The Quiet Order, who consider your work a violation of natural law",
+        "All the mummies (don't ask)",
+        "Custom: FILL_FROM_SESSION"
+      ],
+      "allies": [
+        {
+          "id": "ishey-wei",
+          "name": "Ishey Wei",
+          "description": "A paramedic who handles calls that don't make it into the official report."
+        },
+        {
+          "id": "dr-mel-yvette",
+          "name": "Dr Mel Yvette",
+          "description": "A specialist who consults on impossible cases. Very discreet."
+        },
+        {
+          "id": "vir-loleri",
+          "name": "Vir Loleri",
+          "description": "A hospital administrator who keeps your funding and paperwork in order."
+        },
+        {
+          "id": "luna-star",
+          "name": "Luna Star",
+          "description": "A herbalist and alternative practitioner who covers things modern medicine can't explain."
+        },
+        {
+          "id": "sapfo-hadjiti",
+          "name": "Sapfo Hadjiti",
+          "description": "A forensic pathologist who knows when something isn't natural cause of death."
+        },
+        {
+          "id": "harry-michaels",
+          "name": "Harry Michaels",
+          "description": "A patient who survived something impossible and now helps you in gratitude."
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "mt-medical-professional",
+          "name": "Medical Professional",
+          "default_starting": true,
+          "description": "When you treat someone's injuries, they heal +1 harm beyond the normal amount.",
+          "roll": null
+        },
+        {
+          "id": "mt-house-diagnostics",
+          "name": "House Diagnostics",
+          "description": "When you examine a patient showing impossible symptoms, ask two questions from the investigate a mystery list for free."
+        },
+        {
+          "id": "mt-code-blue",
+          "name": "Code Blue!",
+          "description": "Once per session, stabilise someone who should be dead. They survive until the end of the mystery, then the Keeper decides their fate."
+        },
+        {
+          "id": "mt-im-not-a-miracle-worker",
+          "name": "I'm Not a Miracle Worker",
+          "description": "When you attempt something medically impossible and fail, the failure is clean — no collateral damage, no making things worse."
+        },
+        {
+          "id": "mt-bedside-manner",
+          "name": "Bedside Manner",
+          "description": "When you calm or reassure a frightened patient or bystander, roll +Charm. On 10+: they tell you everything and are fully cooperative. On 7–9: they tell you what they think you need to know."
+        },
+        {
+          "id": "mt-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "mt-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style."
+        }
+      ],
+      "assets": {
+        "mandatory": {
+          "id": "mt-infirmary",
+          "name": "Infirmary",
+          "description": "A full professional medical facility. Can treat any injury, human or supernatural. Equivalent to a hospital stay for recovery purposes."
+        },
+        "additional_picks": 1,
+        "options": [
+          {
+            "id": "mt-ambulance-fleet",
+            "name": "Ambulance Fleet",
+            "marks_required": 1,
+            "description": "Vehicles for emergency response."
+          },
+          {
+            "id": "mt-cutting-edge-diagnostics",
+            "name": "Cutting-Edge Diagnostics",
+            "marks_required": 1,
+            "description": "Equipment that can identify supernatural conditions alongside mundane ones."
+          },
+          {
+            "id": "mt-cutting-edge-diagnostics-2",
+            "name": "Cutting-Edge Diagnostics (expanded)",
+            "marks_required": 1,
+            "description": "More advanced or specialised diagnostic tools."
+          },
+          {
+            "id": "mt-medical-database",
+            "name": "Medical Database",
+            "marks_required": 1,
+            "description": "A private database of supernatural conditions and treatments."
+          },
+          {
+            "id": "mt-local-support",
+            "name": "Local Support",
+            "marks_required": 1,
+            "description": "Community connections who provide supplies, information, and cover."
+          },
+          {
+            "id": "mt-housing",
+            "name": "Housing",
+            "marks_required": 1,
+            "description": "Staff accommodation on-site or nearby."
+          },
+          {
+            "id": "mt-individual-transport",
+            "name": "Individual Transport",
+            "marks_required": 1,
+            "description": "Personal vehicles for each team member."
+          },
+          {
+            "id": "mt-experimental-medicine",
+            "name": "Experimental Medicine",
+            "marks_required": 1,
+            "description": "Access to treatments that don't officially exist yet."
+          },
+          {
+            "id": "mt-experimental-medicine-2",
+            "name": "Experimental Medicine (expanded)",
+            "marks_required": 1,
+            "description": "A wider range of experimental treatments."
+          },
+          {
+            "id": "mt-funding",
+            "name": "Funding",
+            "marks_required": 1,
+            "description": "Grants, private donations, or other reliable income streams."
+          },
+          {
+            "id": "mt-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mundane-monstrosities",
+      "name": "Mundane Monstrosities",
+      "description": "You're teenagers or young adults with minor supernatural abilities you were born with. You didn't choose this. The monsters didn't get the memo.",
+      "upbringing": {
+        "note": "Choose one upbringing that describes your community.",
+        "options": [
+          {
+            "id": "unseen-community",
+            "name": "Unseen Community",
+            "description": "A hidden neighbourhood where your kind has always lived."
+          },
+          {
+            "id": "precocious-youth",
+            "name": "Precocious Youth",
+            "description": "School-age hunters dealing with monsters between classes."
+          },
+          {
+            "id": "protected-and-subsidised",
+            "name": "Protected and Subsidised",
+            "description": "Someone funds and protects you. You don't fully understand why."
+          },
+          {
+            "id": "scattered-individuals",
+            "name": "Scattered Individuals",
+            "description": "You found each other despite having no shared community."
+          },
+          {
+            "id": "secret-haven",
+            "name": "Secret Haven",
+            "description": "You have a place that's yours, hidden from the world."
+          },
+          {
+            "id": "weird-town",
+            "name": "Weird Town",
+            "description": "The whole town is strange. You're just the ones who do something about it."
+          }
+        ]
+      },
+      "minor_weirdness": {
+        "note": "Each hunter starts with one Minor Weirdness: one move from another playbook (Artifact, Monstrous moves, Guardian, Inhuman Talent, Jinx/Sight, Soothe, Third Eye). These represent powers they were born with or that manifested naturally."
+      },
+      "styles": [
+        {
+          "id": "life-interrupted",
+          "name": "Life Interrupted",
+          "description": "You had plans. Monsters got in the way.",
+          "end_of_session_question": "Did someone manage to do something normal despite everything?"
+        },
+        {
+          "id": "playtimes-over",
+          "name": "Playtime's Over",
+          "description": "You used to think this was a game. Not anymore.",
+          "end_of_session_question": "Did we take the threat seriously even when it was hard?"
+        },
+        {
+          "id": "a-calling",
+          "name": "A Calling",
+          "description": "You feel this is what you're supposed to do.",
+          "end_of_session_question": "Did we answer the call when it mattered?"
+        },
+        {
+          "id": "fitting-in",
+          "name": "Fitting In",
+          "description": "You're trying to seem normal. You're failing.",
+          "end_of_session_question": "Did someone manage to seem completely normal to someone important to them?"
+        },
+        {
+          "id": "hush",
+          "name": "Hush",
+          "description": "Secrecy is everything. No one can know.",
+          "end_of_session_question": "Did we keep our activities completely hidden?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "enemies": [
+        "Karen and Kevin, suburban parents who have noticed something is wrong",
+        "SPLEEN, a government agency that monitors minor paranormal activity in young people",
+        "The Council of Elder Entities, who do not approve of unsupervised youth involvement",
+        "All the realtors (they know what houses are built on)",
+        "A supernatural clique at school who see you as competition",
+        "Helen and Jeb Derry, who saw something they shouldn't have",
+        "Janika Smirnov, who wants to recruit you for something much more serious",
+        "Custom: FILL_FROM_SESSION"
+      ],
+      "allies": [
+        {
+          "id": "agent-maury-dewit",
+          "name": "Agent Maury DeWhit",
+          "description": "A government agent who covers for you instead of reporting you. So far."
+        },
+        {
+          "id": "stefan-knight",
+          "name": "Stefan Knight",
+          "description": "An older hunter who mentors the group. Reluctantly."
+        },
+        {
+          "id": "kim-chin-mae",
+          "name": "Kim Chin-Mae",
+          "description": "A classmate who figured it out and is remarkably chill about it."
+        },
+        {
+          "id": "ash-lawrence",
+          "name": "Ash Lawrence",
+          "description": "A local eccentric with an impressive occult library and no parental supervision."
+        },
+        {
+          "id": "jerek-jaafar",
+          "name": "Jerek Jaafar",
+          "description": "Someone's older sibling who drives and doesn't ask questions."
+        },
+        {
+          "id": "alytari-gandega",
+          "name": "Alytari Gandega",
+          "description": "A friendly supernatural entity who acts as an informal guide."
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "mm-too-normal-to-be-weird",
+          "name": "Too Normal to Be Weird",
+          "default_starting": true,
+          "description": "When you act completely confident and mundane, supernatural entities find it harder to target you. Take +1 armour against supernatural attacks as long as you haven't used your Minor Weirdness in the scene.",
+          "roll": null
+        },
+        {
+          "id": "mm-casual-magic",
+          "name": "Casual Magic",
+          "description": "When you use your Minor Weirdness in a way that looks completely accidental or normal, no one suspects it was intentional."
+        },
+        {
+          "id": "mm-authentic-witchiness",
+          "name": "Authentic Witchiness",
+          "description": "When you lean into looking weird and supernatural, roll +Weird. On 10+: actual supernatural entities treat you as a peer. On 7–9: they're curious rather than hostile. Miss: you attract the wrong kind of attention."
+        },
+        {
+          "id": "mm-curse-remedies",
+          "name": "Curse Remedies",
+          "description": "Once per session, attempt to lift a curse or minor supernatural affliction without the usual use magic requirements."
+        },
+        {
+          "id": "mm-just-folks",
+          "name": "Just Folks",
+          "description": "When you blend into a crowd or community setting, you're effectively invisible to supernatural detection."
+        },
+        {
+          "id": "mm-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "mm-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style."
+        }
+      ],
+      "assets": {
+        "starting_picks": 2,
+        "options": [
+          {
+            "id": "mm-tutorial-focus",
+            "name": "Tutorial Focus",
+            "marks_required": 1,
+            "description": "A private space to practice and develop powers safely."
+          },
+          {
+            "id": "mm-housing",
+            "name": "Housing",
+            "marks_required": 1,
+            "description": "Somewhere to crash that's safe and private."
+          },
+          {
+            "id": "mm-magical-hangout",
+            "name": "Magical Hangout",
+            "marks_required": 1,
+            "description": "A location with ambient supernatural energy that helps with magical work."
+          },
+          {
+            "id": "mm-magical-hangout-2",
+            "name": "Magical Hangout (expanded)",
+            "marks_required": 1,
+            "description": "A more powerful or extensive magical location."
+          },
+          {
+            "id": "mm-supernatural-communications",
+            "name": "Supernatural Communications",
+            "marks_required": 1,
+            "description": "A way to communicate magically — sigils, crystals, or a shared dream space."
+          },
+          {
+            "id": "mm-ritual-ingredients",
+            "name": "Ritual Ingredients",
+            "marks_required": 1,
+            "description": "Stockpile of components for supernatural workings."
+          },
+          {
+            "id": "mm-protective-amulets",
+            "name": "Protective Amulets",
+            "marks_required": 1,
+            "description": "One per team member. +1 armour against supernatural attacks."
+          },
+          {
+            "id": "mm-protective-amulets-2",
+            "name": "Protective Amulets (upgraded)",
+            "marks_required": 1,
+            "description": "Better amulets or more of them."
+          },
+          {
+            "id": "mm-transportation",
+            "name": "Transportation",
+            "marks_required": 1,
+            "description": "A reliable way to get around."
+          },
+          {
+            "id": "mm-the-spirit-web",
+            "name": "The Spirit-Web",
+            "marks_required": 1,
+            "description": "A network of local spirits who provide information and minor assistance."
+          },
+          {
+            "id": "mm-clubhouse",
+            "name": "Clubhouse",
+            "marks_required": 1,
+            "description": "A place that's yours, secret, and comfortable."
+          },
+          {
+            "id": "mm-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "radio-station",
+      "name": "Radio Station",
+      "description": "The hunters run a radio station. They broadcast to a community. The station has become a hub for the supernatural whether they wanted it to or not.",
+      "community": {
+        "note": "Define your listening community.",
+        "options": [
+          "College station with a student listener base",
+          "Remote village served by a low-power transmitter",
+          "Scattered townships with no other local media",
+          "A big city with thousands of listeners",
+          "A global audience via internet streaming"
+        ]
+      },
+      "styles": [
+        {
+          "id": "casual-absurdity",
+          "name": "Casual Absurdity",
+          "description": "You report on the impossible with the tone of a traffic update.",
+          "end_of_session_question": "Did we inform the public about something impossible without causing panic?"
+        },
+        {
+          "id": "shock-and-terror",
+          "name": "Shock and Terror",
+          "description": "Horror is your format. The real monsters make it easy.",
+          "end_of_session_question": "Did we use our platform to expose genuine supernatural terror?"
+        },
+        {
+          "id": "exuberance",
+          "name": "Exuberance",
+          "description": "You love this. The monsters are the best story you've ever covered.",
+          "end_of_session_question": "Did we get the story despite everything?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "enemies": [
+        "Ghost in the Machine — a supernatural entity that has been in your signal for years",
+        "'A Frowning Devil' — a cult that listens very carefully to your broadcasts",
+        "Ulmer Broadcasting Interests — they want your frequency",
+        "The Looming Stalker — a supernatural entity fixated on one of your DJs",
+        "Savidan — a rival broadcaster with deeply suspicious ratings success",
+        "Custom: FILL_FROM_SESSION"
+      ],
+      "allies": [
+        {
+          "id": "natalya-angelique",
+          "name": "Natalya Angelique",
+          "description": "A loyal listener who has become a reliable field source."
+        },
+        {
+          "id": "executive-producer-fujita-taro",
+          "name": "Executive Producer Fujita Tarō",
+          "description": "Your EP. Knows more about the supernatural than they let on."
+        },
+        {
+          "id": "international-hunting-group-of-awesome",
+          "name": "International Hunting Group of Awesome",
+          "description": "A network of hunters that formed around your signal. They're enthusiastic."
+        },
+        {
+          "id": "pearl-aiza",
+          "name": "Pearl Aiza",
+          "description": "A sound engineer who can manipulate recordings in ways that shouldn't be possible."
+        },
+        {
+          "id": "levi-shalom",
+          "name": "Levi Shalom",
+          "description": "A music archivist who knows which songs are actually dangerous to play."
+        },
+        {
+          "id": "hibo-salah",
+          "name": "Hibo Salah",
+          "description": "A community liaison who makes sure your broadcasts help rather than panic."
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "rs-ill-get-you-through-this",
+          "name": "I'll Get You through This",
+          "default_starting": true,
+          "description": "When you broadcast directly to someone in danger, roll +Cool. On 10+: they take +2 forward and feel calm. On 7–9: they take +1 forward. You don't need to be physically present.",
+          "roll": "+Cool"
+        },
+        {
+          "id": "rs-dont-touch-that-dial",
+          "name": "Don't Touch that Dial",
+          "description": "When you use your broadcast to compel a supernatural entity to stop and listen, roll +Weird. On 10+: it's frozen for the scene. On 7–9: it's distracted and slowed. Miss: it's attracted rather than distracted."
+        },
+        {
+          "id": "rs-our-next-caller",
+          "name": "Our Next Caller",
+          "description": "Once per session, a listener calls in with exactly the information you needed. The Keeper decides who and why."
+        },
+        {
+          "id": "rs-a-word-from-our-sponsors",
+          "name": "A Word from Our Sponsors",
+          "description": "When you need resources quickly, roll +Charm. On 10+: a sponsor or listener provides what you need. On 7–9: they provide it with strings attached."
+        },
+        {
+          "id": "rs-live-from-the-dog-park",
+          "name": "Live from the Dog Park",
+          "description": "When you broadcast live from a dangerous location, your team takes +1 forward for the scene. You attract extra attention."
+        },
+        {
+          "id": "rs-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "rs-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style."
+        }
+      ],
+      "assets": {
+        "mandatory": {
+          "id": "rs-the-station",
+          "name": "The Station",
+          "description": "Your broadcast facilities and the community that gathers around them. Functions as a headquarters and a way to reach your audience directly."
+        },
+        "additional_picks": 1,
+        "options": [
+          {
+            "id": "rs-headquarters",
+            "name": "Headquarters",
+            "marks_required": 1,
+            "description": "A separate base of operations from the station itself."
+          },
+          {
+            "id": "rs-tight-security",
+            "name": "Tight Security",
+            "marks_required": 1,
+            "description": "The station is hardened against supernatural intrusion."
+          },
+          {
+            "id": "rs-station-archives",
+            "name": "Station Archives",
+            "marks_required": 1,
+            "description": "Decades of recordings, including things that shouldn't have been captured on tape."
+          },
+          {
+            "id": "rs-station-archives-2",
+            "name": "Station Archives (expanded)",
+            "marks_required": 1,
+            "description": "More archive material, or the ability to search it effectively."
+          },
+          {
+            "id": "rs-housing",
+            "name": "Housing",
+            "marks_required": 1,
+            "description": "Staff accommodation."
+          },
+          {
+            "id": "rs-signal-boosters",
+            "name": "Signal Boosters",
+            "marks_required": 1,
+            "description": "Extended range for your broadcasts."
+          },
+          {
+            "id": "rs-paranatural-boosters",
+            "name": "Paranatural Boosters",
+            "marks_required": 1,
+            "description": "Your signal can now reach supernatural entities on other planes."
+          },
+          {
+            "id": "rs-station-vans",
+            "name": "Station Vans",
+            "marks_required": 1,
+            "description": "Broadcast vehicles for fieldwork."
+          },
+          {
+            "id": "rs-helicopter",
+            "name": "Helicopter",
+            "marks_required": 1,
+            "description": "An aerial vehicle for news-gathering."
+          },
+          {
+            "id": "rs-helicopter-2",
+            "name": "Helicopter (second)",
+            "marks_required": 1,
+            "description": "A second helicopter."
+          },
+          {
+            "id": "rs-shelter",
+            "name": "Shelter",
+            "marks_required": 1,
+            "description": "Emergency facilities for listeners and community members in crisis."
+          },
+          {
+            "id": "rs-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    },
+    {
+      "id": "swipe-to-slay",
+      "name": "Swipe to Slay",
+      "description": "There's an app. It sends you to monster jobs. Nobody knows who built it. It pays well. The jobs are definitely real.",
+      "the_app": {
+        "note": "Define your relationship to the app.",
+        "how_you_learned": [
+          "A friend showed you",
+          "It just appeared on your phone",
+          "You were headhunted",
+          "You found it in an app store that no longer exists"
+        ],
+        "why_you_started": [
+          "The money",
+          "I needed to do something useful",
+          "Someone I know was hurt by a monster",
+          "I had skills and this was an outlet"
+        ],
+        "what_you_suspect": {
+          "picks": 2,
+          "options": [
+            "The app is run by a supernatural entity",
+            "The jobs are tests of some kind",
+            "Someone is watching us through it",
+            "The payments come from nowhere legal",
+            "The app has a hidden agenda",
+            "There are other users we've never met"
+          ]
+        }
+      },
+      "styles": [
+        {
+          "id": "side-racket",
+          "name": "Side Racket",
+          "description": "This is gig work. You have a real life too.",
+          "end_of_session_question": "Did we complete the job without it bleeding into our regular lives?"
+        },
+        {
+          "id": "already-doing-it",
+          "name": "Already Doing It",
+          "description": "You were hunting before the app. This just made it easier.",
+          "end_of_session_question": "Did we use our experience to handle something the app didn't prepare us for?"
+        },
+        {
+          "id": "cant-escape",
+          "name": "Can't Escape",
+          "description": "You tried to quit. The app keeps sending jobs. You keep taking them.",
+          "end_of_session_question": "Did someone try to quit — even unsuccessfully?"
+        },
+        {
+          "id": "fight-the-power",
+          "name": "Fight the Power",
+          "description": "You're using the app while trying to figure out who controls it.",
+          "end_of_session_question": "Did we get closer to the truth about who runs the app?"
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION",
+          "end_of_session_question": "FILL_FROM_SESSION"
+        }
+      ],
+      "enemies": [
+        "All Faerie (they hate gig economy logic applied to supernatural contracts)",
+        "An evil rival app run by something that wants your clients dead",
+        "The Crimson Key, a secret society that pre-dates the app and resents it",
+        "The app itself, if it's actually alive",
+        "An ancient prophecy the app keeps accidentally fulfilling",
+        "Saunders Enterprises, a corporation that wants to buy or destroy the app",
+        "Custom: FILL_FROM_SESSION"
+      ],
+      "allies": [
+        {
+          "id": "nak-shimma",
+          "name": "Nak Shimma",
+          "description": "A dispatcher of some kind — you talk to them through the app but have never met them."
+        },
+        {
+          "id": "the-derision-of-the-crests-edge",
+          "name": "\"The Derision of the Crest's Edge\"",
+          "description": "A slime demon who reviews your work on the app with unfair ratings but occasionally gives useful tips."
+        },
+        {
+          "id": "alamo-rick",
+          "name": "Alamo Rick",
+          "description": "A retired hunter who has opinions about the app and is weirdly helpful anyway."
+        },
+        {
+          "id": "brother-w-adisu",
+          "name": "Brother W. Adisu",
+          "description": "A monastic scholar who tracks supernatural job requests as part of a larger theological project."
+        },
+        {
+          "id": "sketch-and-sykoking",
+          "name": "Sketch and Sykoking",
+          "description": "Two other users of the app. You've never met in person. They might be more experienced than you."
+        },
+        {
+          "id": "frank-keep",
+          "name": "Frank Keep",
+          "description": "A fixer who handles payments, logistics, and occasionally shows up at jobs uninvited."
+        },
+        {
+          "id": "custom",
+          "name": "Custom",
+          "description": "FILL_FROM_SESSION"
+        }
+      ],
+      "moves": [
+        {
+          "id": "sts-thanks-for-the-rating",
+          "name": "Thanks for the Rating",
+          "default_starting": true,
+          "description": "When a client is satisfied with the outcome, mark team experience. When a client makes things worse despite your best efforts, you take +1 forward dealing with the resulting mess.",
+          "roll": null
+        },
+        {
+          "id": "sts-chekhovs-incident",
+          "name": "Chekhov's Incident",
+          "description": "When a previous job's loose end comes back up, you may ask one free question about it from the investigate a mystery list."
+        },
+        {
+          "id": "sts-substitutions",
+          "name": "Substitutions",
+          "description": "When another team member can't take a job, you may cover for them. Take their stat bonuses for that scene instead of your own."
+        },
+        {
+          "id": "sts-double-booked",
+          "name": "Double Booked",
+          "description": "Once per session, two jobs collide in a way that actually makes things easier. The Keeper tells you how."
+        },
+        {
+          "id": "sts-back-channel",
+          "name": "Back Channel",
+          "description": "When you communicate through the app with someone unusual (another user, the dispatcher, something in the app itself), roll +Cool. On 10+: useful information with no complications. On 7–9: useful information with a complication. Miss: something from the app ends up in the wrong hands."
+        },
+        {
+          "id": "sts-something-different",
+          "name": "Something Different",
+          "description": "Take a move from another team playbook."
+        },
+        {
+          "id": "sts-change-team-style",
+          "name": "Change Team Style",
+          "description": "Pick a new team style."
+        }
+      ],
+      "assets": {
+        "starting_picks": 2,
+        "options": [
+          {
+            "id": "sts-never-offline",
+            "name": "Never Offline",
+            "marks_required": 1,
+            "description": "The app is always available, even in locations with no signal."
+          },
+          {
+            "id": "sts-transportation",
+            "name": "Transportation",
+            "marks_required": 1,
+            "description": "Reliable vehicles for getting to jobs."
+          },
+          {
+            "id": "sts-mobile-base",
+            "name": "Mobile Base",
+            "marks_required": 1,
+            "description": "A vehicle that functions as a base for longer jobs."
+          },
+          {
+            "id": "sts-mobile-base-2",
+            "name": "Mobile Base (expanded)",
+            "marks_required": 1,
+            "description": "A larger or better-equipped mobile base."
+          },
+          {
+            "id": "sts-dimensional-positioning-system",
+            "name": "Dimensional Positioning System",
+            "marks_required": 1,
+            "description": "The app can track supernatural locations, not just physical ones."
+          },
+          {
+            "id": "sts-dimensional-positioning-system-2",
+            "name": "Dimensional Positioning System (upgraded)",
+            "marks_required": 1,
+            "description": "More accurate or extended supernatural tracking."
+          },
+          {
+            "id": "sts-the-cms",
+            "name": "The CMS",
+            "marks_required": 1,
+            "description": "Access to the app's back-end content management system. Partial. Sometimes."
+          },
+          {
+            "id": "sts-inventory",
+            "name": "Inventory",
+            "marks_required": 1,
+            "description": "The app provides mundane gear for jobs. You have a reliable supply."
+          },
+          {
+            "id": "sts-arcane-inventory",
+            "name": "Arcane Inventory",
+            "marks_required": 1,
+            "description": "The app provides supernatural gear for jobs. You have a reliable supply."
+          },
+          {
+            "id": "sts-headquarters",
+            "name": "Headquarters",
+            "marks_required": 1,
+            "description": "A fixed base not tied to the app."
+          },
+          {
+            "id": "sts-suspicious-housing",
+            "name": "Suspicious Housing",
+            "marks_required": 1,
+            "description": "Accommodation the app provides. You're not sure what it is exactly, but it's comfortable and secure."
+          },
+          {
+            "id": "sts-order-history",
+            "name": "Order History",
+            "marks_required": 1,
+            "description": "Full access to past jobs. Sometimes what you need is in a job you already did."
+          },
+          {
+            "id": "sts-custom",
+            "name": "Custom",
+            "marks_required": 1,
+            "description": "FILL_FROM_SESSION"
+          }
+        ]
+      }
+    }
+  ]
+}

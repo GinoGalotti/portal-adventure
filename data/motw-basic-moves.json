@@ -1,0 +1,471 @@
+{
+  "version": "motw-hardcover-2023",
+  "source": "hardcover",
+  "book_reference": "Monster of the Week hardcover (2023), pages 59-70",
+  "note": "The 12+ outcome was added in the hardcover (2nd) edition and is NOT present in the revised softcover (2015). All basic moves, alternate Weird moves, and new Weird moves in this file are sourced from the hardcover and Slayer's Survival Kit.",
+  "basic_moves": [
+    {
+      "id": "kick-some-ass",
+      "name": "Kick Some Ass",
+      "trigger": "When you get into a fight and kick some ass",
+      "roll": "tough",
+      "outcomes": {
+        "12_plus": "You devastate and overawe your enemy. You inflict and suffer harm as normal, and pick one of these enhanced effects: you completely hold the advantage (all hunters in the fight get +1 forward); you suffer no harm at all; your attack inflicts double the normal harm; your attack drives the enemy away in a rout.",
+        "10_plus": "You inflict harm on (and suffer harm from) whatever you're fighting. Choose one extra effect: you gain the advantage (take +1 forward, or give +1 forward to another hunter); you inflict terrible harm (+1 harm); you suffer less harm (-1 harm); you force them where you want them.",
+        "7_9": "You inflict harm on (and suffer harm from) whatever you're fighting.",
+        "miss": "You get your ass kicked instead. You suffer harm or get captured, but don't inflict any harm back."
+      },
+      "tags": [
+        "combat",
+        "harm"
+      ]
+    },
+    {
+      "id": "act-under-pressure",
+      "name": "Act Under Pressure",
+      "trigger": "When you do something despite a threat or danger",
+      "roll": "cool",
+      "outcomes": {
+        "12_plus": "You rise above the pressure completely. You may choose to either do what you wanted and something extra, or to do what you wanted to absolute perfection (so that people will talk about it for years to come).",
+        "10_plus": "You do what you set out to.",
+        "7_9": "The Keeper is going to give you a worse outcome, hard choice, or price to pay.",
+        "miss": "Things go to hell."
+      },
+      "tags": [
+        "versatile"
+      ]
+    },
+    {
+      "id": "help-out",
+      "name": "Help Out",
+      "trigger": "When you help another hunter with a move they're making",
+      "roll": "cool",
+      "outcomes": {
+        "12_plus": "You make the difference. The person you are helping acts as if they just rolled a 12 on their move, regardless of what they actually got.",
+        "10_plus": "Your help grants them +1 to their roll.",
+        "7_9": "Your help grants them +1 to their roll, but you also expose yourself to trouble or danger.",
+        "miss": "You expose yourself to trouble or danger without helping."
+      },
+      "tags": [
+        "support"
+      ]
+    },
+    {
+      "id": "investigate-a-mystery",
+      "name": "Investigate a Mystery",
+      "trigger": "When you investigate a monster or phenomenon",
+      "roll": "sharp",
+      "outcomes": {
+        "12_plus": "You may ask the Keeper any question you want about the mystery, not just the listed ones.",
+        "10_plus": "Hold 2. Spend hold to ask the Keeper one question from the list.",
+        "7_9": "Hold 1. Spend hold to ask the Keeper one question from the list.",
+        "miss": "You reveal some information to the monster or whoever you are talking to. The Keeper might ask you some questions, which you have to answer.",
+        "questions": [
+          "What happened here?",
+          "What sort of creature is it?",
+          "What can it do?",
+          "What can hurt it?",
+          "Where did it go?",
+          "What was it going to do?",
+          "What is being concealed here?"
+        ]
+      },
+      "tags": [
+        "information",
+        "sharp"
+      ]
+    },
+    {
+      "id": "manipulate-someone",
+      "name": "Manipulate Someone",
+      "trigger": "When you try to convince or persuade someone (not a hunter) to do something",
+      "roll": "charm",
+      "note": "You need to offer them something they want or appeal to their emotions. Target must be an NPC.",
+      "outcomes": {
+        "12_plus": "You absolutely convince them. They do what you want right now. For a hunter, they must act under pressure to resist your request \u2014 if they do what you ask, they mark one experience and take +1 ongoing while doing so. For a bystander, they also become your ally for the rest of the mystery (or permanently, if you do enough for them).",
+        "10_plus": "For a normal person: they'll do it for the reason you gave them. If you asked too much, they'll tell you the minimum it would take (or if there's no way they'd do it). For another hunter: they mark experience and get +1 forward if they do what you ask.",
+        "7_9": "For a normal person: they'll do it, but only if you do something for them right now to show you mean it. If you asked too much, they'll tell you what it would take. For another hunter: they mark experience if they do what you ask.",
+        "miss": "For a normal person: your approach is completely wrong \u2014 you offend or anger the target. For another hunter: it's up to them how badly you offend or annoy them; they mark experience if they do not do what you asked."
+      },
+      "tags": [
+        "social",
+        "charm"
+      ]
+    },
+    {
+      "id": "protect-someone",
+      "name": "Protect Someone",
+      "trigger": "When you prevent someone from being harmed",
+      "roll": "tough",
+      "outcomes": {
+        "12_plus": "You defend them perfectly. Both you and the character you are protecting are unharmed and out of danger. If you were protecting a bystander, they also become your ally.",
+        "10_plus": "You protect them okay \u2014 you suffer some or all of the harm they were going to get. Choose one extra: you suffer little harm (-1 harm); all impending danger is now focused on you; you inflict harm on the enemy; you hold the enemy back.",
+        "7_9": "You protect them okay, but you'll suffer some or all of the harm they were going to get.",
+        "miss": "You end up making things worse."
+      },
+      "tags": [
+        "combat",
+        "support"
+      ]
+    },
+    {
+      "id": "read-a-bad-situation",
+      "name": "Read a Bad Situation",
+      "trigger": "When you take a moment to assess a dangerous situation before acting",
+      "roll": "sharp",
+      "outcomes": {
+        "12_plus": "You may ask the Keeper any question you want about the situation, not just the listed ones.",
+        "10_plus": "Hold 3. Spend hold to ask the Keeper one question from the list. If you act on the answers, you get +1 ongoing while the information is relevant.",
+        "7_9": "Hold 1. Spend hold to ask the Keeper one question from the list. If you act on the answer, you get +1 ongoing while the information is relevant.",
+        "miss": "You might mis-read the situation, or you might reveal tactical details to your enemies (the Keeper can ask the questions of you).",
+        "questions": [
+          "What's my best way in?",
+          "What's my best way out?",
+          "Are there any dangers we haven't noticed?",
+          "What's the biggest threat?",
+          "What's most vulnerable to me?",
+          "What's the best way to protect the victims?"
+        ]
+      },
+      "tags": [
+        "information",
+        "sharp"
+      ]
+    },
+    {
+      "id": "use-magic",
+      "name": "Use Magic",
+      "trigger": "When you use magic to do something",
+      "roll": "weird",
+      "note": "Consult your playbook for specific magical moves first \u2014 this is the fallback for magic not covered there.",
+      "outcomes": {
+        "12_plus": "You are infused with magical power. What you wanted to do happens and the Keeper will offer you some extra benefit on top of that.",
+        "10_plus": "The magic works without issues: choose your effect.",
+        "7_9": "It works imperfectly: choose your effect and a glitch. The Keeper will decide what effect the glitch has.",
+        "miss": "You lose control of the magic. This never ends well."
+      },
+      "tags": [
+        "magic",
+        "weird"
+      ],
+      "effects": [
+        "Inflict harm (1-harm ignore-armour magic obvious).",
+        "Enchant a weapon. It gets +1 harm and +magic.",
+        "Do one thing that is beyond human limitations.",
+        "Bar a place or portal to a specific person or a type of creature.",
+        "Trap a specific person, minion, or monster.",
+        "Banish a spirit or curse from the person, object, or place it inhabits.",
+        "Summon a monster into the world.",
+        "Communicate with something that you do not share a language with.",
+        "Observe another place or time.",
+        "Heal 1-harm from an injury, or cure a disease, or neutralize a poison."
+      ],
+      "glitches": [
+        "The effect is weakened.",
+        "The effect is of short duration.",
+        "You take 1-harm ignore-armour magic.",
+        "The magic draws immediate, unwelcome attention.",
+        "It has a problematic side effect."
+      ]
+    },
+    {
+      "id": "big-magic",
+      "name": "Big Magic",
+      "trigger": "When you perform a powerful ritual or working",
+      "roll": null,
+      "note": "No roll \u2014 the Keeper sets requirements based on scale. Meet the requirements, the magic works.",
+      "outcomes": {
+        "general": "Tell the Keeper what magical effect you want to achieve. They will determine what you must do in order to cast the spell. Once you have met the requirements, the magical effect simply happens \u2014 no roll required, but you may need to roll other moves while meeting the requirements."
+      },
+      "tags": [
+        "magic",
+        "ritual"
+      ]
+    },
+    {
+      "id": "help-or-interfere",
+      "name": "Help or Interfere",
+      "trigger": "When you help or hinder another hunter",
+      "roll": "bonds",
+      "note": "Roll +Bonds with the specific hunter you are helping or hindering.",
+      "outcomes": {
+        "12_plus": "If helping: the person acts as if they just rolled a 12 on their move. If hindering: they take -2 to their roll and suffer an additional consequence of your choosing.",
+        "10_plus": "If helping: they take +1 to their roll. If hindering: they take -2 to their roll.",
+        "7_9": "If helping: they take +1, but you also share in the risk or cost. If hindering: they take -2, but you also suffer a consequence.",
+        "miss": "If helping: your help makes things worse \u2014 they take -1. If hindering: you expose yourself to harm or danger."
+      },
+      "tags": [
+        "support",
+        "bonds"
+      ]
+    }
+  ],
+  "alternate_weird_moves": {
+    "note": "These replace use magic as a hunter's basic Weird move. Choose one at character creation (or swap via advanced improvement). From Monster of the Week hardcover (2023) unless noted.",
+    "moves": [
+      {
+        "id": "empath",
+        "name": "Empath",
+        "source": "hardcover",
+        "description": "When you open up your brain to feel the emotions of something right there in front of you, roll +Weird.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "You get an impression (as for 10+), and you may ask one follow-up question that the Keeper will answer honestly.",
+          "10_plus": "You gain a clear impression of their current emotional state and intentions. Take +1 forward when acting on this knowledge.",
+          "7_9": "You gain a hazy impression of their current emotional state and intentions.",
+          "miss": "Your brain is overwhelmed with emotion."
+        }
+      },
+      {
+        "id": "illuminated",
+        "name": "Illuminated",
+        "source": "hardcover",
+        "description": "You have become enlightened, and sometimes receive information telepathically from the Secret Masters. When you telepathically ask the Secret Masters for aid, roll +Weird.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "The Secret Masters reveal a key fact, clue, or technique that will help you. You may ask one follow-up question that the Keeper will answer honestly.",
+          "10_plus": "The Secret Masters reveal a key fact, clue, or technique that will help you.",
+          "7_9": "The Secret Masters need you to complete a task for them. Once it is done, they reveal a key fact, clue, or technique that will help you.",
+          "miss": "The Secret Masters' reply is terrible, garbled, or somehow dangerously wrong."
+        }
+      },
+      {
+        "id": "no-limits",
+        "name": "No Limits",
+        "source": "hardcover",
+        "description": "When you push your physical body past its limits, roll +Weird. 'Physical possibility' means conceivably possible for a human (e.g. lift an SUV, jump over a truck, punch through a wall \u2014 but not fly or lift a building).",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "You can continue acting at your body's limits for 30 seconds.",
+          "10_plus": "Your body obeys your will, to the limits of physical possibility, for a moment.",
+          "7_9": "You do it but choose one consequence: suffer 1-harm, take \u20131 forward, or you need to rest right now.",
+          "miss": "Something goes horribly wrong."
+        }
+      },
+      {
+        "id": "past-lives",
+        "name": "Past Lives",
+        "source": "hardcover",
+        "description": "When you channel your previous incarnations to discover something, pose your question and roll +Weird.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "A past life knows exactly what you were after. Ask the Keeper one question from the list and one free-form question. Gain +1 ongoing while acting on the answers.",
+          "10_plus": "A past life has something useful to offer. Ask the Keeper two questions from the list.",
+          "7_9": "A past life has a little experience with this. Ask the Keeper one question from the list.",
+          "miss": "A past life takes over for a while."
+        },
+        "questions": [
+          "What did a past life discover about ___________?",
+          "How did a past life deal with __________?",
+          "What important hidden secret can a past life show me the way to?",
+          "What did a past life learn too late to help them?",
+          "What does a past life advise me to do now?"
+        ]
+      },
+      {
+        "id": "sensitive",
+        "name": "Sensitive",
+        "source": "hardcover",
+        "description": "When you open up your brain to the psychic environment, roll +Weird. Note: what you find out won't necessarily relate to your current concerns or the mystery you are investigating right now.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "You get an impression as for 10+, plus you may ask one follow-up question that the Keeper will answer honestly.",
+          "10_plus": "You gain a definite impression (a vision, tangible aura, overheard thought, etc) about something important.",
+          "7_9": "You gain a hazy impression about something important.",
+          "miss": "Your brain makes contact with something dangerous."
+        }
+      },
+      {
+        "id": "trust-your-gut",
+        "name": "Trust Your Gut",
+        "source": "hardcover",
+        "description": "When you consult your instincts about what to do next, roll +Weird. Your gut feelings will point you somewhere important, but they do not care about your conscious concerns.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "In addition to the usual 10+ result, the Keeper will tell you about one important thing you should investigate further.",
+          "10_plus": "The Keeper will tell you where you should go. Wherever that is, it will be important. You get +1 ongoing on the way to this place.",
+          "7_9": "The Keeper will tell you a general direction to go. Take +1 forward as you explore that.",
+          "miss": "Your instincts lead you into danger."
+        }
+      },
+      {
+        "id": "telekinesis",
+        "name": "Telekinesis",
+        "source": "hardcover",
+        "description": "When you fling something with your mind, roll +Weird. By default you can move something smaller than a person; you don't have much control and can't move it strongly enough to hurt anything.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "Choose three options from the list. You may also choose from advanced options: something explodes (3-harm close fire area messy), something implodes (3-harm close crush), lots of stuff is flying under your control, or you have perfect and precise control.",
+          "10_plus": "You move it. Choose two options and mark 1-harm.",
+          "7_9": "You move it but it hurts. Choose one option and mark 2-harm.",
+          "miss": "Something goes horribly wrong."
+        },
+        "choices_note": "Options (anything not picked is not true):",
+        "choices": [
+          "Something is held fast.",
+          "Something is hurt (2-harm smash).",
+          "Something catches fire.",
+          "You can fling something bigger than a person.",
+          "You keep it basically under your control.",
+          "You suffer 1 less harm."
+        ]
+      },
+      {
+        "id": "weird-science",
+        "name": "Weird Science",
+        "source": "hardcover",
+        "description": "When you create or adapt a device to analyse or deal with strangeness, say what it will do and roll +Weird.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "You gain +1 ongoing when operating the device.",
+          "10_plus": "You pick two requirements.",
+          "7_9": "You pick one requirement and the Keeper picks a second one.",
+          "miss": "Something goes horribly wrong. You are still able to create your device, but the Keeper picks three requirements."
+        },
+        "requirements": [
+          "It needs a rare and/or weird material.",
+          "It won't be very reliable.",
+          "It requires huge amounts of power or fuel.",
+          "It will take a long time to get it working.",
+          "It won't work exactly as you intended.",
+          "You'll need help (beyond the hunters on your team) to finish it."
+        ]
+      }
+    ]
+  },
+  "new_weird_moves": {
+    "note": "New alternate Weird moves from the Slayer's Survival Kit (2023). These can be used as-is or as inspiration for custom moves.",
+    "moves": [
+      {
+        "id": "benevolence",
+        "name": "Benevolence",
+        "source": "slayers-survival-kit",
+        "description": "You are able to channel a benevolent elemental force (sacred light, darkness, fire, song, or something else). When you channel power, roll +Weird. If you use this power selfishly, the Keeper chooses one: the power refuses to answer when next channelled; malevolent forces are drawn to you; or you have a terrifying vision showing the consequences of your actions.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "Pick two of the 10+ options, or one of these: a danger is averted or driven off for a while; all hunters get +1 ongoing against supernatural evil in the current situation; innocents in danger are carried away to safety.",
+          "10_plus": "Pick one: a display of power strikes awe or inspires hope; all hunters get +1 forward against supernatural evil; create a barrier or shelter impassable to evil; an omen directs you where you're most needed.",
+          "7_9": "Pick one of the 10+ options and one of these: all malevolence is focused on you; you must sacrifice something (not someone) important to you; you will be exhausted afterwards (take \u20131 ongoing until you rest).",
+          "miss": "No effect, and the Keeper chooses a consequence."
+        }
+      },
+      {
+        "id": "hacking",
+        "name": "Hacking",
+        "source": "slayers-survival-kit",
+        "description": "You have a way with computers, going beyond just skill and knowledge. When you hack a computer, roll +Weird. The Keeper may require: physical connection to the target network; good internet connection; time to set it up; passwords and credentials for initial access.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "Gain +1 hold. You may also add these options: ask a question from the Flake's connect the dots move; lock down an entire facility controlled by the system; your hack is completely undetectable and untraceable.",
+          "10_plus": "Hold 2.",
+          "7_9": "Hold 1.",
+          "miss": "Things go wrong and the Keeper holds 1."
+        },
+        "choices_note": "Spend your hold to (hunter); the Keeper can spend their hold to (keeper):",
+        "hunter_hold_options": [
+          "Access something within, or controlled by, the system.",
+          "Ask a question from investigate a mystery or read a bad situation.",
+          "Use, control, or shut down a system function (such as permissions, communications, websites, or cameras).",
+          "Place or remove information."
+        ],
+        "keeper_hold_options": [
+          "Have the hunter trip an alarm.",
+          "Destroy data or shut down a system function.",
+          "Infect the hacker's computer with a virus (potentially mystical)."
+        ]
+      },
+      {
+        "id": "medium",
+        "name": "Medium",
+        "source": "slayers-survival-kit",
+        "description": "You can't always sense ghosts and spirits, but you also know how to invoke and speak with them. If the spirit is a monster, the seance will be especially dangerous. When you invoke a spirit, roll +Weird. The Keeper may require: communication tools (ouija board, tarot cards, etc.); the spirit possesses you during the seance; you suffer 1-harm ignore-armour; you need the presence of someone or something with a connection to the spirit.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "Pick an extra option from the 10+ list, or force the spirit to say or do one thing.",
+          "10_plus": "Pick one: all present may communicate with the spirit (not just you); trap the spirit within you; ask the Keeper any question about the ghost's life or motivations (they'll answer honestly, but perhaps not in full).",
+          "7_9": "Pick one of the 10+ options and one of these: the spirit demands a service before helping you; it's disturbed or confused; other malevolent spirits also manifest.",
+          "miss": "The Keeper decides if the spirit is malevolent, dangerous, and/or just doesn't leave."
+        }
+      },
+      {
+        "id": "pyrokinesis",
+        "name": "Pyrokinesis",
+        "source": "slayers-survival-kit",
+        "description": "You can control and produce fire. When you control or ignite flames, roll +Weird. (May be re-themed for other elemental effects such as cold or lightning.) Keeper guideline for fire harm: fireplace or smaller: 1-harm; bonfire: 2-harm; burning room: 3-harm; raging inferno: 5-harm.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "Pick two normal options, or one of these: a fire starts where normally impossible; all nearby fires are extinguished; one person is immune to fire and smoke for a few minutes.",
+          "10_plus": "Pick one option, or pick two and the Keeper chooses another.",
+          "7_9": "Pick one option and the Keeper chooses another.",
+          "miss": "The Keeper chooses one option."
+        },
+        "choices": [
+          "A fire gets bigger, smaller, moves, or goes out.",
+          "A flammable object catches fire.",
+          "You or someone else take 1 less harm from fires for a few minutes.",
+          "Smoke thickens, dissipates, or moves."
+        ]
+      },
+      {
+        "id": "summoner",
+        "name": "Summoner",
+        "source": "slayers-survival-kit",
+        "description": "You can summon magical creatures to serve you. When you first gain this move, you can summon two beings \u2014 decide their nature with the Keeper. A creature is considered an ally for the duration of the spell, unless it's a monster. When you summon a creature to perform a task, roll +Weird. The Keeper may require: magic spell preparations (magic circle or sacrificial materials); you suffer 1-harm; specific spells or names must be known.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "The creature does the task. Choose one: the creature stays to complete an extra task, or it reveals a useful secret.",
+          "10_plus": "It does the task to the best of its ability. Pick two things about how the creature carries out the task.",
+          "7_9": "It does the task to the best of its ability. Pick one thing about how the creature carries out the task.",
+          "miss": "The summoning goes horribly wrong."
+        },
+        "choices": [
+          "It follows the spirit\u2014not just the letter\u2014of your orders.",
+          "It acts quickly.",
+          "It leaves when its task is done.",
+          "It avoids collateral damage."
+        ]
+      },
+      {
+        "id": "tradecraft",
+        "name": "Tradecraft",
+        "source": "slayers-survival-kit",
+        "description": "You're a spy, but your intuition is more than just years of training and experience. You just know what to do. When you use your espionage intuition, choose a goal, then roll +Weird.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "It's all good. You also choose one of these: the goal works out better than expected; or choose a second, extra, goal.",
+          "10_plus": "It's all good.",
+          "7_9": "It's a little dicey. Maybe you have to deal with some security, owe a favour, or use a roundabout method.",
+          "miss": "You're in immediate danger."
+        },
+        "choices": [
+          "A safe place to hole up.",
+          "A useful contact.",
+          "A false identity for this situation.",
+          "Cutting-edge or specific gear.",
+          "To know if you are being followed or watched.",
+          "To encrypt a message that only the intended recipient can understand.",
+          "To communicate with someone undetectably."
+        ]
+      },
+      {
+        "id": "warding",
+        "name": "Warding",
+        "source": "slayers-survival-kit",
+        "description": "You've learned protective spells, or maybe just weaponised a certain skepticism. When you ward yourself against the supernatural, describe the protection you want and roll +Weird.",
+        "roll": "weird",
+        "outcomes": {
+          "12_plus": "Your ward has a secondary effect. Take the strong intended effect plus another standard effect.",
+          "10_plus": "The ward is strong, gaining the 'strong' benefit as well.",
+          "7_9": "The ward works.",
+          "miss": "The ward fails in the worst possible way."
+        },
+        "choices_note": "Protections (strong benefit noted where applicable):",
+        "choices": [
+          "Suppress an existing supernatural effect for a few moments. If strong, disrupt it until the source renews it.",
+          "Give one person +1 ongoing to resist a specific effect. If strong, affect several people, or give one person total protection.",
+          "Create an area that is uncomfortable to a chosen type of supernatural entity \u2014 most avoid the area; if they enter, they suffer pain or sensory overload. If strong, they also suffer 1-harm for every minute in the area."
+        ]
+      }
+    ]
+  }
+}

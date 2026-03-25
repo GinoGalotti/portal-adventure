@@ -1,0 +1,203 @@
+{
+  "version": "portal-campaign-current",
+  "source": "Confirmed from D1 hunter_sheets (migrated from local, 2026-03-11). Dynamic state (harm, luck, xp, bonds, checks) lives in D1 — this file is the static identity layer only.",
+  "hunters": [
+    {
+      "id": "rex",
+      "name": "Rex Bangley",
+      "playbook": "action-scientist",
+      "accent_colour": "#f0a500",
+      "stats": {
+        "charm": -1,
+        "cool": 0,
+        "sharp": 2,
+        "tough": -1,
+        "weird": 2
+      },
+      "area_of_study": {
+        "id": "violence",
+        "name": "Violence",
+        "effect": "May roll +Sharp instead of +Tough for kick some ass. When making a scientific attack, either do +1 harm or take +1 forward."
+      },
+      "weird_move": "weird-science",
+      "confirmed_moves": [
+        "move-weird-science",
+        "move-test-hypothesis",
+        "move-oblivious-to-danger"
+      ],
+      "confirmed_gear": {
+        "science_weapons": [
+          "net-launcher",
+          "force-knife"
+        ],
+        "protective_equipment": "biohazard-suit"
+      },
+      "luck_special": "When you spend a point of Luck, some gadget or machine near you will soon malfunction, break down, or explode (what exactly is up to the Keeper).",
+      "background": "Research leader and field operative. Area of expertise: serial killers (pre-PORTAL). Loves tinkering and gadget creation equally with field action.",
+      "keeper_notes": {
+        "arc_hooks": [
+          "University rival Dan Nilsson is working for MESA — Rex does not know this yet.",
+          "Rex examining a MESA Anchor Spike or Substance Θ sample would immediately recognise the BIM signature — direct Project Veil breadcrumb.",
+          "Area of Study: Violence means Rex can roll Sharp for kick some ass — significant in MESA confrontations."
+        ],
+        "secrets_involved": [
+          "secret-dan-nilsson-at-mesa",
+          "secret-project-veil"
+        ]
+      }
+    },
+    {
+      "id": "reed",
+      "name": "Reed Atwood",
+      "playbook": "sidekick",
+      "accent_colour": "#3ab5b0",
+      "stats": {
+        "charm": 1,
+        "cool": 0,
+        "sharp": 2,
+        "tough": -1,
+        "weird": 1
+      },
+      "hero": "rex",
+      "confirmed_moves": [
+        "move-theres-no-i",
+        "move-as-you-wish",
+        "move-bodyguard"
+      ],
+      "confirmed_gear": {
+        "sidekick_weapons": [
+          "baseball-bat",
+          "stun-gun"
+        ]
+      },
+      "luck_special": "Whenever you spend a Luck point, you'll get a chance to do something heroic.",
+      "background": "Idolises Rex Bangley. Avoids being a burden; gets into trouble by not asking for help. Can be manipulated by appeals to what will make the group happy.",
+      "keeper_notes": {
+        "arc_hooks": [
+          "Director Leech has been contacting Reed separately — Reed may carry a private directive the team doesn't know about. Not yet surfaced in play.",
+          "CAMPBELL knows about the Leech-Reed contact pattern, won't lie if asked directly but won't volunteer it.",
+          "Teddy Brandt notices things — closest to knowing Reed is carrying something."
+        ],
+        "secrets_involved": [
+          "secret-reeds-private-directive"
+        ]
+      }
+    },
+    {
+      "id": "alan",
+      "name": "Alan Frazier",
+      "playbook": "changeling",
+      "accent_colour": "#3ab5b0",
+      "stats": {
+        "charm": 1,
+        "cool": 0,
+        "sharp": -1,
+        "tough": 1,
+        "weird": 2
+      },
+      "unknown_heritage": {
+        "tags": [
+          "Strange Thoughts",
+          "Repulsion from Iron Melee Weapons",
+          "Obsession with Animals"
+        ]
+      },
+      "confirmed_moves": [
+        "move-glamour",
+        "move-inhuman-talent",
+        "move-they-are-my-people"
+      ],
+      "confirmed_gear": {
+        "transport": "van",
+        "mementos": [
+          "talisman",
+          "childhood-toy"
+        ],
+        "other": [
+          "smartphone"
+        ]
+      },
+      "luck_special": "When you spend a point of Luck, something or someone related to your inhuman heritage or human upbringing shows up soon.",
+      "background": "Swapped at birth, raised by a human family who have since died. Powers triggered by one of Rex's experiments. Has been accumulating evidence of thin-boundary locations.",
+      "items_of_note": [
+        {
+          "name": "Diane Marsh's notebook",
+          "description": "Contains a threshold sketch Alan recognises as meaningful. Acquired in Session 02.",
+          "significance": "Long thread — who mapped the thresholds first, and why can Alan read the map?"
+        }
+      ],
+      "keeper_notes": {
+        "arc_hooks": [
+          "Alan reads place the way fey characters do — by resonance and layered memory.",
+          "The Cartographer case is NOT about illusion — Alan's glamour powers don't apply. His gift is his nature.",
+          "Diane Marsh's notebook contains a threshold sketch he recognises — major long-arc thread."
+        ],
+        "secrets_involved": []
+      }
+    },
+    {
+      "id": "sven",
+      "name": "Sven",
+      "playbook": "monstrous",
+      "accent_colour": "#a78bfa",
+      "stats": {
+        "charm": 2,
+        "cool": 0,
+        "sharp": -1,
+        "tough": -1,
+        "weird": 3
+      },
+      "breed": "ghost",
+      "curse": "pure-drive",
+      "curse_detail": "Emotion: Greed",
+      "natural_attacks": {
+        "base": {
+          "type": "magical force",
+          "tags": [
+            "hand"
+          ]
+        }
+      },
+      "confirmed_moves": [
+        "move-incorporeal",
+        "move-immortal"
+      ],
+      "luck_special": "When you spend Luck, your monster side gains power; your Curse may become stronger, or another Breed disadvantage may manifest.",
+      "background": "Died on an ayahuasca trip — cause unknown. Visions from the trip turned out to be real. Motivated by finding exciting applications of monsters. Immune to the Aldermoor displacement effect (no cognitive map).",
+      "special_properties": [
+        "Immune to Aldermoor displacement effect — has no cognitive map to consume.",
+        "An entity recognised him at a boundary during Session 02.",
+        "An Anchor Spike used against him deals 3-harm and forces him out of any supernatural state for the rest of the scene. The user will know what he is."
+      ],
+      "keeper_notes": {
+        "arc_hooks": [
+          "Cause of death unknown — deliberately left open. Should connect to at least one active thread.",
+          "Natural contact vector for The Cartographer — entity recognises him as something between states.",
+          "Natural resolution vector for Case E (The Understudies).",
+          "MESA has a file on Sven — Rook identified him as non-biological on first meeting."
+        ],
+        "secrets_involved": [
+          "secret-svens-cause-of-death"
+        ]
+      }
+    },
+    {
+      "id": "john",
+      "name": "John Johnson",
+      "playbook": "flake",
+      "accent_colour": "#c8ddd0",
+      "area_of_study": null,
+      "luck_special": "When you spend a point of Luck, pick an aspect of the current situation. The Keeper will tell you what other conspiracies that aspect connects to.",
+      "background": "Lab staff, not field ops. Believes everything is a hoax and everything is connected. Currently pursuing independent research threads — MESA shell company patterns, Campbell identity theories, lab ethics. Role in active cases undefined; most likely involvement is intelligence and pattern analysis.",
+      "keeper_notes": {
+        "arc_hooks": [
+          "Most likely character to notice the MESA acronym pattern across shell company names.",
+          "Arc: Deeper Conspiracy."
+        ],
+        "secrets_involved": [
+          "secret-mesa-acronym-pattern"
+        ]
+      }
+    }
+  ]
+}

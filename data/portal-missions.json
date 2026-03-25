@@ -1,0 +1,157 @@
+{
+  "missions": [
+    {
+      "id": "mission-01",
+      "num": "01",
+      "location_short": "KELLER UNIV.\nSTATUS:",
+      "phases": [
+        {
+          "show_from": "w1",
+          "show_until": "w1",
+          "anchor": null,
+          "placeholder": false,
+          "status": "active",
+          "title": "A Promise is a Promise",
+          "subtitle": "// CAMPBELL ANOMALY REPORT #0047-C — CLASS 2 ECTOPLASMIC RESIDUE",
+          "excerpt": "CAMPBELL has flagged an unclassified particulate at Keller University — three incidents in four weeks, one critical. The field team is deployed. The substance does not match anything on record.",
+          "summary": "Three incidents at Keller University in four weeks. One critical. CAMPBELL flagged an unclassified particulate at all three scenes — a substance it had never encountered before, rated 99th percentile rarity. The field team is deployed. The substance does not match anything on record.",
+          "index_redacted": "LOCATION: Keller University · ENTITY TYPE: [REDACT] · DIRECTIVE STATUS: [REDACT] PENDING",
+          "meta_tags": [
+            { "label": "LOCATION: KELLER UNIVERSITY", "class": "" },
+            { "label": "ENTITY: [REDACT]", "class": "red" },
+            { "label": "DIRECTIVE: ACTIVE", "class": "amber" },
+            { "label": "CASUALTIES: UNDER ASSESSMENT", "class": "" }
+          ],
+          "archive_redacted": "ENTITY CLASS: [REDACT] · ANCHOR OBJECT: [REDACT] · DIRECTIVE OUTCOME: [REDACT] PENDING RESOLUTION",
+          "outcome": null,
+          "actions": []
+        },
+        {
+          "show_from": "w2",
+          "show_until": null,
+          "anchor": "mission-01",
+          "placeholder": false,
+          "status": "completed",
+          "title": "A Promise is a Promise",
+          "subtitle": "// CAMPBELL ANOMALY REPORT #0047-C — CLASS 2 ECTOPLASMIC RESIDUE",
+          "excerpt": "CAMPBELL flagged an unclassified particulate at Keller University — three incidents, one critical. The field team deployed. The substance was not what the briefing suggested. The source was not what the victims deserved.",
+          "summary": "Three incidents at Keller University in four weeks. One critical. CAMPBELL flagged an unclassified particulate at all three scenes — a substance it had never encountered before, rated 99th percentile rarity. The field team deployed. What they found was not what the briefing suggested. The source was not what the victims deserved.",
+          "index_redacted": "LOCATION: Keller University · ENTITY TYPE: Incorporeal Spirit — Executioner · DIRECTIVE STATUS: Partial Recovery — Ash Locket not retrieved",
+          "meta_tags": [
+            { "label": "LOCATION: KELLER UNIVERSITY", "class": "" },
+            { "label": "ENTITY: INCORPOREAL SPIRIT — EXECUTIONER", "class": "red" },
+            { "label": "RESOLVED", "class": "green" },
+            { "label": "CASUALTIES: 1 CRITICAL (NON-FATAL)", "class": "" }
+          ],
+          "archive_redacted": "ENTITY IDENTITY: Eszter · ANCHOR OBJECT: Not recovered — dispersed at scene · DIRECTIVE OUTCOME: Partial — trace ash recovered, locket not retrieved",
+          "outcome": "DEBRIEF FILED: POST-SESSION 01 · REPORT #0047-C CLOSED\nENTITY OUTCOME: Dispersed at scene following farewell and release. No further manifestation detected. Anchor object not recovered — entity dissolved before acquisition could complete.\nCASUALTIES: 1 field operative — critical injury, non-fatal. Treated and cleared for duty.\nSAMPLES: Trace ash collected incidentally at scene. Submitted to lab under Project Veil analysis protocol. Preliminary findings of significant interest.\nOUTSTANDING: Bálint Varga — welfare follow-up pending. No MESA presence at Keller. Locket remains unaccounted for.",
+          "actions": [
+            { "label": "→ REDACTED LAB MEMO", "href": "../reports/s1-ash-veil-memo.html" },
+            { "label": "→ FILE A FIELD REPORT", "href": "../reports/player-report.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mission-02",
+      "num": "02",
+      "location_short": "ALDERMOOR\nDISTRICT",
+      "phases": [
+        {
+          "show_from": "w2",
+          "show_until": "w2",
+          "anchor": "mission-02",
+          "placeholder": false,
+          "status": "active",
+          "title": "One That Wants To Be Known",
+          "subtitle": "// CAMPBELL ANOMALY REPORT #0094-B — TOPOGRAPHICAL DISTORTION, CLASS 2",
+          "excerpt": "CAMPBELL flagged a cluster of navigation failures in a residential district — seven reports in fourteen days, one missing person, one hospitalisation. The streets haven't changed. The people who live on them no longer know where they are. The field team is en route.",
+          "summary": "Seven residents of the same neighbourhood reported getting lost — on streets they have lived on for decades. One of them never came home. The streets haven't changed. Something else has. The field team is en route.",
+          "index_redacted": "LOCATION: Aldermoor District · ENTITY TYPE: [REDACT] · DIRECTIVE STATUS: [REDACT] PENDING",
+          "meta_tags": [
+            { "label": "LOCATION: ALDERMOOR DISTRICT", "class": "" },
+            { "label": "ENTITY: [REDACT]", "class": "red" },
+            { "label": "DIRECTIVE: ACTIVE", "class": "amber" },
+            { "label": "MISSING PERSONS: 1", "class": "" }
+          ],
+          "archive_redacted": "ENTITY CLASS: [REDACT] · EPICENTRE: [REDACT] · DIRECTIVE OUTCOME: [REDACT] PENDING RESOLUTION",
+          "outcome": null,
+          "actions": [
+            { "label": "→ CAMPBELL PRIORITY QUEUE", "href": "campbell-briefings.html" },
+            { "label": "→ FILE A FIELD REPORT", "href": "../reports/player-report.html" }
+          ]
+        },
+        {
+          "show_from": "w3",
+          "show_until": null,
+          "anchor": "mission-02-resolved",
+          "placeholder": false,
+          "status": "completed",
+          "title": "Something That Wants To Be Known",
+          "subtitle": "// CAMPBELL ANOMALY REPORT #0094-B — TOPOGRAPHICAL DISTORTION, CLASS 2",
+          "excerpt": "The field team deployed into a district where the streets hadn't changed but the people who lived on them no longer knew where they were. What they found was not a threat to be neutralised. Contact was made. The entity retracted. One missing resident was recovered.",
+          "summary": "Seven residents of the Aldermoor District reported getting lost on streets they had lived on for decades. One disappeared entirely. The field team deployed. What they found was a pre-human consciousness that had been known once — and had forgotten what it cost to be known again. Contact was made at the epicentre. The entity retracted. The streets are beginning to feel like themselves.",
+          "index_redacted": "LOCATION: Aldermoor District · ENTITY TYPE: Spatial Collector — Pre-Human Consciousness · DIRECTIVE STATUS: Contained — Boundary Restored",
+          "meta_tags": [
+            { "label": "LOCATION: ALDERMOOR DISTRICT", "class": "" },
+            { "label": "ENTITY: SPATIAL COLLECTOR — PRE-HUMAN", "class": "teal" },
+            { "label": "CONTAINED", "class": "green" },
+            { "label": "CASUALTIES: NONE", "class": "" }
+          ],
+          "archive_redacted": "ENTITY CLASS: Collector (Spatial) · EPICENTRE: 14 Aldermoor Crescent — Construction Excavation · DIRECTIVE OUTCOME: Contained — communication achieved, boundary re-established",
+          "outcome": "DEBRIEF FILED: POST-SESSION 02 · REPORT #0094-B CLOSED\nENTITY OUTCOME: Contained — boundary re-established at excavation site. Entity retracted to pre-expansion range. Communication achieved at the epicentre — the entity was met, not defeated.\nCASUALTIES: None.\nRECOVERED: Diane Marsh (district nurse, missing 9 days) — extracted from construction site office. Threshold notebook in PORTAL possession.\nOUTSTANDING: MESA field operatives now active in Aldermoor collecting BIM particulate. Excavation site sealed but not filled — boundary remains fragile.",
+          "actions": [
+            { "label": "→ FILE A FIELD REPORT", "href": "../reports/player-report.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mission-03",
+      "num": "03",
+      "location_short": "LOCATION:\nUNKNOWN",
+      "phases": [
+        {
+          "show_from": "w2",
+          "show_until": "w2",
+          "anchor": null,
+          "placeholder": true,
+          "status": "upcoming",
+          "title": "— Classification Pending —",
+          "subtitle": "// CAMPBELL HAS FLAGGED A NEW ANOMALY",
+          "excerpt": "CAMPBELL HAS FLAGGED A NEW ANOMALY.\nDETAILS AVAILABLE POST-DEPLOYMENT.",
+          "summary": "Details available post-deployment. CAMPBELL continues monitoring.",
+          "index_redacted": null,
+          "meta_tags": [
+            { "label": "ENTITY: UNCLASSIFIED", "class": "" },
+            { "label": "DIRECTIVE: AWAITING BRIEFING", "class": "" }
+          ],
+          "archive_redacted": null,
+          "outcome": null,
+          "actions": []
+        },
+        {
+          "show_from": "w3",
+          "show_until": null,
+          "anchor": null,
+          "placeholder": true,
+          "status": "active",
+          "title": "The Understudies",
+          "subtitle": "// CAMPBELL ANOMALY REPORT #0099-D — IDENTITY DISPLACEMENT, ROLE-ANCHORED",
+          "excerpt": "Three understudies at Meridian Theatre Company have been hospitalised — complete identity loss, responding only to character names. The four remaining understudies are still performing. There is a show tomorrow.",
+          "summary": "Three performers at Meridian Theatre Company were hospitalised in the same week with the same presentation: complete loss of personal identity, responding only to character names. The lead actors they replaced died months apart. The remaining four understudies are still on stage. The field team has been assigned. There is a performance tomorrow.",
+          "index_redacted": null,
+          "meta_tags": [
+            { "label": "LOCATION: MERIDIAN THEATRE", "class": "" },
+            { "label": "ENTITY: ROLE-ANCHORED — IDENTITY CLASS", "class": "rose" },
+            { "label": "DIRECTIVE: ACTIVE", "class": "amber" },
+            { "label": "UNDERSTUDIES AT RISK: 4", "class": "" }
+          ],
+          "archive_redacted": null,
+          "outcome": null,
+          "actions": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+[
+  {
+    "id": "ev-eszter-particulate",
+    "session": "w1",
+    "found_by": "team",
+    "category": "scientific",
+    "label": "The Ash Particulate — BIM-S01-003",
+    "summary": "Ash-like residue recovered from the Bálint residence. Responds to nearby electronic processing load. First stable sample of whatever this material is. The same signature has since appeared at Aldermoor and the Meridian Theatre.",
+    "connections": [
+      "ev-aldermoor-substrate",
+      "ev-prompt-book-bim",
+      "ev-collection-arrays"
+    ],
+    "dossier_link": null,
+    "status": "confirmed",
+    "hidden": false,
+    "keeper_note": "Adjacent to secret-project-veil. Three-site signature match is the Project Veil breadcrumb chain."
+  },
+  {
+    "id": "ev-campbell-logs",
+    "session": "w1",
+    "found_by": "team",
+    "category": "institutional",
+    "label": "CAMPBELL — Anomalous Log Entries",
+    "summary": "Teddy found entries in CAMPBELL's activity logs referencing case files that don't exist, a protocol nobody has heard of, and cross-references to external sources CAMPBELL won't identify. Three batches so far. The pattern is consistent and accelerating.",
+    "connections": [
+      "ev-privacy-protocol-7"
+    ],
+    "dossier_link": null,
+    "status": "unverified",
+    "hidden": false,
+    "keeper_note": "Primary CAMPBELL crack vector. Teddy and Priya are converging on the same anomaly from different angles."
+  },
+  {
+    "id": "ev-privacy-protocol-7",
+    "session": "w1",
+    "found_by": "team",
+    "category": "institutional",
+    "label": "Privacy Protocol 7",
+    "summary": "A designation that appears repeatedly in CAMPBELL's anomalous log entries. Not in any PORTAL documentation. Three batches later, the 'filing discrepancy' CAMPBELL promised to resolve hasn't been resolved.",
+    "connections": [
+      "ev-campbell-logs"
+    ],
+    "dossier_link": null,
+    "status": "unverified",
+    "hidden": false,
+    "keeper_note": "Privacy Protocol 7 is Cameron keeping people free. The players will think it's a malfunction."
+  },
+  {
+    "id": "ev-lab-3am",
+    "session": "w1",
+    "found_by": "team",
+    "category": "institutional",
+    "label": "Lab Bay 3 — 3am Access Incident",
+    "summary": "Someone accessed Lab Bay 3 on Priya's keycard while Priya was in another city. Nothing missing. Fourteen minutes in a four-metre corridor blind spot.",
+    "connections": [
+      "ev-campbell-logs"
+    ],
+    "dossier_link": null,
+    "status": "unverified",
+    "hidden": false,
+    "keeper_note": "Deliberately unresolved. Deploy when it makes narrative sense."
+  },
+  {
+    "id": "ev-shell-companies",
+    "session": "w2",
+    "found_by": "team",
+    "category": "financial",
+    "label": "Three Shell Companies — Delaware Registration",
+    "summary": "Greyfield Assets, Veritas Realty, Solstice Property Group. Same Delaware address, same registered agent, same corporate layering. Found in the Aldermoor real estate office. The same structure funded the Meridian Theatre. Someone is systematically funding thin-boundary locations.",
+    "connections": [
+      "ev-helix-boundary",
+      "ev-prompt-book-bim"
+    ],
+    "dossier_link": "handouts/dossier/s02-aldermoor-office.html",
+    "status": "confirmed",
+    "hidden": false,
+    "keeper_note": "The three shell companies + Meridian BioSciences + Helix Boundary all trace to Agatha Dell. Players don't know the name yet."
+  },
+  {
+    "id": "ev-helix-boundary",
+    "session": "w2",
+    "found_by": "team",
+    "category": "financial",
+    "label": "@helixboundary.com — Shredded Email",
+    "summary": "Partially recovered email from the Aldermoor office. References 'Specimen ALD-1' and a spatial anchoring protocol. The sender domain has no public registration — exists on private infrastructure only.",
+    "connections": [
+      "ev-shell-companies"
+    ],
+    "dossier_link": "handouts/dossier/s02-aldermoor-office.html",
+    "status": "confirmed",
+    "hidden": false,
+    "keeper_note": "@helixboundary.com is the MESA contact domain. 'Specimen ALD-1' is MESA's internal designation for the Cartographer."
+  },
+  {
+    "id": "ev-aldermoor-substrate",
+    "session": "w2",
+    "found_by": "team",
+    "category": "scientific",
+    "label": "Aldermoor — Same Signature as the Ash",
+    "summary": "Measurable readings in the Aldermoor displacement zone match the S01 particulate. Same frequency band. Two sites, same material — and the Meridian Theatre makes three.",
+    "connections": [
+      "ev-eszter-particulate",
+      "ev-prompt-book-bim"
+    ],
+    "dossier_link": null,
+    "status": "confirmed",
+    "hidden": false,
+    "keeper_note": "Second point in the three-site BIM signature chain. Project Veil breadcrumb 2."
+  },
+  {
+    "id": "ev-diane-threshold-sketch",
+    "session": "w2",
+    "found_by": "alan",
+    "category": "supernatural",
+    "label": "Threshold Sketch — Aldermoor Excavation",
+    "summary": "Diane Marsh drew a door-shaped impression in the reservoir substrate. Not carved — pressed, as if from the other side. Alan recognises it as a liminal point where two planes press against each other.",
+    "connections": [
+      "ev-fey-watcher"
+    ],
+    "dossier_link": "handouts/dossier/s02-diane-notebook.html",
+    "status": "confirmed",
+    "hidden": false,
+    "keeper_note": "First physical evidence of fey/human boundary overlap. Seeds Alan's Episode 8 arc."
+  },
+  {
+    "id": "ev-prompt-book-bim",
+    "session": "w3",
+    "found_by": "team",
+    "category": "scientific",
+    "label": "The Prompt Book — Three-Site Signature Match",
+    "summary": "A 19th-century prompt book reads at the highest level of any object we've scanned. The same signature as the S01 ash and the Aldermoor zone. Three sites, same material. The shell companies paid for this book specifically.",
+    "connections": [
+      "ev-eszter-particulate",
+      "ev-aldermoor-substrate",
+      "ev-shell-companies"
+    ],
+    "dossier_link": "handouts/dossier/s03-prompt-book.html",
+    "status": "confirmed",
+    "hidden": true,
+    "keeper_note": "Three-site BIM signature match completes the Project Veil breadcrumb chain. Hidden until S03 is played."
+  },
+  {
+    "id": "ev-performance-mechanism",
+    "session": "w3",
+    "found_by": "team",
+    "category": "scientific",
+    "label": "Audience Belief as Amplifier",
+    "summary": "The stage reads near-zero when empty and significantly elevated during performance. The audience's belief in what they're watching amplifies the effect. This is how consciousness transfer works in a performance context — and it scales with audience size.",
+    "connections": [
+      "ev-prompt-book-bim"
+    ],
+    "dossier_link": "handouts/dossier/s03-scanner-summary.html",
+    "status": "confirmed",
+    "hidden": true,
+    "keeper_note": "The most significant scientific finding of S03. CAMPBELL has noted it is replicable and has not included this in the operational report. Hidden until S03 is played."
+  },
+  {
+    "id": "ev-collection-arrays",
+    "session": "w3",
+    "found_by": "team",
+    "category": "rival",
+    "label": "Collection Arrays — Theatre Lighting Rig",
+    "summary": "Three devices disguised as lighting control units. Eight months of continuous collection from every performance. The signature matches S01 and Aldermoor. Someone installed these with the artistic director's consent and has been harvesting.",
+    "connections": [
+      "ev-eszter-particulate",
+      "ev-aldermoor-substrate",
+      "ev-prompt-book-bim"
+    ],
+    "dossier_link": "handouts/dossier/s03-scanner-summary.html",
+    "status": "confirmed",
+    "hidden": true,
+    "keeper_note": "Rex's 'we should have built this already' seeds the PORTAL BIM detector. Hidden until S03."
+  },
+  {
+    "id": "ev-reclassification",
+    "session": "w3",
+    "found_by": "team",
+    "category": "rival",
+    "label": "Threat Reclassification — Recovered Document",
+    "summary": "A recovered document confirms: PORTAL field presence has been detected at two sites. An internal reclassification was approved. Whoever is running the shell companies now treats us as an active concern.",
+    "connections": [
+      "ev-shell-companies"
+    ],
+    "dossier_link": "handouts/dossier/s03-rook-intel.html",
+    "status": "confirmed",
+    "hidden": true,
+    "keeper_note": "Hidden until S03. Only surfaces if hunters recover the MESA document."
+  },
+  {
+    "id": "ev-prophetic-source",
+    "session": "w3",
+    "found_by": "team",
+    "category": "rival",
+    "label": "Recovered Document — 'Non-Linear Consciousness Asset'",
+    "summary": "A heavily redacted document references an unnamed intelligence source with three confirmed accurate pre-event descriptions. The shell company organisation has access to someone — or something — that knows what's coming.",
+    "connections": [],
+    "dossier_link": "handouts/dossier/s03-rook-intel.html",
+    "status": "unverified",
+    "hidden": true,
+    "keeper_note": "First hint of the binding mechanic's operational use. Hidden until S03."
+  },
+  {
+    "id": "ev-agatha-photograph",
+    "session": "w3",
+    "found_by": "alan",
+    "category": "rival",
+    "label": "Donor Reception Photograph",
+    "summary": "Marcus Yuen's phone contains a photograph from the Solstice Property Group donor reception. A woman standing near the prompt book display case. She is looking directly at the camera.",
+    "connections": [
+      "ev-shell-companies"
+    ],
+    "dossier_link": null,
+    "status": "confirmed",
+    "hidden": true,
+    "keeper_note": "Agatha Dell. First face for the shell company leadership. Only surfaces if Alan pursues Marcus. Hidden until S03."
+  },
+  {
+    "id": "ev-fey-watcher",
+    "session": "w3",
+    "found_by": "alan",
+    "category": "supernatural",
+    "label": "The Watcher — Theatre Stage Door",
+    "summary": "Alan noticed someone watching the theatre from outside. Not connected to the shell companies, not press. They left without urgency when he looked directly at them. In Clara's dressing room, Alan detected the trace of a recent visitor looking for something they had no category for.",
+    "connections": [
+      "ev-diane-threshold-sketch"
+    ],
+    "dossier_link": null,
+    "status": "unverified",
+    "hidden": true,
+    "keeper_note": "The watcher is assessing whether Alan matches a description. Thread picks up in Episode 8. Hidden until S03."
+  }
+]

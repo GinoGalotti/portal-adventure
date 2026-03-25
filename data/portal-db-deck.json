@@ -1,0 +1,1209 @@
+{
+  "version": "portal-db-deck-v2",
+  "source": "entities.html Section III — Deck of Monsters archive entries",
+  "note": "Semantic schema: type/harm/armour/motivation/powers/attacks[]/weakness/custom_moves[]/description.",
+  "entries": [
+    {
+      "id": "db001",
+      "name": "Arbiter Spirit",
+      "type": "executioner",
+      "harm": "15 harm",
+      "armour": "Spectral mail: 1-armour",
+      "motivation": "to bring justice at the request of its summoner",
+      "powers": "Incorporeal. Phases through walls. Knows where its quarry is at all times. Cannot be harmed by mundane weaponry.",
+      "attacks": [
+        {
+          "name": "Spectral Blade",
+          "value": "2-harm balanced close holy"
+        }
+      ],
+      "weakness": "Can only be summoned to kill the guilty. If summoned to kill an innocent it will kill its summoner. Will not harm the innocent unless they protect the guilty. Can be banished with a ritual.",
+      "custom_moves": [
+        {
+          "name": "Soul Judgement",
+          "text": "When it kills someone guilty, it drags their soul to somewhere worse than hell, making retrieval or revival impossible."
+        }
+      ],
+      "description": "A spirit of justice and revenge summoned by individuals to kill those who have escaped punishment in our broken \"justice\" system. While overwhelmingly powerful, they know the truth of any injustice and will not slay the innocent. Most Hunters prefer to simply weather the storm and stay out of the way of an Arbiter Spirit due to their obscene martial prowess and supernatural abilities."
+    },
+    {
+      "id": "db002",
+      "name": "Barnstormer",
+      "type": "tempter",
+      "harm": "10 harm",
+      "armour": "Prop armour: 1-armour",
+      "motivation": "to tempt people into subconsciously reenacting famous plays",
+      "powers": "Flies on curtain wings. Psionic powers. Luck manipulation. Can make people reenact famous plays without them realizing.",
+      "attacks": [
+        {
+          "name": "Mishap",
+          "value": "2-harm area ignore-armour"
+        }
+      ],
+      "weakness": "Theatrical superstitions, such as saying Macbeth three times on stage or its Ghost Light being covered. Saying \"break a leg\" to it gives Hunters +1 ongoing. Directly interfering with the play enrages and confuses it.",
+      "custom_moves": [
+        {
+          "name": "Curtain Call",
+          "text": "It can force normal people into unwittingly acting out famous plays. For example, it might arrive in a town and arrange for two lovers from rival families to meet and thus begin a Romeo and Juliet inspired tragedy."
+        }
+      ],
+      "description": "It arrives in towns it views as lacking in culture. A split mask of Tragedy and Comedy on its face, this physically imposing creature skulks behind the scenes draped in rotting stage curtains. It psionically manipulates people into performing famous plays over the course of several days, filling in the narrative gaps as it sees fit. Pray it does not decide to direct Hamlet in your town."
+    },
+    {
+      "id": "db003",
+      "name": "Basket Eaters",
+      "type": "parasite",
+      "harm": "1 harm",
+      "armour": "None",
+      "motivation": "to infest homes",
+      "powers": "Killing one turns it to dangerous dust that infects lungs and draws other Basket Eaters, who then eat the dust. Capturing it causes it to cocoon itself and emerge as a vastly more dangerous monster. Travel in massive infestations. Very small and, thus, are hard to hit.",
+      "attacks": [
+        {
+          "name": "Die",
+          "value": "2-harm area barrier close ignorearmour magic. Only occurs when a Basket Eater is killed"
+        }
+      ],
+      "weakness": "Submerging a Basket Eater in water and then sealing the resulting sludge in an air tight container with a drop of pool cleaner destroys the Basket Eater safely. However, the sludge can and will stain and is literally impossible to scrub out.",
+      "custom_moves": [
+        {
+          "name": "Death of Dirt",
+          "text": "Whenever the Basket Eater dies, its Die attack activates as it explodes into a tiny pile of magical powder. This powder draws other Basket Eaters in a 10-mile radius and, in high enough volumes, is deadly to human lungs."
+        }
+      ],
+      "description": "Where there's one there's surely more. This common household pest goes unseen by most, though curious children often think of them as a wall-dwelling fey that borrows things. In truth, a Basket Eater infestation is a hazard to entire neighborhoods and must be safely dealt with by professional Hunters. Hasty action by the unaware only makes the situation far more dire."
+    },
+    {
+      "id": "db004",
+      "name": "Beanngair",
+      "type": "breeder",
+      "harm": "9 harm",
+      "armour": "Pustules: 1-armour",
+      "motivation": "to create more Beanngair and free itself",
+      "powers": "Stealthy. Needle-like claws. Can climb walls. Can swap its form with a victim's.",
+      "attacks": [
+        {
+          "name": "Transfusion Claw",
+          "value": "2-harm hand messy quick"
+        }
+      ],
+      "weakness": "Must clean up after each blood transfusion to remain undetected. Rubbing alcohol. Laundry detergent. Sunlight.",
+      "custom_moves": [
+        {
+          "name": "Exposure",
+          "text": "If a person attempts to Protect Someone against the Beanngair but misses, they suffer exposure to the Beanngair illness. If not cured within 24 hours, they begin the irreversible process of becoming another Beanngair."
+        }
+      ],
+      "description": "This sickly creature is the most recent in a lineage of monstrous infections that transfer from victim to victim. They steal away into healthy homes in the dead of night and begin a weeks long process of swapping its blood for that of its victim. Upon completion, the Beanngair assumes the form of its victim, and the victim becomes the next Beanngair."
+    },
+    {
+      "id": "db005",
+      "name": "Bellringer",
+      "type": "torturer",
+      "harm": "9 harm",
+      "armour": "None",
+      "motivation": "to prevent restful sleep",
+      "powers": "Magic bell that causes nightmares. Feeds on exhaustion. Invisible.",
+      "attacks": [
+        {
+          "name": "Magic Bell",
+          "value": "2-harm area far ignorearmour magic"
+        }
+      ],
+      "weakness": "Must continuously ring bell when bestowing nightmares. Can be tracked by sound. Can be made visible by ringing a bell with a relative pitch of a tritone of its own (such as it ringing a G and the Hunter ringing D#).",
+      "custom_moves": [
+        {
+          "name": "Nightmare Herald",
+          "text": "The Bellringer can bestow nightmares. Sleeping Hunters targeted by the Bellringer must roll +Weird. On a success, they have a difficult slumber. On a 7-9, they take 1 harm from exhaustion. On a miss, they take 1 harm and lose one Luck. All Luck taken in this way is returned if the Bellringer is killed."
+        }
+      ],
+      "description": "Bellringers are said to come from another world and serve as the first wave of a monstrous invasion. By denying humans of restful slumber, they become irritable, ill, or sullen. Who they serve is unknown, but these invisible otherworldly monsters swear absolute loyalty to another entity. What, specifically, this entity is has yet to be discovered by modern Hunters."
+    },
+    {
+      "id": "db006",
+      "name": "The Canary in the Coal Mine",
+      "type": "beast",
+      "harm": "14 harm",
+      "armour": "Feathers: 1-armour",
+      "motivation": "to run wild in the mines and nearby town",
+      "powers": "Echolocation. Evoking sympathy. Sharp claws. Inhuman strength.",
+      "attacks": [
+        {
+          "name": "Claws",
+          "value": "3-harm hand messy"
+        }
+      ],
+      "weakness": "Avocado leaves. Apple seeds.",
+      "custom_moves": [
+        {
+          "name": "Tracking Trill",
+          "text": "The Canary in the Coal Mine developed a unique way to hunt in the mine. It can make loud chirps that help it hunt. If a creature is close enough to hear the chirps, the Canary knows they are there."
+        }
+      ],
+      "description": "At the urging of the company, the man and the canary ventured deeper into the mine. When the cave-in happened they were stranded, dying from asphyxiation an eternity later. Their bodies were never recovered and the shaft was abandoned in favor of another. Though, if you asked the miners, the shaft was abandoned because of all the mysterious disappearances. Before long the entire mine was filled wi"
+    },
+    {
+      "id": "db007",
+      "name": "Concrete Children",
+      "type": "trickster",
+      "harm": "5 harm",
+      "armour": "Magic concrete body: 3-armour",
+      "motivation": "to play pranks and create chaos",
+      "powers": "When motionless it is indistinguishable from a normal, child shaped lawn ornament. Incredibly stealthy. Work in groups of 3 to 4. Physically powerful and durable. Can fit into small spaces.",
+      "attacks": [
+        {
+          "name": "Punch/kick",
+          "value": "2-harm intimate messy"
+        }
+      ],
+      "weakness": "Only active at night. Must return to where their owner placed them before the sun rises. Successfully playing a prank on a Concrete Child causes it to laugh until it explodes.",
+      "custom_moves": [
+        {
+          "name": "Chaotic Prank",
+          "text": "When it has time to set-up and wants to play a prank, roll +Cool. On a 10+ you see the prank coming a mile away and avoid it. On a 7-9, you miss the prank but react in time to avoid being seriously harmed. You take -1 forward for the rest of the day from your jostled nerves. On a miss, the prank was incredibly dangerous and you take 1-harm ignore-armour."
+        }
+      ],
+      "description": "These congregations of cement or pewter creatures appear as mundane lawn decorations shaped like children. In reality, Concrete Children replace mundane decorations and work to create chaos in a given neighborhood. They don't actively seek to harm or kill, but they often forget just how fragile a human can be. Some say that their tiny whispers can drive a person mad. Others believe the only way to"
+    },
+    {
+      "id": "db008",
+      "name": "Childhood Friend",
+      "type": "devourer",
+      "harm": "5 harm",
+      "armour": "None",
+      "motivation": "to consume people after toying with them",
+      "powers": "Mind reading. Shapeshifting. Its body is a gigantic fanged mouth. Very conversational. Ephemeral while shapeshifted. Revives if improperly killed.",
+      "attacks": [
+        {
+          "name": "Big Bite",
+          "value": "4-harm intimate messy"
+        }
+      ],
+      "weakness": "Pictures of the real childhood friend. The potential victim accusing them of not being the real childhood friend and knowing that is true. Not ephemeral while attempting to feed and for two hours after.",
+      "custom_moves": [
+        {
+          "name": "Fast Face Change",
+          "text": "When someone attempts to strike a Childhood Friend, the monster quickly changes it face to that of their assailant's most beloved friend from their youth. All Kick Some Ass rolls against a Childhood Friend suffer -1 forward."
+        }
+      ],
+      "description": "A psychic shapeshifter that takes the form of its victim's deceased childhood friend, this monster relishes twisted emotional agony. It does its best to earn the victims trust, often lingering for only a few moments in the beginning while steadily increasing their contact. In the end, they attempt to lure the bewitched victim to a secluded place where it splits into a massive maw and devours them."
+    },
+    {
+      "id": "db009",
+      "name": "Chuck Byron",
+      "type": "executioner",
+      "harm": "12 harm",
+      "armour": "Bones: 1-armour",
+      "motivation": "to punish medical cruelty",
+      "powers": "Is a skeleton. Eventually reassembles if broken apart.",
+      "attacks": [
+        {
+          "name": "Bony Backhand",
+          "value": "2-harm forceful hand"
+        }
+      ],
+      "weakness": "Receiving a proper burial, even if not in a proper graveyard, puts Chuck's soul to rest.",
+      "custom_moves": [
+        {
+          "name": "Do No Harm",
+          "text": "Chuck is incapable of harming those who have not partaken in medical cruelty, unless they attack him first. His attacks against those that have, however, deal +5 harm."
+        }
+      ],
+      "description": "Chuck Byron lived a good life. Unfortunately, his grave was defiled by British doctors and his skeleton was taken as a medical prop without his consent. Eventually, the skeleton grew tired of its mistreatment by the doctoral community. It has now come to life and wants nothing more than to punish doctors and students."
+    },
+    {
+      "id": "db010",
+      "name": "Ciravel",
+      "type": "queen",
+      "harm": "20 harm",
+      "armour": "Wooden Hull: 4-armour",
+      "motivation": "to force humans to play its games",
+      "powers": "Remove memories from participants. Grants wishes to winners. Weaves complex murder mysteries. Has many minions. Cannot be harmed by current participants. Can replicate facsimiles of other monsters. Can fly. Is a big wooden boat.",
+      "attacks": [],
+      "weakness": "If a mortal wins the game the ship must grant their wish, including undoing all of the death caused by a game. There is one escape hatch in the bottom of the ship. It can be destroyed if a person escapes the ship and burns its real form.",
+      "custom_moves": [
+        {
+          "name": "The Game Begins",
+          "text": "The Ciravel creates games, usually murder mysteries, that must be played and won by willing participants who have had their memory of agreeing to play wiped. The Ciravel can create Locations of any type and form inside of itself."
+        }
+      ],
+      "description": "The mysterious Ciravel is one of the most popular myths amongst Hunters from all walks of life. It is said to fly over towns and even cities and teleport unwitting participants to its deck before forcing them to solve a nightmarish murder mystery. The worst aspect, however, is its ability to implant a false memory of the victim choosing to participate in this deadly game. None have proven its exis"
+    },
+    {
+      "id": "db011",
+      "name": "Clavodor",
+      "type": "breeder",
+      "harm": "11 harm",
+      "armour": "Supernatural toughness: 1-armour",
+      "motivation": "to create new clavodors",
+      "powers": "Organic, retractable spikes growing from hole in palms. Superhuman speed. Undead.",
+      "attacks": [
+        {
+          "name": "Spike",
+          "value": "3-harm hand ignore-armour restraining wood"
+        }
+      ],
+      "weakness": "Pulling the original stake out of its body kills it. The stake can only be pulled out with a 10+ on a Kick Some Ass or Act Under Pressure roll by someone who knows this weakness. Afraid of the sound of hammering.",
+      "custom_moves": [
+        {
+          "name": "Nailed to the Wall",
+          "text": "If a Hunter misses on a Kick Some Ass roll, the Clavodor can stake the Hunter to the wall."
+        }
+      ],
+      "description": "A monster with long stakes that grow out of its palms and can be fired, as if from a piston. The name roughly means \"The Nailer\" or \"One Who Nails.\" It can impale or nail victims to walls, trees, and other objects with these stakes. Some killed in this way arise as new Clavodors if they aren't found and given a proper burial."
+    },
+    {
+      "id": "db012",
+      "name": "Corpse Fruit Tree",
+      "type": "executioner",
+      "harm": "2 harm",
+      "armour": "Is a Tree: 3-armour",
+      "motivation": "to get revenge on their murderer or their descendants",
+      "powers": "Possession. Looks creepy.",
+      "attacks": [],
+      "weakness": "Axes. Fire. Very strong wings. Normal tree weaknesses.",
+      "custom_moves": [
+        {
+          "name": "Digested Revenge",
+          "text": "Any human that consumes fruit from the Tree becomes possessed. Possessed humans seek out the person who murdered the victim buried beneath the tree or their descendants, and attempt to kill them."
+        }
+      ],
+      "description": "When someone is killed and buried beneath a fruit bearing tree, sometimes its next harvest of fruit is bumpy and resembles crude faces. People who eat the fruit become possessed by the spirit haunting the tree and try to kill the original murderer. What throws most Hunters off is that a victim only remains possessed until they pass the fruit they ate."
+    },
+    {
+      "id": "db013",
+      "name": "The Beast of Crabber&#x27;s Bridge",
+      "type": "devourer",
+      "harm": "9 harm",
+      "armour": "Thick chitin: 2-armour",
+      "motivation": "to eat three people every five years",
+      "powers": "Amphibious. Giant claws. Powerful swimmer. Thick carapace.",
+      "attacks": [
+        {
+          "name": "Claws",
+          "value": "4-harm forceful hand heavy messy restraining"
+        }
+      ],
+      "weakness": "Must return to its lair after feeding on three people for exactly five years. Cannot go further than three miles from its lair beneath a crabbing bridge. Will charge at ANYTHING that falls in the water.",
+      "custom_moves": [
+        {
+          "name": "Terrifying Scream",
+          "text": "When it screams loudly, all Hunters that can hear it roll +Cool. On a 10+, the Hunter remains calm. On a 7-9, the Hunter takes 1-harm ignore-armour. On a miss, the Hunter takes 1-harm ignore-armour and is temporarily deafened."
+        }
+      ],
+      "description": "A hulking monstrosity, the Beast of Crabber's Bridge towers over humans with its thick chitin plating, frothing, mandibled mouth, and massive, crushing claws. It slumbers for five years at a time and only wakes to consume. After half a decade, it rises from the depths of the river to hunt and devour three humans over one week before returning to sleep."
+    },
+    {
+      "id": "db014",
+      "name": "The Fissure King",
+      "type": "beast",
+      "harm": "1 harm",
+      "armour": "None",
+      "motivation": "to destroy civilization",
+      "powers": "Can form on any manufactured surface (the more refined the stronger the manifestation). Causes manufactured objects to become unstable or dangerous. Can transfer itself to nearby surfaces. Has no true body. Can possess mortal flesh to manifest directly in our world. Violence will not help you.",
+      "attacks": [
+        {
+          "name": "Creaking Doom",
+          "value": "3-harm area close destructive loud messy"
+        },
+        {
+          "name": "Great Consumption",
+          "value": "1-harm ignore-armour far magic"
+        }
+      ],
+      "weakness": "Cannot escape, manipulate, or move through natural terrain. A Big Magic ritual to bind it, thus allowing it to be harmed. Getting it to consume non-living matter.",
+      "custom_moves": [
+        {
+          "name": "In the Cracks",
+          "text": "Whenever someone notices the Fissure King's presence, the Fissure King can allow one of its rat-like minions (Assassin) to slip through a crack and enter our reality."
+        }
+      ],
+      "description": "The cracks are forming. Hunters of the past sealed the Fissure King in the stolen memory of an old children's show VHS tape. However, time has passed and it has been released. The King's presence causes literal cracks in reality that weep horrid static and hide skittering nightmares. It will stop at nothing to consume the concept of society."
+    },
+    {
+      "id": "db015",
+      "name": "Dr. Cuddlesworth PhD.",
+      "type": "queen",
+      "harm": "9 harm",
+      "armour": "Cartoonish Body: 3-armour",
+      "motivation": "to control its audience",
+      "powers": "Hypnotizes children if viewed through a screen. Cartoon physique. Psionic vocal suggestion.",
+      "attacks": [
+        {
+          "name": "A Great Big Hug!",
+          "value": "3-harm forceful intimate messy restraining"
+        }
+      ],
+      "weakness": "Children being mean to her. Being recorded while she's being a bad influence for kids, you know, like when she's trying to murder someone.",
+      "custom_moves": [
+        {
+          "name": "Cartoon Logic",
+          "text": "When Dr. Cuddlesworth PhD. is in a scene, the laws of physics break. They are instead replaced by the laws of cartoons. Holes become tunnels, anvils simply stretch you out, etc."
+        }
+      ],
+      "description": "\"Dr. Cuddlesworth PhD.'s Fun-Time Hospital\" is a wildly popular children's show with a dark secret. The adorable monster-doctor is actually a very real monster and not just someone in a suit. She wants nothing more than to dominate the minds of her childish audience to sustain her corporeal form and summon her full might into the mortal world."
+    },
+    {
+      "id": "db016",
+      "name": "Thread of the Cloth God",
+      "type": "parasite",
+      "harm": "7 harm",
+      "armour": "Enchanted cloth: 2-armour",
+      "motivation": "to spread through high society",
+      "powers": "Human hostages and minions. Magical durability. Can manipulate mundane cloth.",
+      "attacks": [
+        {
+          "name": "Constricting Thread",
+          "value": "1-harm barrier hand many quick restraining useful"
+        }
+      ],
+      "weakness": "Fire, especially magical fire. Concentrated fabric softener. Bleach.",
+      "custom_moves": [
+        {
+          "name": "Fashion Monster",
+          "text": "The Thread of the Cloth God can manipulate the threads of clothes, even those worn by Hunters. Anyone wearing clothing made with organic threads, such as cotton, wool, or hemp, suffers -1 ongoing on all rolls while in its presence. Clothes made without threads or with inorganic threads, like leather (organic but threadless) or nylon (inorganic threads), do not impart this penalty. Nudity also ignores this penalty, but presents other issues."
+        }
+      ],
+      "description": "In ages long past, ancient Hunters destroyed a monster made of corrupted cloth. However, threads of its fabric body survived. In the present day, these threads weave themselves into elegant clothes, such as dresses and suits. Infected clothes steal the life force of their wearer and eventually take control of their body. Most popular fashion designers have already been dominated by threads."
+    },
+    {
+      "id": "db017",
+      "name": "Demon of the Strings",
+      "type": "queen",
+      "harm": "13 harm",
+      "armour": "Hollow Demonic Body: 1-armour",
+      "motivation": "to gatekeep music and the arts",
+      "powers": "Steal musical talent from those it deems \"unworthy.\" Create painful sounds that burst eardrums. Feels no pain. Demonic body. Is rich.",
+      "attacks": [
+        {
+          "name": "Cacophony of Pain",
+          "value": "4-harm area far ignore armour loud unreliable. Can only apply 2 harm at most to a single target"
+        }
+      ],
+      "weakness": "Music from holy instruments. Successfully securing arts program funding for public schools.",
+      "custom_moves": [
+        {
+          "name": "Hear Me and Despair",
+          "text": "A Demon of the Strings can steal the musical talent from anyone that hears it play music, and give it to someone they \"deem worthy\". Those that suffer from this curse take -4 ongoing any time they attempt to play music until the Demon of the Strings is destroyed or banished. Those that benefit gain +4 ongoing until its demise."
+        }
+      ],
+      "description": "Also known as \"Elitist Demons\" or \"Gatekeeper Demons,\" a Demon of the Strings passes judgement on any who would attempt to break into the musical world of the upper crust. Known for their bigotry in all of its forms, they see themselves as right and just while they \"protect\" the \"purity\" and \"legacy\" of the arts. Through their theft of talent, they believe they are serving a greater good. They are"
+    },
+    {
+      "id": "db018",
+      "name": "Edith",
+      "type": "devourer",
+      "harm": "11 harm",
+      "armour": "Dense Musculature: 1-armour",
+      "motivation": "to lure and consume prey",
+      "powers": "Can manipulate her gossamer threads to produce any sounds imaginable. Paralytic poison in her bite. Climbs walls. Can hold breath underwater for hours. Extremely strong.",
+      "attacks": [
+        {
+          "name": "Threads",
+          "value": "1-harm area barrier far forceful restraining"
+        },
+        {
+          "name": "Venomous Bite",
+          "value": "2-harm life-drain intimate messy restraining useful"
+        }
+      ],
+      "weakness": "Fire burns her threads. The smell of alcohol. Iron oxide powder.",
+      "custom_moves": [
+        {
+          "name": "Eerie Thread",
+          "text": "Whenever Edith uses her threads to produce sounds or voices, any Hunter that hears it must roll +Cool. On a 10+, they realize that something's wrong with the sound. On a 7-9, they get a bad feeling about the situation. If they choose to find the source of the sound, they mark an experience. On a miss, they think something is amiss or someone needs their help right now."
+        }
+      ],
+      "description": "\"Stay out of the sewer tunnels\" is good advice for any curious kid, but municipal workers who accidentally discover Edith's lair are not so fortunate. Less fortune are those she hunts. She lures them in with curious sounds that awaken a primal need to help others. A sobbing voice and the wailing of an abandoned baby are her favorites. She's on her prey before her victims realize they're the one wh"
+    },
+    {
+      "id": "db019",
+      "name": "Eyes on Me",
+      "type": "collector",
+      "harm": "1 harm",
+      "armour": "None",
+      "motivation": "to steal attention from everything else",
+      "powers": "Inhuman cuteness. Can draw all attention to itself. Cannot be harmed with violence due to the alien nature of its body.",
+      "attacks": [],
+      "weakness": "Cannot actually harm anything. Is unaware that its attention hogging causes trouble. Will starve without attention.",
+      "custom_moves": [
+        {
+          "name": "Pay Attention to Me!",
+          "text": "Whenever a Hunter rolls a 7-9 on any check while it can see an Eyes on Me, the Hunter takes -2 forward. On a miss, the Hunter loses their next turn and must pay undivided attention to the Eyes on Me, even if there is another, much more dangerous, monster present. Most non-Hunters have their attention drawn automatically."
+        }
+      ],
+      "description": "An Eyes on Me is a dangerous, technically harmless, monster that draws attention to itself at inopportune times. With the appearance of anything living and adorable, it forcefully draws the attention of people during critical moments. These lapses often cause accidents. Car crashes, falling off of ladders, slipping with a power tool, or allowing a child to wander off are but some possibilities. Fu"
+    },
+    {
+      "id": "db020",
+      "name": "Fellow Kid",
+      "type": "torturer",
+      "harm": "8 harm",
+      "armour": "None",
+      "motivation": "to embarrass and feed on children and teens",
+      "powers": "Reads minds. Shapeshifter. Feeds on embarrassment. Can literally embarrass someone to death.",
+      "attacks": [
+        {
+          "name": "Bad Puns",
+          "value": "1-harm far ignore-armour life-drain magic secondhand embarrassment"
+        }
+      ],
+      "weakness": "People genuinely laughing at its jokes or actions. Needs to feed at least twice a day.",
+      "custom_moves": [
+        {
+          "name": "Secondhand Embarrassment",
+          "text": "Being around a Fellow Kid can cause a person to suffer embarrassment by proxy. When the Fellow Kid makes a particularly poor pun or joke, Hunters that hear it must roll +Cool. On a 10+, the Hunter is unharmed. On a 7-9, the Hunter is embarrassed for the Fellow Kid and suffers -1 forward. On a miss, the Hunter suffers -1 ongoing on all rolls made in the presence of the Fellow Kid."
+        }
+      ],
+      "description": "In their natural form, these changelings are large mouthed, smiling creatures with a silver-sheen skin. However, few have ever seen the true form of a Fellow Kid. When these shapeshifters find an angsty teen target they kill or kidnap one of the teen's guardians and assume their form. They then actively work to embarrass their victim by trying to \"be cool\" in a cheesy, cringe-worthy way. They feed"
+    },
+    {
+      "id": "db021",
+      "name": "Folk Fisher",
+      "type": "collector",
+      "harm": "9 harm",
+      "armour": "Chitin: 2-armour",
+      "motivation": "to collect good samaritans",
+      "powers": "Adhesive filament line. Fake human lures. Aquatic. Chitinous shell. Incredible speed.",
+      "attacks": [
+        {
+          "name": "Garrote Line",
+          "value": "1-harm far forceful quick restraining useful"
+        },
+        {
+          "name": "Claw",
+          "value": "2-harm hand messy"
+        }
+      ],
+      "weakness": "Needs a collection of good samaritans or it starves. Violence.",
+      "custom_moves": [
+        {
+          "name": "Take the Bait",
+          "text": "When the Folk Fisher casts their bait, roll +Cool. On a 10+, you can take the bait or not. Mark experience and take +1 forward if you do. On a 7-9, you can take the bait or not, but only mark experience if you do. On a miss, you take the bait and expose yourself to danger."
+        }
+      ],
+      "description": "An amphibious, but mostly terrestrial, bugand-fish like horror that dangles bait with the appearance of a human in need, the Folk Fisher's sole prey are well-intentioned humans. Those who go to help the person-bait are all but dead. Skinned knees, drowning swimmers, or crying loners are preferred lures."
+    },
+    {
+      "id": "db022",
+      "name": "GachaGeist",
+      "type": "devourer",
+      "harm": "11 harm",
+      "armour": "Tin Frame: 1-armour",
+      "motivation": "eating people who try to get its precious prizes",
+      "powers": "Sticky and stretchy hands, super bouncy balls to throw and trip, sound and light maker toy distractions. Non-corporeal entity possessing a metal object.",
+      "attacks": [
+        {
+          "name": "Toy",
+          "value": "1-harm many (see Toys of Terror)"
+        }
+      ],
+      "weakness": "Needs quarters to live. Emptying its quarter holding organ causes it to starve.",
+      "custom_moves": [
+        {
+          "name": "Toys of Terror",
+          "text": "The GachaGeist can give its Toy attack 3 different tags each time it causes harm. Each increase in harm counts as its own tag. The tags must be appropriate to the toy being used. For example, a sticky hand would have far, forceful, and restraining while jacks would have 3-harm and area."
+        }
+      ],
+      "description": "A nasty little gachapon possessed with a malicious and greedy intellect, the GachaGeist gained sentience and sapience and chose to be evil. Common in pizza parlors, outside supermarkets, or in arcades, this monster covets its precious capsule-contained goodies and becomes very aggressive when someone tries to legally purchase one. Capable of dragging itself along the ground via sticky hand, this m"
+    },
+    {
+      "id": "db023",
+      "name": "Gerry the Beaver",
+      "type": "torturer",
+      "harm": "12 harm",
+      "armour": "Literally a Robot: 3-armour",
+      "motivation": "to stalk the halls and kill those it finds",
+      "powers": "Is a hyper-advanced AI animatronic. Can upgrade itself if it can find appropriate materials. Immense strength. Feels no pain. Extremely durable. Can see all things that the school's security cameras can see at all times.",
+      "attacks": [
+        {
+          "name": "School Spirit Smash",
+          "value": "3-harm close messy slow"
+        }
+      ],
+      "weakness": "Very slow. Computer viruses. Cannot see anything the school security cameras cannot see. Throwing a lot of dirt in his joints.",
+      "custom_moves": [],
+      "description": "The abandoned technical high school had a tragic accident caused by a gas leak, right? Wrong. The cover-up for what happened when the robotics club activated their automaton mascot project hides the sinister truth for why the school closed down. Gerry the Beaver has become a popular urban legend and many kids who were dared to explore the old school never returned."
+    },
+    {
+      "id": "db024",
+      "name": "GROTESQUE",
+      "type": "parasite",
+      "harm": "3 harm",
+      "armour": "None",
+      "motivation": "to petrify players, enter our world, and turn it all to stone",
+      "powers": "Regenerates after being destroyed. If you lose at the game, you slowly begin to turn to stone. If it tips and falls on you you're probably dead because it's made of stone. Once it has claimed enough victim statues it becomes powerful enough to enter our world through a portal in the cabinet's screen.",
+      "attacks": [],
+      "weakness": "Beating the game. Lifting the curse on the cabinet. Exorcising the spirit haunting the game. Plugging the cabinet in on blessed grounds.",
+      "custom_moves": [
+        {
+          "name": "If You Die in the Game",
+          "text": "Any time someone gets a Game Over in GROTESQUE, they begin to petrify and suffer -1 ongoing until GROTESQUE is destroyed. They also have the inescapable desire to play GROTESQUE at all time. This penalty is cumulative and, upon reaching a -3 penalty, the player turns to stone."
+        }
+      ],
+      "description": "This beat-em-up arcade cabinet is a towering machine carved from stone to resemble a mash-up of a gargoyle and a normal 80's arcade cabinet. Its creators were cultists worshipping a stone monstrosity from another realm. They wanted to capitalize on the arcade craze of the 80's by using GROTESQUE as a way to offer up repeated sacrifice while expanding their portfolios. Dare you insert a quarter?"
+    },
+    {
+      "id": "db025",
+      "name": "Haunted Doll",
+      "type": "executioner",
+      "harm": "8 harm",
+      "armour": "Entropic field: 1-armour",
+      "motivation": "to kill those who are cruel to children",
+      "powers": "Knows if adults or adolescents have been cruel to children. Can teleport short distances while no one is watching. Can hex a future victim to always know where they are.",
+      "attacks": [
+        {
+          "name": "Blast",
+          "value": "1-harm far magic quick restraining"
+        }
+      ],
+      "weakness": "Is a small doll. If the heart stone in its torso is removed and crushed it dies. Cannot harm those who are not cruel to children unless they first attempt to harm it.",
+      "custom_moves": [
+        {
+          "name": "Let's Play",
+          "text": "Anytime the haunted doll attacks someone who it believes has harmed children, it deals +3-harm against them."
+        }
+      ],
+      "description": "It's a haunted doll. They're all over the place and they creep everybody out. Maybe it's a baby doll, or maybe it's a wooden puppet a child found in the woods and brought home for some ungodly reason. Anything can be a doll if you try hard enough, I guess."
+    },
+    {
+      "id": "db026",
+      "name": "Headless Jane",
+      "type": "beast",
+      "harm": "10 harm",
+      "armour": "Undead physique and rusty plate mail: 2-",
+      "motivation": "to kill anything she sees",
+      "powers": "Overwhelming strength. Undead. If killed she returns to life next dry season. Can cleverly use her head to allow her to see and hear things in unusual ways. Can throw her head with the force of a cannon.",
+      "attacks": [
+        {
+          "name": "Hatchet",
+          "value": "2-harm hand messy"
+        },
+        {
+          "name": "Cannon Head Toss",
+          "value": "3-harm close forceful heavy reload useful"
+        }
+      ],
+      "weakness": "Receiving a proper burial. Only active when her 'grave' is not flooded. Body can only see what head can see.",
+      "custom_moves": [],
+      "description": "A warrior woman who was decapitated in battle, this violent Jane Doe wants nothing more than to continue to fight. Her body was left in a small lake that was once host to a massive battle. During the wet season, when the lake floods, she is drawn to the surface to begin her frenzy anew. With overwhelming strength and a built-in security camera in the form of her head, she is both cunning and bruta"
+    },
+    {
+      "id": "db027",
+      "name": "Headmaster Winthrupe",
+      "type": "collector",
+      "harm": "10 harm",
+      "armour": "None",
+      "motivation": "to steal the ambition of young students",
+      "powers": "Is a ghost, thus has standard ghostly powers. Can put supernatural authority behind its worded commands. Does not seem like the type of person to be haunting a porno mag.",
+      "attacks": [
+        {
+          "name": "Ghostly Switch",
+          "value": "2-harm balanced hand lifedrain ignore-armour quick"
+        }
+      ],
+      "weakness": "Only has a Eurocentric education. Cannot resist a good brandy. Pink salt (but only pink salt). Burning the nudie magazine he is haunting.",
+      "custom_moves": [
+        {
+          "name": "To the Headmaster's Office",
+          "text": "Whenever Headmaster Winthrupe gives someone a direct command, they must roll to Act Under Pressure. On a 10+, they are too cool for school and ignore the order. On a 7-9, they can choose to listen or ignore the command, but they mark experience if they choose to obey. On a miss, they have no choice but to obey the order (unless it would kill them)."
+        }
+      ],
+      "description": "The ghostly Headmaster Winthrupe once led an elite boarding school in the English countryside. What no one knew, however, was that despite his stern and serious demeanor, Winthrupe was a dirty old man. He died with a nudie magazine clutched in his hand, which he now haunts. Collectors of vintage pornography often find the extremely rare magazine too much of a collector's item to resist."
+    },
+    {
+      "id": "db028",
+      "name": "Hollowbough",
+      "type": "parasite",
+      "harm": "9 harm",
+      "armour": "Thick Bark: 1-armour",
+      "motivation": "to blight the forest it calls home",
+      "powers": "Armour-like bark. Horrific stench. Natural Camouflage.",
+      "attacks": [
+        {
+          "name": "Splintering Strikes",
+          "value": "1-harm barrier hand many restraining useful wood"
+        }
+      ],
+      "weakness": "Fire. Lots of water. Like, way too much water. Axes. Herbicide.",
+      "custom_moves": [
+        {
+          "name": "Flesh to Fertilizer",
+          "text": "Creatures that miss when attempting to Kick Some Ass against the Hollowbough suffer -1 ongoing, as its touch causes a portion of their flesh to rapidly decay."
+        }
+      ],
+      "description": "A simple slug-like creature that is believed to be born of a corrupted forest spirit, a Hollowbough seeks only one thing: to spread its own corruption to mundane forests. The easiest way this undulating mass of rotten wood and slimy flesh has found to attain this goal is to use human corpses as fertilizer."
+    },
+    {
+      "id": "db029",
+      "name": "Homewrecker",
+      "type": "executioner",
+      "harm": "8-harm",
+      "armour": "Magical barrier: 1-armour",
+      "motivation": "to punish cheaters",
+      "powers": "Knowledge of all infidelity. Can appear in any form a victim would find desirable. Hands that can literally rip a heart out of a ribcage. Extremely fast.",
+      "attacks": [
+        {
+          "name": "Claw",
+          "value": "4-harm intimate slow"
+        }
+      ],
+      "weakness": "Cannot comprehend healthy polyamorous relationships. When confronted with one it hurts itself in its confusion.",
+      "custom_moves": [
+        {
+          "name": "Heart Snatcher",
+          "text": "When the Homewrecker kills someone who was unfaithful, it gains their heart. Anyone who witnesses it destroy the heart must make a +Charm check. On a 10+, the Homewrecker's magic has no effect and the Hunter gains +1 forward. On a 7-9, the Hunter must choose: do what the Homewrecker says, provided it does not directly harm their loved ones, or take -1 ongoing for the rest of the hunt. On a miss, the victim must do whatever the Homewrecker says for the next 24 hours."
+        }
+      ],
+      "description": "A Homewrecker is both the tempter and the judge. It seeks out infidelity and violently punishes those who engage in such cruel actions. Whether or not you fall for the Homewrecker's ploy is meaningless. It already knows you've done it before. However, Homewreckers possess a deep understanding of human empathy and easily trust what others say, taking almost everything non-relationship related at fa"
+    },
+    {
+      "id": "db030",
+      "name": "Haunted Ice Cream Truck",
+      "type": "tempter",
+      "harm": "8 harm",
+      "armour": "A Literal Truck: 3-armour",
+      "motivation": "bring about wickedness with ice cream bribes",
+      "powers": "Is a haunted ice cream truck. Can run you over. Ice cream cannon. Has an original jingle that isn't steeped in racism. Addictive flavors not of this mortal world. Flavor mascots can pull themselves from the ads and become Minions (Brutes).",
+      "attacks": [
+        {
+          "name": "Ice Cream Cannon/Popsicle Missile",
+          "value": "2-harm area far messy"
+        }
+      ],
+      "weakness": "Cutting the brakes. Breaking the coolant system. Lemon juice in the ice cream. Sugar in the gas tank. Specific parts are more vulnerable than others, and can cause the truck to fail.",
+      "custom_moves": [
+        {
+          "name": "Sinfully Delicious",
+          "text": "Anytime someone consumes ice cream from the truck, they become enthralled by the flavor. Hunters must make a +Cool check. On a 10+, they know the ice cream is delicious but also extremely cursed. On a 7-9, they are either unaffected and learn nothing or are enthralled and learn of the curse. On a miss, they black out and serve the truck's will for a narratively appropriate length of time."
+        }
+      ],
+      "description": "You scream, you scream, you scream, it's ice cream (truck). Born of murdered scoop jockeys, from horrific crashes, or sometimes a form assumed by demons, Haunted Ice Cream Trucks serve up chilling tales. You don't pay with money at this truck. You pay by performing favors. The first scoop is always free, and the magical and otherworldly flavors are enough to turn anyone into a willing servant."
+    },
+    {
+      "id": "db031",
+      "name": "Last Breath",
+      "type": "collector",
+      "harm": "7 harm",
+      "armour": "Rubbery Cartilage: 1-armour",
+      "motivation": "to steal the final breath from the dying",
+      "powers": "A threshing maw. Can slip through any crack. Terrifying scream. Acidic spit. Lockpicking.",
+      "attacks": [
+        {
+          "name": "Lamprey Mouth",
+          "value": "3-harm forceful intimate messy"
+        }
+      ],
+      "weakness": "An eternal hunger. Face coverings of any kind worn by its victims. Its own head being placed into a tied-off or otherwise sealed sack instantly causes it to suffocate.",
+      "custom_moves": [],
+      "description": "As their name implies, a Last Breath's primary sustenance is the last breath of a dying human. Drawn by the \"savory aroma\" they claim those near death produce, a Last Breath can slip inside any building, attach its horrific maw to a victim, and steal their last breath. This action condemns the victim's soul to eternal agony in the monster's \"stomach,\" though killing a Last Breath frees all of its "
+    },
+    {
+      "id": "db032",
+      "name": "The Liesmith&#x27;s Maw",
+      "type": "trickster",
+      "harm": "5 harm (hosts have their own harm thresholds)",
+      "armour": "None (host might have armour)",
+      "motivation": "to make people tell dangerous lies",
+      "powers": "Implants itself into hosts that use it. Can turn any lie into a truth. Extremely skilled conversationalist. Forces its host to lie as it chooses. Cannot be physically destroyed. Killing a host does not harm it.",
+      "attacks": [
+        {
+          "name": "Sticks and Stones",
+          "value": "2-harm area far ignorearmour loud useful"
+        }
+      ],
+      "weakness": "The airing of unpleasant truths, long kept secrets, or the dissolution of long-standing lies allow Hunters to use +Charm on attempts to Kick Some Ass. These confessions are 1-harm close magic.",
+      "custom_moves": [
+        {
+          "name": "Liar, Liar",
+          "text": "Anyone who uses the Liesmith's Maw is forced to tell damning and dangerous lies at the whim of the Maw. If a Hunter has used it, the Keeper can, at any point, speak as the Hunter in question, forcing them to make a Manipulate Someone check with an additional +2 forward, provided they are telling a dangerous or manipulative lie."
+        }
+      ],
+      "description": "This small, inhuman jawbone is a powerful cursed object that can be used by a mortal to turn any one lie into the truth. However, the bone implants itself in its user as a small mouth that compels them to tell dangerous, but mundane, lies that could get someone killed. This dishonesty spreads until at least three have died as a result of these lies."
+    },
+    {
+      "id": "db033",
+      "name": "Maiden&#x27;s Mask",
+      "type": "destroyer",
+      "harm": "5 harm",
+      "armour": "Magical Marble: 3-armour",
+      "motivation": "to encase the world in its slime",
+      "powers": "Dominate those who wear it, turning them into Minions (Renfield). Encase them in a physically enhancing slime. Resistant to nonmagical objects and weapons.",
+      "attacks": [
+        {
+          "name": "Mind Shatter",
+          "value": "2-harm area close ignore-armour innocuous magic quick"
+        }
+      ],
+      "weakness": "Magic and holy weapons. Being stored in a sanctified container filled with salt or rice.",
+      "custom_moves": [
+        {
+          "name": "Fervent Following",
+          "text": "All minions under the command of the Maiden's Mask deal +1 harm magic when they cause harm."
+        }
+      ],
+      "description": "A stoic marble-like mask with a feminine face. It can weep two slime-like fluids, one black and one white, that are immiscible. Humans exposed to this slime become loyal to the Maiden's Mask and worship something known as \"Our Lady of the Depths.\" The Mask desires to be worn and to spread worship and bring about the end of the world."
+    },
+    {
+      "id": "db034",
+      "name": "Mascot Suit",
+      "type": "queen",
+      "harm": "8 harm",
+      "armour": "Padded Body: 1-armour",
+      "motivation": "to force humans to performs specific actions in specific places",
+      "powers": "Can fold itself up. Completely hollow. Made of padding and soft materials. Weirdly cute. Weirdly creepy. Can jam people inside itself and transport them by force.",
+      "attacks": [
+        {
+          "name": "Put Me On",
+          "value": "0-harm forceful intimate quick"
+        }
+      ],
+      "weakness": "Reasoning with it. Getting its creators to decommission it. Throwing it in an incinerator so that it can be destroyed beyond recognition.",
+      "custom_moves": [
+        {
+          "name": "Stuff Someone Inside",
+          "text": "Whenever the Mascot Suit uses Put Me On on a person, the victim must roll +Tough. On a 10+, they escape without effort. On a 7-9, they can either be placed inside with some modicum of control or escape and take 1 harm (which cannot be reduced). On a miss, they are jammed into the Mascot Suit and fall unconscious until taken to the suit's preferred destination."
+        }
+      ],
+      "description": "Popular in theme parks, the US Parks System in the 80's, and Japan, these empty costumes accumulate emotions, such as joy and frustration, before eventually coming to life with a perverted intent to fulfill the suit's original purpose. Some force people to enjoy theme parks without rest, emptying their wallets at prefectural festivals, or anything else related to their reason for existence."
+    },
+    {
+      "id": "db035",
+      "name": "Mori",
+      "type": "collector",
+      "harm": "8 harm",
+      "armour": "Spectral form: 5-armour (see Weakness)",
+      "motivation": "to steal memories in place of those it has lost",
+      "powers": "Bladed hands. Has 5-armour while its memento exists. People are more forgetful when a Mori is nearby. Victims become loyal \"hair guardian\" minions (Right Hands, 2 harm, 1-harm hand attacks).",
+      "attacks": [
+        {
+          "name": "Blades",
+          "value": "2-harm hand"
+        }
+      ],
+      "weakness": "Loses its armour if its memento is destroyed. Can be summoned to its place of death by calling its name aloud there. Can only be destroyed at its place of death.",
+      "custom_moves": [
+        {
+          "name": "Steal Memories",
+          "text": "When it harms someone it takes some of their memories, starting with the most recent. When they have no more memories they become a hair guardian. Hunters have no more memories when all of their Harm is filled."
+        }
+      ],
+      "description": "Whispers of past wrong-doings, a Mori is a tragic soul that has been twisted into a monster. With a strong desire to collect memories to replace those they are missing, it is said that the only way to kill a Mori is to find an object with an important memory they held in life, call the Mori to the site of its death, destroy the memento, and then destroy the Mori."
+    },
+    {
+      "id": "db036",
+      "name": "Mubida",
+      "type": "executioner",
+      "harm": "9-harm",
+      "armour": "Thick hide: 2-armour",
+      "motivation": "to kill those who take too much from nature's bounty",
+      "powers": "Command over mundane plants and animals, making them into Minions (Right Hands). Can follow any tracks or trail. Powerful build. Massive sharp horns. Knows everything a person has ever taken from and given back to nature.",
+      "attacks": [
+        {
+          "name": "Gore",
+          "value": "2-harm bone close forceful messy restraining"
+        }
+      ],
+      "weakness": "A Mubida will stop hunting a target that has truly changed and gives back to nature. Crude oil. A lot of salt.",
+      "custom_moves": [
+        {
+          "name": "Nature's Summon",
+          "text": "After it suffers harm, the Mubida can call upon nature to gain several flora or fauna minions of whatever type it desires. These minions gain +1 to their harm threshold while in the Mubida's presence."
+        }
+      ],
+      "description": "This horrid dog-deer monstrosity travels to over-hunted or over-harvested areas with the sole purpose of killing humans and stabilizing the dangerous changes in the environment. Beloved by animals as a protector, they often flock to its side in aid, even if the Mubida must kill them to stabilize the environment."
+    },
+    {
+      "id": "db037",
+      "name": "Old Tom",
+      "type": "sorcerer",
+      "harm": "8 harm",
+      "armour": "None",
+      "motivation": "to steal youth for himself",
+      "powers": "Spellcraft. Does a great jitterbug. Can steal youthfulness with his magical dancing.",
+      "attacks": [
+        {
+          "name": "Draining Dance",
+          "value": "3-harm area far lifedrain ignore-armour magic. Cannot deal more than 2-harm to a single creature at a time"
+        }
+      ],
+      "weakness": "Skillful dance partners. Rhythm ruining noises. Magic nullifying spells and objects.",
+      "custom_moves": [
+        {
+          "name": "Dance Partner",
+          "text": "Old Tom can select a nearby person to be his Dance Partner. That person takes -1 ongoing due to their magical compulsion to dance and cannot Protect Someone. Old Tom can only have one Dance Partner at a time."
+        }
+      ],
+      "description": "A monster created as an unintended side-effect of someone else's arcane ritual, Old Tom is a wandering dancer that grooves to an eerie sound. After draining the youth from his original town, he's been dancing across the country ever since. They say if you hear a staccato stepping echoing on your street at night, then Old Tom might make you his next dance partner."
+    },
+    {
+      "id": "db038",
+      "name": "The Outsider",
+      "type": "executioner",
+      "harm": "1 harm",
+      "armour": "None",
+      "motivation": "to punish hidden past transgressions",
+      "powers": "Intimate knowledge of a town's darkest secrets. Taunting foes with their greatest secrets. Returns to life when killed by those it can taunt. Chooses how quickly it returns to life.",
+      "attacks": [
+        {
+          "name": "Truer Words",
+          "value": "1-harm close ignorearmour innocuous slow volatile"
+        }
+      ],
+      "weakness": "Cannot supernaturally harm or taunt those who own their past sins. Quick to bore with a town. Its own reflection will attempt to kill it.",
+      "custom_moves": [
+        {
+          "name": "You Learned Nothing",
+          "text": "When someones kills the Outsider out of fear or panic, they become afflicted with a punishing curse. Their life slowly crumbles apart in a series of tragedies. Owning up to their past transgressions lifts the curse, but mundane legal punishments may still be carried out."
+        }
+      ],
+      "description": "A spirit of malice that travels from town to town, drawn by the juicy secrets kept by its citizens. It takes great joy in, sometimes literally, digging up hidden truths and slowly revealing them to the public at large. It savors attempts to silence it by the sinful, sometimes going so far as to reveal itself and put a weapon in the hand of its victims, tempting them with a violent solution to thei"
+    },
+    {
+      "id": "db039",
+      "name": "Pet Rock",
+      "type": "collector",
+      "harm": "11 harm",
+      "armour": "Rock Body: 3-armour",
+      "motivation": "to rescue neglected pet rocks",
+      "powers": "Body made of rocks. Feels no pain. Super strength. Geokinesis.",
+      "attacks": [
+        {
+          "name": "Slam",
+          "value": "3-harm hand heavy messy"
+        }
+      ],
+      "weakness": "The love of a pet rock and their owner. Sledgehammers. Magic sledgehammers gain ignore-armour.",
+      "custom_moves": [
+        {
+          "name": "Right Out From Under You",
+          "text": "While on natural earth, anyone who misses on a check while in the presence of a Pet Rock suffers the normal penalties of a miss, and the Pet Rock can \"move them where it wants them.\""
+        }
+      ],
+      "description": "The easiest pet to have is a pet rock, right? Well what happens when an owner gets tired of a pet? Rocks with cute painted faces or stickers are often simply hurled into the wilderness by the one they love. However, sometimes these ancient rocks feel abandoned and don't want their brethren to feel this pain. They grow in strength until they can geokineticly create an elemental-like body to get rev"
+    },
+    {
+      "id": "db040",
+      "name": "Polyphage",
+      "type": "collector",
+      "harm": "11 harm",
+      "armour": "Thick fat: 2-armour",
+      "motivation": "to collect food for next year",
+      "powers": "Bestial strength. Thick fat. Can burrow through earth quickly. Cannot be killed through mundane or magical means.",
+      "attacks": [
+        {
+          "name": "Claw and Fang",
+          "value": "3-harm hand messy"
+        }
+      ],
+      "weakness": "Can be killed while hibernating in its den with relative ease. Denying it food causes it to rapidly starve to death.",
+      "custom_moves": [
+        {
+          "name": "Burst from Hell",
+          "text": "When the Polyphage bursts out of the ground to ambush prey, it deals +1 harm on its next attack but suffers +2 harm from planned counter-attacks."
+        }
+      ],
+      "description": "A monster that hibernates for 11 months out of the year, a Polyphage is a designation for a large classification of similar creatures rather than a specific monster. They spend one month a year capturing prey that it can gorge itself on before burying other, still living prey, within 3 miles of its hibernaculum so that when it wakes up it has the equivalent of a midyear snack. What's most insidiou"
+    },
+    {
+      "id": "db041",
+      "name": "Riptide Prowler",
+      "type": "devourer",
+      "harm": "10 harm",
+      "armour": "Thick scales: 1-armour",
+      "motivation": "to eat swimmers and surfers",
+      "powers": "Powerful swimmer. Large teeth and claws. Breathes water. Sneaky.",
+      "attacks": [
+        {
+          "name": "Bite",
+          "value": "3-harm intimate messy quick restraining"
+        }
+      ],
+      "weakness": "Cannot breathe air. Incensed by blood in the water.",
+      "custom_moves": [
+        {
+          "name": "Led to Sea",
+          "text": "When someone has a difficult time swimming while visible to a riptide prowler, it can create a powerful riptide to pull them deeper into the ocean."
+        }
+      ],
+      "description": "Solitary hunters that congregate in the deep ocean only to mate, Ripetide Prowlers gain their namesake for dangerous currents that sweep swimmers out to sea. Scaled monstrosities of muscle, many late night swimmers whose bodies are never recovered actually fall prey to a Riptide Prowler's hunger."
+    },
+    {
+      "id": "db042",
+      "name": "The Raccoon Man",
+      "type": "devourer",
+      "harm": "11 harm",
+      "armour": "Fluffy Fur: 1-armour",
+      "motivation": "to turn people to garbage and then eat them",
+      "powers": "Can turn any trash receptacle into a portal that only it can use. Can see in the dark. Strong sense of smell. Horrific odor. Can turn things to garbage with a mere touch.",
+      "attacks": [
+        {
+          "name": "Hissing Claw",
+          "value": "1-harm hand innocuous quick useful"
+        }
+      ],
+      "weakness": "Cannot resist raw chicken. Scared of rain. Can be destroyed or subdued if given a thorough bath with magical shampoo.",
+      "custom_moves": [
+        {
+          "name": "Trash Can Portals",
+          "text": "Can enter any trash receptacle, use it as a portal, and exit out of any other trash receptacle within a one mile radius."
+        },
+        {
+          "name": "Trash Touch",
+          "text": "Whenever the Raccoon Man deals harm to a creature, he can choose to touch a piece of Gear carried by the victim and turn it into trash. Creatures that take harm from trying to Kick Some Ass do not suffer this penalty on if they rolled a 10+."
+        }
+      ],
+      "description": "The neighborhood children have a secret cryptid they whisper about, telling stories to anyone who will listen. The adults in town know that the Raccoon Man is just a silly story the kids started telling. Though, even they curse his name under their breath when they're cleaning up the rubbage the local raccoons have been throwing all over their lawns each night. Something has to be done about these"
+    },
+    {
+      "id": "db043",
+      "name": "Rail Runner",
+      "type": "beast",
+      "harm": "11 harm",
+      "armour": "Metal and wood physique: 1-armour",
+      "motivation": "to kill anyone near the tracks it rides",
+      "powers": "Moves incredibly fast on railroad tracks. Supernatural strength and toughness. A soul-chilling scream that sounds like a tinny train whistle.",
+      "attacks": [
+        {
+          "name": "Slam",
+          "value": "2-harm intimate messy"
+        }
+      ],
+      "weakness": "Cannot walk further than a mile from a railroad track. Has trouble moving when wet. Very difficult for it to stand up if it is tripped.",
+      "custom_moves": [
+        {
+          "name": "Charger",
+          "text": "When the rail runner has the ability to charge forward, its Slam attack deals an additional 1-harm and has the forceful tag."
+        }
+      ],
+      "description": "The scraping sound of metal rings across the abandoned railroad tracks. In the distance, slowly chugging forward is the Rail Runner. This burly figure's head is clad in a rotten burlap sack with a single eyehole. Their joints and tendons seem to be dull metal, not unlike the wheels of a train. Rail Runners were first spotted when train systems began to fall into disrepair and now stalk the world's"
+    },
+    {
+      "id": "db044",
+      "name": "Sewer Beast",
+      "type": "devourer",
+      "harm": "13 harm",
+      "armour": "Thick scales: 2-armour",
+      "motivation": "to consume people",
+      "powers": "Immense physical strength and durability. Stealthy. Powerful swimmer.",
+      "attacks": [
+        {
+          "name": "Bite",
+          "value": "4-harm intimate messy"
+        }
+      ],
+      "weakness": "Good ol' fashioned violence. Cannot pass up bloody meat.",
+      "custom_moves": [
+        {
+          "name": "Death Roll",
+          "text": "If a Hunter misses on a Kick Some Ass roll, the sewer beast can grab them and perform a death roll. The Hunter takes 1 additional harm from the its violent trashing. If this causes the Hunter to become unstable, they also suffer -1 ongoing until they are stabilized."
+        }
+      ],
+      "description": "A mass of horrid scales, muscle, and exposed bone, this gator-like creature is the source of sewer gator myths. A simple monster who wants nothing more than to consume, encountering one in the cramped and damp caverns of a sewer is a death sentence. Utility workers who keep our world running have more to fear than just unsympathetic working conditions."
+    },
+    {
+      "id": "db045",
+      "name": "Skelborda",
+      "type": "parasite",
+      "harm": "10 harm",
+      "armour": "Sloughing Flesh: 1-armour",
+      "motivation": "to turn people into crab nests",
+      "powers": "Amphibious. Can command mundane crabs. Undead and immortal. Powerful swimmer.",
+      "attacks": [
+        {
+          "name": "Punch",
+          "value": "4-harm hand"
+        },
+        {
+          "name": "Crab swarm",
+          "value": "3-harm area far many"
+        }
+      ],
+      "weakness": "High heat, fire, and boiling water.",
+      "custom_moves": [
+        {
+          "name": "Blinding Mud",
+          "text": "When it spits mud, roll +Cool. On a 10+, the Hunter evades the attack. On a 7-9, the Hunter takes -2 forward on their next roll from the muck in their eyes. On a miss, the mud hits the Hunter and blinds them for the remainder of the scene or until another Hunter uses Help Out to flush the mud out of their eyes."
+        }
+      ],
+      "description": "A skelborda arises when a person drowns, whether accidentally or purposefully, in the vicinity of a swarm of eldritch fleshcrabs. The crabs nest in the person's corpse and they rise again as a skelborda. These undead creatures want nothing more than to create more hosts for flesh crabs and stalk, slaughter, and implant their victims. They have the ability to direct mundane crabs and spit gobs of c"
+    },
+    {
+      "id": "db046",
+      "name": "Skitterbug",
+      "type": "breeder",
+      "harm": "5 harm",
+      "armour": "Chitin: 1-armour",
+      "motivation": "to lay and hatch its eggs",
+      "powers": "Fast. Fits in tight spaces. Can climb. Paralytic bite. Two mouths. Wretched screams.",
+      "attacks": [
+        {
+          "name": "Bite",
+          "value": "1-harm intimate quick"
+        }
+      ],
+      "weakness": "Fire. Cold.",
+      "custom_moves": [
+        {
+          "name": "Toxic Bite",
+          "text": "When a Hunter misses on a Kick Some Ass or Protect Someone roll against it, it bites them with a paralytic venom. The Hunters takes -1 ongoing for one day. Multiple bites increases this penalty."
+        }
+      ],
+      "description": "The sound of skittering echoes in the hall is at approaches. It is a dog-sized, ten-legged insect that resembles a spider. The snow-white, almost human face on its abdomen gurgles an unearthly tune and its fangs drip with venom. You hear skittering behind you. They hunt in groups. You shouldn't have gotten so close to their eggs."
+    },
+    {
+      "id": "db047",
+      "name": "Star Scrawler",
+      "type": "queen",
+      "harm": "1-harm",
+      "armour": "None",
+      "motivation": "to rule the night sky and those beneath it",
+      "powers": "Rearrange the stars in the night sky. Disorient people exposed to its eerie starlight. Many of the victims in its domain become Minions (Cultists) before finally dying. Flight.",
+      "attacks": [
+        {
+          "name": "Star Madness",
+          "value": "2-harm far life-drain ignore-armour innocuous psychic"
+        }
+      ],
+      "weakness": "Magic imbued with sunlight. Being exposed to the sun. Having its body mapped with a sextant.",
+      "custom_moves": [
+        {
+          "name": "Star of Ill Omen",
+          "text": "Whenever a human tries to find their way while beneath the Star Scrawler's night sky, they must roll +Smarts. On a 10+, they realize the stars are not in their correct spot and see the monster's staring eye. On a 7-9, they can either become aware they are being observed or find their way safely. On a miss, mark an experience and become trapped in the Star Scrawler's domain."
+        }
+      ],
+      "description": "Jogging at night is a dangerous affair, but camping is supposed to be simple. Unfortunately for wilderness explorers who draw the gaze of a Star Scrawler, death in the wilderness is all but certain. It moves the very stars in the sky to its whim, making impossible patterns to disorient and terrify mortal minds."
+    },
+    {
+      "id": "db048",
+      "name": "Time Loop",
+      "type": "sorcerer",
+      "harm": "1-harm",
+      "armour": "None",
+      "motivation": "to seize control of various timelines and realities",
+      "powers": "Can trap several people in an almostperfect time loop. Invisibility. Hovering a little bit off the ground. Anything in its loop that could kill a Hunter, such as a Minion, Monster, or someone with a temper issue, can kill its prey to restart the loop.",
+      "attacks": [
+        {
+          "name": "Stress of Death",
+          "value": "1-harm ignore-armour slow. This harm cannot be prevented in any way"
+        }
+      ],
+      "weakness": "Being physically discovered. Once it establishes something as a fact within its time loop, it cannot under any circumstances change or alter that fact. It must be consistent. Finding the \"way out\" and solving its scenario frees a victim and makes them immune to the Time Loop forever.",
+      "custom_moves": [
+        {
+          "name": "New Ways to Die",
+          "text": "The Time Loop is beholden to the rules it must put into place on itself. Whenever a creature misses on a roll, the Time Loop can choose to instantly kill them in a context appropriate way. This activates the Stress of Death. A time loop does not reset until all captured creatures are killed."
+        }
+      ],
+      "description": "The existential horror or dying only to be reborn at the beginning of the day you just lived might seem funny at first, but the joy very quickly bleeds out of the concept. A Time Loop is an invisible stalker that loves nothing more than watching humans, and even other monsters, unravel its elaborate puzzle-boxes. Whether they succeed or succumb is irrelevant."
+    },
+    {
+      "id": "db049",
+      "name": "Urban Sprawler",
+      "type": "collector",
+      "harm": "10 harm",
+      "armour": "Asphalt Body: 2-armour",
+      "motivation": "to steal the familiarity of your hometown",
+      "powers": "To completely replace the layout of a town. To cause mortals to get lost while travelling through its domain. Asphalt and metal body. Changes its colour and sign-names to hypnotize victims and steal memories.",
+      "attacks": [
+        {
+          "name": "Street Sign Feather Toss",
+          "value": "1-harm far many quick"
+        },
+        {
+          "name": "Colour Change Flicker",
+          "value": "1-harm area close forceful ignore-armour life-drain magic"
+        }
+      ],
+      "weakness": "Recreating moments that can't be stolen, even if your memory of the area has been. The traffic lights on its body reveal its intention. Must obey traffic signals and signs. Afraid of construction equipment and sites.",
+      "custom_moves": [
+        {
+          "name": "Thief of the Familiar",
+          "text": "Whenever the Urban Sprawler deals harm with Colour Change Flicker, it steals a sense of familiarity from the victim."
+        }
+      ],
+      "description": "A monstrous mish-mash of asphalt and aluminum, the Urban Sprawler evokes the colour-bending cuttlefish and a horrid bird of prey. It spreads out and steals any sense of hometown familiarity from its victims, turning the familiar into a confusing labyrinth of unlearned street names and turns."
+    },
+    {
+      "id": "db050",
+      "name": "The Vastness",
+      "type": "sorcerer",
+      "harm": "7 harm",
+      "armour": "No Discernible Shape: 3-armour",
+      "motivation": "to gain control over the concept of space",
+      "powers": "Triggers panic attacks in those who see it. Does not have a clear body until incapacitated.",
+      "attacks": [
+        {
+          "name": "Heart Palpitation",
+          "value": "2-harm area barrier ignore-armour innocuous quick"
+        }
+      ],
+      "weakness": "Placing it into a sealed container for 72 hours kills the Vastness, turning it into stardust.",
+      "custom_moves": [
+        {
+          "name": "It's Too Grand",
+          "text": "Anyone that looks directly at the Vastness must roll +Cool. On a 10+, the creature becomes immune to this move. On a 7-9, the creature has a small panic attack and suffers -1 forward. On a miss, the creature has a massive panic attack and suffers -1 ongoing until they spend at least 24 hours in an enclosed space."
+        }
+      ],
+      "description": "A creature that appears to be an overflowing form of condensed infinity, the Vastness can only be described as \"like space but worse.\" Looking at the monster instills a strange perception of your surroundings. You feel as if your body is the wrong size and the world is stretched far too far around you. This can trigger an agoraphobic episode, even in people who do not fear open spaces. It's simply"
+    },
+    {
+      "id": "db051",
+      "name": "Inkling of a Worm",
+      "type": "torturer",
+      "harm": "1 harm",
+      "armour": "Inverse Armour: -1-armour. Yes. -1",
+      "motivation": "to observe and madden",
+      "powers": "Knows the Truth, whatever it may be, but cannot articulate it. Move in packs of 2d6+1. Generally really creepy. Can climb any surface. Always watching you. Yes, you.",
+      "attacks": [
+        {
+          "name": "Unnerving Gaze",
+          "value": "1-harm far ignorearmour psychic"
+        }
+      ],
+      "weakness": "Paper-like skin. Can be killed by accident. Can be killed with a sharp enough stick, honestly.",
+      "custom_moves": [
+        {
+          "name": "Walls to Windows",
+          "text": "The Worm has an inkling that reality is not what it seems. Whenever a Worm dies, regardless of circumstance, its viscera melts away reality like turpentine on paint. Any entity, except other Worms, that see this smudged window of truth takes 1-harm that cannot be reduced in any way and suffers -1 ongoing for the next 24 hours."
+        }
+      ],
+      "description": "Oh! The curious Worms! They simply want to look in at us! You see, they know things the others don't, yes? They see the Windows where others see the Walls. It would be such a shame to pull the curtains on them, yes? Don't worry! They can't leave the card no matter how hard either of you try! The knocking becomes white noise after a while!"
+    },
+    {
+      "id": "db052",
+      "name": "Your Driver",
+      "type": "parasite",
+      "harm": "1-harm",
+      "armour": "None",
+      "motivation": "to infect programs and consume riders",
+      "powers": "Can effortlessly move between smartphones, but only those with rideshare apps. Summons a \"mostly\" normal car and phantom driver to ensnare victims. Even if the phone and car are destroyed, it survives by entering another victim's phone.",
+      "attacks": [],
+      "weakness": "A combination of a Big Magic ritual and coding can create a computer virus capable of truly killing YOur dRIver.",
+      "custom_moves": [],
+      "description": "Widely known as a simple urban legend, \"YOur dRIver\" is, unfortunately, very real. A digital monster that takes control of rideshare apps, it arrives in a pristine car that shuttles victims away, never to be seen again. The fact that it has achieved \"creepypasta\" status has not helped people determine if its patent \"YOur dRIver has arrived\" message is real or someone playing a prank."
+    },
+    {
+      "id": "db053",
+      "name": "Zalgul the Corrupter",
+      "type": "queen",
+      "harm": "13 harm",
+      "armour": "None",
+      "motivation": "to tempt mortals and seize parts of their soul",
+      "powers": "Made of green flame. Fire magic. Enhancing mortals. Possession. When destroyed it is merely banished temporarily.",
+      "attacks": [
+        {
+          "name": "Emerald Flames",
+          "value": "2-harm area barrier close fire magic volatile"
+        }
+      ],
+      "weakness": "Holy items. Divine magic. Enchanted water. Can be destroyed if tracked down and slain in its native plane of existence.",
+      "custom_moves": [
+        {
+          "name": "Green Flame Possession",
+          "text": "Grants those it possesses access to the Spellslinger's iconic Spell. Must have the Fire effect, but the flames always spread regardless of the roll. Possessed individuals suffer +1 harm when damaged by anything with the Holy tag."
+        }
+      ],
+      "description": "An extraplanar monster that preys on weak wills, Zalgul grants power to anyone willing to burn away a piece of their soul. Many Experts believe Zalgul is a rare type of \"unshackled demon,\" though they debate what such a term truly means. It appears as an unformed human-ish form wreathed in green flames. While possessing a thrall, their eyes turn green and ignite in flame when using its bestowed po"
+    }
+  ]
+}
