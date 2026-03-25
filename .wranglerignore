@@ -1,0 +1,8 @@
+# Exclude from wrangler asset uploads
+.git/
+.wrangler/
+.claude/
+__pycache__/
+.env
+context/
+*.py
