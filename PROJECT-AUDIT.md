@@ -182,6 +182,137 @@ The code comment explains: "only 'attack' has partial re-resolution in the engin
 
 ---
 
+## Session 2 Decisions & Answers (2026-03-27)
+
+Responses to follow-up questions raised after the first audit pass.
+
+---
+
+### Student Dorms adjacency — design intent preserved
+
+The dorms gating IS working correctly. Two mechanisms work together:
+
+1. **Adjacency** (`adjacentLocationIds`) — defines which locations appear as travel options from the current location. Campus-grounds now lists the dorms, so the travel button appears.
+2. **Clue gate** (`requiredClueIds` on `LocationDef`) — blocks travel to a location until specific clues are found. `loc-student-dorms` requires `clue-ash-trail`; `loc-science-lab` requires `clue-witness-sightings`. Enforced in `handleTravel()`.
+
+The regression fix only restored the adjacency that was missing. The clue gate was always there and still works. You can't enter the dorms without `clue-ash-trail`.
+
+---
+
+### freeTextExploits on mysteries 002–009
+
+**All defined.** Every mystery has `freeTextExploits: 3` and `exploitOptions: 5`. Phase G can proceed without any content work on that front. The earlier concern was unfounded.
+
+---
+
+### Simulation first pass — mysteries 002–009
+
+| Mystery | Balanced | Death Rate | Status |
+|---------|----------|------------|--------|
+| 002 | 97% ⚠ | 5% ⚠ | Too easy, not lethal enough |
+| 003 | 100% ⚠ | 0% ⚠ | Too easy, not lethal |
+| 004 | 19% ⚠ | 42% ⚠ | Too hard, way too lethal |
+| 005 | ✓ | 24% ⚠ | Win rate OK, death rate high |
+| 006 | 100% ⚠ | 1% ⚠ | Too easy, not lethal |
+| 007 | 37% ⚠ | 37% ⚠ | Too hard, way too lethal |
+| 008 | 100% ⚠ | 0% ⚠ | Too easy, not lethal |
+| 009 | 93% ⚠ | 5% ✓ | Slightly over |
+
+Rush=0% on all mysteries is expected (high armor + exploit-gated mechanics). Balance tuning tasks added to BACKLOG.md Phase G.
+
+---
+
+### Player action feedback — how the system works
+
+Two layers of feedback exist:
+
+1. **Roll-outcome feedback** (investigate, deepSearch, interview): The `RollResult` component shows dice + outcome tier. On mixed/success, if the scene element has a `response` string, it appears below the roll. **Miss shows nothing beyond the dice.** Response is a single string (not per-outcome yet).
+
+2. **No-roll feedback** (helpBystander, rest): `actionFeedback` is set immediately from `element.response`, shown in a Card above the scene.
+
+**Mystery-001** has hand-authored scene elements in [`src/data/narrative/mystery-001.ts`](src/data/narrative/mystery-001.ts) with `response` fields on each element.
+
+**Mysteries 002–009** use a fallback auto-generated from location names/ambiance — no individual element responses. The fallback provides scene prose but no per-element feedback text.
+
+**Pending BACKLOG item:** Extend `SceneElement.response` from a single string to per-outcome `{ miss, mixed, success }`, like `DialogueOption.responses`. This would enable "you feel a presence" on miss, "partial clue" on mixed, and "you learn something" on success.
+
+**How to add flavor text for a mystery:**
+1. Look at [`src/data/narrative/mystery-001.ts`](src/data/narrative/mystery-001.ts) — each `SceneElement` has `id`, `label`, `actionType`, and `response`. That `response` is what appears after the roll.
+2. To add text for mystery-002: create `src/data/narrative/mystery-002.ts` following the same shape, register it in [`src/data/mysteries.ts`](src/data/mysteries.ts) alongside the existing `mystery-001` entry.
+3. Once the per-outcome extension is built, replace the single `response` string with `{ miss: '...', mixed: '...', success: '...' }`.
+
+---
+
+### Proposed playbook names
+
+For when you do the rename pass on `data/playbooks.json`. MotW names are fine for solo dev — this is informational only.
+
+| Current (MotW) | Proposed | Archetype |
+|----------------|----------|-----------|
+| `expert` | **The Researcher** | Academic/occult knowledge, methodical |
+| `mundane` | **The Operative** | No special gifts, reliable field presence |
+| `crooked` | **The Broker** | Criminal networks, morally flexible contacts |
+| `initiate` | **The Sensitive** | Emerging supernatural awareness |
+| `snoop` | **The Handler** | Intel, surveillance, information networks |
+| `celebrity` | **The Face** | Social capital, resources, public access |
+
+All six fit PORTAL's cold-agency tone without implying MotW archetypes.
+
+---
+
+### Monster moves — reactive system (Sprint 4)
+
+**Decision:** Build a reactive move system for investigation-phase misses. Design spec added to BACKLOG.md Sprint 4. Inspired by `keeper_moves` in `data/portal-entities.json`.
+
+Eszter's moves already mapped:
+- "Appear without warning at a location tied to the promise" → `{ type: 'clockAdvance', amount: 2 }` or narrative
+- "Harm someone who stands between Bálint and the promise" → `{ type: 'hunterHarm', amount: 1 }`
+- "Manifest the weight of obligation on the hunters" → `{ type: 'staminaDrain', amount: 1 }`
+
+**Pending design:** what `MoveEffect` types are needed across all 9 mysteries. `portal-entities.json` has `keeper_moves` for all entities — that's the source of truth for each mystery's move list.
+
+---
+
+### Luck consequences system (Sprint 4)
+
+**Decision:** Approved. 1–2 luck spends per mystery (exact limit TBD). Exceeding the limit triggers a bad event drawn from a consequence table.
+
+Examples discussed: police arrive at location, bystanders start questioning/recording, hunters lose remaining scene actions, a found clue is contested and must be re-discovered.
+
+**Open design questions:**
+- Per-hunter limit or per-mission limit shared across the team?
+- What does the consequence table look like — built-in generic list, or per-mystery custom list?
+- Does pushing luck always trigger a consequence, or only when the limit is exceeded?
+
+---
+
+### Free-text tests for simulation (Sprint 4)
+
+**Decision:** Build a solid test suite. Three items:
+1. `valid-actions.test.ts` — `freeTextExploit` appears in valid actions when `freeTextExploits` exist on mystery
+2. `runner.test.ts` — `free-text` strategy completes all 9 mysteries without throwing
+3. AI tests (Ollama-based) — skip gracefully if Ollama isn't running; test `interpretActionWithAI` against live model when `OLLAMA_URL` is set
+
+---
+
+### E2E tests
+
+**Decision:** Can begin now, not a Phase G gate. Start with the happy path: login → briefing → investigation → confrontation → field report.
+
+---
+
+### requiredClueIds on freeTextExploits — UI display
+
+**Decision:** Keep the field in JSON. Future use: show in ConfrontationScreen free-text preview panel ("Clues that strengthen this approach: …") so players feel rewarded for thorough investigation, without being blocked if they want to guess. Not enforced by engine.
+
+---
+
+### Death rate — reporter.ts corrected
+
+**Decision:** 5–10% target confirmed. `reporter.ts` updated (`<= 0.1`). SIMULATION.md reverted. mystery-001 at 18% is now flagged OUT OF RANGE — needs `monster.harm` reduction or more investigation-phase healing options in Phase G tuning.
+
+---
+
 ## What's In Good Shape
 
 - **Engine:** 543 tests passing, all pure, deterministic, simulatable. No known bugs.
