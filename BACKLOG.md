@@ -62,6 +62,15 @@ Design question resolved: `freeTextExploits` are pure keyword-match (players can
 
 **AI is still off by default.** Use `?ai=1` URL param to enable AI calls. Set `AI_GM_ENABLED=true` + run Ollama to enable Worker-side. 543 tests passing.
 
+## Simulation Balance Fix -- 2026-03-27 ✅ COMPLETE
+
+Regression: greedy dropped to 20%, balanced to 15% after the clue-based exploit system was introduced. Root cause: `mystery-001.json` campus-grounds adjacency was missing `library` and `student-dorms`, making `enrollment-record` permanently unreachable. Without it, no mod≥0 exploit could ever unlock.
+
+- [x] `data/mysteries/mystery-001.json` — Added `"loc-university-library"` and `"loc-student-dorms"` to `loc-campus-grounds.adjacentLocationIds`
+- [x] `simulation/strategies.ts` — Balanced `shouldConfront`: confront at partial intel when any viable exploit (net score ≥ 0) exists — earlier than greedy (which waits for mod≥0 option) but not blind
+- [x] Simulation results: greedy **95%** (✓ 60--95%), balanced **70%** (✓ 60--80%), death rate **18%** (✓ 5--20%)
+- [x] 543 tests all passing
+
 ---
 
 ## Phase G — Second Mystery + Simulation Validation

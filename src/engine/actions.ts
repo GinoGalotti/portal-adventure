@@ -37,7 +37,7 @@ import {
   gainExperience,
   resetSceneActions,
 } from './hunters'
-import { resolveClockConfig, advanceClockForTravel, advanceClockForAction } from './investigation'
+import { resolveClockConfig, advanceClockForTravel, advanceClockForAction, clockCostForOutcome, tickClock } from './investigation'
 import { discoverClue, discoverDeepSearchClue } from './clues'
 import { initConfrontation, getExploitOptionById } from './confrontation'
 import { interpretAction } from './free-text/pipeline'
@@ -880,7 +880,32 @@ function handleSpendLuck(s: GameState, _action: ActionEntry): void {
   // Update the recorded roll
   s.lastRoll = { ...roll, luckSpent: true, upgraded: true, outcome: upgraded }
 
-  // If there's a pending confrontation action in history, update it
+  // ── Re-resolve investigation effects ────────────────────────────────────────
+  // When luck is spent on an investigation miss (miss → mixed), two things must happen:
+  //   1. Reverse the missPenalty clock ticks that were charged during the action.
+  //   2. Re-attempt clue discovery with the upgraded outcome (miss never finds clues;
+  //      mixed/success may, per isClueRevealedByOutcome rules).
+  if (roll.context === 'investigation' && s.mystery) {
+    const mystery = s.mystery
+    const config = mystery.countdown.clockConfig
+    const costBefore = clockCostForOutcome('miss', config)
+    const costAfter  = clockCostForOutcome(upgraded, config)
+    const clockRefund = costBefore - costAfter  // positive → saves clock ticks
+    if (clockRefund > 0) {
+      tickClock(mystery.countdown, -clockRefund, s.actionCount)
+    }
+    // Re-attempt clue discovery at the current location
+    const location = mystery.locations.find((l) => l.id === mystery.currentLocationId)
+    if (location) {
+      if (roll.actionType === 'deepSearch') {
+        discoverDeepSearchClue(mystery, location, upgraded, hunterId, s.actionCount)
+      } else {
+        discoverClue(mystery, location, roll.actionType, upgraded, hunterId, s.actionCount)
+      }
+    }
+  }
+
+  // ── Re-resolve confrontation effects ─────────────────────────────────────────
   if (s.confrontation && s.confrontation.history.length > 0) {
     const last = s.confrontation.history[s.confrontation.history.length - 1]
     if (last.roll && last.roll.hunterId === hunterId) {

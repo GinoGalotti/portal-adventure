@@ -256,7 +256,9 @@
       ],
       "adjacentLocationIds": [
         "loc-memorial-garden",
-        "loc-science-lab"
+        "loc-science-lab",
+        "loc-university-library",
+        "loc-student-dorms"
       ]
     },
     {

@@ -108,17 +108,23 @@ function getConfrontationActions(state: GameState): ActionEntry[] {
     const freeTextExploits = mystery.monster.weakness.freeTextExploits
     if (exploitOptions && exploitOptions.length > 0) {
       // Structured path: one action per available option per alive hunter (cooldown-aware)
+      // Only emit actions when prerequisites are met — the engine requires exploitOptionId
+      // when exploitOptions is defined and will throw otherwise.
       const available = getAvailableExploitOptions(mystery)
-      for (const option of available) {
-        for (const hunter of state.team.hunters) {
-          if (!hunter.alive || hunterOnExploitCooldown(hunter.id)) continue
-          actions.push({
-            type: 'exploitWeakness',
-            payload: { hunterId: hunter.id, exploitOptionId: option.id },
-            timestamp: now,
-          })
+      if (available.length > 0) {
+        for (const option of available) {
+          for (const hunter of state.team.hunters) {
+            if (!hunter.alive || hunterOnExploitCooldown(hunter.id)) continue
+            actions.push({
+              type: 'exploitWeakness',
+              payload: { hunterId: hunter.id, exploitOptionId: option.id },
+              timestamp: now,
+            })
+          }
         }
       }
+      // No fallback when no options are unlocked: strategies should stay in investigation
+      // until shouldConfront decides it's time (at clock >= 70% or a mod>=0 option is available).
     } else if (freeTextExploits && freeTextExploits.length > 0) {
       // Free-text path: one action per available exploit per alive hunter (cooldown-aware)
       const available = freeTextExploits

@@ -17,6 +17,7 @@ import {
   isDisasterReached,
   getUnvisitedLocationIds,
 } from '../src/engine/investigation'
+import { getAvailableExploitOptions } from '../src/engine/confrontation'
 import type { GameState, ActionEntry, StatName, IntelLevel, ActionInterpretation } from '../src/engine/types'
 import type { Strategy } from './types'
 import { interpretAction } from '../src/engine/free-text/pipeline'
@@ -44,6 +45,24 @@ function undiscoveredClueCount(state: GameState, locationId: string): number {
 function statValue(state: GameState, hunterId: string, stat: StatName): number {
   const h = state.team.hunters.find((x) => x.id === hunterId)
   return h?.stats[stat] ?? 0
+}
+
+/**
+ * Returns true if at least one alive hunter has a net score >= 0 against at least
+ * one currently-unlocked exploit option. A score < 0 means the expected harm to
+ * the hunter per exploit turn exceeds the benefit — confrontation would be suicidal.
+ */
+function hasViableExploit(state: GameState, mystery: { monster: { weakness: { statRequired?: StatName; exploitOptions?: Array<{ modifier?: number; statRequired?: StatName }> } }; cluesFound: string[] }, available: Array<{ modifier?: number; statRequired?: StatName }>): boolean {
+  const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
+  for (const opt of available) {
+    const stat: StatName = opt.statRequired ?? weaknessStat
+    for (const hunter of state.team.hunters) {
+      if (!hunter.alive) continue
+      const score = (opt.modifier ?? 0) + (hunter.stats[stat] ?? 0)
+      if (score >= 0) return true
+    }
+  }
+  return false
 }
 
 // ─── Random Strategy ──────────────────────────────────────────────────────────
@@ -89,30 +108,33 @@ export class GreedyCluesStrategy implements Strategy {
 
   private _investigation(state: GameState, validActions: ActionEntry[]): ActionEntry {
     const mystery = state.mystery
+    // Never let the fallback accidentally trigger early confrontation
+    const nonConfront = validActions.filter((a) => a.type !== 'startConfrontation')
 
-    // Pool all scene actions and pick the best stat-matched option
-    // (investigate/interview find clues; helpBystander costs 1 clock vs travel's 2)
-    const sceneActions = validActions.filter(
-      (a) => ['investigate', 'interview', 'helpBystander'].includes(a.type),
-    )
-    if (sceneActions.length > 0) {
-      // Prioritize clue-finding actions (investigate/interview) over helpBystander
-      const clueFinding = sceneActions.filter((a) => a.type !== 'helpBystander')
-      const candidates = clueFinding.length > 0 ? clueFinding : sceneActions
-      const scored = candidates.map((a) => {
-        const hunterId = a.payload.hunterId as string
-        const actionStat: StatName = a.type === 'investigate' ? 'sharp'
-          : a.type === 'interview' ? 'charm' : 'cool'
-        return { action: a, score: statValue(state, hunterId, actionStat) }
-      })
-      scored.sort((x, y) => y.score - x.score)
-      return scored[0].action
-    }
+    // Only take investigate/interview when there's an undiscovered clue of that action type
+    // at the current location. Avoids wasting 2-3 clock ticks on actions that can't find clues
+    // (e.g. Rosa investigating student-dorms which only has interview clues).
+    if (mystery?.currentLocationId) {
+      const currentLoc = mystery.locations.find((l) => l.id === mystery.currentLocationId)
+      const effectiveTypes = new Set(
+        currentLoc?.clues.filter((c) => !c.found).map((c) => c.requiresAction) ?? []
+      )
+      const effective = nonConfront.filter(
+        (a) => ['investigate', 'interview'].includes(a.type) && effectiveTypes.has(a.type)
+      )
+      if (effective.length > 0) {
+        const scored = effective.map((a) => {
+          const hunterId = a.payload.hunterId as string
+          const stat: StatName = a.type === 'investigate' ? 'sharp' : 'charm'
+          return { action: a, score: statValue(state, hunterId, stat) }
+        })
+        scored.sort((x, y) => y.score - x.score)
+        return scored[0].action
+      }
 
-    // Deep search only when current location has undiscovered clues
-    const deepSearches = validActions.filter((a) => a.type === 'deepSearch')
-    if (deepSearches.length > 0 && mystery?.currentLocationId) {
-      if (undiscoveredClueCount(state, mystery.currentLocationId) > 0) {
+      // Deep search only when current location has undiscovered deepSearch clues
+      const deepSearches = nonConfront.filter((a) => a.type === 'deepSearch')
+      if (deepSearches.length > 0 && effectiveTypes.has('deepSearch')) {
         return deepSearches.reduce((best, a) =>
           statValue(state, a.payload.hunterId as string, 'sharp')
             > statValue(state, best.payload.hunterId as string, 'sharp') ? a : best
@@ -121,7 +143,7 @@ export class GreedyCluesStrategy implements Strategy {
     }
 
     // Travel to location with most undiscovered clues
-    const travels = validActions.filter((a) => a.type === 'travel')
+    const travels = nonConfront.filter((a) => a.type === 'travel')
     if (travels.length > 0) {
       return travels.reduce((best, a) => {
         const count = undiscoveredClueCount(state, a.payload.locationId as string)
@@ -130,68 +152,104 @@ export class GreedyCluesStrategy implements Strategy {
       })
     }
 
-    return randomPick(validActions)
+    return randomPick(nonConfront.length > 0 ? nonConfront : validActions)
   }
 
   private _confrontation(state: GameState, validActions: ActionEntry[]): ActionEntry {
     const mystery = state.mystery
 
-    // exploitWeakness when available — pick option with best modifier + hunter stat
+    // exploitWeakness only when the best available score is viable (≥ 0 = at least 2d6+0)
+    // Negative-score exploits (e.g. charm=-1 + mod=-2 = -3) are near-certain misses that
+    // deal 3 harm to the hunter per attempt — worse than defending.
     const exploits = validActions.filter((a) => a.type === 'exploitWeakness')
     if (exploits.length > 0 && mystery) {
       const options = mystery.monster.weakness.exploitOptions
       if (options && options.length > 0) {
         const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
-        return exploits.reduce((best, a) => {
-          const bestOpt = options.find((o) => o.id === best.payload.exploitOptionId)
-          const aOpt = options.find((o) => o.id === a.payload.exploitOptionId)
-          const bestStat = statValue(state, best.payload.hunterId as string, bestOpt?.statRequired ?? weaknessStat)
-          const aStat = statValue(state, a.payload.hunterId as string, aOpt?.statRequired ?? weaknessStat)
-          const bestScore = (bestOpt?.modifier ?? 0) + bestStat
-          const aScore = (aOpt?.modifier ?? 0) + aStat
-          return aScore > bestScore ? a : best
+        const scored = exploits.map((a) => {
+          const opt = options.find((o) => o.id === a.payload.exploitOptionId)
+          const stat: StatName = opt?.statRequired ?? weaknessStat
+          return {
+            action: a,
+            score: (opt?.modifier ?? 0) + statValue(state, a.payload.hunterId as string, stat),
+          }
         })
+        scored.sort((x, y) => y.score - x.score)
+        if (scored[0].score >= 0) return scored[0].action
+        // Best exploit score < 0 — too risky, fall through to defend
+      } else {
+        // Legacy: pick hunter with best weakness stat, only if total roll is viable
+        const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
+        const legacyMod: Record<string, number> = { blind: -99, partial: -1, informed: 0, prepared: 1 }
+        const best = exploits.reduce((best, a) =>
+          statValue(state, a.payload.hunterId as string, weaknessStat)
+            > statValue(state, best.payload.hunterId as string, weaknessStat) ? a : best
+        )
+        const totalScore = (legacyMod[mystery.intelLevel] ?? 0)
+          + statValue(state, best.payload.hunterId as string, weaknessStat)
+        if (totalScore >= 0) return best
       }
-      // Legacy: pick hunter with best weakness stat
-      const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
-      return exploits.reduce((best, a) => {
-        return statValue(state, a.payload.hunterId as string, weaknessStat)
-          > statValue(state, best.payload.hunterId as string, weaknessStat) ? a : best
-      })
     }
 
-    // Defend with a seriously hurt hunter to keep them alive
-    const defends = validActions.filter((a) => a.type === 'defend')
-    const hurtDefend = defends.find((a) => {
-      const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
-      return h && h.harm >= 4
-    })
-    if (hurtDefend) return hurtDefend
+    // No viable exploit: use 0-harm actions to survive and clear exploit cooldown.
+    // distract (charm) and assess (sharp) deal 0 harm on all outcomes.
+    // resist (cool) deals 1 harm only on miss — far better than defend's 2.
+    // Boost score for hunters on exploit cooldown so they clear it 1 turn faster,
+    // enabling more exploit turns overall. Pattern: exploit → distract → exploit → ...
+    const conf = state.confrontation!
+    const lowHarmTypes = ['distract', 'assess', 'resist'] as const
+    const lowHarm = validActions.filter((a) => lowHarmTypes.includes(a.type as (typeof lowHarmTypes)[number]))
+    if (lowHarm.length > 0) {
+      const scored = lowHarm.map((a) => {
+        const hunterId = a.payload.hunterId as string
+        const hunterHistory = conf.history.filter((ca) => ca.hunterId === hunterId)
+        const onCooldown = hunterHistory[hunterHistory.length - 1]?.actionType === 'exploitWeakness'
+        const stat: StatName = a.type === 'distract' ? 'charm' : a.type === 'assess' ? 'sharp' : 'cool'
+        return { action: a, score: (onCooldown ? 10 : 0) + statValue(state, hunterId, stat) }
+      })
+      scored.sort((x, y) => y.score - x.score)
+      return scored[0].action
+    }
 
-    // Attack with the hunter with the highest tough stat
-    const attacks = validActions.filter((a) => a.type === 'attack')
-    if (attacks.length > 0) {
-      return attacks.reduce((best, a) =>
-        statValue(state, a.payload.hunterId as string, 'tough')
-          > statValue(state, best.payload.hunterId as string, 'tough') ? a : best
-      )
+    // defend/attack as absolute last resort (should not be reached in normal play)
+    const defends = validActions.filter((a) => a.type === 'defend')
+    if (defends.length > 0) {
+      return defends.reduce((best, a) => {
+        const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))!
+        const bh = state.team.hunters.find((h) => h.id === (best.payload.hunterId as string))!
+        return h.harm < bh.harm ? a : best
+      })
     }
 
     return randomPick(validActions)
   }
 
   shouldSpendLuck(state: GameState, roll: { outcome: string }): boolean {
-    // Only spend luck in confrontation — save it for when it matters
-    return state.phase === 'confrontation' && roll.outcome === 'miss'
+    if (roll.outcome !== 'miss') return false
+    // In investigation: spending luck on a miss reverses the clock penalty and
+    // re-attempts clue discovery. Always beneficial — saves 2 clock and finds clues.
+    if (state.phase === 'investigation') return true
+    // In confrontation: the engine does not reverse harm for exploitWeakness, distract,
+    // or assess when luck is spent. Only 'attack' has partial re-resolution.
+    // Spending luck elsewhere wastes a permanent resource for no gameplay benefit.
+    return false
   }
 
   shouldConfront(state: GameState): boolean {
     const mystery = state.mystery
     if (!mystery) return false
-    // With clue-based exploits, partial intel is enough — don't burn clock chasing informed
-    const intelOk = intelRank(mystery.intelLevel) >= 1  // partial or better
     const clockFraction = mystery.countdown.clockValue / mystery.countdown.clockConfig.disasterAt
-    return intelOk || clockFraction >= 0.6
+    const hasExploitOptions = (mystery.monster.weakness.exploitOptions?.length ?? 0) > 0
+    if (hasExploitOptions) {
+      const available = getAvailableExploitOptions(mystery)
+      // Confront immediately when a mod >= 0 exploit is unlocked — worthwhile odds.
+      // mod < 0 exploits (e.g. 2d6+1) have 28% miss rate and 3 harm per miss,
+      // making them too risky without better intel. Keep investigating instead.
+      if (available.some((opt) => (opt.modifier ?? 0) >= 0)) return true
+      // No good exploit yet: wait until near disaster to maximise investigation time.
+      return clockFraction >= 0.93
+    }
+    return intelRank(mystery.intelLevel) >= 1 || clockFraction >= 0.6
   }
 }
 
@@ -275,41 +333,45 @@ export class BalancedStrategy implements Strategy {
 
   private _investigation(state: GameState, validActions: ActionEntry[]): ActionEntry {
     const mystery = state.mystery
+    // Never let the fallback accidentally trigger early confrontation
+    const nonConfront = validActions.filter((a) => a.type !== 'startConfrontation')
 
     // Heal a seriously-injured hunter first
-    const restActions = validActions.filter((a) => a.type === 'rest')
+    const restActions = nonConfront.filter((a) => a.type === 'rest')
     const criticalRest = restActions.find((a) => {
       const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
       return h && h.harm >= 5
     })
     if (criticalRest) return criticalRest
 
-    // Scene actions: prefer action that matches the hunter's best stat
-    const sceneActions = validActions.filter(
-      (a) => ['investigate', 'interview', 'helpBystander'].includes(a.type),
-    )
-    if (sceneActions.length > 0) {
-      const scored = sceneActions.map((a) => {
-        const hunterId = a.payload.hunterId as string
-        const actionStat: StatName = a.type === 'investigate' ? 'sharp'
-          : a.type === 'interview' ? 'charm'
-          : 'cool'
-        return { action: a, score: statValue(state, hunterId, actionStat) }
-      })
-      scored.sort((x, y) => y.score - x.score)
-      return scored[0].action
-    }
+    // Only take investigate/interview when there's an undiscovered clue of that action type
+    if (mystery?.currentLocationId) {
+      const currentLoc = mystery.locations.find((l) => l.id === mystery.currentLocationId)
+      const effectiveTypes = new Set(
+        currentLoc?.clues.filter((c) => !c.found).map((c) => c.requiresAction) ?? []
+      )
+      const effective = nonConfront.filter(
+        (a) => ['investigate', 'interview'].includes(a.type) && effectiveTypes.has(a.type)
+      )
+      if (effective.length > 0) {
+        const scored = effective.map((a) => {
+          const hunterId = a.payload.hunterId as string
+          const stat: StatName = a.type === 'investigate' ? 'sharp' : 'charm'
+          return { action: a, score: statValue(state, hunterId, stat) }
+        })
+        scored.sort((x, y) => y.score - x.score)
+        return scored[0].action
+      }
 
-    // Deep search if current location has undiscovered clues
-    const deepSearches = validActions.filter((a) => a.type === 'deepSearch')
-    if (deepSearches.length > 0 && mystery?.currentLocationId) {
-      if (undiscoveredClueCount(state, mystery.currentLocationId) > 0) {
+      // Deep search if current location has undiscovered deepSearch clues
+      const deepSearches = nonConfront.filter((a) => a.type === 'deepSearch')
+      if (deepSearches.length > 0 && effectiveTypes.has('deepSearch')) {
         return deepSearches[0]
       }
     }
 
     // Travel: prefer unvisited, then by clue richness
-    const travels = validActions.filter((a) => a.type === 'travel')
+    const travels = nonConfront.filter((a) => a.type === 'travel')
     if (travels.length > 0) {
       const unvisitedTravels = travels.filter((a) => {
         const loc = mystery?.locations.find((l) => l.id === (a.payload.locationId as string))
@@ -323,54 +385,70 @@ export class BalancedStrategy implements Strategy {
       })
     }
 
-    return randomPick(validActions)
+    return randomPick(nonConfront.length > 0 ? nonConfront : validActions)
   }
 
   private _confrontation(state: GameState, validActions: ActionEntry[]): ActionEntry {
     const mystery = state.mystery
 
-    // Exploit weakness when available
+    // Exploit weakness only when best available score is viable (≥ 0)
     const exploits = validActions.filter((a) => a.type === 'exploitWeakness')
     if (exploits.length > 0 && mystery) {
       const options = mystery.monster.weakness.exploitOptions
       if (options && options.length > 0) {
-        // Clue-based: pick exploit with best modifier + hunter stat
         const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
-        return exploits.reduce((best, a) => {
-          const bestOpt = options.find((o) => o.id === best.payload.exploitOptionId)
-          const aOpt = options.find((o) => o.id === a.payload.exploitOptionId)
-          const bestStat = statValue(state, best.payload.hunterId as string, bestOpt?.statRequired ?? weaknessStat)
-          const aStat = statValue(state, a.payload.hunterId as string, aOpt?.statRequired ?? weaknessStat)
-          const bestScore = (bestOpt?.modifier ?? 0) + bestStat
-          const aScore = (aOpt?.modifier ?? 0) + aStat
-          return aScore > bestScore ? a : best
+        const scored = exploits.map((a) => {
+          const opt = options.find((o) => o.id === a.payload.exploitOptionId)
+          const stat: StatName = opt?.statRequired ?? weaknessStat
+          return {
+            action: a,
+            score: (opt?.modifier ?? 0) + statValue(state, a.payload.hunterId as string, stat),
+          }
         })
+        scored.sort((x, y) => y.score - x.score)
+        if (scored[0].score >= 0) return scored[0].action
+        // Best score < 0 — fall through to defend
       } else if (intelRank(mystery.intelLevel) >= 1) {
-        // Legacy: pick hunter with best weakness stat
+        // Legacy: pick hunter with best weakness stat if total is viable
         const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
-        return exploits.reduce((best, a) => {
-          const hunterId = a.payload.hunterId as string
-          return statValue(state, hunterId, weaknessStat) > statValue(state, best.payload.hunterId as string, weaknessStat)
-            ? a : best
-        })
+        const legacyMod: Record<string, number> = { blind: -99, partial: -1, informed: 0, prepared: 1 }
+        const best = exploits.reduce((best, a) =>
+          statValue(state, a.payload.hunterId as string, weaknessStat)
+            > statValue(state, best.payload.hunterId as string, weaknessStat) ? a : best
+        )
+        const totalScore = (legacyMod[mystery.intelLevel] ?? 0)
+          + statValue(state, best.payload.hunterId as string, weaknessStat)
+        if (totalScore >= 0) return best
       }
     }
 
-    // Occasionally defend with a hunter who is hurt (40% chance)
-    const defends = validActions.filter((a) => a.type === 'defend')
-    const hurtDefend = defends.find((a) => {
-      const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
-      return h && h.harm >= 4
-    })
-    if (hurtDefend && Math.random() < 0.4) return hurtDefend
-
-    // Attack with the hunter with the highest tough stat
-    const attacks = validActions.filter((a) => a.type === 'attack')
-    if (attacks.length > 0) {
-      return attacks.reduce((best, a) => {
+    // No viable exploit: use 0-harm actions to survive and clear exploit cooldown.
+    // distract (charm) and assess (sharp) deal 0 harm on all outcomes.
+    // resist (cool) deals 1 harm only on miss — far better than defend's 2.
+    // Boost score for hunters on exploit cooldown so they clear it 1 turn faster,
+    // enabling more exploit turns overall. Pattern: exploit → distract → exploit → ...
+    const conf = state.confrontation!
+    const lowHarmTypes = ['distract', 'assess', 'resist'] as const
+    const lowHarm = validActions.filter((a) => lowHarmTypes.includes(a.type as (typeof lowHarmTypes)[number]))
+    if (lowHarm.length > 0) {
+      const scored = lowHarm.map((a) => {
         const hunterId = a.payload.hunterId as string
-        return statValue(state, hunterId, 'tough') > statValue(state, best.payload.hunterId as string, 'tough')
-          ? a : best
+        const hunterHistory = conf.history.filter((ca) => ca.hunterId === hunterId)
+        const onCooldown = hunterHistory[hunterHistory.length - 1]?.actionType === 'exploitWeakness'
+        const stat: StatName = a.type === 'distract' ? 'charm' : a.type === 'assess' ? 'sharp' : 'cool'
+        return { action: a, score: (onCooldown ? 10 : 0) + statValue(state, hunterId, stat) }
+      })
+      scored.sort((x, y) => y.score - x.score)
+      return scored[0].action
+    }
+
+    // defend as absolute last resort
+    const defends = validActions.filter((a) => a.type === 'defend')
+    if (defends.length > 0) {
+      return defends.reduce((best, a) => {
+        const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))!
+        const bh = state.team.hunters.find((h) => h.id === (best.payload.hunterId as string))!
+        return h.harm < bh.harm ? a : best
       })
     }
 
@@ -378,16 +456,32 @@ export class BalancedStrategy implements Strategy {
   }
 
   shouldSpendLuck(state: GameState, roll: { outcome: string }): boolean {
-    // Spend luck on miss during confrontation only
-    return state.phase === 'confrontation' && roll.outcome === 'miss'
+    if (roll.outcome !== 'miss') return false
+    // In investigation: spending luck on a miss reverses the clock penalty and
+    // re-attempts clue discovery. Always beneficial — saves 2 clock and finds clues.
+    if (state.phase === 'investigation') return true
+    // In confrontation: only 'attack' has partial re-resolution in the engine.
+    // Spending luck on exploitWeakness/distract/assess misses wastes a permanent resource.
+    return false
   }
 
   shouldConfront(state: GameState): boolean {
     const mystery = state.mystery
     if (!mystery) return false
-    const intelOk = intelRank(mystery.intelLevel) >= 1  // partial or better
     const clockFraction = mystery.countdown.clockValue / mystery.countdown.clockConfig.disasterAt
-    return intelOk || clockFraction >= 0.6
+    const hasExploitOptions = (mystery.monster.weakness.exploitOptions?.length ?? 0) > 0
+    if (hasExploitOptions) {
+      const available = getAvailableExploitOptions(mystery)
+      // Confront when intel is at least partial AND there's a viable exploit
+      // (net hunter score >= 0). A typical player won't wait for the perfect
+      // exploit — they'll engage when they know enough.
+      if (available.length > 0 && hasViableExploit(state, mystery, available)) {
+        return intelRank(mystery.intelLevel) >= 1
+      }
+      // No viable exploit yet: investigate longer, fall back at 70% clock.
+      return clockFraction >= 0.7
+    }
+    return intelRank(mystery.intelLevel) >= 1 || clockFraction >= 0.6
   }
 }
 
@@ -411,9 +505,10 @@ export class FreeTextKeywordStrategy implements Strategy {
 
   private _investigation(state: GameState, validActions: ActionEntry[]): ActionEntry {
     const mystery = state.mystery
+    const nonConfront = validActions.filter((a) => a.type !== 'startConfrontation')
 
     // Heal critically hurt hunters first
-    const criticalRest = validActions
+    const criticalRest = nonConfront
       .filter((a) => a.type === 'rest')
       .find((a) => {
         const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
@@ -421,23 +516,28 @@ export class FreeTextKeywordStrategy implements Strategy {
       })
     if (criticalRest) return criticalRest
 
-    // Scene actions: best stat match
-    const sceneActions = validActions.filter((a) =>
-      ['investigate', 'interview', 'helpBystander'].includes(a.type),
-    )
-    if (sceneActions.length > 0) {
-      const scored = sceneActions.map((a) => {
-        const hunterId = a.payload.hunterId as string
-        const actionStat: StatName =
-          a.type === 'investigate' ? 'sharp' : a.type === 'interview' ? 'charm' : 'cool'
-        return { action: a, score: statValue(state, hunterId, actionStat) }
-      })
-      scored.sort((x, y) => y.score - x.score)
-      return scored[0].action
+    // Scene actions: best stat match (only effective clues at current location)
+    if (mystery?.currentLocationId) {
+      const currentLoc = mystery.locations.find((l) => l.id === mystery.currentLocationId)
+      const effectiveTypes = new Set(
+        currentLoc?.clues.filter((c) => !c.found).map((c) => c.requiresAction) ?? []
+      )
+      const effective = nonConfront.filter(
+        (a) => ['investigate', 'interview'].includes(a.type) && effectiveTypes.has(a.type)
+      )
+      if (effective.length > 0) {
+        const scored = effective.map((a) => {
+          const hunterId = a.payload.hunterId as string
+          const actionStat: StatName = a.type === 'investigate' ? 'sharp' : 'charm'
+          return { action: a, score: statValue(state, hunterId, actionStat) }
+        })
+        scored.sort((x, y) => y.score - x.score)
+        return scored[0].action
+      }
     }
 
     // Travel: prefer unvisited, then by clue richness
-    const travels = validActions.filter((a) => a.type === 'travel')
+    const travels = nonConfront.filter((a) => a.type === 'travel')
     if (travels.length > 0) {
       const unvisited = travels.filter((a) => {
         const loc = mystery?.locations.find((l) => l.id === (a.payload.locationId as string))
@@ -451,7 +551,7 @@ export class FreeTextKeywordStrategy implements Strategy {
       })
     }
 
-    return randomPick(validActions)
+    return randomPick(nonConfront.length > 0 ? nonConfront : validActions)
   }
 
   private _confrontation(state: GameState, validActions: ActionEntry[]): ActionEntry {
@@ -489,24 +589,23 @@ export class FreeTextKeywordStrategy implements Strategy {
       }
     }
 
-    // Defend a seriously hurt hunter
-    const hurtDefend = validActions
-      .filter((a) => a.type === 'defend')
-      .find((a) => {
-        const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
-        return h && h.harm >= 4
-      })
-    if (hurtDefend) return hurtDefend
-
-    // Attack with best tough stat
-    const attacks = validActions.filter((a) => a.type === 'attack')
-    if (attacks.length > 0) {
-      return attacks.reduce((best, a) =>
-        statValue(state, a.payload.hunterId as string, 'tough') >
-        statValue(state, best.payload.hunterId as string, 'tough')
-          ? a
-          : best,
-      )
+    // All hunters on cooldown: use 0-harm actions to survive until next exploit turn.
+    // distract (charm) and assess (sharp) deal 0 harm on all outcomes.
+    // resist (cool) deals 1 harm only on miss. Boost score for hunters on cooldown.
+    if (conf) {
+      const lowHarmTypes = ['distract', 'assess', 'resist'] as const
+      const lowHarm = validActions.filter((a) => lowHarmTypes.includes(a.type as (typeof lowHarmTypes)[number]))
+      if (lowHarm.length > 0) {
+        const scored = lowHarm.map((a) => {
+          const hunterId = a.payload.hunterId as string
+          const hunterHistory = conf.history.filter((ca) => ca.hunterId === hunterId)
+          const onCooldown = hunterHistory[hunterHistory.length - 1]?.actionType === 'exploitWeakness'
+          const stat: StatName = a.type === 'distract' ? 'charm' : a.type === 'assess' ? 'sharp' : 'cool'
+          return { action: a, score: (onCooldown ? 10 : 0) + statValue(state, hunterId, stat) }
+        })
+        scored.sort((x, y) => y.score - x.score)
+        return scored[0].action
+      }
     }
 
     return randomPick(validActions)
