@@ -9,6 +9,8 @@ This file tracks all tests in the project. Tests are added by Claude Code sessio
 - **E2E (Playwright):** Browser-based user flow tests. Slow, full stack.
 - **Simulation:** Headless game runs for balance verification. Variable speed.
 
+**Current totals: 496 engine/simulation tests (11 files), 0 E2E tests.**
+
 ---
 
 ## Reviewed Tests
@@ -127,6 +129,92 @@ Tests added by Claude Code sessions that haven't been reviewed yet. After review
 | `runner.test.ts` | createStrategy() creates all named strategies | Verify registry | random/greedy/rush/balanced all instantiate | 2026-03-25 | Phase D |
 | `runner.test.ts` | createStrategy() throws for unknown strategy name | Verify error handling | throws for 'unknown' | 2026-03-25 | Phase D |
 | `runner.test.ts` | all strategies complete mystery-runner-test | Strategy smoke tests | no throws for all 4 strategies | 2026-03-25 | Phase D |
+| `freetext.test.ts` | tokenize — lowercases all words | Verify case normalisation | 'CONVINCE' → 'convince' in tokens | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — removes stop words | Verify stop-word filter | 'I', 'to', 'the' absent from tokens | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — deduplicates tokens | Verify deduplication | 'grief grief grief' → single 'grief' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — strips punctuation | Verify punctuation stripping | 'locket!' → 'locket' without '!' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — apostrophe in possessive splits token (known limitation) | Document possessive split | "Eszter's" splits on apostrophe; "Eszter" stems to "eszt" | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — names ending in -er get stemmed (known limitation) | Document -er stemming | "Eszter" → "eszt" via -er suffix strip | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — synonym expand: persuade → convince | Verify synonym expansion | 'persuade' normalises to 'convince' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — synonym expand: shield → protect | Verify synonym expansion | 'shield' normalises to 'protect' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — synonym expand: fight → attack | Verify synonym expansion | 'fight' normalises to 'attack' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — synonym expand: study → analyze | Verify synonym expansion | 'study' normalises to 'analyze' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — stems -ing suffix | Verify stemmer | 'attacking' → 'attack' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | tokenize — returns empty for all-stop input | Verify stop-word exhaustion | 'I is the a' → [] | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | normalizeWord — returns null for stop words | Verify stop-word filter | null for 'the', 'is', 'a' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | normalizeWord — returns null for <2 char words | Verify length filter | null for 'x' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | normalizeWord — lowercases | Verify case normalisation | 'GRIEF' → 'grief' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | normalizeWord — stems -ed suffix | Verify stemmer | 'convinced' → stem form | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | normalizeWord — blame → guilt (synonym group) | Verify synonym expansion | 'blame' → 'guilt' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | normalizeWord — release → forgive (synonym group) | Verify synonym expansion | 'release' → 'forgive' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — charm from convince | Verify stat vote | 'convince' → charm | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — charm from comfort (synonym) | Verify synonym stat | 'comfort' → convince → charm | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — charm from forgive | Verify stat vote | 'forgive' → charm | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — tough from attack | Verify stat vote | 'attack' → tough | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — tough from fight (synonym) | Verify synonym stat | 'fight' → attack → tough | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — sharp from analyze | Verify stat vote | 'analyze' → sharp | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — sharp from observe | Verify stat vote | 'observe' → sharp | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — cool from protect | Verify stat vote | 'protect' → cool | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — weird from ritual | Verify stat vote | 'ritual' → weird | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — weird from exorcise | Verify stat vote | 'exorcise' → weird | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — defaults to tough (weak) with no match | Verify default | no verbs → tough with weak confidence | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — strong confidence for 3+ distinct charm tokens | Verify confidence level | love+forgive+grief → 3 votes → strong | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | classifyStat — charm priority over tough in tie | Verify priority order | charm wins over tough in 1-1 tie | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — hunterBestStat overrides weak classification | Verify player-friendly fallback | weak classification uses hunter's best stat | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | matchClues — empty when no clues found | Verify found-clue gate | [] when foundClueIds=[] | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | matchClues — only matches found clues | Verify found-clue filter | unfound clue keywords ignored | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | matchClues — scores by proportion | Verify scoring formula | score = matched/total keywords | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | matchClues — sorted by score descending | Verify sort order | higher-matching clue first | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | matchClues — no match for clue with no keywords | Verify optional keywords | clue without keywords field → no match | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | matchClues — matches through synonym normalisation | Verify keyword synonym | 'record' matches 'enrollment' clue via document synonym | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — fallback -3 with no clues | Verify fallback tier 0 | modifier=-3, exploitId=null | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — fallback -2 with 1 matched clue | Verify fallback tier 1 | modifier=-2 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — fallback -1 with 3+ matched clues | Verify fallback tier 3+ | modifier=-1 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — matches ft-full-resolution | Verify best exploit | exploitId='ft-full-resolution', modifier=2 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — skips exploit with missing required clues | Verify clue gate | exploit skipped when required clue absent | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — matches ft-anchor-approach | Verify locket exploit | exploitId='ft-anchor-approach', modifier=1 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — matches ft-grief-approach | Verify grief exploit | exploitId='ft-grief-approach', modifier=0 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — picks highest modifier when multiple match | Verify best-first walk | ft-full-resolution wins over ft-grief-approach | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — fallback when weakness has no freeTextExploits | Verify backward compat | exploitId=null, modifier=-3 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — narrativeResult set on exploit match | Verify narrative output | narrativeResult non-null on match | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+2] "convince Balint to let Eszter go" | Integration: full resolution | exploitId='ft-full-resolution', modifier=2 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+2] "comfort Balint about his grief" | Integration: full resolution (synonym) | exploitId='ft-full-resolution', modifier=2 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+2] "Eszter, forgive him — his grief was real" | Integration: full resolution | exploitId='ft-full-resolution', modifier=2 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+2] "remind Balint of his promise" | Integration: full resolution | exploitId='ft-full-resolution', modifier=2 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+2] "persuade Balint to acknowledge her" | Integration: full resolution (synonym) | exploitId='ft-full-resolution', modifier=2 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+1] "show the locket to Eszter" | Integration: anchor approach | exploitId='ft-anchor-approach', modifier=1 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+1] "display locket — this is her anchor" | Integration: anchor approach | exploitId='ft-anchor-approach', modifier=1 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+1] "hold out the locket" (hold→show synonym) | Integration: anchor via synonym | exploitId='ft-anchor-approach', modifier=1 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+1] "present Eszter with her locket" | Integration: anchor approach | exploitId='ft-anchor-approach', modifier=1 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+0] "address her grief and forgive" | Integration: grief approach | exploitId='ft-grief-approach', modifier=0 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+0] "speak of grief to forgive the bond" | Integration: grief approach | exploitId='ft-grief-approach', modifier=0 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [+0] "don't blame yourself, let me comfort you" | Integration: grief via synonyms | exploitId='ft-grief-approach', modifier=0 | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [fallback -3] no clues, vague input | Integration: zero-clue fallback | modifier=-3, exploitId=null | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [fallback -2] 1 clue found | Integration: single-clue fallback | modifier=-2, exploitId=null | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [fallback -2] 2 clues found | Integration: two-clue fallback | modifier=-2, exploitId=null | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — [fallback -1] 3+ clues without trigger match | Integration: clue fallback | modifier=-1, exploitId=null | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — detects charm stat for "convince balint" | Integration: stat detection | stat='charm' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — detects tough for "attack and fight" | Integration: stat detection | stat='tough' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — detects weird for "ritual banishment" | Integration: stat detection | stat='weird' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — detects sharp for "analyze her pattern" | Integration: stat detection | stat='sharp' | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — source is always 'keyword' | Verify source tag | source='keyword' for all inputs | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — exploit blocked if required clue missing | Verify clue gate | ft-full-resolution not returned without ash-locket | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — narrativeResult set on exploit match | Verify narrative output | narrativeResult truthy | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — narrativeResult null on fallback | Verify null on no match | narrativeResult=null | 2026-03-26 | Sprint 1 |
+
+---
+
+## Known Engine Limitations (Documented by Tests)
+
+These are real engine behaviours, documented rather than fixed — they inform data authoring and future improvements.
+
+| Limitation | Discovery | Impact | Fix Path |
+|------------|-----------|--------|----------|
+| Names ending in -er are stemmed (`Eszter` → `eszt`) | `freetext.test.ts` | Proper names in player input don't match clue keywords unless clue keywords also go through the same normalisation (which they do, so internal matching is consistent) | Add names to stop-stem list, or switch to a more conservative stemmer |
+| Possessive apostrophe splits tokens (`Eszter's` → `Eszter` + `s`) | `freetext.test.ts` | Players who type "Eszter's locket" will not match the "eszter" keyword | Strip `'s` before tokenising, or add possessive handling |
+| Synonyms collapse to one canonical — strong confidence requires distinct canonical tokens | `freetext.test.ts` | All charm synonyms (`persuade`, `comfort`, `appeal`) all reduce to `convince`; deduplication means 1 vote max. Strong confidence (3+) requires different canonical charm tokens (`love`, `forgive`, `grief`) | Document in clue keyword guide; note in DESIGN-ai-gm-plan.md |
+| `spirit` maps to `ritual` via synonym → contributes weird votes | `freetext.test.ts` | "attack the spirit" gives tough AND weird = 1 each; weird wins in priority tie | Remove `spirit` from the weird synonym group, or add it as a direct stat-only token |
+| `destroy` maps to `disable` (later group overwrites earlier) — no stat vote | `freetext.test.ts` | "attack and destroy" — `destroy` gives no tough vote | Move `destroy` to the attack group only, or add it to VERB_STAT_MAP directly |
 
 ---
 
@@ -164,6 +252,12 @@ Tests that should exist by the end of MVP. Check off as they are implemented.
 - [x] `debug.test.ts` — Each debug command produces expected state change
 - [x] `debug.test.ts` — Debug actions are tagged debug:true in action log
 - [x] `debug.test.ts` — forceRoll overrides next roll only
+- [x] `freetext.test.ts` — tokenize: stop words, synonyms, stemming, deduplication (Sprint 1)
+- [x] `freetext.test.ts` — classifyStat: all 5 stats, confidence levels, tie-breaking (Sprint 1)
+- [x] `freetext.test.ts` — matchClues: found-clue gate, scoring, sort order (Sprint 1)
+- [x] `freetext.test.ts` — resolveExploit: exploit matching, clue gate, fallback tiers (Sprint 1)
+- [x] `freetext.test.ts` — interpretAction: 20+ mystery-001 natural-language inputs (Sprint 1)
+- [ ] `freetext.test.ts` — coverage >80% on mystery-001 natural inputs — **sprint gate** (Sprint 1, in progress)
 
 ### Simulation Tests (Vitest)
 
@@ -180,6 +274,8 @@ Tests that should exist by the end of MVP. Check off as they are implemented.
 - [x] `runner.test.ts` — Action log starts with startMystery, ends with endMystery (Phase D)
 - [x] `runner.test.ts` — Action log is deterministic for same seed + strategy (Phase D)
 - [x] `runner.test.ts` — createStrategy() throws for unknown strategy name (Phase D)
+- [ ] `valid-actions.test.ts` — includes freeTextExploit action when freeTextExploits exist (Sprint 1 pending)
+- [ ] `runner.test.ts` — free-text-keyword strategy completes all mysteries (Sprint 1 pending)
 
 ### E2E Tests (Playwright)
 
@@ -192,6 +288,7 @@ Tests that should exist by the end of MVP. Check off as they are implemented.
 - [ ] `undo.spec.ts` — Undo blocked after dice roll
 - [ ] `debug.spec.ts` — Debug panel opens with ?debug=1
 - [ ] `debug.spec.ts` — Debug command executes and state updates
+- [ ] `freetext.spec.ts` — Free-text input dispatches exploitWeakness and shows result (Sprint 1 pending)
 
 ---
 
@@ -202,3 +299,4 @@ Track simulation runs and their findings.
 | Date | Mystery | Strategies | Runs | Findings | Action Taken |
 |------|---------|------------|------|----------|--------------|
 | 2026-03-25 | mystery-001 | random, rush, greedy, balanced | 100 each | Win rates 88–100% — mystery too easy; armor not applied during engine combat (by design, Phase C); random at 88% confirms confrontation is not sufficiently challenging | Flagged for Phase G tuning |
+| 2026-03-26 | mysteries 001–009 | — | pending | freeTextExploits added to all 9 mysteries; simulation run with free-text-keyword strategy not yet done | **Todo: run simulation to verify all 9 mysteries are completable** |

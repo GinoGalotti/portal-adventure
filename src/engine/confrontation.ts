@@ -14,9 +14,11 @@
 import type {
   ActionType,
   ConfrontationState,
+  ExploitOptionDef,
   IntelLevel,
   MonsterType,
   Mystery,
+  Weakness,
 } from './types'
 
 // ─── Initialisation ───────────────────────────────────────────────────────────
@@ -35,7 +37,31 @@ export function initConfrontation(
     monsterDefeated: false,
     huntersRetreated: false,
     forcedByCountdown,
+    cluesFoundAtStart: [...mystery.cluesFound],
   }
+}
+
+// ─── Clue-based exploit options ──────────────────────────────────────────────
+
+/**
+ * Returns the exploit options whose clue prerequisites are all met.
+ * If the weakness has no exploitOptions defined, returns empty array
+ * (caller should fall back to the legacy intelLevel system).
+ */
+export function getAvailableExploitOptions(mystery: Mystery): ExploitOptionDef[] {
+  const options = mystery.monster.weakness.exploitOptions
+  if (!options || options.length === 0) return []
+
+  const found = new Set(mystery.cluesFound)
+  return options.filter((opt) => opt.requiredClueIds.every((id) => found.has(id)))
+}
+
+/** Look up a specific exploit option by ID. */
+export function getExploitOptionById(
+  weakness: Weakness,
+  optionId: string,
+): ExploitOptionDef | undefined {
+  return weakness.exploitOptions?.find((o) => o.id === optionId)
 }
 
 // ─── Monster behavior profiles ────────────────────────────────────────────────

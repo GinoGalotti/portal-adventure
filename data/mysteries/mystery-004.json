@@ -1,0 +1,398 @@
+{
+  "_note": "Based on Case D — The Inheritance (Martin Wentworth). Open thread from PORTAL campaign briefings.json w02–w03. An obligation-anchored spirit who communicates only through formal letters. A child is at risk.",
+  "_story_notes": {
+    "premise": "Martin Wentworth, 61, probate lawyer. Deceased 36 days. His consciousness is anchored by professional obligation — unfinished duty to his clients. He has been writing handwritten letters from beyond death: legal corrections, warnings, advice. All accurate, all containing information only Wentworth held. His most recent letter describes a planned killing of Mira Okonkwo, 9 years old — a child connected to an estate he was managing.",
+    "resolution": "Wentworth's obligation can be resolved by completing his outstanding cases — specifically, by ensuring Mira's safety and recovering the estate archive he was protecting. The entity communicates only through formal correspondence — operatives must 'write back' and follow solicitor protocol. The 'weakness' is the completion of duty: when all obligations are met, Wentworth will rest.",
+    "tone": "Procedural horror with genuine menace. Wentworth is not evil — he is compulsive. His obligation mechanism is accelerating and becoming violent because the thing he was trying to prevent (harm to a child) is approaching. He cannot act directly; he can only write. The letters are getting more desperate.",
+    "mesa_connection": "Wentworth was managing the estate of a deceased Meridian researcher. The estate contained a consciousness-anchoring methodology archive — the theoretical basis for MESA's work. MESA closed the probate unusually fast to secure the archive. Wentworth died one week before probate closed. The timing is not coincidental."
+  },
+  "id": "mystery-004",
+  "title": "The Inheritance",
+  "briefingText": "[CASE FILE OPEN: WCS-2026-102]\n[CLASSIFICATION: RED — CHILD AT RISK]\n[LOCATION: CLERKENWELL / 14 CLIENT ADDRESSES]\n\nA dead solicitor is writing letters to his clients. Handwriting match: 99%. Content: information only he possessed.\n\nMost recent letter describes a planned killing. Target: Mira Okonkwo, 9 years old.\n\nEstate archive secured by third party 2 days after death. Timing anomalous.\n\nMake contact. Resolve his obligations. Protect the child.\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-wentworth",
+    "type": "spirit",
+    "name": "Martin Wentworth",
+    "motivation": "manipulation",
+    "weakness": {
+      "id": "w-obligation-complete",
+      "type": "specificCondition",
+      "description": "Wentworth's consciousness is tethered by unresolved professional duty. The mechanism can only be broken by completing his outstanding obligations: securing Mira Okonkwo's safety, recovering the estate archive, and formally closing his case files. Communication must follow solicitor protocol — formal written correspondence. A Sharp-based exploitWeakness roll represents assembling the legal and procedural steps to satisfy his obligations.",
+      "statRequired": "sharp",
+      "exploitOptions": [
+        {
+          "id": "exploit-letter-pattern",
+          "requiredClueIds": [
+            "clue-letter-collection"
+          ],
+          "modifier": -2,
+          "description": "exploit_letter_pattern_desc",
+          "successHarm": 4,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-mira-located",
+          "requiredClueIds": [
+            "clue-mira-school"
+          ],
+          "modifier": -1,
+          "description": "exploit_mira_located_desc",
+          "successHarm": 5,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-archive-found",
+          "requiredClueIds": [
+            "clue-estate-archive",
+            "clue-letter-collection"
+          ],
+          "modifier": 0,
+          "description": "exploit_archive_found_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-correspondence",
+          "requiredClueIds": [
+            "clue-wentworth-reply",
+            "clue-estate-archive"
+          ],
+          "modifier": 1,
+          "description": "exploit_correspondence_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        },
+        {
+          "id": "exploit-full-resolution",
+          "requiredClueIds": [
+            "clue-wentworth-reply",
+            "clue-estate-archive",
+            "clue-mira-school"
+          ],
+          "modifier": 2,
+          "description": "exploit_full_resolution_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-full-resolution",
+          "requiredClueIds": [
+            "clue-wentworth-reply",
+            "clue-estate-archive",
+            "clue-mira-school"
+          ],
+          "triggerWords": [
+            [
+              "mira",
+              "safe",
+              "archive"
+            ],
+            [
+              "deliver",
+              "document",
+              "mira"
+            ],
+            [
+              "duty",
+              "complete",
+              "mira"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "The letters stop. One final line in Wentworth's handwriting appears: 'Thank you. I can rest now.'"
+        },
+        {
+          "id": "ft-formal-reply",
+          "requiredClueIds": [
+            "clue-wentworth-reply",
+            "clue-estate-archive"
+          ],
+          "triggerWords": [
+            [
+              "formal",
+              "letter"
+            ],
+            [
+              "archive",
+              "recover"
+            ],
+            [
+              "duty",
+              "complete"
+            ],
+            [
+              "obligation",
+              "wentworth"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "A reply appears on the desk. He is listening."
+        },
+        {
+          "id": "ft-letter-approach",
+          "requiredClueIds": [
+            "clue-letter-collection"
+          ],
+          "triggerWords": [
+            [
+              "formal",
+              "wentworth"
+            ],
+            [
+              "letter",
+              "address"
+            ],
+            [
+              "official",
+              "correspond"
+            ],
+            [
+              "protocol",
+              "solicit"
+            ]
+          ],
+          "modifier": -1,
+          "successHarm": 6,
+          "narrativeResult": "The paper stills. You have his attention."
+        }
+      ]
+    },
+    "harm": 3,
+    "armor": 3,
+    "maxHarm": 10,
+    "attacks": [
+      "wentworth_obligation_compulsion",
+      "wentworth_paper_storm"
+    ],
+    "specialAbility": "Obligation-anchored — manifests through written correspondence, not physical presence. When his mechanism escalates, letters arrive faster, ink bleeds through surfaces, and paper fills rooms like a blizzard. In proximity to the law office, he can compel people to act on his instructions through a Weird-frequency compulsion carried in the handwriting. Physical attacks disperse the paper temporarily (1 hour) but cannot resolve the mechanism.",
+    "capabilities": [
+      {
+        "id": "cap-obligation-compulsion",
+        "name": "Obligation Compulsion",
+        "harm": 2,
+        "description": "The handwriting compels — hunters who read his letters without preparation must pass a roll or spend their next action completing a task Wentworth demands. The compulsion grows stronger near the law office.",
+        "disableConditions": [
+          "formal reply letter left on desk",
+          "Mira secured and safe"
+        ]
+      },
+      {
+        "id": "cap-paper-storm",
+        "name": "Paper Storm",
+        "harm": 1,
+        "description": "Letters and documents fill the room in a blinding blizzard. All hunters take 1 harm from lacerations and disorientation. Lasts until the round ends.",
+        "disableConditions": [
+          "all outstanding obligations acknowledged in writing",
+          "estate archive delivered"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-law-office",
+      "name": "Wentworth & Cole Solicitors — Clerkenwell",
+      "type": "crimeScene",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-letter-collection",
+          "significance": "partial",
+          "description": "Wentworth's office is exactly as he left it. His desk drawers contain copies of every letter he has sent since death — 11 clients, 23 letters, each in his handwriting. The letters escalate: early ones are polite corrections to legal filings. Later ones are urgent warnings. The final letter, addressed to Mira Okonkwo's grandmother, describes in precise legal language who is coming for the child, when, and why. A stack of blank paper on his desk replenishes itself overnight.",
+          "locationId": "loc-law-office",
+          "requiresAction": "investigate",
+          "keywords": [
+            "letter",
+            "handwriting",
+            "Wentworth",
+            "clients",
+            "desk",
+            "correspondence",
+            "escalate"
+          ]
+        },
+        {
+          "id": "clue-wentworth-reply",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "If the operatives write a formal letter to Wentworth — addressed properly, on legal paper, using correct solicitor protocol — and leave it on his desk, a reply appears within an hour. He is lucid, formal, and desperate. He explains: the estate he was managing contained documents describing how consciousness can be anchored after death. Someone wants these documents to weaponise the process. Mira Okonkwo is the researcher's granddaughter — and the researcher included a failsafe keyed to her bloodline. Mira must not be found by the people who closed the probate.",
+          "locationId": "loc-law-office",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "reply",
+            "formal",
+            "protocol",
+            "obligations",
+            "estate",
+            "consciousness",
+            "anchor"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-mira-school",
+        "loc-estate-storage"
+      ]
+    },
+    {
+      "id": "loc-mira-school",
+      "name": "St. Catherine's Primary School",
+      "type": "publicSpace",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-mira-school",
+          "significance": "key",
+          "description": "Mira Okonkwo, age 9, is bright, curious, and completely unaware of any danger. Her grandmother picks her up every day at 3:15. A dark sedan has been parked across the road from the school gates for three days — different drivers, same vehicle. The school receptionist mentions a man in a suit asked about Mira's schedule last week, claiming to be from a solicitor's office. He wasn't from Wentworth & Cole.",
+          "locationId": "loc-mira-school",
+          "requiresAction": "interview",
+          "keywords": [
+            "Mira",
+            "school",
+            "surveillance",
+            "sedan",
+            "child",
+            "danger",
+            "safe"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-law-office",
+        "loc-grandmother-home"
+      ]
+    },
+    {
+      "id": "loc-grandmother-home",
+      "name": "Florence Okonkwo's Residence",
+      "type": "witnessHome",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-grandmother-interview",
+          "significance": "partial",
+          "description": "Florence Okonkwo, 67, is Mira's legal guardian. She received two of Wentworth's posthumous letters. She recognised the handwriting — Wentworth managed her late son's estate. The first letter warned her to change Mira's school routine. The second provided a safe deposit box number. Florence is shaken but pragmatic. She changed the routine. She has not opened the safe deposit box. She does not trust easily — the operatives must earn her cooperation.",
+          "locationId": "loc-grandmother-home",
+          "requiresAction": "interview",
+          "keywords": [
+            "grandmother",
+            "Florence",
+            "guardian",
+            "deposit",
+            "box",
+            "protect",
+            "letter"
+          ]
+        }
+      ],
+      "availableActions": [
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-mira-school"
+      ]
+    },
+    {
+      "id": "loc-estate-storage",
+      "name": "SecureVault Storage — Unit 14C",
+      "type": "hiddenArea",
+      "threatLevel": 3,
+      "clueDefs": [
+        {
+          "id": "clue-estate-archive",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "The safe deposit box Florence was given contains a key to SecureVault Storage unit 14C. Inside: three boxes of the researcher's original papers — consciousness-anchoring methodology, BIM compound analyses, and correspondence with a woman identified only as 'A.D.' who was funding the research. The documents are the theoretical foundation for everything MESA has built. They also contain the reversal protocols. Someone has already attempted to access this unit — the lock shows tool marks, and the security log shows a failed entry 72 hours ago.",
+          "locationId": "loc-estate-storage",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "archive",
+            "papers",
+            "methodology",
+            "reversal",
+            "BIM",
+            "researcher",
+            "consciousness"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-law-office"
+      ]
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Medium-paced clock with a hard deadline. actionCost=1, travelCost=2. Miss adds +2. Confrontation at 12. Disaster at 28 (MESA reaches Mira).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 2,
+      "missPenalty": 2,
+      "successRefund": 0,
+      "confrontationAt": 12,
+      "disasterAt": 28,
+      "stepThresholds": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags posthumous correspondence from solicitor Martin Wentworth. Most recent letter describes a threat to a child. Field team dispatched.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "Letters are arriving faster — two per day now instead of one per week. Wentworth's handwriting is increasingly agitated. The ink is darker. Some letters arrive with grey residue on the paper.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "A letter arrives at Mira's school, addressed to the headteacher. It describes in precise detail what will happen to Mira if the school does not increase security. The headteacher calls the police.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "Wentworth's mechanism intensifies. Papers blow through his office without wind. Clients across the city receive letters simultaneously — all warning of the same event. He is running out of time and he knows it.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "The dark sedan is no longer just watching. Someone approaches Florence's door. They claim to be from social services. Florence doesn't open it. She calls the police. The police are too slow.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "Mira is taken from the school playground during afternoon break. Wentworth's final letter arrives — to the operatives directly, wherever they are. It contains one line: 'I failed. The archive is the only thing left that matters.'",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

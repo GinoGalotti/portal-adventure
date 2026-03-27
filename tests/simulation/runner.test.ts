@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { runSimulation } from '../../simulation/runner'
-import { createStrategy, RandomStrategy, GreedyCluesStrategy, RushStrategy, BalancedStrategy } from '../../simulation/strategies'
-import type { MysteryDefinition, ActionEntry } from '../../src/engine/types'
+import { createStrategy, RandomStrategy, GreedyCluesStrategy, BalancedStrategy } from '../../simulation/strategies'
+import type { MysteryDefinition } from '../../src/engine/types'
 
 // ─── Fixtures ─────────────────────────────────────────────────────────────────
 

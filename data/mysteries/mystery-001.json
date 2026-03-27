@@ -7,6 +7,8 @@
     "bim_connection": "The ash locket contains trace BIM-class material. PORTAL will recover it regardless of confrontation outcome. This is Project Veil breadcrumb 1 — canon for later arcs."
   },
   "id": "mystery-001",
+  "title": "A Promise Is a Promise",
+  "briefingText": "[CASE FILE OPEN: KLR-2026-031]\n[CLASSIFICATION: AMBER]\n[LOCATION: KELLER UNIVERSITY, BUDAPEST]\n\nThree students hospitalised. Cause: paranormal. Grey ash reforms hourly — no known origin, no chemical signature.\n\nFOCUS: Bálint Kővári, 2nd year Chemistry. Something wants his attention. Something that cannot leave until a debt is settled.\n\nINTEL LEVEL: BLIND.\n\nFind out what it is before the clock runs out.\n\n— CAMPBELL",
   "monster": {
     "id": "mon-eszter",
     "type": "sorcerer",
@@ -16,16 +18,209 @@
       "id": "w-promise-resolved",
       "type": "brokenBond",
       "description": "Bálint must consciously release Eszter from her obligation, or genuinely fulfil it. This requires locating the ash locket (anchor) and facilitating an honest conversation between Bálint and the hunters. A charm-based exploitWeakness roll represents guiding Bálint to say the words that free her.",
-      "statRequired": "charm"
+      "statRequired": "charm",
+      "exploitOptions": [
+        {
+          "id": "exploit-ash-knowledge",
+          "requiredClueIds": [
+            "clue-ash-trail"
+          ],
+          "modifier": -2,
+          "description": "exploit_ash_knowledge_desc",
+          "successHarm": 5,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-witness-account",
+          "requiredClueIds": [
+            "clue-witness-sightings"
+          ],
+          "modifier": -1,
+          "description": "exploit_witness_account_desc",
+          "successHarm": 6,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-identity-known",
+          "requiredClueIds": [
+            "clue-enrollment-record"
+          ],
+          "modifier": -1,
+          "description": "exploit_identity_known_desc",
+          "successHarm": 6,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-grief-understood",
+          "requiredClueIds": [
+            "clue-lab-journal",
+            "clue-enrollment-record"
+          ],
+          "modifier": 0,
+          "description": "exploit_grief_understood_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 4,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-pattern-mapped",
+          "requiredClueIds": [
+            "clue-manifestation-pattern",
+            "clue-witness-sightings"
+          ],
+          "modifier": 0,
+          "description": "exploit_pattern_mapped_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 4,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-anchor-found",
+          "requiredClueIds": [
+            "clue-ash-locket",
+            "clue-enrollment-record"
+          ],
+          "modifier": 1,
+          "description": "exploit_anchor_found_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 0
+        },
+        {
+          "id": "exploit-full-resolution",
+          "requiredClueIds": [
+            "clue-ash-locket",
+            "clue-balint-confession",
+            "clue-enrollment-record"
+          ],
+          "modifier": 2,
+          "description": "exploit_full_resolution_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-full-resolution",
+          "requiredClueIds": [
+            "clue-ash-locket",
+            "clue-balint-confession",
+            "clue-enrollment-record"
+          ],
+          "triggerWords": [
+            [
+              "balint",
+              "convince"
+            ],
+            [
+              "balint",
+              "comfort"
+            ],
+            [
+              "eszter",
+              "grief",
+              "forgive"
+            ],
+            [
+              "promise",
+              "balint"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "Bálint steps forward, voice breaking. He calls her name — her real name. The flames dim. The locket grows warm. Eszter turns, and for one moment she is just a student again."
+        },
+        {
+          "id": "ft-anchor-approach",
+          "requiredClueIds": [
+            "clue-ash-locket",
+            "clue-enrollment-record"
+          ],
+          "triggerWords": [
+            [
+              "locket",
+              "anchor"
+            ],
+            [
+              "locket",
+              "eszter"
+            ],
+            [
+              "locket",
+              "show"
+            ],
+            [
+              "locket",
+              "hold"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You hold the locket up. She freezes, staring at the tarnished metal. The heat drops."
+        },
+        {
+          "id": "ft-grief-approach",
+          "requiredClueIds": [
+            "clue-balint-confession"
+          ],
+          "triggerWords": [
+            [
+              "balint",
+              "sorry"
+            ],
+            [
+              "grief",
+              "forgive"
+            ],
+            [
+              "blame",
+              "comfort"
+            ],
+            [
+              "promise",
+              "forget"
+            ]
+          ],
+          "modifier": 0,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You speak of Bálint's guilt. The entity shudders — recognition, or pain."
+        }
+      ]
     },
-    "harm": 2,
+    "harm": 3,
     "armor": 4,
-    "maxHarm": 6,
+    "maxHarm": 10,
     "attacks": [
       "eszter_obligation_strike",
       "eszter_grief_wave"
     ],
-    "specialAbility": "Incorporeal — immune to physical weapons, bullets, and bladed weapons. Only weird-stat attacks (Use Magic, Ancient Fighting Arts with blessed weapon) or exploitWeakness rolls can reduce her harm. Her armour of 4 reflects this. She will not pursue hunters who are not near Bálint."
+    "specialAbility": "Incorporeal — immune to physical weapons, bullets, and bladed weapons. Only weird-stat attacks (Use Magic, Ancient Fighting Arts with blessed weapon) or exploitWeakness rolls can reduce her harm. Her armour of 4 reflects this. She will not pursue hunters who are not near Bálint.",
+    "capabilities": [
+      {
+        "id": "cap-grief-haunt",
+        "name": "Grief Haunt",
+        "harm": 2,
+        "description": "Eszter manifests her grief as psychic pressure — visions of unfulfilled promises, cold surges, sudden weeping without cause. Hunters in the confrontation zone take 2 harm from emotional shock.",
+        "disableConditions": [
+          "charm exploit succeeds",
+          "ash locket present in scene"
+        ]
+      },
+      {
+        "id": "cap-ash-surge",
+        "name": "Ash Surge",
+        "harm": 1,
+        "description": "A wave of grey ash fills the space. Hunters choke and disorient. On mixed results against her, she responds with 1 harm to the triggering hunter.",
+        "disableConditions": [
+          "locket destroyed",
+          "Balint speaks her name aloud"
+        ]
+      }
+    ]
   },
   "locationDefs": [
     {
@@ -39,24 +234,58 @@
           "significance": "partial",
           "description": "Grey ash residue forms a path between the memorial garden and the science building. It reappears within hours of being swept away. The ash is odourless, cannot be identified by standard lab analysis, and leaves no contamination — it simply exists.",
           "locationId": "loc-campus-grounds",
-          "requiresAction": "investigate"
+          "requiresAction": "investigate",
+          "keywords": [
+            "ash",
+            "trail",
+            "path",
+            "memorial",
+            "garden",
+            "science",
+            "building",
+            "grey",
+            "residue",
+            "reappear"
+          ]
         }
       ],
-      "availableActions": ["investigate", "interview", "helpBystander"],
-      "adjacentLocationIds": ["loc-memorial-garden", "loc-science-lab"]
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-memorial-garden",
+        "loc-science-lab"
+      ]
     },
     {
       "id": "loc-student-dorms",
       "name": "Keller University — Student Dormitories",
       "type": "witnessHome",
       "threatLevel": 2,
+      "requiredClueIds": ["clue-ash-trail"],
       "clueDefs": [
         {
           "id": "clue-witness-sightings",
           "significance": "partial",
           "description": "Students near Bálint's corridor describe seeing a young woman late at night — quiet, leaving grey footprints, sometimes vanishing mid-corridor. None of them know her. Campus records show no female resident on this floor. Security footage shows a shape but not a face.",
           "locationId": "loc-student-dorms",
-          "requiresAction": "interview"
+          "requiresAction": "interview",
+          "keywords": [
+            "witness",
+            "sighting",
+            "woman",
+            "footprint",
+            "corridor",
+            "balint",
+            "ghost",
+            "figure",
+            "night",
+            "student",
+            "security",
+            "vanish"
+          ]
         },
         {
           "id": "clue-balint-confession",
@@ -64,11 +293,32 @@
           "minRollOutcome": "success",
           "description": "When confronted with the evidence — ash trail, witness accounts, the locket — Bálint finally breaks down. He confesses: Eszter was his closest childhood friend. She died in an accident at the end of her first year here. He visited her every day in hospital. As she was dying she made him promise he would never forget her. He said yes. Lately he has been moving on — starting to forget her face — and she came back. He doesn't know what to do. He's terrified of her and heartbroken in equal measure.",
           "locationId": "loc-student-dorms",
-          "requiresAction": "interview"
+          "requiresAction": "interview",
+          "keywords": [
+            "balint",
+            "confession",
+            "promise",
+            "forget",
+            "grief",
+            "guilt",
+            "childhood",
+            "friend",
+            "eszter",
+            "heartbroken",
+            "afraid",
+            "moving",
+            "hospital",
+            "accident"
+          ]
         }
       ],
-      "availableActions": ["investigate", "interview"],
-      "adjacentLocationIds": ["loc-campus-grounds"]
+      "availableActions": [
+        "investigate",
+        "interview"
+      ],
+      "adjacentLocationIds": [
+        "loc-campus-grounds"
+      ]
     },
     {
       "id": "loc-university-library",
@@ -81,17 +331,38 @@
           "significance": "key",
           "description": "University archive records show Eszter Vásárhelyi enrolled at Keller University five years ago in the chemistry programme. She died in a cycling accident at the end of her first year, aged 19. Her listed emergency contact was Bálint Fehér — childhood friend, not family. He was her only regular visitor during her hospitalisation. The file contains a small photograph: a young woman, dark-haired, wearing a locket.",
           "locationId": "loc-university-library",
-          "requiresAction": "investigate"
+          "requiresAction": "investigate",
+          "keywords": [
+            "eszter",
+            "enrollment",
+            "record",
+            "chemistry",
+            "accident",
+            "balint",
+            "university",
+            "photograph",
+            "locket",
+            "name",
+            "archive",
+            "student",
+            "death"
+          ]
         }
       ],
-      "availableActions": ["investigate", "deepSearch"],
-      "adjacentLocationIds": ["loc-campus-grounds"]
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-campus-grounds"
+      ]
     },
     {
       "id": "loc-science-lab",
       "name": "Keller University — Bálint's Research Lab",
       "type": "hiddenArea",
       "threatLevel": 2,
+      "requiredClueIds": ["clue-witness-sightings"],
       "clueDefs": [
         {
           "id": "clue-ash-locket",
@@ -99,18 +370,54 @@
           "minRollOutcome": "success",
           "description": "Hidden at the back of Bálint's desk drawer: a small silver locket filled with grey ash. This is Eszter's memorial ash — given to Bálint by her family after her cremation. The locket is warm to the touch. Grey residue covers everything within two metres of it. When held, it pulses faintly — like a slow heartbeat. This is the physical anchor. Removing it from the room causes immediate manifestation of the entity.",
           "locationId": "loc-science-lab",
-          "requiresAction": "deepSearch"
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "locket",
+            "ash",
+            "anchor",
+            "balint",
+            "memorial",
+            "silver",
+            "warm",
+            "pulse",
+            "eszter",
+            "drawer",
+            "family",
+            "cremation",
+            "heartbeat"
+          ]
         },
         {
           "id": "clue-lab-journal",
           "significance": "key",
           "description": "Bálint's personal lab notebook contains a recent entry, written in shaking handwriting: 'She visits again. Third time this week. I can see her at the window — looking in, not looking at me. She looks exactly the same as the day she died. I don't know if I should be afraid or relieved. The ash follows me everywhere. I think she knows I haven't been visiting her grave.'",
           "locationId": "loc-science-lab",
-          "requiresAction": "investigate"
+          "requiresAction": "investigate",
+          "keywords": [
+            "journal",
+            "notebook",
+            "balint",
+            "visit",
+            "window",
+            "grave",
+            "afraid",
+            "relieved",
+            "ash",
+            "eszter",
+            "handwriting",
+            "fear"
+          ]
         }
       ],
-      "availableActions": ["investigate", "interview", "deepSearch"],
-      "adjacentLocationIds": ["loc-campus-grounds", "loc-memorial-garden"]
+      "availableActions": [
+        "investigate",
+        "interview",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-campus-grounds",
+        "loc-memorial-garden"
+      ]
     },
     {
       "id": "loc-memorial-garden",
@@ -123,24 +430,52 @@
           "significance": "key",
           "description": "The memorial garden has a stone bench with a plaque for students who have died. A circle of grey ash three metres across surrounds the bench. Campus CCTV footage shows a figure standing in this circle each night between 2am and 3am — same position, same time. She has been here every night for six weeks. The bench plaque does not list Eszter's name (she died off-campus), but there are fresh flowers placed here regularly, unsigned.",
           "locationId": "loc-memorial-garden",
-          "requiresAction": "investigate"
+          "requiresAction": "investigate",
+          "keywords": [
+            "manifestation",
+            "pattern",
+            "garden",
+            "bench",
+            "circle",
+            "night",
+            "flower",
+            "routine",
+            "appear",
+            "cctv",
+            "plaque",
+            "eszter",
+            "memorial"
+          ]
         }
       ],
-      "availableActions": ["investigate", "deepSearch", "helpBystander"],
-      "adjacentLocationIds": ["loc-campus-grounds", "loc-science-lab"],
+      "availableActions": [
+        "investigate",
+        "deepSearch",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-campus-grounds",
+        "loc-science-lab"
+      ],
       "startingMinions": 0
     }
   ],
   "countdownDef": {
-    "_clockConfig_note": "Clock uses actionCost=1, travelCost=2. Miss adds +1 extra (total 2), success refunds 1 (total 0). Confrontation available at 10, disaster at 30. Expected runs: rush=10 (blind), balanced=18 (partial/informed), thorough=30 (prepared but at limit).",
+    "_clockConfig_note": "Clock uses actionCost=1, travelCost=2. Miss adds +2 extra (total 3), no success refund. Confrontation available at 12, disaster at 30. Expected runs: rush=12 (blind/partial), balanced=20 (partial/informed), thorough=30 (prepared but at limit).",
     "clockConfig": {
       "actionCost": 1,
       "travelCost": 2,
-      "missPenalty": 1,
-      "successRefund": 1,
-      "confrontationAt": 10,
+      "missPenalty": 2,
+      "successRefund": 0,
+      "confrontationAt": 12,
       "disasterAt": 30,
-      "stepThresholds": [5, 10, 15, 20, 25]
+      "stepThresholds": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ]
     },
     "steps": [
       {

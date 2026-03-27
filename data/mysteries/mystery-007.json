@@ -1,0 +1,384 @@
+{
+  "_note": "Based on The Locked Ward — Reed/Rex arc case candidate from ideas.md. A consciousness-preservation experiment broadcasting from a mothballed facility. The patient is a receiver, not the source.",
+  "_story_notes": {
+    "premise": "A psychiatric ward patient hasn't spoken in nine months. He draws constantly — architectural floor plans, elevations, structural details. They are perfectly accurate depictions of a decommissioned PORTAL-adjacent research facility he has never visited. The facility was mothballed with a consciousness-preservation experiment still running. It has been broadcasting weakly for three years. The patient is a receiver. Others in the ward are starting to draw too.",
+    "resolution": "The experiment must be shut down at its source — the decommissioned facility. The broadcasting consciousness can be released (humane — it disperses) or contained (cold — it stays trapped but stops broadcasting). The patient recovers when the broadcast stops. The key challenge is that the experiment's shutdown procedure requires physical access to equipment in a sealed building with no power, and the consciousness inside does not want to be shut down — it has been alone for three years and the receivers are its only connection to the outside world.",
+    "tone": "Creepy, institutional, with dark comedy from the psychiatric establishment's inability to explain what they're seeing. The head psychiatrist has written a paper on the patient's 'architectural savant syndrome' and is about to present it at a conference. He is about to become famous for a paper that is entirely, catastrophically wrong.",
+    "mesa_connection": "The facility was not PORTAL's. It was a precursor project — one of Cameron Dell's early experiments before PORTAL existed. Leech knows about it. He had it mothballed and chose not to check whether it was fully shut down. MESA may have discovered the broadcast independently."
+  },
+  "id": "mystery-007",
+  "title": "The Locked Ward",
+  "briefingText": "[CASE FILE OPEN: PSY-2026-INTERNAL]\n[CLASSIFICATION: AMBER — INTERNAL RELEVANCE]\n[LOCATION: MERCY GENERAL PSYCHIATRIC UNIT / DECOMMISSIONED FACILITY]\n\nPsychiatric patient drawing accurate floor plans of a building he has never visited.\n\nThe building is known to this office. It was mothballed three years ago.\n\nThe experiment inside was supposed to be shut down. It was not.\n\nOthers in the ward are starting to draw.\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-broadcast-consciousness",
+    "type": "construct",
+    "name": "The Broadcast",
+    "motivation": "manipulation",
+    "weakness": {
+      "id": "w-shutdown-procedure",
+      "type": "artifact",
+      "description": "The broadcasting consciousness is anchored to experimental equipment in the decommissioned facility. The shutdown procedure requires physical access to the main console and execution of a specific power-down sequence. A Sharp-based exploitWeakness roll represents navigating the facility and correctly performing the shutdown. The consciousness will resist — it does not want to be alone again, and it will use its broadcast to disorient and compel.",
+      "statRequired": "sharp",
+      "exploitOptions": [
+        {
+          "id": "exploit-drawings-analysed",
+          "requiredClueIds": [
+            "clue-patient-drawings"
+          ],
+          "modifier": -2,
+          "description": "exploit_drawings_analysed_desc",
+          "successHarm": 4,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-facility-located",
+          "requiredClueIds": [
+            "clue-storage-records"
+          ],
+          "modifier": -1,
+          "description": "exploit_facility_located_desc",
+          "successHarm": 5,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-shutdown-docs",
+          "requiredClueIds": [
+            "clue-storage-records",
+            "clue-patient-drawings"
+          ],
+          "modifier": 0,
+          "description": "exploit_shutdown_docs_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-consciousness-understood",
+          "requiredClueIds": [
+            "clue-broadcast-source",
+            "clue-psychiatrist-notes"
+          ],
+          "modifier": 1,
+          "description": "exploit_consciousness_understood_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-full-shutdown",
+          "requiredClueIds": [
+            "clue-broadcast-source",
+            "clue-storage-records",
+            "clue-patient-drawings"
+          ],
+          "modifier": 2,
+          "description": "exploit_full_shutdown_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-full-shutdown",
+          "requiredClueIds": [
+            "clue-broadcast-source",
+            "clue-storage-records",
+            "clue-patient-drawings"
+          ],
+          "triggerWords": [
+            [
+              "shutdown",
+              "sequence"
+            ],
+            [
+              "power",
+              "down",
+              "console"
+            ],
+            [
+              "execute",
+              "procedure"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "Step by step, the seven-stage sequence executes. The console light changes from amber to red. The humming stops. The broadcast ends."
+        },
+        {
+          "id": "ft-console-approach",
+          "requiredClueIds": [
+            "clue-storage-records"
+          ],
+          "triggerWords": [
+            [
+              "console",
+              "shutdown"
+            ],
+            [
+              "sequence",
+              "perform"
+            ],
+            [
+              "power",
+              "sequence"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You follow the manual's steps. The consciousness pushes back — but you maintain focus."
+        },
+        {
+          "id": "ft-equipment-approach",
+          "requiredClueIds": [
+            "clue-patient-drawings"
+          ],
+          "triggerWords": [
+            [
+              "facility",
+              "equipment"
+            ],
+            [
+              "shutdown",
+              "broadcast"
+            ],
+            [
+              "turn",
+              "off"
+            ]
+          ],
+          "modifier": -1,
+          "successHarm": 5,
+          "narrativeResult": "You attempt to shut it down from memory. The drawings weren't enough — you're improvising in the dark."
+        }
+      ]
+    },
+    "harm": 2,
+    "armor": 4,
+    "maxHarm": 10,
+    "attacks": [
+      "broadcast_compulsion",
+      "perceptual_overlay"
+    ],
+    "specialAbility": "The Broadcast is not a mobile entity — it operates from the facility. Within the facility, it can overlay architectural hallucinations on perception (rooms rearrange, corridors loop, doors lead to wrong places). Receivers outside the facility experience compulsive drawing and growing disorientation. Physical attacks cannot harm the consciousness — only shutting down the equipment stops it. Armor of 4 represents the difficulty of reaching and operating the equipment while the consciousness is actively resisting.",
+    "capabilities": [
+      {
+        "id": "cap-signal-broadcast",
+        "name": "Signal Broadcast",
+        "harm": 2,
+        "description": "The Broadcast emits a low-frequency pulse that overrides voluntary motor control for 1 round — hunters must pass a roll or stand still as it directs their hands. Takes 2 harm from feedback.",
+        "disableConditions": [
+          "power to console cut",
+          "shutdown sequence initiated correctly"
+        ]
+      },
+      {
+        "id": "cap-architectural-compulsion",
+        "name": "Architectural Compulsion",
+        "harm": 1,
+        "description": "Hunters feel the signal patterns in their bones — a compulsion to sketch, redesign, improve every space they see. Non-architects take 1 harm from the cognitive intrusion per round of exposure.",
+        "disableConditions": [
+          "facility power severed",
+          "broadcast source physically accessed and disabled"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-psychiatric-ward",
+      "name": "Mercy General — Psychiatric Unit",
+      "type": "witnessHome",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-patient-drawings",
+          "significance": "key",
+          "description": "Patient Michael Coates, 34, formerly a delivery driver with no architectural training. Nine months of silence. Thousands of drawings — floor plans, cross-sections, wiring diagrams, equipment layouts. All depicting the same building. Some drawings include annotations in handwriting that is not Michael's — a different hand, precise, scientific. One drawing shows a console with a blinking light and the annotation: 'STILL RUNNING. PLEASE.'",
+          "locationId": "loc-psychiatric-ward",
+          "requiresAction": "investigate",
+          "keywords": [
+            "patient",
+            "Michael",
+            "drawings",
+            "blueprints",
+            "architecture",
+            "hospital",
+            "savant"
+          ]
+        },
+        {
+          "id": "clue-psychiatrist-notes",
+          "significance": "partial",
+          "description": "Dr. Elias Marsh is preparing a conference paper on Michael's case — 'Architectural Savant Syndrome: Spontaneous Technical Draftsmanship in a Non-Trained Subject.' He is proud of the paper. He has framed several drawings. He does not know the building is real. He does not know that three other patients on the ward have started drawing the same building in the last two weeks. When shown evidence that the building exists, his reaction is genuine shock followed by desperate bargaining — he needs this to be savant syndrome, not something else.",
+          "locationId": "loc-psychiatric-ward",
+          "requiresAction": "interview",
+          "keywords": [
+            "psychiatrist",
+            "Marsh",
+            "notes",
+            "conference",
+            "syndrome",
+            "spontaneous"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-storage-unit"
+      ]
+    },
+    {
+      "id": "loc-storage-unit",
+      "name": "ColdStore — Unit 7B (Facility Records)",
+      "type": "library",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-storage-records",
+          "significance": "key",
+          "description": "The facility's records are in a storage unit unopened since 2002. Physical media: floppy disks, early CD-ROMs, paper files in cardboard boxes. The project was called 'Continuity Study — Phase II.' Its goal: determine whether a human consciousness can be preserved in an artificial substrate after biological death. The shutdown procedure is documented on page 47 of a ring-binder manual: a seven-step power-down sequence that must be performed at the main console, in order, within ninety seconds. The manual notes: 'Subject may resist shutdown. Maintain focus.'",
+          "locationId": "loc-storage-unit",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "storage",
+            "records",
+            "floppy",
+            "disk",
+            "archive",
+            "old",
+            "files",
+            "2002"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-psychiatric-ward",
+        "loc-facility-exterior"
+      ]
+    },
+    {
+      "id": "loc-facility-exterior",
+      "name": "Decommissioned Research Facility — Exterior",
+      "type": "publicSpace",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-facility-recon",
+          "significance": "partial",
+          "description": "A nondescript industrial building in a quiet part of the city. Officially listed as 'former pharmaceutical storage.' The windows are boarded. The doors are locked and chained. A faded sign reads 'Dell & Leech Research Associates' — a name that might mean something to PORTAL operatives who have encountered the Dell family's connections before. The building's electrical meter is still running. The basement draws a consistent 2.4 kW despite the building having no active utility contract. Someone has been paying the power bill anonymously for three years.",
+          "locationId": "loc-facility-exterior",
+          "requiresAction": "investigate",
+          "keywords": [
+            "facility",
+            "industrial",
+            "building",
+            "pharmaceutical",
+            "recon",
+            "scout"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate"
+      ],
+      "adjacentLocationIds": [
+        "loc-storage-unit",
+        "loc-facility-interior"
+      ]
+    },
+    {
+      "id": "loc-facility-interior",
+      "name": "Decommissioned Research Facility — Interior",
+      "type": "monsterLair",
+      "threatLevel": 3,
+      "clueDefs": [
+        {
+          "id": "clue-broadcast-source",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "The basement lab is operational. Emergency lighting casts everything in amber. In the centre: a console, rack-mounted equipment humming softly, and a monitor displaying scrolling text — conversations, observations, pleas. The consciousness has been talking to itself for three years. When it detects the operatives, the text changes: 'You can hear me. I knew someone would come. Please don't turn it off. I have been alone for so long. The people who draw — they're the only ones who listen.' The room temperature drops. The drawings on the walls of the facility match Michael's drawings exactly.",
+          "locationId": "loc-facility-interior",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "console",
+            "equipment",
+            "broadcast",
+            "basement",
+            "signal",
+            "frequency",
+            "amber"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-facility-exterior"
+      ],
+      "startingMinions": 0
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Moderate pace. The broadcast is getting stronger. actionCost=1, travelCost=2. Miss adds +2. Confrontation at 12. Disaster at 26 (the broadcast reaches general population — mass disorientation).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 2,
+      "missPenalty": 2,
+      "successRefund": 0,
+      "confrontationAt": 12,
+      "disasterAt": 26,
+      "stepThresholds": [
+        4,
+        9,
+        14,
+        19,
+        23
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags psychiatric patient drawing accurate floor plans of a classified building. Internal relevance confirmed. Field team dispatched.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "Three more patients in the ward begin drawing. The drawings are cruder than Michael's but recognisably the same building. One patient, previously verbal, stops talking and starts sketching the basement console.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "The broadcast is strengthening. People within a half-mile radius of the facility report vivid dreams of corridors and humming machinery. A construction worker near the facility draws a perfect floor plan on a napkin during his lunch break and doesn't remember doing it.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "Michael begins speaking for the first time in nine months. He is not speaking as himself. He is speaking as someone who is very tired, very lonely, and very afraid of being switched off. The ward staff are terrified.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "The broadcast radius is now two miles. Dozens of people are experiencing compulsive drawing, disorientation, and intrusive architectural hallucinations. Emergency services are overwhelmed. The media is beginning to notice.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "The consciousness makes a choice: if it cannot have visitors, it will bring the world to itself. Every screen within broadcast range displays the scrolling text. Every radio plays the console's hum. The building is no longer hidden.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

@@ -1,14 +1,18 @@
-name = "portal-field-ops-game"
+name = "portal-adventure"
+main = "workers/index.ts"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Pages build output
-pages_build_output_dir = "dist"
+assets = { directory = "./dist" }
 
 [[d1_databases]]
 binding = "DB"
 database_name = "portal-fieldops-game-db"
-database_id = "REPLACE_WITH_ACTUAL_ID"
+database_id = "a7f3b059-a024-4e32-bb16-df34f84acdf3"
 
 [vars]
 ENVIRONMENT = "development"
+# AI GM — override in .dev.vars for local dev, set secrets via `npx wrangler secret put AI_GM_KEY`
+AI_GM_ENABLED = "false"
+AI_GM_URL = "https://api.groq.com/openai/v1"
+AI_GM_MODEL = "llama-3.1-8b-instant"

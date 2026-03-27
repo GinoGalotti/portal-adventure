@@ -1,0 +1,403 @@
+{
+  "_note": "Based on The Soul Fraud Case from ideas.md. Comic tone. A man is experiencing weaponised good luck after a demon committed soul fraud. Bureaucratic supernatural comedy that escalates into genuine danger.",
+  "_story_notes": {
+    "premise": "Terry Hobbs, 42, accountant. A minor demon offered him a standard deal: six months of whatever he wants in exchange for his soul. Terry said no. The demon, desperate to meet quarterly targets, signed the contract anyway and committed soul fraud. Terry is now experiencing extraordinary, escalating good luck — birds land on his shoulder, scratch cards always win, traffic lights turn green. He doesn't know why. He knows something is wrong. The luck is getting bigger and more dangerous.",
+    "resolution": "The fraudulent contract must be nullified through the proper demonic appeals process. This requires: (1) obtaining a copy of the contract, (2) filing a formal objection with the relevant demonic authority, and (3) presenting evidence of non-consent. The demon — Azrameth, designation 'Junior Acquisitions, Northeast Sector' — can be compelled to produce the contract if confronted with the procedural violation. The process is real, bureaucratic, and absurdly slow unless expedited.",
+    "tone": "Explicitly comic. Bureaucratic supernatural comedy. The demon is not malevolent, just incompetent and poorly supervised. Terry is a nice man having the worst good day of his life. The escalation from 'free parking everywhere' to 'buildings collapse around him and he's unscratched' is the pacing device. The horror is that luck this good has to come from somewhere — every win for Terry is balanced by a loss for someone nearby.",
+    "mesa_connection": "None. This case has no BIM connection, no consciousness-transfer mechanism, and no MESA involvement. It exists entirely outside the campaign's main arc. Perfect as a standalone one-off."
+  },
+  "id": "mystery-009",
+  "title": "The Soul Fraud",
+  "briefingText": "[CASE FILE OPEN: DBC-2026-ANOMALOUS]\n[CLASSIFICATION: GREEN — UNUSUAL MECHANISM]\n[LOCATION: DOWNTOWN / RESIDENTIAL]\n\nSubject: Terry Hobbs, 42, accountant. Experiencing anomalous probability manipulation.\n\nStatistical analysis of subject's last 14 days: lottery probability deviation of 4.7 sigma. Traffic accident near-misses: 11 (all avoided by subject, not by others).\n\nPreliminary classification: contractual anomaly.\n\nCAMPBELL notes this classification has been used exactly twice before in PORTAL's database. Both previous cases were filed by Dr. Leech and marked 'DO NOT PURSUE.'\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-azrameth",
+    "type": "sorcerer",
+    "name": "Azrameth",
+    "motivation": "manipulation",
+    "weakness": {
+      "id": "w-contract-nullification",
+      "type": "specificCondition",
+      "description": "The fraudulent soul contract must be nullified through proper demonic procedure. Azrameth can be compelled to produce the contract if confronted with evidence of soul fraud (non-consent). Filing a formal objection with the demonic appeals process — yes, there is one — triggers a review. A Sharp-based exploitWeakness roll represents navigating the bureaucratic process to nullify the contract. Alternatively, destroying the physical contract by force severs the connection but angers the demonic hierarchy, which has consequences.",
+      "statRequired": "sharp",
+      "exploitOptions": [
+        {
+          "id": "exploit-luck-pattern",
+          "requiredClueIds": [
+            "clue-probability-analysis"
+          ],
+          "modifier": -2,
+          "description": "exploit_luck_pattern_desc",
+          "successHarm": 3,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-terry-interview",
+          "requiredClueIds": [
+            "clue-terry-account"
+          ],
+          "modifier": -1,
+          "description": "exploit_terry_interview_desc",
+          "successHarm": 5,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-demon-confronted",
+          "requiredClueIds": [
+            "clue-summoning-trace",
+            "clue-terry-account"
+          ],
+          "modifier": 0,
+          "description": "exploit_demon_confronted_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-contract-obtained",
+          "requiredClueIds": [
+            "clue-contract-copy",
+            "clue-summoning-trace"
+          ],
+          "modifier": 1,
+          "description": "exploit_contract_obtained_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-appeals-filed",
+          "requiredClueIds": [
+            "clue-contract-copy",
+            "clue-terry-account",
+            "clue-bureaucratic-precedent"
+          ],
+          "modifier": 2,
+          "description": "exploit_appeals_filed_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-appeals-filed",
+          "requiredClueIds": [
+            "clue-contract-copy",
+            "clue-terry-account",
+            "clue-bureaucratic-precedent"
+          ],
+          "triggerWords": [
+            [
+              "file",
+              "appeal"
+            ],
+            [
+              "objection",
+              "filed"
+            ],
+            [
+              "appeals",
+              "contract",
+              "void"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "The clerk stamps the form. 'Expedited review — granted.' Azrameth's clipboard glows red. The contract nullifies with the sound of a very disappointed junior demon."
+        },
+        {
+          "id": "ft-contract-confronted",
+          "requiredClueIds": [
+            "clue-contract-copy",
+            "clue-summoning-trace"
+          ],
+          "triggerWords": [
+            [
+              "void",
+              "contract"
+            ],
+            [
+              "nullify",
+              "contract"
+            ],
+            [
+              "contract",
+              "fraud"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You present the unsigned contract. Azrameth looks at his clipboard. He looks at the contract. He looks like he is about to file a counter-complaint and thinks better of it."
+        },
+        {
+          "id": "ft-procedural-approach",
+          "requiredClueIds": [
+            "clue-terry-account"
+          ],
+          "triggerWords": [
+            [
+              "terry",
+              "consent"
+            ],
+            [
+              "demon",
+              "fraud"
+            ],
+            [
+              "azrameth",
+              "contract"
+            ]
+          ],
+          "modifier": 0,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You invoke the non-consent. Azrameth flinches. He knows he's been caught. He just hoped nobody would check the paperwork."
+        }
+      ]
+    },
+    "harm": 2,
+    "armor": 2,
+    "maxHarm": 8,
+    "attacks": [
+      "azrameth_probability_twist",
+      "azrameth_bureaucratic_delay"
+    ],
+    "specialAbility": "Azrameth is a junior demon — not powerful, not frightening, deeply anxious about his performance review. He cannot fight effectively (harm 2 is his best effort — he throws filing cabinets). His real danger is the luck mechanism: while the contract is active, Terry's escalating good fortune drains luck from everyone nearby. Each 'win' for Terry corresponds to a 'loss' for someone in proximity. The worse Terry's luck gets (i.e. the bigger the wins), the more catastrophic the losses become for bystanders.",
+    "capabilities": [
+      {
+        "id": "cap-luck-reversal",
+        "name": "Luck Reversal",
+        "harm": 2,
+        "description": "Azrameth inverts the contract’s luck field around hunters — rolls that would succeed become misses, and miss penalties are doubled. Lasts until the hunter explicitly acknowledges the contract terms.",
+        "disableConditions": [
+          "contract voided via formal appeal",
+          "Azrameth’s fraud demonstrated"
+        ]
+      },
+      {
+        "id": "cap-contract-compulsion",
+        "name": "Contract Compulsion",
+        "harm": 1,
+        "description": "The demon invokes a clause of the contract compelling Terry’s cooperation. Terry moves toward Azrameth, taking 1 harm from the compulsion pull. Hunters must intervene physically or legally to break it.",
+        "disableConditions": [
+          "formal objection filed successfully",
+          "appeals process invoked correctly"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-terry-apartment",
+      "name": "Terry Hobbs' Apartment — 4th Floor Walk-Up",
+      "type": "witnessHome",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-terry-account",
+          "significance": "key",
+          "description": "Terry is a mild, bewildered man who wants to be helpful. He describes the last two weeks: every scratch card wins, every parking spot opens up, he found a $20 bill every single day. He is not enjoying it — he's anxious. 'I said no. I specifically said no. He had a clipboard and I said no thank you.' He describes the demon as 'about five foot six, wearing a polo shirt, very sweaty, clipboard, bad energy.' The encounter happened outside a Subway restaurant at 11:47pm. Terry went in for a sandwich. The demon was in the car park.",
+          "locationId": "loc-terry-apartment",
+          "requiresAction": "interview",
+          "keywords": [
+            "Terry",
+            "account",
+            "luck",
+            "win",
+            "scratch",
+            "card",
+            "bewildered",
+            "impossible"
+          ]
+        },
+        {
+          "id": "clue-probability-analysis",
+          "significance": "partial",
+          "description": "Terry has been keeping a spreadsheet. An accountant's response to the impossible: document it. The spreadsheet lists 147 lucky events in 14 days. Statistical analysis confirms: this is not chance. The probability of this sequence occurring naturally is approximately 1 in 10^43. Attached to the spreadsheet: a hand-drawn map of 'unlucky things that happened to people near me,' including three car accidents, a house fire, and a man who was struck by lightning on a clear day. Terry has circled the lightning and written: 'This one really bothers me.'",
+          "locationId": "loc-terry-apartment",
+          "requiresAction": "investigate",
+          "keywords": [
+            "probability",
+            "analysis",
+            "spreadsheet",
+            "statistics",
+            "luck",
+            "pattern"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview"
+      ],
+      "adjacentLocationIds": [
+        "loc-subway-car-park",
+        "loc-terry-office"
+      ]
+    },
+    {
+      "id": "loc-subway-car-park",
+      "name": "Subway Restaurant — Car Park (Summoning Site)",
+      "type": "crimeScene",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-summoning-trace",
+          "significance": "key",
+          "description": "The car park has a faint sulphur smell that comes and goes. Under the third parking bay from the left: a scuffed chalk circle, partially washed away by rain. The circle is a junior-grade summoning anchor — Azrameth doesn't have the rank for a permanent portal. He has to come back to this spot every 72 hours to maintain the contract. The next maintenance window is in 18 hours. If the operatives are here, they can intercept him.",
+          "locationId": "loc-subway-car-park",
+          "requiresAction": "investigate",
+          "keywords": [
+            "summoning",
+            "trace",
+            "chalk",
+            "circle",
+            "sulphur",
+            "car",
+            "park",
+            "sigil"
+          ]
+        },
+        {
+          "id": "clue-contract-copy",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Wedged under the car park's dumpster: a carbon-copy of the contract, dropped by Azrameth during the original encounter. It is written in a script that shifts between English and something older. Terry Hobbs' name is on it. The signature line is blank — no signature. Below it, in small print: 'In the event of non-signature, the contract holder may file Form 12-B (Unilateral Activation) with the Office of Acquisitions. Filing does not constitute consent. A valid objection filed within 30 days of activation triggers mandatory review.' Thirty days from activation is in four days.",
+          "locationId": "loc-subway-car-park",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "contract",
+            "copy",
+            "carbon",
+            "demon",
+            "Azrameth",
+            "signature",
+            "agreement"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-terry-apartment",
+        "loc-liminal-office"
+      ]
+    },
+    {
+      "id": "loc-terry-office",
+      "name": "Hobbs & Associates — Accounting Firm",
+      "type": "publicSpace",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-escalation-evidence",
+          "significance": "partial",
+          "description": "Terry's office shows the luck's escalation. His colleagues describe a man who won the office lottery pool three times, whose computer never crashes, whose coffee is always the perfect temperature. But: the colleague who sits next to him broke both ankles falling down stairs. The office air conditioning unit fell on an intern's desk (the intern had left the room thirty seconds prior). The building inspector found structural damage consistent with 'localised probability failure.' The luck is a zero-sum equation and the debt is being paid by everyone around Terry.",
+          "locationId": "loc-terry-office",
+          "requiresAction": "interview",
+          "keywords": [
+            "escalation",
+            "office",
+            "lottery",
+            "colleagues",
+            "pattern",
+            "uncontrolled"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-terry-apartment"
+      ]
+    },
+    {
+      "id": "loc-liminal-office",
+      "name": "The Appeals Office — Liminal Space",
+      "type": "hiddenArea",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-bureaucratic-precedent",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Accessing the demonic appeals process requires the contract copy and a formal written objection. The 'office' manifests in liminal spaces — basements, stairwells, places between floors. It looks like a DMV. There is a queue. The clerk — designation unclear, appearance of a tired woman in her 50s — processes the objection with the energy of someone who has done this ten thousand times. She provides a precedent: 'Hobbs vs. Azrameth — unilateral activation without consent is a Class 2 violation. Filing accepted. Review in... three to six business centuries.' Unless expedited. Expediting requires the demon's personal seal, which he keeps on his clipboard.",
+          "locationId": "loc-liminal-office",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "bureaucratic",
+            "appeal",
+            "procedure",
+            "void",
+            "contract",
+            "formal",
+            "precedent"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-subway-car-park"
+      ]
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Comedy pacing — the escalation is funny until it suddenly isn't. actionCost=1, travelCost=2. Miss adds +1 (forgiving — this is light). Confrontation at 10. Disaster at 24 (the luck hits critical mass — a plane engine falls off over Terry's neighbourhood and he is the only survivor).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 2,
+      "missPenalty": 1,
+      "successRefund": 1,
+      "confrontationAt": 10,
+      "disasterAt": 24,
+      "stepThresholds": [
+        4,
+        8,
+        13,
+        18,
+        22
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags anomalous probability manipulation centred on one individual. Classification: contractual anomaly. Field team dispatched.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "Terry wins a radio call-in contest he didn't enter. His neighbour's car spontaneously catches fire. A pigeon lands on Terry's shoulder and stays there for his entire commute. He is visibly distressed.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "A minor earthquake (2.1 magnitude) is centred exactly on Terry's apartment building. His apartment is undamaged. The building next door loses a wall. Terry finds a diamond ring in his cereal box. He does not want it.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "Terry calls in sick because every time he leaves his apartment, something wonderful happens to him and something terrible happens to someone nearby. He is hiding under his kitchen table. He has unplugged everything. The lights come on anyway.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "The escalation goes public. A news crew filming outside Terry's building wins three Emmys for the segment (impossible — they hadn't submitted it). Their van explodes immediately after. No casualties. Terry is crying.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "The luck reaches critical mass. Terry is the luckiest person alive and the most dangerous. A structural failure begins in a building two blocks away — the probability debt demands payment. Unless the contract is nullified in the next hour, the balancing mechanism will claim lives.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

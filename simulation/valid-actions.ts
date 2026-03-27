@@ -12,6 +12,7 @@
 
 import type { GameState, ActionEntry } from '../src/engine/types'
 import { getReachableLocationIds } from '../src/engine/investigation'
+import { getAvailableExploitOptions } from '../src/engine/confrontation'
 
 // ─── Investigation Phase ──────────────────────────────────────────────────────
 
@@ -79,6 +80,7 @@ function getInvestigationActions(state: GameState): ActionEntry[] {
 function getConfrontationActions(state: GameState): ActionEntry[] {
   const conf = state.confrontation
   if (!conf) return []
+  const mystery = state.mystery
 
   const actions: ActionEntry[] = []
   const now = 0
@@ -91,9 +93,56 @@ function getConfrontationActions(state: GameState): ActionEntry[] {
     actions.push({ type: 'resist',   payload: { hunterId: hunter.id }, timestamp: now })
     actions.push({ type: 'distract', payload: { hunterId: hunter.id }, timestamp: now })
     actions.push({ type: 'assess',   payload: { hunterId: hunter.id }, timestamp: now })
+  }
 
-    if (conf.intelLevel !== 'blind') {
-      actions.push({ type: 'exploitWeakness', payload: { hunterId: hunter.id }, timestamp: now })
+  // Helper: check if a hunter is on exploit cooldown (last action was exploitWeakness)
+  function hunterOnExploitCooldown(hunterId: string): boolean {
+    const hunterHistory = conf.history.filter((a) => a.hunterId === hunterId)
+    const last = hunterHistory[hunterHistory.length - 1]
+    return last?.actionType === 'exploitWeakness'
+  }
+
+  // Exploit weakness: clue-based options, free-text exploits, or legacy intel check
+  if (mystery) {
+    const exploitOptions = mystery.monster.weakness.exploitOptions
+    const freeTextExploits = mystery.monster.weakness.freeTextExploits
+    if (exploitOptions && exploitOptions.length > 0) {
+      // Structured path: one action per available option per alive hunter (cooldown-aware)
+      const available = getAvailableExploitOptions(mystery)
+      for (const option of available) {
+        for (const hunter of state.team.hunters) {
+          if (!hunter.alive || hunterOnExploitCooldown(hunter.id)) continue
+          actions.push({
+            type: 'exploitWeakness',
+            payload: { hunterId: hunter.id, exploitOptionId: option.id },
+            timestamp: now,
+          })
+        }
+      }
+    } else if (freeTextExploits && freeTextExploits.length > 0) {
+      // Free-text path: one action per available exploit per alive hunter (cooldown-aware)
+      const available = freeTextExploits
+      for (const ft of available) {
+        const triggerInput = ft.triggerWords[0]?.join(' ') ?? ft.id
+        for (const hunter of state.team.hunters) {
+          if (!hunter.alive || hunterOnExploitCooldown(hunter.id)) continue
+          actions.push({
+            type: 'exploitWeakness',
+            payload: { hunterId: hunter.id, freeTextInput: triggerInput },
+            timestamp: now,
+          })
+        }
+      }
+    } else if (conf.intelLevel !== 'blind') {
+      // Legacy path: one exploitWeakness per alive hunter (cooldown-aware)
+      for (const hunter of state.team.hunters) {
+        if (!hunter.alive || hunterOnExploitCooldown(hunter.id)) continue
+        actions.push({
+          type: 'exploitWeakness',
+          payload: { hunterId: hunter.id },
+          timestamp: now,
+        })
+      }
     }
   }
 

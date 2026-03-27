@@ -1,0 +1,406 @@
+{
+  "_note": "Based on The Wake — Sven arc case candidate from ideas.md. An Irish wake in a Baltimore pub where the dead man is playing fiddle. Thin-boundary location created by entirely human practice. Prophecy layer via impossible music.",
+  "_story_notes": {
+    "premise": "An Irish wake in a Baltimore basement pub. The deceased was a fiddle player, 83, died of natural causes. By the second night, the dead man is playing. Not his ghost — something that knew him from the thin places where music goes when nobody is listening. The wake has been going for 52 hours. The entity plays the dead man's tunes perfectly, and also tunes that don't exist yet.",
+    "resolution": "The entity must be given a final tune — a musical farewell played by the living musicians that acknowledges the dead man's departure and closes the boundary that grief opened. The tune must be honest (no performance, no pretence). A Weird-based exploitWeakness roll represents the farewell performance. Alternatively, the boundary can be closed by ending the wake — but the musicians refuse to stop, and forcing them would be cruel.",
+    "tone": "Strange, warm, melancholy, and darkly funny. The pub landlord is out of Guinness. There are fourteen fiddle players in his back room and one of them is dead. No mobile reception (2005 coverage gaps in the basement). The team is genuinely isolated from the lab. The entity is not hostile — it is sharing something beautiful that happens to be lethal to the boundary between living and dead.",
+    "prophecy_layer": "One impossible tune contains a structured frequency that, when decoded, describes a sequence of events that hasn't happened yet. The tune is a prophecy. The musicians who learned it carry it in their muscle memory. Playing it again would activate the binding mechanic — anyone who hears it with full understanding of what it describes would be bound to that future. The operatives must decide: destroy the tune, or let the music exist?"
+  },
+  "id": "mystery-008",
+  "title": "The Wake",
+  "briefingText": "[CASE FILE OPEN: BWK-2026-FIELD]\n[CLASSIFICATION: AMBER]\n[LOCATION: O'MALLEY'S PUB — FEDERAL HILL, BALTIMORE]\n\nIrish wake. 52 hours. 14 musicians. The deceased is playing.\n\nNot a ghost. Something that remembers him from somewhere music goes.\n\nThe boundary is thinning. The tunes are impossible. The musicians can't stop.\n\nNo mobile reception at location. You are on your own.\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-wake-presence",
+    "type": "spirit",
+    "name": "The Tune-Keeper",
+    "motivation": "preservation",
+    "weakness": {
+      "id": "w-farewell-tune",
+      "type": "ritual",
+      "description": "The boundary was opened by grief expressed through music. It can be closed by a farewell tune — played honestly, by living musicians, acknowledging the dead man's departure. The tune must be original (not one of the dead man's), genuine (no performance for effect), and complete (played to the end without stopping). A Weird-based exploitWeakness roll represents the performance. The entity will listen. If the farewell is honest, it will join in — and then stop.",
+      "statRequired": "weird",
+      "exploitOptions": [
+        {
+          "id": "exploit-entity-observed",
+          "requiredClueIds": [
+            "clue-fiddle-player"
+          ],
+          "modifier": -2,
+          "description": "exploit_entity_observed_desc",
+          "successHarm": 4,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-boundary-mapped",
+          "requiredClueIds": [
+            "clue-thin-boundary"
+          ],
+          "modifier": -1,
+          "description": "exploit_boundary_mapped_desc",
+          "successHarm": 5,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-prophecy-identified",
+          "requiredClueIds": [
+            "clue-impossible-tunes",
+            "clue-thin-boundary"
+          ],
+          "modifier": 0,
+          "description": "exploit_prophecy_identified_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-musicians-ready",
+          "requiredClueIds": [
+            "clue-siobhan-interview",
+            "clue-fiddle-player"
+          ],
+          "modifier": 1,
+          "description": "exploit_musicians_ready_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        },
+        {
+          "id": "exploit-honest-farewell",
+          "requiredClueIds": [
+            "clue-siobhan-interview",
+            "clue-impossible-tunes",
+            "clue-dead-mans-house"
+          ],
+          "modifier": 2,
+          "description": "exploit_honest_farewell_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-honest-farewell",
+          "requiredClueIds": [
+            "clue-siobhan-interview",
+            "clue-impossible-tunes",
+            "clue-dead-mans-house"
+          ],
+          "triggerWords": [
+            [
+              "farewell",
+              "tune",
+              "play"
+            ],
+            [
+              "padraig",
+              "tune"
+            ],
+            [
+              "music",
+              "goodbye",
+              "siobhan"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "The musicians play Padraig's farewell tune — the one he wrote himself, for after. The Tune-Keeper joins in for one final phrase, then goes quiet. The boundary closes gently."
+        },
+        {
+          "id": "ft-siobhan-music",
+          "requiredClueIds": [
+            "clue-siobhan-interview",
+            "clue-fiddle-player"
+          ],
+          "triggerWords": [
+            [
+              "siobhan",
+              "music"
+            ],
+            [
+              "farewell",
+              "song"
+            ],
+            [
+              "play",
+              "goodbye"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "With Siobhan's help, the musicians begin a farewell. The entity stills. It is listening to something honest."
+        },
+        {
+          "id": "ft-music-approach",
+          "requiredClueIds": [
+            "clue-fiddle-player"
+          ],
+          "triggerWords": [
+            [
+              "tune",
+              "farewell"
+            ],
+            [
+              "music",
+              "close"
+            ],
+            [
+              "play",
+              "ritual"
+            ]
+          ],
+          "modifier": -1,
+          "successHarm": 5,
+          "narrativeResult": "You attempt a musical farewell. The tune is uncertain. The entity hears the effort, if not the truth."
+        }
+      ]
+    },
+    "harm": 2,
+    "armor": 5,
+    "maxHarm": 8,
+    "attacks": [
+      "boundary_bleed",
+      "tune_compulsion"
+    ],
+    "specialAbility": "The Tune-Keeper does not attack directly. Its presence thins the boundary — the longer the wake continues, the more the barrier between living and dead erodes. Anyone in the pub for more than two hours begins to perceive the dead: not just the fiddle player, but others, crowding in. Tune_compulsion: musicians who hear the entity play cannot stop playing without an Act Under Pressure roll (+Cool). The entity cannot be harmed by physical means — only Weird-stat approaches and the farewell ritual can affect it. It is not hostile. It is sharing.",
+    "capabilities": [
+      {
+        "id": "cap-possession-session",
+        "name": "Possession Session",
+        "harm": 2,
+        "description": "The Tune-Keeper draws a hunter into the session — they pick up an instrument and cannot stop playing. Takes 2 harm from the effort and the boundary bleed. Requires a roll to break free.",
+        "disableConditions": [
+          "farewell tune performed deliberately with grief",
+          "Siobhan present and speaking"
+        ]
+      },
+      {
+        "id": "cap-boundary-pull",
+        "name": "Boundary Pull",
+        "harm": 1,
+        "description": "The thin boundary tears slightly. Hunters near the back room feel presences pressing through — 1 harm per round from the weight of what’s on the other side. Intensifies with each passing round.",
+        "disableConditions": [
+          "farewell acknowledged by daughter",
+          "impossible tune played back deliberately"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-pub-main",
+      "name": "O'Malley's — Main Bar",
+      "type": "publicSpace",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-fiddle-player",
+          "significance": "partial",
+          "description": "The back room is full of musicians. Fourteen fiddle players, a bodhran, two concertinas. The music has been continuous for 52 hours. In the corner, playing with perfect technique: a fiddle player who matches the photograph on the memorial card pinned above the bar. Padraig Connolly, age 83, died of heart failure four days ago. He looks solid. He looks happy. He plays tunes the living musicians don't know — and they're learning them without realising it.",
+          "locationId": "loc-pub-main",
+          "requiresAction": "investigate",
+          "keywords": [
+            "fiddle",
+            "music",
+            "musicians",
+            "session",
+            "playing",
+            "continuous",
+            "pub",
+            "back",
+            "room"
+          ]
+        },
+        {
+          "id": "clue-siobhan-interview",
+          "significance": "key",
+          "description": "Siobhan Connolly, Padraig's daughter, 54, red-eyed and steady. She knows her father is there. She is not frightened — she is grateful. She says: 'He's playing the tunes he never got to play. The ones that were in him but never came out.' She explains that Padraig always said music goes somewhere when nobody plays it — and that place remembers. She will help with a farewell tune. She will not help shut the wake down. 'You don't silence a man's last session.'",
+          "locationId": "loc-pub-main",
+          "requiresAction": "interview",
+          "keywords": [
+            "Siobhan",
+            "daughter",
+            "Padraig",
+            "grief",
+            "farewell",
+            "presence",
+            "interview"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-back-room",
+        "loc-street"
+      ]
+    },
+    {
+      "id": "loc-back-room",
+      "name": "O'Malley's — Back Room (The Session)",
+      "type": "monsterLair",
+      "threatLevel": 3,
+      "clueDefs": [
+        {
+          "id": "clue-impossible-tunes",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Recording the session with a handheld device (2005 — cassette or MiniDisc), then playing it back, reveals something the ear missed: buried in one tune is a structured pattern. Not random melody — data. The frequency signature matches what PORTAL has catalogued as BIM-class material. Decoded, the pattern describes a sequence of events: a building, a confrontation, a choice. None of it has happened yet. The musicians who learned this tune carry it in their fingers. Playing it again, with understanding of what it describes, would bind the listener to that future.",
+          "locationId": "loc-back-room",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "impossible",
+            "tune",
+            "recording",
+            "cassette",
+            "playback",
+            "second",
+            "fiddle"
+          ]
+        },
+        {
+          "id": "clue-thin-boundary",
+          "significance": "key",
+          "description": "The back room is the epicentre. The air is thicker here — sounds arrive from slightly wrong directions. The operatives begin to perceive figures in the periphery: other dead, drawn by the thinning boundary. An old woman sitting in the corner who isn't there when looked at directly. A child laughing under a table. The longer anyone stays, the more they see. The boundary is opening wider. The wake is beautiful and it is dangerous.",
+          "locationId": "loc-back-room",
+          "requiresAction": "investigate",
+          "keywords": [
+            "thin",
+            "boundary",
+            "back",
+            "room",
+            "sounds",
+            "veil",
+            "epicentre",
+            "directions"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-pub-main"
+      ]
+    },
+    {
+      "id": "loc-street",
+      "name": "Federal Hill — Street Outside",
+      "type": "publicSpace",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-neighbourhood-effect",
+          "significance": "partial",
+          "description": "The houses on either side of O'Malley's are experiencing minor anomalies: a grandmother dead ten years appeared at a neighbour's breakfast table for thirty seconds, smiled, and vanished. A cat that died last month is sleeping on its usual windowsill. None of it is threatening — all of it is impossible. The boundary's effect is spreading beyond the pub walls. If it reaches the main road, the scale changes.",
+          "locationId": "loc-street",
+          "requiresAction": "investigate",
+          "keywords": [
+            "neighbourhood",
+            "effect",
+            "dead",
+            "grandmother",
+            "appear",
+            "anomaly",
+            "house"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview"
+      ],
+      "adjacentLocationIds": [
+        "loc-pub-main",
+        "loc-dead-mans-house"
+      ]
+    },
+    {
+      "id": "loc-dead-mans-house",
+      "name": "Padraig Connolly's Home — Riverside Terrace",
+      "type": "witnessHome",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-dead-mans-house",
+          "significance": "key",
+          "description": "Padraig's house is quiet. His fiddle case is on the kitchen table — empty (the fiddle is at the pub, playing itself). Inside the case lining: a folded piece of paper with a tune written in Padraig's hand, titled 'For After.' He wrote his own farewell tune. He knew he was dying. He wrote the music for the living to play when he was gone — the honest goodbye he couldn't say with words. This is the farewell tune. It's beautiful, simple, and complete.",
+          "locationId": "loc-dead-mans-house",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "Padraig",
+            "house",
+            "fiddle",
+            "case",
+            "empty",
+            "home",
+            "evidence"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-street"
+      ]
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Slow-burn clock. The wake grows more dangerous but isn't immediately lethal. actionCost=1, travelCost=1 (close locations). Miss adds +2. Confrontation at 8 (can attempt farewell early). Disaster at 20 (boundary collapses — the dead walk freely in a three-block radius).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 1,
+      "missPenalty": 2,
+      "successRefund": 1,
+      "confrontationAt": 8,
+      "disasterAt": 20,
+      "stepThresholds": [
+        3,
+        6,
+        10,
+        14,
+        18
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags anomalous thin-boundary readings at a Baltimore pub. An Irish wake has been running for 52 hours. The deceased appears to be present. Field team dispatched. No mobile reception at location.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "The music gets louder. Musicians who entered the pub for one pint are still playing six hours later. The landlord has run out of Guinness. He has asked three times if anyone would like to go home. Nobody can.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "Peripheral figures are now visible to everyone in the pub, not just the operatives. Two patrons leave in a panic. One stays — she says the figure in the corner looks like her grandmother. She is weeping. She is not frightened.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "The boundary extends beyond the pub walls. A neighbour calls the police to report 'a dead woman in my kitchen who keeps trying to do the washing up.' The police are baffled. The dead are not hostile. They are visiting.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "The boundary is now two blocks wide. Dozens of the recently dead are visible. The living can interact with them. Some are having conversations they never got to have. Others are running. The media is arriving.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "The boundary dissolves entirely within a three-block radius. The living and the dead share the same space. It is beautiful and it is unsustainable. Within hours, the living in the zone will begin to lose the distinction between being alive and being dead. Padraig's fiddle is still playing.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

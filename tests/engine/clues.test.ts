@@ -12,7 +12,7 @@ import {
 import { applyAction } from '../../src/engine/actions'
 import { createInitialState } from '../../src/engine/state'
 import { forceRoll } from '../../src/engine/debug'
-import type { Clue, ClueDef, Location, Mystery, MysteryDefinition, ActionEntry, GameState } from '../../src/engine/types'
+import type { ClueDef, Location, Mystery, MysteryDefinition, ActionEntry, GameState } from '../../src/engine/types'
 
 // ─── Fixtures ─────────────────────────────────────────────────────────────────
 

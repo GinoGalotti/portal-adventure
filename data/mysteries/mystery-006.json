@@ -1,0 +1,389 @@
+{
+  "_note": "Based on the Shōjō — Episode 4 candidate from ideas.md. Traditional Japanese folklore creature. Emergency override case with no BIM connection. Tonal palate cleanser: action, comedy, direct confrontation.",
+  "_story_notes": {
+    "premise": "A sea spirit from Japanese folklore — the Shōjō — has attached itself to a cask of ceremonial sake at the Baltimore Inner Harbor. Ten feet tall, red-haired, perpetually drunk. Feeds on extremes of genuine emotion. Three deaths: a man celebrating a promotion (died laughing), a woman grieving her mother (found peaceful, just gone), a dockworker in a state of simultaneous fury and relief. The police are looking for 'a very large ginger man.'",
+    "resolution": "Can be fought directly — this is a real fight with a real weakness. The Shōjō is vulnerable to the ceremonial sake that carried it here: pouring the brewer's sake in a ritual circle traps it, and the grief in the sake (the brewer's daughter died) resonates with the creature's feeding mechanism, creating a feedback loop. Alternatively, someone approaching with genuine, unguarded emotional honesty can reason with it — the Shōjō respects authenticity. Both paths are valid.",
+    "tone": "Comedy meets genuine danger. The Shōjō is staggering through the docklands at 2am knocking over bins and singing. 911 calls describe a 'very large ginger man having a wonderful time.' But the deaths are real, the feeding is lethal, and the clock is ticking. The ideal session mixes laughs with a genuinely tense confrontation.",
+    "mesa_connection": "None directly. However, MESA may have engineered or exploited the timing — while the field team fights the Shōjō, MESA moves on the open cases (Gordon Avery, Nadia's window). Whether MESA caused the creature's proximity to PORTAL or merely used it is deliberately ambiguous."
+  },
+  "id": "mystery-006",
+  "title": "The Shōjō",
+  "briefingText": "[CASE FILE OPEN: BIH-2026-EMERGENCY]\n[CLASSIFICATION: RED — IMMEDIATE THREAT]\n[LOCATION: BALTIMORE INNER HARBOR / DOCKLANDS]\n\nThree civilian deaths in 72 hours. Emotional intensity is the common factor — not location, not age, not medical history.\n\nLocal PD is searching for 'a very large ginger man.' They will not find him.\n\n911 transcripts attached. Entity is mobile, feeding, and not subtle.\n\nThis is not a queue case. This is now.\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-shojo",
+    "type": "beast",
+    "name": "Shōjō",
+    "motivation": "consumption",
+    "weakness": {
+      "id": "w-sake-ritual",
+      "type": "element",
+      "description": "The Shōjō is vulnerable to the ceremonial sake it arrived in — the brewer's grief is embedded in the liquid. Pouring the sake in a circle creates a trap; the grief resonates with the creature's feeding mechanism and creates a feedback loop it cannot escape. A Tough-based exploitWeakness roll represents the physical confrontation within the ritual circle. Alternatively, a Charm-based approach works: genuine emotional honesty disarms the creature, as it feeds on extremes but respects authenticity.",
+      "statRequired": "tough",
+      "exploitOptions": [
+        {
+          "id": "exploit-emotional-pattern",
+          "requiredClueIds": [
+            "clue-death-pattern"
+          ],
+          "modifier": -2,
+          "description": "exploit_emotional_pattern_desc",
+          "successHarm": 4,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 3
+        },
+        {
+          "id": "exploit-sake-found",
+          "requiredClueIds": [
+            "clue-sake-cask"
+          ],
+          "modifier": -1,
+          "description": "exploit_sake_found_desc",
+          "successHarm": 6,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-folklore-known",
+          "requiredClueIds": [
+            "clue-tanaka-interview",
+            "clue-death-pattern"
+          ],
+          "modifier": 0,
+          "description": "exploit_folklore_known_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-sake-circle",
+          "requiredClueIds": [
+            "clue-sake-cask",
+            "clue-tanaka-interview"
+          ],
+          "modifier": 1,
+          "description": "exploit_sake_circle_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 6,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-emotional-honesty",
+          "requiredClueIds": [
+            "clue-feeding-mechanism",
+            "clue-death-pattern"
+          ],
+          "modifier": 1,
+          "statRequired": "charm",
+          "description": "exploit_emotional_honesty_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-sake-circle",
+          "requiredClueIds": [
+            "clue-sake-cask",
+            "clue-tanaka-interview"
+          ],
+          "triggerWords": [
+            [
+              "sake",
+              "circle"
+            ],
+            [
+              "pour",
+              "sake"
+            ],
+            [
+              "ritual",
+              "sake",
+              "grief"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You pour the sake in a circle. The Shōjō staggers into it, sings one final note of grief, and the feedback loop closes around it."
+        },
+        {
+          "id": "ft-emotional-honesty",
+          "requiredClueIds": [
+            "clue-feeding-mechanism",
+            "clue-death-pattern"
+          ],
+          "triggerWords": [
+            [
+              "emotional",
+              "honest"
+            ],
+            [
+              "genuine",
+              "feeling"
+            ],
+            [
+              "truth",
+              "feel",
+              "speak"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You speak with complete emotional honesty. The Shōjō pauses mid-sway. It sees you clearly. It listens."
+        },
+        {
+          "id": "ft-sake-approach",
+          "requiredClueIds": [
+            "clue-sake-cask"
+          ],
+          "triggerWords": [
+            [
+              "sake",
+              "cask"
+            ],
+            [
+              "sake",
+              "use"
+            ],
+            [
+              "spirit",
+              "sake"
+            ]
+          ],
+          "modifier": 0,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You bring the sake forward. The Shōjō's red hair stirs. It knows what this is."
+        }
+      ]
+    },
+    "harm": 4,
+    "armor": 2,
+    "maxHarm": 12,
+    "attacks": [
+      "shojo_emotional_drain",
+      "shojo_drunken_strike"
+    ],
+    "specialAbility": "The Shōjō feeds on emotional extremes — intense joy, deep grief, overwhelming anger. In proximity (same room), any person experiencing strong emotion takes 1-harm per round as the creature drinks their feeling. It is physically powerful (ten feet tall, superhumanly strong) but also perpetually intoxicated — its movements are erratic and it can be outmanoeuvred. It sees through all pretence and illusion — only genuine emotion registers. Glamour, disguise, and deception are useless.",
+    "capabilities": [
+      {
+        "id": "cap-feeding-strike",
+        "name": "Feeding Strike",
+        "harm": 4,
+        "description": "The Shojo swings with terrifying force in a hunger-driven attack. Targets the nearest hunter for 4 harm. Tough to dodge — hunters defending take 2 instead.",
+        "disableConditions": [
+          "sake circle completed",
+          "emotional honesty offered instead of combat"
+        ]
+      },
+      {
+        "id": "cap-sake-rage",
+        "name": "Sake Rage",
+        "harm": 2,
+        "description": "Deprived of sake, the Shojo enters a rage state — attacks twice in one round for 2 harm each. Triggered if hunters destroy the sake cask without offering an alternative.",
+        "disableConditions": [
+          "sake poured and offered formally",
+          "grief acknowledged verbally"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-docklands",
+      "name": "Baltimore Docklands — Pier 7",
+      "type": "crimeScene",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-death-pattern",
+          "significance": "partial",
+          "description": "Three deaths, three locations along the waterfront, all within a 400-metre radius of Pier 7. The victims have nothing in common except emotional state at time of death: the first was celebrating (cardiac arrest while laughing), the second was grieving (found peaceful, no cause), the third was simultaneously furious and relieved (collapsed at his shift change). Crime scene analysis shows no physical evidence. The only anomaly: each body was found with damp red hair — not their own — on their clothing.",
+          "locationId": "loc-docklands",
+          "requiresAction": "investigate",
+          "keywords": [
+            "death",
+            "pattern",
+            "waterfront",
+            "pier",
+            "proximity",
+            "victims",
+            "location"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-floating-restaurant",
+        "loc-police-station"
+      ]
+    },
+    {
+      "id": "loc-floating-restaurant",
+      "name": "The Mizuki — Floating Restaurant & Sake Bar",
+      "type": "hiddenArea",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-sake-cask",
+          "significance": "key",
+          "description": "The Mizuki is a converted barge hosting a Japanese cultural exchange. In the storage hold: a ceremonial sake cask, ornately decorated, shipped from Niigata prefecture. The cask is half-empty but nobody has served from it — the liquid level has dropped on its own. The remaining sake smells of salt water, plum blossom, and something deeper: grief. The brewer's daughter died six months ago. The first batch brewed after her death was this cask. The grief went into the liquid. Something in the liquid came out.",
+          "locationId": "loc-floating-restaurant",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "sake",
+            "cask",
+            "ceremonial",
+            "Japanese",
+            "ritual",
+            "barge",
+            "Mizuki"
+          ]
+        },
+        {
+          "id": "clue-tanaka-interview",
+          "significance": "key",
+          "description": "Yuki Tanaka, the event organiser, is a folklore scholar from Kyoto University. When shown the red hair evidence, she goes very quiet. She identifies the creature immediately: Shōjō — a sea spirit associated with sake, excess, and deep feeling. In folklore, the Shōjō is drawn to genuine emotion and repelled by pretence. It drinks what people feel. When it drinks too much, the person empties. Tanaka says the traditional way to contain a Shōjō is to offer it sake brewed with honest sorrow — which is exactly what the cask contains.",
+          "locationId": "loc-floating-restaurant",
+          "requiresAction": "interview",
+          "keywords": [
+            "Tanaka",
+            "folklore",
+            "scholar",
+            "legend",
+            "Japanese",
+            "spirit",
+            "interview"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-docklands",
+        "loc-warehouse"
+      ]
+    },
+    {
+      "id": "loc-warehouse",
+      "name": "Harbor Warehouse — Night Sighting Zone",
+      "type": "monsterLair",
+      "threatLevel": 3,
+      "clueDefs": [
+        {
+          "id": "clue-feeding-mechanism",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Staking out the warehouse district at night, the operatives witness the Shōjō feeding. It is ten feet tall, red-haired, luminous, and staggering magnificently. It approaches a dockworker on a smoke break — a man quietly weeping into his phone after a bad call home. The Shōjō sits beside him. It doesn't attack. It reaches toward his chest and draws something out — a visible thread of light, the colour of the man's grief. The man goes still. Peaceful. Empty. The Shōjō drinks the light and sings — a sound like the ocean, deeply sad, deeply drunk.",
+          "locationId": "loc-warehouse",
+          "requiresAction": "investigate",
+          "keywords": [
+            "feeding",
+            "red",
+            "hair",
+            "warehouse",
+            "night",
+            "witness",
+            "Shojo",
+            "tall"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-docklands",
+        "loc-floating-restaurant"
+      ]
+    },
+    {
+      "id": "loc-police-station",
+      "name": "Baltimore PD — Harbor Precinct",
+      "type": "publicSpace",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-911-transcripts",
+          "significance": "partial",
+          "description": "The precinct has logged seventeen 911 calls in 72 hours describing a 'very large ginger man' in the docklands. Descriptions vary wildly — 'seven feet tall,' 'glowing,' 'singing opera,' 'knocking over bins,' 'seemed to be having a wonderful time.' Two officers were dispatched and found nothing. One officer's body cam shows a ten-second anomaly: a shape at the end of Pier 7, backlit, far too tall, swaying. The officer attributed it to fog.",
+          "locationId": "loc-police-station",
+          "requiresAction": "interview",
+          "keywords": [
+            "sighting",
+            "ginger",
+            "docklands",
+            "call",
+            "witness",
+            "large",
+            "report"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview"
+      ],
+      "adjacentLocationIds": [
+        "loc-docklands"
+      ]
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Action-paced clock. The creature feeds every night. actionCost=1, travelCost=2. Miss adds +1 (less punishing — this is a fight mystery, not a puzzle). Confrontation at 10. Disaster at 28 (mass feeding event at a crowded harbour festival).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 2,
+      "missPenalty": 1,
+      "successRefund": 1,
+      "confrontationAt": 10,
+      "disasterAt": 28,
+      "stepThresholds": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags three deaths in 72 hours at Baltimore Inner Harbor. Emotional intensity is the common factor. Emergency deployment — this is not a queue case.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "Fourth death overnight. A street musician playing a love song collapses mid-performance. Audience assumes heart attack. Red hair found on his instrument case.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "The harbour night market is busier than usual. The Shōjō has been seen by multiple witnesses. A local news crew is investigating 'mysterious harbour deaths.' The creature does not care about cameras.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "The harbour festival is in three days. Expected attendance: 15,000. The Shōjō is growing stronger with each feeding — its territory is expanding from Pier 7 outward. It is now audible singing from four blocks away.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "Festival setup has begun. Workers report intense emotional swings near the main stage — weeping, then laughter, then rage, cycling without cause. The Shōjō's feeding radius now covers the entire festival grounds.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "Festival opening night. Fifteen thousand people feeling things intensely in one place. The Shōjō walks into the crowd. It begins to drink.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

@@ -17,8 +17,9 @@ import {
   isDisasterReached,
   getUnvisitedLocationIds,
 } from '../src/engine/investigation'
-import type { GameState, ActionEntry, StatName } from '../src/engine/types'
+import type { GameState, ActionEntry, StatName, IntelLevel, ActionInterpretation } from '../src/engine/types'
 import type { Strategy } from './types'
+import { interpretAction } from '../src/engine/free-text/pipeline'
 
 // ─── Shared Helpers ───────────────────────────────────────────────────────────
 
@@ -87,18 +88,37 @@ export class GreedyCluesStrategy implements Strategy {
   }
 
   private _investigation(state: GameState, validActions: ActionEntry[]): ActionEntry {
-    // Scene actions: investigate > interview > helpBystander
-    const investigates = validActions.filter((a) => a.type === 'investigate')
-    if (investigates.length > 0) return investigates[0]
+    const mystery = state.mystery
 
-    const interviews = validActions.filter((a) => a.type === 'interview')
-    if (interviews.length > 0) return interviews[0]
+    // Pool all scene actions and pick the best stat-matched option
+    // (investigate/interview find clues; helpBystander costs 1 clock vs travel's 2)
+    const sceneActions = validActions.filter(
+      (a) => ['investigate', 'interview', 'helpBystander'].includes(a.type),
+    )
+    if (sceneActions.length > 0) {
+      // Prioritize clue-finding actions (investigate/interview) over helpBystander
+      const clueFinding = sceneActions.filter((a) => a.type !== 'helpBystander')
+      const candidates = clueFinding.length > 0 ? clueFinding : sceneActions
+      const scored = candidates.map((a) => {
+        const hunterId = a.payload.hunterId as string
+        const actionStat: StatName = a.type === 'investigate' ? 'sharp'
+          : a.type === 'interview' ? 'charm' : 'cool'
+        return { action: a, score: statValue(state, hunterId, actionStat) }
+      })
+      scored.sort((x, y) => y.score - x.score)
+      return scored[0].action
+    }
 
+    // Deep search only when current location has undiscovered clues
     const deepSearches = validActions.filter((a) => a.type === 'deepSearch')
-    if (deepSearches.length > 0) return deepSearches[0]
-
-    const helpBystanders = validActions.filter((a) => a.type === 'helpBystander')
-    if (helpBystanders.length > 0) return helpBystanders[0]
+    if (deepSearches.length > 0 && mystery?.currentLocationId) {
+      if (undiscoveredClueCount(state, mystery.currentLocationId) > 0) {
+        return deepSearches.reduce((best, a) =>
+          statValue(state, a.payload.hunterId as string, 'sharp')
+            > statValue(state, best.payload.hunterId as string, 'sharp') ? a : best
+        )
+      }
+    }
 
     // Travel to location with most undiscovered clues
     const travels = validActions.filter((a) => a.type === 'travel')
@@ -113,27 +133,65 @@ export class GreedyCluesStrategy implements Strategy {
     return randomPick(validActions)
   }
 
-  private _confrontation(_state: GameState, validActions: ActionEntry[]): ActionEntry {
-    // exploitWeakness when available, then attack
-    const exploits = validActions.filter((a) => a.type === 'exploitWeakness')
-    if (exploits.length > 0) return exploits[0]
+  private _confrontation(state: GameState, validActions: ActionEntry[]): ActionEntry {
+    const mystery = state.mystery
 
+    // exploitWeakness when available — pick option with best modifier + hunter stat
+    const exploits = validActions.filter((a) => a.type === 'exploitWeakness')
+    if (exploits.length > 0 && mystery) {
+      const options = mystery.monster.weakness.exploitOptions
+      if (options && options.length > 0) {
+        const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
+        return exploits.reduce((best, a) => {
+          const bestOpt = options.find((o) => o.id === best.payload.exploitOptionId)
+          const aOpt = options.find((o) => o.id === a.payload.exploitOptionId)
+          const bestStat = statValue(state, best.payload.hunterId as string, bestOpt?.statRequired ?? weaknessStat)
+          const aStat = statValue(state, a.payload.hunterId as string, aOpt?.statRequired ?? weaknessStat)
+          const bestScore = (bestOpt?.modifier ?? 0) + bestStat
+          const aScore = (aOpt?.modifier ?? 0) + aStat
+          return aScore > bestScore ? a : best
+        })
+      }
+      // Legacy: pick hunter with best weakness stat
+      const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
+      return exploits.reduce((best, a) => {
+        return statValue(state, a.payload.hunterId as string, weaknessStat)
+          > statValue(state, best.payload.hunterId as string, weaknessStat) ? a : best
+      })
+    }
+
+    // Defend with a seriously hurt hunter to keep them alive
+    const defends = validActions.filter((a) => a.type === 'defend')
+    const hurtDefend = defends.find((a) => {
+      const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
+      return h && h.harm >= 4
+    })
+    if (hurtDefend) return hurtDefend
+
+    // Attack with the hunter with the highest tough stat
     const attacks = validActions.filter((a) => a.type === 'attack')
-    if (attacks.length > 0) return attacks[0]
+    if (attacks.length > 0) {
+      return attacks.reduce((best, a) =>
+        statValue(state, a.payload.hunterId as string, 'tough')
+          > statValue(state, best.payload.hunterId as string, 'tough') ? a : best
+      )
+    }
 
     return randomPick(validActions)
   }
 
-  shouldSpendLuck(_state: GameState, roll: { outcome: string }): boolean {
-    return roll.outcome === 'miss'
+  shouldSpendLuck(state: GameState, roll: { outcome: string }): boolean {
+    // Only spend luck in confrontation — save it for when it matters
+    return state.phase === 'confrontation' && roll.outcome === 'miss'
   }
 
   shouldConfront(state: GameState): boolean {
     const mystery = state.mystery
     if (!mystery) return false
-    const intelOk = intelRank(mystery.intelLevel) >= 2  // informed or better
+    // With clue-based exploits, partial intel is enough — don't burn clock chasing informed
+    const intelOk = intelRank(mystery.intelLevel) >= 1  // partial or better
     const clockFraction = mystery.countdown.clockValue / mystery.countdown.clockConfig.disasterAt
-    return intelOk || clockFraction >= 0.7
+    return intelOk || clockFraction >= 0.6
   }
 }
 
@@ -271,11 +329,24 @@ export class BalancedStrategy implements Strategy {
   private _confrontation(state: GameState, validActions: ActionEntry[]): ActionEntry {
     const mystery = state.mystery
 
-    // Use exploitWeakness when intel is partial or better
-    if (mystery && intelRank(mystery.intelLevel) >= 1) {
-      const exploits = validActions.filter((a) => a.type === 'exploitWeakness')
-      if (exploits.length > 0) {
-        // Pick the hunter with the best weakness stat
+    // Exploit weakness when available
+    const exploits = validActions.filter((a) => a.type === 'exploitWeakness')
+    if (exploits.length > 0 && mystery) {
+      const options = mystery.monster.weakness.exploitOptions
+      if (options && options.length > 0) {
+        // Clue-based: pick exploit with best modifier + hunter stat
+        const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
+        return exploits.reduce((best, a) => {
+          const bestOpt = options.find((o) => o.id === best.payload.exploitOptionId)
+          const aOpt = options.find((o) => o.id === a.payload.exploitOptionId)
+          const bestStat = statValue(state, best.payload.hunterId as string, bestOpt?.statRequired ?? weaknessStat)
+          const aStat = statValue(state, a.payload.hunterId as string, aOpt?.statRequired ?? weaknessStat)
+          const bestScore = (bestOpt?.modifier ?? 0) + bestStat
+          const aScore = (aOpt?.modifier ?? 0) + aStat
+          return aScore > bestScore ? a : best
+        })
+      } else if (intelRank(mystery.intelLevel) >= 1) {
+        // Legacy: pick hunter with best weakness stat
         const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
         return exploits.reduce((best, a) => {
           const hunterId = a.payload.hunterId as string
@@ -320,13 +391,253 @@ export class BalancedStrategy implements Strategy {
   }
 }
 
+// ─── Free-Text Keyword Strategy ───────────────────────────────────────────────
+
+/**
+ * Uses the free-text exploit pipeline during confrontation — picks the best
+ * available freeTextExploit by modifier, then selects the hunter with the
+ * highest weakness stat. Falls back to Balanced behaviour when no free-text
+ * exploits are available or prereqs aren't met.
+ * Purpose: validate the free-text action path end-to-end in simulation.
+ */
+export class FreeTextKeywordStrategy implements Strategy {
+  name = 'free-text'
+
+  pickAction(state: GameState, validActions: ActionEntry[]): ActionEntry {
+    return state.phase === 'confrontation'
+      ? this._confrontation(state, validActions)
+      : this._investigation(state, validActions)
+  }
+
+  private _investigation(state: GameState, validActions: ActionEntry[]): ActionEntry {
+    const mystery = state.mystery
+
+    // Heal critically hurt hunters first
+    const criticalRest = validActions
+      .filter((a) => a.type === 'rest')
+      .find((a) => {
+        const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
+        return h && h.harm >= 5
+      })
+    if (criticalRest) return criticalRest
+
+    // Scene actions: best stat match
+    const sceneActions = validActions.filter((a) =>
+      ['investigate', 'interview', 'helpBystander'].includes(a.type),
+    )
+    if (sceneActions.length > 0) {
+      const scored = sceneActions.map((a) => {
+        const hunterId = a.payload.hunterId as string
+        const actionStat: StatName =
+          a.type === 'investigate' ? 'sharp' : a.type === 'interview' ? 'charm' : 'cool'
+        return { action: a, score: statValue(state, hunterId, actionStat) }
+      })
+      scored.sort((x, y) => y.score - x.score)
+      return scored[0].action
+    }
+
+    // Travel: prefer unvisited, then by clue richness
+    const travels = validActions.filter((a) => a.type === 'travel')
+    if (travels.length > 0) {
+      const unvisited = travels.filter((a) => {
+        const loc = mystery?.locations.find((l) => l.id === (a.payload.locationId as string))
+        return loc && !loc.visited
+      })
+      const candidates = unvisited.length > 0 ? unvisited : travels
+      return candidates.reduce((best, a) => {
+        const count = undiscoveredClueCount(state, a.payload.locationId as string)
+        const bestCount = undiscoveredClueCount(state, best.payload.locationId as string)
+        return count > bestCount ? a : best
+      })
+    }
+
+    return randomPick(validActions)
+  }
+
+  private _confrontation(state: GameState, validActions: ActionEntry[]): ActionEntry {
+    const mystery = state.mystery
+    const conf = state.confrontation
+
+    // Free-text exploit: pick best available by modifier, then best hunter stat
+    // Free-text exploits match on trigger words alone — players can always guess
+    if (mystery?.monster.weakness.freeTextExploits) {
+      const available = mystery.monster.weakness.freeTextExploits
+      if (available.length > 0) {
+        available.sort((a, b) => b.modifier - a.modifier)
+        const bestExploit = available[0]
+        const weaknessStat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
+        const triggerInput = bestExploit.triggerWords[0]?.join(' ') ?? bestExploit.id
+
+        // Filter out hunters on exploit cooldown (last action was exploitWeakness)
+        const hunters = state.team.hunters.filter((h) => {
+          if (!h.alive) return false
+          if (!conf) return true
+          const history = conf.history.filter((a) => a.hunterId === h.id)
+          const last = history[history.length - 1]
+          return last?.actionType !== 'exploitWeakness'
+        })
+        if (hunters.length > 0) {
+          const bestHunter = hunters.reduce((best, h) =>
+            (h.stats[weaknessStat] ?? 0) > (best.stats[weaknessStat] ?? 0) ? h : best,
+          )
+          return {
+            type: 'exploitWeakness',
+            payload: { hunterId: bestHunter.id, freeTextInput: triggerInput },
+            timestamp: 0,
+          }
+        }
+      }
+    }
+
+    // Defend a seriously hurt hunter
+    const hurtDefend = validActions
+      .filter((a) => a.type === 'defend')
+      .find((a) => {
+        const h = state.team.hunters.find((h) => h.id === (a.payload.hunterId as string))
+        return h && h.harm >= 4
+      })
+    if (hurtDefend) return hurtDefend
+
+    // Attack with best tough stat
+    const attacks = validActions.filter((a) => a.type === 'attack')
+    if (attacks.length > 0) {
+      return attacks.reduce((best, a) =>
+        statValue(state, a.payload.hunterId as string, 'tough') >
+        statValue(state, best.payload.hunterId as string, 'tough')
+          ? a
+          : best,
+      )
+    }
+
+    return randomPick(validActions)
+  }
+
+  shouldSpendLuck(state: GameState, roll: { outcome: string }): boolean {
+    return state.phase === 'confrontation' && roll.outcome === 'miss'
+  }
+
+  shouldConfront(state: GameState): boolean {
+    const mystery = state.mystery
+    if (!mystery) return false
+    // Even one found clue may unlock a free-text exploit — confront at partial+
+    const intelOk = intelRank(mystery.intelLevel) >= 1
+    const clockFraction = mystery.countdown.clockValue / mystery.countdown.clockConfig.disasterAt
+    return intelOk || clockFraction >= 0.6
+  }
+}
+
+// ─── Free-Text Compare Strategy ──────────────────────────────────────────────
+
+/**
+ * Record of a free-text exploit decision made during simulation.
+ * Captures enough context to replay through AI for keyword-vs-AI comparison.
+ */
+export interface FreeTextComparisonRecord {
+  seed: string
+  confrontationTurn: number
+  hunterId: string
+  input: string
+  keyword: {
+    stat: StatName
+    modifier: number
+    exploitId: string | null
+    confidence: string
+    successHarm: 'maxHarm' | number
+  }
+  context: {
+    foundClueIds: string[]
+    intelLevel: IntelLevel
+  }
+}
+
+/**
+ * Extends FreeTextKeywordStrategy to collect comparison records.
+ *
+ * During simulation, picks actions identically to the base free-text strategy.
+ * Additionally runs the keyword pipeline on each free-text exploit input and
+ * records the result. After simulation completes, the accumulated records can
+ * be batch-processed through AI for keyword-vs-AI comparison analysis.
+ *
+ * Usage:
+ *   const strategy = new FreeTextCompareStrategy()
+ *   runSimulation({ ..., strategy })
+ *   // strategy.records now contains all free-text decision data
+ */
+export class FreeTextCompareStrategy extends FreeTextKeywordStrategy {
+  override name = 'free-text-compare'
+
+  /** Accumulated comparison records across all simulation runs */
+  readonly records: FreeTextComparisonRecord[] = []
+
+  private _confrontationTurn = 0
+
+  override pickAction(state: GameState, validActions: ActionEntry[]): ActionEntry {
+    // Track confrontation turns (reset when a new confrontation starts)
+    if (state.phase === 'confrontation') {
+      const conf = state.confrontation
+      this._confrontationTurn = conf ? conf.history.length : 0
+    }
+
+    const action = super.pickAction(state, validActions)
+
+    // Record comparison data when a free-text exploit is chosen
+    if (
+      action.type === 'exploitWeakness' &&
+      typeof action.payload.freeTextInput === 'string' &&
+      state.mystery
+    ) {
+      const mystery = state.mystery
+      const input = action.payload.freeTextInput as string
+      const hunterId = action.payload.hunterId as string
+      const hunter = state.team.hunters.find((h) => h.id === hunterId)
+
+      // All clue defs from all locations
+      const allClues = mystery.locations.flatMap((l) => l.clues)
+
+      // Run keyword pipeline to capture interpretation
+      const keywordResult = interpretAction({
+        input,
+        allClues,
+        foundClueIds: mystery.cluesFound,
+        weakness: mystery.monster.weakness,
+        monsterHarm: mystery.monster.harm,
+        hunterBestStat: hunter
+          ? (Object.entries(hunter.stats).sort(([, a], [, b]) => b - a)[0][0] as StatName)
+          : undefined,
+      })
+
+      this.records.push({
+        seed: state.seed,
+        confrontationTurn: this._confrontationTurn,
+        hunterId,
+        input,
+        keyword: {
+          stat: keywordResult.stat,
+          modifier: keywordResult.modifier,
+          exploitId: keywordResult.exploitId,
+          confidence: keywordResult.statConfidence,
+          successHarm: keywordResult.successHarm,
+        },
+        context: {
+          foundClueIds: [...mystery.cluesFound],
+          intelLevel: mystery.intelLevel,
+        },
+      })
+    }
+
+    return action
+  }
+}
+
 // ─── Strategy Registry ────────────────────────────────────────────────────────
 
 const STRATEGY_FACTORIES: Record<string, () => Strategy> = {
-  random:   () => new RandomStrategy(),
-  greedy:   () => new GreedyCluesStrategy(),
-  rush:     () => new RushStrategy(),
-  balanced: () => new BalancedStrategy(),
+  random:     () => new RandomStrategy(),
+  greedy:     () => new GreedyCluesStrategy(),
+  rush:       () => new RushStrategy(),
+  balanced:   () => new BalancedStrategy(),
+  'free-text': () => new FreeTextKeywordStrategy(),
+  'free-text-compare': () => new FreeTextCompareStrategy(),
 }
 
 export const STRATEGY_NAMES = Object.keys(STRATEGY_FACTORIES)

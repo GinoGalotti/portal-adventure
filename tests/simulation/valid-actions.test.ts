@@ -194,6 +194,110 @@ describe('getValidActions() — confrontation phase', () => {
   })
 })
 
+// ─── Confrontation — Clue-based exploit options ──────────────────────────────
+
+const testDefWithExploitOptions: MysteryDefinition = {
+  id: 'mystery-va-exploit',
+  monster: {
+    id: 'mon-2', type: 'sorcerer', name: 'Spirit',
+    motivation: 'preservation',
+    weakness: {
+      id: 'w2', type: 'brokenBond', description: 'resolve bond', statRequired: 'charm',
+      exploitOptions: [
+        {
+          id: 'opt-easy', requiredClueIds: ['clue-1'], modifier: -2,
+          description: 'weak exploit', successHarm: 5,
+        },
+        {
+          id: 'opt-medium', requiredClueIds: ['clue-1', 'clue-2'], modifier: 0,
+          description: 'medium exploit', successHarm: 'maxHarm',
+        },
+        {
+          id: 'opt-hard', requiredClueIds: ['clue-1', 'clue-2', 'clue-3'], modifier: 2,
+          description: 'strong exploit', successHarm: 'maxHarm', mixedHarm: 'maxHarm',
+        },
+      ],
+    },
+    harm: 3, armor: 4, maxHarm: 10, attacks: ['atk'],
+  },
+  locationDefs: [
+    {
+      id: 'loc-a', name: 'Library', type: 'library', threatLevel: 1,
+      clueDefs: [
+        { id: 'clue-1', significance: 'partial', description: 'c1',
+          locationId: 'loc-a', requiresAction: 'investigate' },
+        { id: 'clue-2', significance: 'key', description: 'c2',
+          locationId: 'loc-a', requiresAction: 'investigate' },
+        { id: 'clue-3', significance: 'critical', description: 'c3',
+          locationId: 'loc-a', requiresAction: 'deepSearch' },
+      ],
+      availableActions: ['investigate', 'deepSearch'],
+      adjacentLocationIds: [],
+    },
+  ],
+  countdownDef: {
+    steps: Array.from({ length: 6 }, (_, i) => ({ step: i, description: `s${i}` })),
+  },
+}
+
+describe('getValidActions() — confrontation, clue-based exploit options', () => {
+  function exploitState(cluesFound: string[]): GameState {
+    let state = applyAction(
+      createInitialState('va-exploit'),
+      act('startMystery', { definition: testDefWithExploitOptions, hunters: [h1] }),
+    )
+    state = applyAction(state, act('startConfrontation', {}))
+    // Manually inject clues into the mystery snapshot
+    const s = structuredClone(state)
+    s.mystery!.cluesFound = cluesFound
+    for (const loc of s.mystery!.locations) {
+      for (const clue of loc.clues) {
+        clue.found = cluesFound.includes(clue.id)
+      }
+    }
+    return s
+  }
+
+  it('returns no exploitWeakness when no clues found (despite exploitOptions defined)', () => {
+    const actions = getValidActions(exploitState([]))
+    expect(actions.some((a) => a.type === 'exploitWeakness')).toBe(false)
+  })
+
+  it('returns one exploit per hunter when one option is unlocked', () => {
+    const actions = getValidActions(exploitState(['clue-1']))
+    const exploits = actions.filter((a) => a.type === 'exploitWeakness')
+    expect(exploits).toHaveLength(1)
+    expect(exploits[0].payload.exploitOptionId).toBe('opt-easy')
+    expect(exploits[0].payload.hunterId).toBe('h1')
+  })
+
+  it('returns two exploit actions when two options are unlocked (1 hunter)', () => {
+    const actions = getValidActions(exploitState(['clue-1', 'clue-2']))
+    const exploits = actions.filter((a) => a.type === 'exploitWeakness')
+    expect(exploits).toHaveLength(2)
+    const optionIds = exploits.map((a) => a.payload.exploitOptionId)
+    expect(optionIds).toContain('opt-easy')
+    expect(optionIds).toContain('opt-medium')
+  })
+
+  it('returns three exploit actions when all clues found', () => {
+    const actions = getValidActions(exploitState(['clue-1', 'clue-2', 'clue-3']))
+    const exploits = actions.filter((a) => a.type === 'exploitWeakness')
+    expect(exploits).toHaveLength(3)
+    const optionIds = exploits.map((a) => a.payload.exploitOptionId)
+    expect(optionIds).toContain('opt-easy')
+    expect(optionIds).toContain('opt-medium')
+    expect(optionIds).toContain('opt-hard')
+  })
+
+  it('exploit actions include exploitOptionId in payload', () => {
+    const actions = getValidActions(exploitState(['clue-1']))
+    const exploit = actions.find((a) => a.type === 'exploitWeakness')!
+    expect(exploit.payload).toHaveProperty('exploitOptionId', 'opt-easy')
+    expect(exploit.payload).toHaveProperty('hunterId', 'h1')
+  })
+})
+
 // ─── Non-gameplay phases ──────────────────────────────────────────────────────
 
 describe('getValidActions() — non-gameplay phases', () => {

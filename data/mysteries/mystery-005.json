@@ -1,0 +1,384 @@
+{
+  "_note": "Based on Case E — The Understudies (Meridian Theatre Company). Open thread from PORTAL campaign briefings.json w02–w03, assigned to field team in w03. S03 case. Two dead actors possessing understudies through a BIM-saturated prompt book.",
+  "_story_notes": {
+    "premise": "Meridian Theatre Company. Two lead actors — Clara Voss and Edmund Farrow — died in separate accidents 6 and 14 months ago. They are still in the theatre. When understudies stepped into their roles, Clara and Edmund flowed into the opening. Three understudies are hospitalised with complete identity loss. Four more are at risk. Saturday's performance is tomorrow.",
+    "resolution": "Requires a theatrical farewell within the logic of performance — Clara and Edmund choosing to leave, not being forced out. The prompt book (a 19th-century artefact, BIM-saturated) must be placed on stage during the farewell to complete the mechanism with consent. The entity-type here is dual: Clara and Edmund are separate presences sharing the same anchoring mechanism.",
+    "tone": "Theatrical, melancholy, strangely beautiful. Clara and Edmund are not malevolent — they are lost. They died suddenly, they found themselves in the building they loved most, and when someone opened the door by stepping into their roles, they walked through. The horror is that they are erasing real people to continue existing. They don't fully understand they're doing it.",
+    "mesa_connection": "Meridian Theatre received a large anonymous arts grant 20 months ago via Solstice Property Group — same MESA shell company chain as the Aldermoor property acquisitions. BIM Collection Arrays are concealed in the lighting rig. MESA funded the conditions and has been harvesting BIM data for eight months."
+  },
+  "id": "mystery-005",
+  "title": "The Understudies",
+  "briefingText": "[CASE FILE OPEN: MTC-2026-099]\n[CLASSIFICATION: AMBER — PERFORMANCE IMMINENT]\n[LOCATION: MERIDIAN THEATRE COMPANY]\n\nTwo lead actors died months apart. Their understudies are losing themselves.\n\n3 hospitalised — complete identity erasure. 4 more at risk. The audience reports uncanny performances — because they are not acting.\n\nThe deceased actors are present. The prompt book is the key.\n\nPerformance: Saturday. Clock at 3/4.\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-theatre-ghosts",
+    "type": "sorcerer",
+    "name": "Clara & Edmund",
+    "motivation": "preservation",
+    "weakness": {
+      "id": "w-theatrical-farewell",
+      "type": "artifact",
+      "description": "The prompt book is the anchoring artefact. Placing it on stage during a performance where Clara and Edmund are directly addressed — acknowledged as themselves, not as their characters — creates the conditions for a farewell. They must choose to leave. A Weird-based exploitWeakness roll represents staging the farewell scene that allows them to go. Destroying the prompt book by force would sever the connection violently, dispersing Clara and Edmund but permanently damaging the hospitalised understudies.",
+      "statRequired": "weird",
+      "exploitOptions": [
+        {
+          "id": "exploit-understudies-observed",
+          "requiredClueIds": [
+            "clue-understudy-interviews"
+          ],
+          "modifier": -2,
+          "description": "exploit_understudies_observed_desc",
+          "successHarm": 4,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-prompt-book-found",
+          "requiredClueIds": [
+            "clue-prompt-book"
+          ],
+          "modifier": -1,
+          "description": "exploit_prompt_book_found_desc",
+          "successHarm": 6,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-mechanism-understood",
+          "requiredClueIds": [
+            "clue-prompt-book",
+            "clue-grant-trail"
+          ],
+          "modifier": 0,
+          "description": "exploit_mechanism_understood_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 4,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-clara-contacted",
+          "requiredClueIds": [
+            "clue-dressing-room",
+            "clue-understudy-interviews"
+          ],
+          "modifier": 1,
+          "description": "exploit_clara_contacted_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 0
+        },
+        {
+          "id": "exploit-farewell-staged",
+          "requiredClueIds": [
+            "clue-prompt-book",
+            "clue-dressing-room",
+            "clue-director-notes"
+          ],
+          "modifier": 2,
+          "description": "exploit_farewell_staged_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-farewell-staged",
+          "requiredClueIds": [
+            "clue-prompt-book",
+            "clue-dressing-room",
+            "clue-director-notes"
+          ],
+          "triggerWords": [
+            [
+              "farewell",
+              "clara"
+            ],
+            [
+              "stage",
+              "prompt",
+              "book"
+            ],
+            [
+              "theatrical",
+              "goodbye"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "Clara's handwriting appears in the mirror fog: 'We heard you. We're ready.' Edmund's presence stills. Together, they choose to leave."
+        },
+        {
+          "id": "ft-prompt-book",
+          "requiredClueIds": [
+            "clue-prompt-book"
+          ],
+          "triggerWords": [
+            [
+              "prompt",
+              "book"
+            ],
+            [
+              "artefact",
+              "stage"
+            ],
+            [
+              "book",
+              "anchor"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You place the prompt book on stage. The air in the theatre shifts. Something in the wings goes still. They are listening."
+        },
+        {
+          "id": "ft-ritual-approach",
+          "requiredClueIds": [
+            "clue-understudy-interviews"
+          ],
+          "triggerWords": [
+            [
+              "theatre",
+              "farewell"
+            ],
+            [
+              "performance",
+              "ritual"
+            ],
+            [
+              "stage",
+              "release"
+            ]
+          ],
+          "modifier": -1,
+          "successHarm": 5,
+          "narrativeResult": "You attempt a theatrical farewell. Something stirs in the wings — uncertain, not yet convinced."
+        }
+      ]
+    },
+    "harm": 3,
+    "armor": 3,
+    "maxHarm": 10,
+    "attacks": [
+      "identity_bleed",
+      "stage_presence_compulsion"
+    ],
+    "specialAbility": "Dual presence — Clara and Edmund manifest separately but share the same anchoring mechanism. Within the theatre, they can compel anyone on stage to speak their lines. Their 'attacks' are not physical — identity_bleed causes the target to lose sense of self (1-harm weird per exposure), stage_presence_compulsion forces the target to perform a scene (Act Under Pressure to resist). Outside the theatre, they have no power. The prompt book amplifies their reach — removing it weakens them temporarily.",
+    "capabilities": [
+      {
+        "id": "cap-theatrical-displacement",
+        "name": "Theatrical Displacement",
+        "harm": 2,
+        "description": "Edmund and Clara force hunters into their performance — hunters see the theatre as 19th-century London and may act on stage instincts. Displaced hunters take 2 harm from existential confusion.",
+        "disableConditions": [
+          "prompt book placed on stage",
+          "hunters address the spirits by their real names"
+        ]
+      },
+      {
+        "id": "cap-mirror-trap",
+        "name": "Mirror Trap",
+        "harm": 1,
+        "description": "The dressing room mirrors activate — any hunter who meets their own reflection sees their deepest regret and takes 1 harm. Triggered when hunters attempt to destroy the anchor.",
+        "disableConditions": [
+          "Clara’s name spoken aloud with genuine grief",
+          "mirrors covered or averted"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-theatre-foyer",
+      "name": "Meridian Theatre — Foyer & Box Office",
+      "type": "publicSpace",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-prompt-book",
+          "significance": "key",
+          "description": "In a glass display case in the foyer: a 19th-century prompt book, leather-bound, pages yellowed. The label reads 'On loan from private collection — acquired 2024.' When the operatives stand near it, they hear faint applause. The book is warm. Opening the case requires no key — it's unlocked, as if someone wanted it accessible. The pages contain handwritten stage directions from a Victorian-era production of Two Gentlemen of Verona, annotated by an actor who died on stage in 1873.",
+          "locationId": "loc-theatre-foyer",
+          "requiresAction": "investigate",
+          "keywords": [
+            "prompt",
+            "book",
+            "theatre",
+            "prop",
+            "stage",
+            "artefact",
+            "anchor"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview"
+      ],
+      "adjacentLocationIds": [
+        "loc-backstage",
+        "loc-stage",
+        "loc-hospital"
+      ]
+    },
+    {
+      "id": "loc-backstage",
+      "name": "Meridian Theatre — Backstage & Dressing Rooms",
+      "type": "hiddenArea",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-dressing-room",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Clara Voss's dressing room has been sealed since her death. Inside, the mirror is fogged despite no temperature differential. When the operatives enter, handwriting appears on the fog: 'I didn't mean to stay.' Then, fainter: 'I can hear them being me and I can't make it stop.' Clara is present. She is aware of what is happening to the understudies. She is horrified. She cannot leave the theatre — she has tried. The prompt book is the anchor. She doesn't know how to say goodbye.",
+          "locationId": "loc-backstage",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "dressing",
+            "room",
+            "Clara",
+            "mirror",
+            "fog",
+            "message",
+            "handwriting"
+          ]
+        },
+        {
+          "id": "clue-grant-trail",
+          "significance": "partial",
+          "description": "The theatre manager's filing cabinet contains grant documentation. The large anonymous arts grant came through Solstice Property Group — an entity with no other arts funding in its portfolio. The grant conditions require continuous active performances — the theatre cannot go dark. A maintenance crew installed 'air quality monitors' in the lighting rig eight months ago. They are not air quality monitors.",
+          "locationId": "loc-backstage",
+          "requiresAction": "investigate",
+          "keywords": [
+            "grant",
+            "Solstice",
+            "funding",
+            "money",
+            "theatre",
+            "investigation"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-theatre-foyer",
+        "loc-stage"
+      ]
+    },
+    {
+      "id": "loc-stage",
+      "name": "Meridian Theatre — Main Stage",
+      "type": "monsterLair",
+      "threatLevel": 3,
+      "clueDefs": [
+        {
+          "id": "clue-director-notes",
+          "significance": "key",
+          "description": "The director's podium holds a notebook with extensive notes on the understudies' performances. Marginal notes reveal growing unease: 'Sarah's Silvia is too perfect — she's never been this good.' 'Thomas called me Edmund after rehearsal. His name is Thomas.' 'Something is wrong. They are better than they should be and I am afraid of how good it is.' The most recent entry, circled: 'Saturday's show. If we go on, I don't think they're coming back.'",
+          "locationId": "loc-stage",
+          "requiresAction": "investigate",
+          "keywords": [
+            "director",
+            "notes",
+            "understudy",
+            "performance",
+            "pressure",
+            "notebook"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-backstage",
+        "loc-theatre-foyer"
+      ]
+    },
+    {
+      "id": "loc-hospital",
+      "name": "St. Mary's Hospital — Psychiatric Ward",
+      "type": "witnessHome",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-understudy-interviews",
+          "significance": "partial",
+          "description": "Three understudies are in the psychiatric ward. They respond only to their character names — Silvia, Proteus, Valentine. They quote Shakespeare fluently but cannot remember their own families. When asked about Clara or Edmund, they become agitated. One whispers: 'They're in the building. They can't find the door. We were the door.' The attending psychiatrist has documented that all three show identical brainwave patterns — identical to each other, not to their own baselines.",
+          "locationId": "loc-hospital",
+          "requiresAction": "interview",
+          "keywords": [
+            "understudy",
+            "psychiatric",
+            "character",
+            "name",
+            "possessed",
+            "ward"
+          ]
+        }
+      ],
+      "availableActions": [
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-theatre-foyer"
+      ]
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Performance-deadline clock. Saturday's show is the hard limit. actionCost=1, travelCost=1 (everything is in or near the theatre). Miss adds +2. Confrontation at 10. Disaster at 24 (the performance happens and four more identities are lost).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 1,
+      "missPenalty": 2,
+      "successRefund": 1,
+      "confrontationAt": 10,
+      "disasterAt": 24,
+      "stepThresholds": [
+        4,
+        8,
+        13,
+        18,
+        22
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags identity displacement at Meridian Theatre Company. Three understudies hospitalised. Performance on Saturday. Field team dispatched.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "The remaining understudies are in dress rehearsal. One calls her husband by her character's lover's name. Another cannot remember where he lives after rehearsal ends — it takes him twenty minutes to recall his own address.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "Audience members from last week's preview report dreams about characters from the play. Two describe a woman standing in the wings who isn't in the programme. The theatre is bleeding outward.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "One understudy collapses mid-rehearsal. When she wakes, she speaks only in iambic pentameter for six hours. The director cancels the afternoon session but will not cancel Saturday's performance — the grant conditions forbid it.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "The prompt book in the foyer is glowing faintly. The glass case is warm to the touch. Patrons arriving for the performance report hearing applause from inside the empty auditorium. Saturday's show begins in four hours.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "The curtain rises. The understudies walk on stage. They are not themselves. The audience sees the most extraordinary performance of their lives. The four understudies will never come back.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

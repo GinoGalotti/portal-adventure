@@ -39,7 +39,8 @@ import {
 } from './hunters'
 import { resolveClockConfig, advanceClockForTravel, advanceClockForAction } from './investigation'
 import { discoverClue, discoverDeepSearchClue } from './clues'
-import { initConfrontation } from './confrontation'
+import { initConfrontation, getExploitOptionById } from './confrontation'
+import { interpretAction } from './free-text/pipeline'
 
 // ─── Error Type ───────────────────────────────────────────────────────────────
 
@@ -144,6 +145,7 @@ function initLocation(def: LocationDef): Location {
     visited: false,
     cleared: false,
     minionsPresent: def.startingMinions ?? 0,
+    requiredClueIds: def.requiredClueIds ?? [],
   }
 }
 
@@ -242,6 +244,15 @@ function handleTravel(s: GameState, action: ActionEntry): void {
   const location = requireLocation(s, locationId)
   if (locationId === mystery.currentLocationId) {
     throw new ActionError('travel: already at this location')
+  }
+
+  // Check clue-based location gating
+  if (location.requiredClueIds.length > 0) {
+    const foundClues = new Set(mystery.cluesFound)
+    const unmet = location.requiredClueIds.filter((id) => !foundClues.has(id))
+    if (unmet.length > 0) {
+      throw new ActionError(`travel: location requires clues not yet found: ${unmet.join(', ')}`)
+    }
   }
 
   mystery.currentLocationId = locationId
@@ -550,17 +561,14 @@ function handleAttack(s: GameState, action: ActionEntry, rng: GameRNG): void {
   let harmToHunter = 0
 
   if (roll.outcome === 'success') {
-    harmToMonster = 2
+    harmToMonster = Math.max(0, 2 - monster.armor)  // armor reduces damage to monster
   } else if (roll.outcome === 'mixed') {
-    harmToMonster = 1
-    harmToHunter = monster.harm - monster.armor  // monster hits back
+    harmToMonster = Math.max(0, 1 - monster.armor)  // armor reduces damage to monster
+    harmToHunter = monster.harm                      // monster hits back with full harm
   } else {
-    harmToHunter = monster.harm - monster.armor  // miss — monster hits, hunter misses
+    harmToHunter = monster.harm                      // miss — monster hits with full harm
     s.team.hunters[hunterIdx] = gainExperience(hunter)
   }
-
-  harmToMonster = Math.max(0, harmToMonster)
-  harmToHunter = Math.max(0, harmToHunter)
 
   conf.monsterHarmTaken += harmToMonster
   if (harmToHunter > 0) {
@@ -725,10 +733,7 @@ function handleExploitWeakness(
   requirePhase(s, 'confrontation')
   const conf = s.confrontation!
   const mystery = requireMystery(s)
-
-  if (conf.intelLevel === 'blind') {
-    throw new ActionError('exploitWeakness: unavailable at blind intel level')
-  }
+  const weakness = mystery.monster.weakness
 
   const hunterId = action.payload.hunterId as string | undefined
   if (!hunterId) throw new ActionError('exploitWeakness: payload.hunterId is required')
@@ -738,31 +743,97 @@ function handleExploitWeakness(
   const hunter = s.team.hunters[hunterIdx]
   if (!hunter.alive) throw new ActionError('exploitWeakness: dead hunter cannot act')
 
-  const stat: StatName = mystery.monster.weakness.statRequired ?? 'tough'
-  const baseModifier = exploitModifier(conf.intelLevel)
+  // Exploit cooldown: a hunter cannot exploit again if their last action was exploitWeakness
+  const hunterHistory = conf.history.filter((a) => a.hunterId === hunterId)
+  const lastHunterAction = hunterHistory[hunterHistory.length - 1]
+  if (lastHunterAction?.actionType === 'exploitWeakness') {
+    throw new ActionError('exploitWeakness: hunter must take a different action before exploiting again')
+  }
 
-  // Apply intel modifier to hunter's stats temporarily
+  // ── Determine stat, modifier, and harm profile ─────────────────────────────
+  let stat: StatName
+  let baseModifier: number
+  let successHarm: 'maxHarm' | number
+  let mixedHarmToMonster: 'maxHarm' | number | undefined
+  let mixedHarmToHunter: number | undefined
+  let exploitOptionId: string | undefined
+
+  if (weakness.exploitOptions && weakness.exploitOptions.length > 0) {
+    exploitOptionId = action.payload.exploitOptionId as string | undefined
+    const freeTextInput = action.payload.freeTextInput as string | undefined
+
+    if (exploitOptionId) {
+      // ── Structured option path: clue-based exploit options ─────────────────
+      const option = getExploitOptionById(weakness, exploitOptionId)
+      if (!option) {
+        throw new ActionError(`exploitWeakness: unknown exploitOptionId: ${exploitOptionId}`)
+      }
+      const foundClues = new Set(mystery.cluesFound)
+      const unmet = option.requiredClueIds.filter((id) => !foundClues.has(id))
+      if (unmet.length > 0) {
+        throw new ActionError(`exploitWeakness: clue prerequisites not met: ${unmet.join(', ')}`)
+      }
+      stat = option.statRequired ?? weakness.statRequired ?? 'tough'
+      baseModifier = option.modifier
+      successHarm = option.successHarm
+      mixedHarmToMonster = option.mixedHarm
+      mixedHarmToHunter = option.mixedHarmToHunter
+    } else if (freeTextInput && weakness.freeTextExploits && weakness.freeTextExploits.length > 0) {
+      // ── Free-text path: keyword pipeline ──────────────────────────────────
+      const allClues = mystery.locations.flatMap((loc) => loc.clues)
+      const interpretation = interpretAction({
+        input: freeTextInput,
+        allClues,
+        foundClueIds: mystery.cluesFound,
+        weakness,
+        monsterHarm: mystery.monster.harm,
+      })
+      stat = interpretation.stat
+      baseModifier = interpretation.modifier
+      successHarm = interpretation.successHarm
+      mixedHarmToMonster = interpretation.successHarm
+      mixedHarmToHunter = 1
+      exploitOptionId = interpretation.exploitId ?? undefined
+    } else {
+      throw new ActionError('exploitWeakness: payload.exploitOptionId or freeTextInput is required')
+    }
+  } else {
+    // ── Legacy path: intelLevel-based modifier ───────────────────────────────
+    if (conf.intelLevel === 'blind') {
+      throw new ActionError('exploitWeakness: unavailable at blind intel level')
+    }
+    stat = weakness.statRequired ?? 'tough'
+    baseModifier = exploitModifier(conf.intelLevel)
+    successHarm = 'maxHarm'
+    mixedHarmToMonster = undefined
+    mixedHarmToHunter = undefined
+  }
+
+  // ── Roll ────────────────────────────────────────────────────────────────────
   const modifiedHunter: Hunter = {
     ...hunter,
     stats: { ...hunter.stats, [stat]: hunter.stats[stat] + baseModifier },
   }
-  // Temporarily put modified hunter in the state for performRoll to read
   s.team.hunters[hunterIdx] = modifiedHunter
   const roll = performRoll(s, rng, hunterId, stat, 'confrontation', 'exploitWeakness')
   s.lastRoll = roll
-  // Restore original hunter (roll captured the temporary modifier in its total)
   s.team.hunters[hunterIdx] = hunter
 
+  // ── Resolve harm ────────────────────────────────────────────────────────────
   let harmToMonster = 0
   let harmToHunter = 0
 
+  const resolveHarm = (value: 'maxHarm' | number): number =>
+    value === 'maxHarm' ? mystery.monster.maxHarm : value
+
   if (roll.outcome === 'success') {
-    // Major weakness exploit: double damage
-    harmToMonster = mystery.monster.maxHarm // effectively finishes the monster
-    conf.monsterDefeated = true
+    harmToMonster = resolveHarm(successHarm)
+    if (harmToMonster >= conf.monsterMaxHarm - conf.monsterHarmTaken) {
+      conf.monsterDefeated = true
+    }
   } else if (roll.outcome === 'mixed') {
-    harmToMonster = mystery.monster.harm + 1
-    harmToHunter = 1
+    harmToMonster = resolveHarm(mixedHarmToMonster ?? (mystery.monster.harm + 1))
+    harmToHunter = mixedHarmToHunter ?? 1
   } else {
     harmToHunter = mystery.monster.harm
     s.team.hunters[hunterIdx] = gainExperience(hunter)
@@ -781,6 +852,8 @@ function handleExploitWeakness(
     roll,
     harmDealtToMonster: harmToMonster,
     harmDealtToHunter: harmToHunter,
+    exploitOptionId,
+    freeTextInput: action.payload.freeTextInput as string | undefined,
   }
   conf.history.push(ca)
 }
@@ -966,16 +1039,7 @@ function handleDebugAction(s: GameState, action: ActionEntry): void {
       if (s.phase !== 'investigation') {
         throw new ActionError('debug_skipToConfrontation: must be in investigation phase')
       }
-      s.confrontation = {
-        intelLevel: mystery.intelLevel,
-        history: [],
-        currentRound: 1,
-        monsterHarmTaken: 0,
-        monsterMaxHarm: mystery.monster.maxHarm,
-        monsterDefeated: false,
-        huntersRetreated: false,
-        forcedByCountdown: false,
-      }
+      s.confrontation = initConfrontation(mystery, false)
       s.phase = 'confrontation'
       break
     }

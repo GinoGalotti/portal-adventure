@@ -8,7 +8,7 @@
  * - printComparisonTable: diff two experiment aggregates
  */
 
-import type { RunResult, PreConfrontationSnapshot, PostConfrontationSnapshot } from './types'
+import type { RunResult } from './types'
 import type { IntelLevel } from '../src/engine/types'
 
 // ─── Per-Run Verbose Output ───────────────────────────────────────────────────
@@ -19,16 +19,10 @@ export function formatRunVerbose(result: RunResult): string {
 
   const W = 62
   const hr = '═'.repeat(W)
-  const hr2 = '─'.repeat(W)
-
   lines.push(`╔${hr}╗`)
   const header = ` SIMULATION: ${mysteryId} | seed: ${seed} | strategy: ${strategyName}`
   lines.push(`║${header.padEnd(W)}║`)
   lines.push(`╠${'═'.repeat(W / 2 - 4)} PRE-CONFRONTATION ${'═'.repeat(W / 2 - 7)}╣`)
-
-  const clockPct = pre.staminaMax > 0
-    ? `${pre.clockValue}/${pre.forcedByCountdown ? 'DISASTER' : '?'}` // we don't track disasterAt here
-    : pre.clockValue.toString()
 
   lines.push(`║ Clock: ${pre.clockValue}  Step: ${pre.currentStep}/5  Intel: ${pre.intelLevel.padEnd(10)}   ║`)
   lines.push(`║ Clues: ${pre.cluesFound.length}/${pre.cluesAvailable}    Locations: ${pre.locationsVisited.length}/${pre.locationsAvailable} visited           ║`)

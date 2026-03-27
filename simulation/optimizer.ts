@@ -8,10 +8,6 @@
  * - optimizeSeed: random sampling on a fixed seed (find best path for one run)
  */
 
-import {
-  isConfrontationAvailable,
-  isDisasterReached,
-} from '../src/engine/investigation'
 import type { GameState, ActionEntry, StatName } from '../src/engine/types'
 import type {
   Strategy,
@@ -222,7 +218,14 @@ export class ParameterizedStrategy implements Strategy {
         score = p.defendWeight * harmFactor
       } else if (a.type === 'exploitWeakness') {
         const weakStat: StatName = mystery?.monster.weakness.statRequired ?? 'tough'
-        score = p.exploitWeight + h.stats[weakStat]
+        const options = mystery?.monster.weakness.exploitOptions
+        if (options && options.length > 0) {
+          const opt = options.find((o) => o.id === a.payload.exploitOptionId)
+          const optModifier = opt?.modifier ?? 0
+          score = p.exploitWeight + h.stats[opt?.statRequired ?? weakStat] + optModifier * 2
+        } else {
+          score = p.exploitWeight + h.stats[weakStat]
+        }
       } else if (a.type === 'resist') {
         score = h.harm >= 4 ? p.defendWeight + 1 : p.defendWeight - 2
       } else if (a.type === 'distract') {

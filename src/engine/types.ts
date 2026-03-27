@@ -219,6 +219,68 @@ export interface Weakness {
   description: string  // i18n key
   statRequired?: StatName
   requiresItem?: string
+  /** Clue-based exploit options. If present, replaces the legacy intelLevel modifier. */
+  exploitOptions?: ExploitOptionDef[]
+  /** Free-text exploit definitions for the keyword engine. If present, shows text input in confrontation. */
+  freeTextExploits?: FreeTextExploit[]
+}
+
+/**
+ * A free-text exploit triggered by keyword matching against player input.
+ * Ordered best-to-worst; engine walks the list and picks the first match.
+ */
+export interface FreeTextExploit {
+  id: string
+  /** Clue IDs that must ALL be found for this exploit to be available */
+  requiredClueIds: string[]
+  /**
+   * OR-groups of AND-keywords. At least one group must be fully present in player tokens.
+   * e.g. [["balint","comfort"], ["locket","return"]]  →  either group triggers this exploit.
+   */
+  triggerWords: string[][]
+  /** Roll modifier (-3 to +3) */
+  modifier: number
+  /** Harm dealt to monster on success: 'maxHarm' = instant defeat, number = flat damage */
+  successHarm: 'maxHarm' | number
+  /** Short narrative result shown to player after resolution */
+  narrativeResult: string
+}
+
+/**
+ * A specific way to exploit the monster's weakness, unlocked by finding
+ * particular clues during investigation. Each option has its own modifier,
+ * stat, and damage profile.
+ */
+export interface ExploitOptionDef {
+  id: string
+  /** Clue IDs that must ALL be found for this option to be available */
+  requiredClueIds: string[]
+  /** Roll modifier when using this exploit */
+  modifier: number
+  /** Override stat for this option (falls back to weakness.statRequired) */
+  statRequired?: StatName
+  /** Description of the approach (i18n key) */
+  description: string
+  /** Harm dealt to monster on success: 'maxHarm' = instant defeat, number = flat damage */
+  successHarm: 'maxHarm' | number
+  /** Harm dealt to monster on mixed. Default: monster.harm + 1 */
+  mixedHarm?: 'maxHarm' | number
+  /** Harm dealt to acting hunter on mixed. Default: 1 */
+  mixedHarmToHunter?: number
+}
+
+/**
+ * A discrete capability the entity uses during confrontation.
+ * The AI GM / keyword engine can disable these via player actions.
+ */
+export interface EntityCapability {
+  id: string
+  name: string
+  /** Base harm dealt when this capability is used */
+  harm: number
+  description: string
+  /** Player action keywords that disable this capability (for keyword matching) */
+  disableConditions: string[]
 }
 
 export interface MonsterDef {
@@ -232,6 +294,8 @@ export interface MonsterDef {
   maxHarm: number     // total harm required to defeat
   attacks: string[]   // i18n keys for attack descriptions used in field report
   specialAbility?: string
+  /** Entity capabilities for the AI GM / keyword engine to track and disable */
+  capabilities?: EntityCapability[]
 }
 
 // ─── Clues ────────────────────────────────────────────────────────────────────
@@ -249,6 +313,56 @@ export interface ClueDef {
    * - 'success': requires 10+ on the roll
    */
   minRollOutcome?: 'mixed' | 'success'
+  /**
+   * Lowercase keywords the free-text engine matches against player input.
+   * Include: entity names, item names, emotional concepts, setting details.
+   */
+  keywords?: string[]
+}
+
+// ─── Free-text engine ─────────────────────────────────────────────────────────
+
+export type FreeTextStat = StatName
+
+/** How strongly the player's approach aligns with the entity's weakness */
+export type WeaknessAlignment = 'direct' | 'partial' | 'tangential' | 'none'
+
+/** Confidence in the stat classification */
+export type ClassificationConfidence = 'strong' | 'partial' | 'weak'
+
+/** A clue that was matched in the player's input */
+export interface ClueMatch {
+  clueId: string
+  matchedKeywords: string[]
+  /** 0–1: matched keywords / total clue keywords */
+  score: number
+}
+
+/**
+ * Full interpretation of a player's free-text confrontation input.
+ * Produced by the keyword pipeline; optionally enhanced by the AI GM.
+ */
+export interface ActionInterpretation {
+  /** Raw player input (for logging / transcripts) */
+  rawInput: string
+  /** Normalized tokens after stemming + synonym expansion */
+  tokens: string[]
+  /** Which collected clues the input references */
+  matchedClues: ClueMatch[]
+  /** Classified stat for the roll */
+  stat: StatName
+  statConfidence: ClassificationConfidence
+  /** Roll modifier: sum of exploit match + clue evidence + move bonus */
+  modifier: number
+  /** Which FreeTextExploit was matched (null = fallback tier) */
+  exploitId: string | null
+  weaknessAlignment: WeaknessAlignment
+  /** Harm definition for a success roll */
+  successHarm: 'maxHarm' | number
+  /** Short narrative shown to the player (from matched exploit or generic fallback) */
+  narrativeResult: string | null
+  /** Whether this came from keyword engine or AI GM */
+  source: 'keyword' | 'ai' | 'merged'
 }
 
 export interface Clue extends ClueDef {
@@ -268,6 +382,8 @@ export interface LocationDef {
   availableActions: ActionType[]
   adjacentLocationIds?: string[]
   startingMinions?: number
+  /** If set, this location is only accessible after ALL listed clues are found */
+  requiredClueIds?: string[]
 }
 
 export interface Location {
@@ -281,6 +397,8 @@ export interface Location {
   visited: boolean
   cleared: boolean          // all threats removed
   minionsPresent: number
+  /** If set, this location is only accessible after ALL listed clues are found */
+  requiredClueIds: string[]
 }
 
 // ─── Clock / Countdown ────────────────────────────────────────────────────────
@@ -397,6 +515,8 @@ export interface ConfrontationAction {
   harmDealtToMonster: number
   harmDealtToHunter: number
   targetHunterId?: string  // for defend / assist actions
+  exploitOptionId?: string // which clue-based exploit option was used
+  freeTextInput?: string   // raw player text (when free-text path used)
 }
 
 export interface ConfrontationState {
@@ -408,6 +528,7 @@ export interface ConfrontationState {
   monsterDefeated: boolean
   huntersRetreated: boolean
   forcedByCountdown: boolean  // true if countdown hit max and forced this
+  cluesFoundAtStart: string[] // snapshot of found clue IDs for exploit option resolution
 }
 
 // ─── Field Report ─────────────────────────────────────────────────────────────

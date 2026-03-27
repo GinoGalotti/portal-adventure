@@ -51,3 +51,25 @@ CREATE TABLE IF NOT EXISTS telemetry_events (
 CREATE INDEX IF NOT EXISTS idx_telemetry_user   ON telemetry_events(user_id);
 CREATE INDEX IF NOT EXISTS idx_telemetry_seed   ON telemetry_events(mystery_seed);
 CREATE INDEX IF NOT EXISTS idx_telemetry_type   ON telemetry_events(event_type);
+
+-- Confrontation transcripts: per-confrontation decision log for debugging, tuning, and storytelling
+CREATE TABLE IF NOT EXISTS confrontation_transcripts (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  slot_id TEXT REFERENCES save_slots(id),
+  mystery_seed TEXT NOT NULL,
+  mystery_id TEXT NOT NULL,
+  entity_name TEXT NOT NULL,
+  hunters JSON NOT NULL,               -- string[] of hunter names
+  intel_level TEXT NOT NULL,
+  ai_enabled INTEGER NOT NULL DEFAULT 0,
+  ai_model TEXT,
+  turns JSON NOT NULL,                 -- TranscriptTurn[]
+  outcome TEXT NOT NULL,               -- victory | defeat | retreat
+  player_rating INTEGER,               -- 1-4 quality rating
+  player_feedback TEXT,
+  created_at TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_transcripts_user ON confrontation_transcripts(user_id);
+CREATE INDEX IF NOT EXISTS idx_transcripts_seed ON confrontation_transcripts(mystery_seed);

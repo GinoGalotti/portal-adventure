@@ -141,17 +141,35 @@ export function getUnvisitedLocationIds(state: GameState): string[] {
 }
 
 /**
+ * Returns true if a location's clue prerequisites are met.
+ * Locations without requiredClueIds are always accessible.
+ */
+export function isLocationAccessible(state: GameState, location: { requiredClueIds: string[] }): boolean {
+  if (!state.mystery || location.requiredClueIds.length === 0) return true
+  const foundClues = new Set(state.mystery.cluesFound)
+  return location.requiredClueIds.every((id) => foundClues.has(id))
+}
+
+/**
  * Returns a list of location IDs reachable from the current location
- * (adjacent) plus the current location itself.
+ * (adjacent) plus the current location itself. Respects clue-based
+ * location gating — gated locations whose prerequisites are unmet are
+ * excluded.
  */
 export function getReachableLocationIds(state: GameState): string[] {
   const mystery = state.mystery
   if (!mystery || !mystery.currentLocationId) {
-    return mystery?.locations.map((l) => l.id) ?? []
+    return mystery?.locations
+      .filter((l) => isLocationAccessible(state, l))
+      .map((l) => l.id) ?? []
   }
   const current = mystery.locations.find(
     (l) => l.id === mystery.currentLocationId,
   )
   if (!current) return []
-  return [current.id, ...current.adjacentLocationIds]
+  const adjacent = current.adjacentLocationIds
+    .map((id) => mystery.locations.find((l) => l.id === id))
+    .filter((l): l is NonNullable<typeof l> => l !== undefined && isLocationAccessible(state, l))
+    .map((l) => l.id)
+  return [current.id, ...adjacent]
 }

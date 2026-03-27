@@ -1,0 +1,430 @@
+{
+  "_note": "Based on Case C — The Recorder (Nadia Osei). Open thread from PORTAL campaign briefings.json. A race-against-time mystery where the 'monster' is an ally who is fading. The operatives need her information as much as she needs their answers.",
+  "_story_notes": {
+    "premise": "Nadia Osei, 38, investigative journalist. Deceased 10 weeks. Her consciousness anchored itself to information infrastructure — news servers, digital archives, telecommunications networks. She continues to publish articles on her blog, each more accurate and more impossible than the last. She has assembled the full pattern of what the shell companies are doing. She will share it — in exchange for answers about who is investigating alongside her.",
+    "resolution": "Nadia must choose to let go. She cannot be forced out — the tether is her will. The operatives must establish communication (she speaks through text on screens), provide the answers she demands (information about PORTAL), and then help her understand that her window is closing. The 'weakness' is emotional closure — she lets go when she accepts that her work will continue in other hands.",
+    "tone": "Urgent, cerebral, melancholy. Nadia is sharp and fully cognitive — she's not confused or suffering. She's angry that she died before she could publish the biggest story of her career. She's holding on by force of will, and it's costing her coherence. Every conversation costs her time.",
+    "mesa_connection": "Nadia assembled the MESA pattern independently before she died. Her unpublished drafts contain shell company analyses, property acquisition maps, and references to BIM collection that would take PORTAL months to replicate. MESA knows she exists and is attempting to erase her digital footprint."
+  },
+  "id": "mystery-003",
+  "title": "The Recorder",
+  "briefingText": "[CASE FILE OPEN: DIG-2026-088]\n[CLASSIFICATION: AMBER — TIME SENSITIVE]\n[LOCATION: DIGITAL INFRASTRUCTURE / NADIA OSEI'S NETWORK]\n\nDeceased journalist. 10 weeks dead. Still publishing.\n\n4 articles since death — 97.3% predictive accuracy on verifiable claims. Post 4 references this organisation directly.\n\nConsciousness anchored to information infrastructure. First recorded instance.\n\nThe window is closing. Make contact before she disperses.\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-nadia-tether",
+    "type": "spirit",
+    "name": "Nadia Osei",
+    "motivation": "preservation",
+    "weakness": {
+      "id": "w-emotional-closure",
+      "type": "brokenBond",
+      "description": "Nadia's consciousness is tethered by unfinished purpose — the story she died before publishing. She must choose to release herself. This requires the operatives to establish trust, answer her questions about PORTAL honestly, receive her information, and convince her that her work will be carried forward. A Charm-based exploitWeakness roll represents the final conversation where she agrees to let go.",
+      "statRequired": "charm",
+      "exploitOptions": [
+        {
+          "id": "exploit-blog-contact",
+          "requiredClueIds": [
+            "clue-blog-analysis"
+          ],
+          "modifier": -2,
+          "description": "exploit_blog_contact_desc",
+          "successHarm": 4,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-sister-context",
+          "requiredClueIds": [
+            "clue-sister-interview"
+          ],
+          "modifier": -1,
+          "description": "exploit_sister_context_desc",
+          "successHarm": 5,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-story-understood",
+          "requiredClueIds": [
+            "clue-unpublished-draft",
+            "clue-blog-analysis"
+          ],
+          "modifier": 0,
+          "description": "exploit_story_understood_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 4,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-trust-earned",
+          "requiredClueIds": [
+            "clue-nadia-direct",
+            "clue-sister-interview"
+          ],
+          "modifier": 1,
+          "description": "exploit_trust_earned_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 0
+        },
+        {
+          "id": "exploit-full-exchange",
+          "requiredClueIds": [
+            "clue-nadia-direct",
+            "clue-unpublished-draft",
+            "clue-mesa-erasure"
+          ],
+          "modifier": 2,
+          "description": "exploit_full_exchange_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-full-exchange",
+          "requiredClueIds": [
+            "clue-nadia-direct",
+            "clue-unpublished-draft",
+            "clue-mesa-erasure"
+          ],
+          "triggerWords": [
+            [
+              "nadia",
+              "publish",
+              "story"
+            ],
+            [
+              "trust",
+              "carry",
+              "work"
+            ],
+            [
+              "portal",
+              "continue",
+              "story"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "The screens go still. Then, slowly, text appears — not an article. A message: 'Okay. You carry it.' The signal fades."
+        },
+        {
+          "id": "ft-trust-earned",
+          "requiredClueIds": [
+            "clue-nadia-direct",
+            "clue-sister-interview"
+          ],
+          "triggerWords": [
+            [
+              "nadia",
+              "trust"
+            ],
+            [
+              "promise",
+              "story"
+            ],
+            [
+              "publish",
+              "nadia"
+            ],
+            [
+              "carry",
+              "work"
+            ]
+          ],
+          "modifier": 1,
+          "successHarm": "maxHarm",
+          "narrativeResult": "The café TV flickers. She's listening."
+        },
+        {
+          "id": "ft-purpose-fulfilled",
+          "requiredClueIds": [
+            "clue-unpublished-draft"
+          ],
+          "triggerWords": [
+            [
+              "publish",
+              "draft"
+            ],
+            [
+              "finish",
+              "story"
+            ],
+            [
+              "story",
+              "continue"
+            ],
+            [
+              "release",
+              "article"
+            ]
+          ],
+          "modifier": 0,
+          "successHarm": "maxHarm",
+          "narrativeResult": "You speak about the story. She's still here."
+        }
+      ]
+    },
+    "harm": 2,
+    "armor": 5,
+    "maxHarm": 8,
+    "attacks": [
+      "nadia_digital_lash",
+      "nadia_information_overload"
+    ],
+    "specialAbility": "Incorporeal — exists within digital infrastructure. Cannot be harmed by physical means. When threatened or frightened, she lashes out through electronics: screens shatter, servers overload, phones emit bursts of static that cause migraines. Her armor of 5 reflects that there is almost nothing to hit — only Weird-stat approaches that target her tether or Charm-stat emotional engagement can reach her. Attacking her accelerates her dispersal.",
+    "capabilities": [
+      {
+        "id": "cap-digital-lash",
+        "name": "Digital Lash",
+        "harm": 2,
+        "description": "Nadia lashes out through nearby electronics — screens shatter, devices emit bursts of static causing migraines. Triggered when hunters act aggressively or when her trust is violated.",
+        "disableConditions": [
+          "trust established via direct contact",
+          "hunters act non-aggressively"
+        ]
+      },
+      {
+        "id": "cap-information-overload",
+        "name": "Information Overload",
+        "harm": 2,
+        "description": "She floods the hunters' devices with her full archive simultaneously — hundreds of articles, documents, and drafts. Hunters must resist or lose their next action to sensory overload.",
+        "disableConditions": [
+          "hunters explicitly promise to carry her story",
+          "exchange completed"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-apartment",
+      "name": "Nadia's Apartment — Upper West Side",
+      "type": "crimeScene",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-research-wall",
+          "significance": "partial",
+          "description": "Nadia's apartment is untouched since her death. Her home office has a corkboard with printed maps, company registration documents, and red string connecting locations. Shell company names are circled: Meridian, Greyfield, Solstice, Veritas. A handwritten note reads: 'Same agent. Same address. Different names. WHY?' Her laptop is open — the screen flickers when the operatives enter the room.",
+          "locationId": "loc-apartment",
+          "requiresAction": "investigate",
+          "keywords": [
+            "research",
+            "wall",
+            "corkboard",
+            "shell",
+            "companies",
+            "string",
+            "map",
+            "Nadia"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-sister-home",
+        "loc-server-room"
+      ]
+    },
+    {
+      "id": "loc-sister-home",
+      "name": "Amara Osei's Home",
+      "type": "witnessHome",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-sister-interview",
+          "significance": "key",
+          "description": "Amara Osei, Nadia's younger sister, has received three text messages from Nadia's phone since the funeral. She hasn't told anyone. The messages are lucid, specific, and contain details only Nadia would know — a childhood nickname, the location of a hidden key. The last message reads: 'They're erasing my files. I need someone to listen before I can't talk anymore. Find my blog. Read the unpublished one. Then come find me.' Amara is frightened but composed. She wants to help.",
+          "locationId": "loc-sister-home",
+          "requiresAction": "interview",
+          "keywords": [
+            "Amara",
+            "sister",
+            "texts",
+            "messages",
+            "phone",
+            "funeral",
+            "communicate"
+          ]
+        }
+      ],
+      "availableActions": [
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-apartment"
+      ]
+    },
+    {
+      "id": "loc-server-room",
+      "name": "DataVault Hosting — Server Farm",
+      "type": "hiddenArea",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-blog-analysis",
+          "significance": "partial",
+          "description": "Nadia's blog is hosted on a shared server at DataVault. The server logs show her account generating activity — login sessions, file modifications, new draft saves — all timestamped after her date of death. The server admin is confused and suspects a hacking incident. The activity patterns are consistent with a single user working long, focused sessions. The server room is cold, but one rack — Nadia's — is running 12 degrees warmer than its neighbours.",
+          "locationId": "loc-server-room",
+          "requiresAction": "investigate",
+          "keywords": [
+            "blog",
+            "server",
+            "digital",
+            "posts",
+            "activity",
+            "DataVault",
+            "log"
+          ]
+        },
+        {
+          "id": "clue-unpublished-draft",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Post 4, unpublished. It describes a pattern: four shell companies, 47 property acquisitions, a dissolved pharmaceutical company, and a research programme that was never about medicine. The article names no organisation — but the description of an 'anomaly detection system operating from a converted research facility in central Virginia' is unmistakable. She knows about PORTAL. She doesn't know PORTAL's name. She wants to.",
+          "locationId": "loc-server-room",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "draft",
+            "article",
+            "unpublished",
+            "PORTAL",
+            "shell",
+            "companies",
+            "story"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-apartment",
+        "loc-cafe"
+      ]
+    },
+    {
+      "id": "loc-cafe",
+      "name": "The Cornerstone — Nadia's Regular Café",
+      "type": "publicSpace",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-nadia-direct",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "The café's Wi-Fi router, the till system, the wall-mounted TV — all flicker when the operatives enter. Then the TV displays text, line by line, in the style of Nadia's published articles. She is here. She can perceive the operatives through the café's CCTV camera. She asks questions — sharp, journalistic, probing. She wants to know who sent them, what they know about the shell companies, and whether they intend to publish or suppress. The conversation is lucid, fast, and finite — each exchange costs her coherence.",
+          "locationId": "loc-cafe",
+          "requiresAction": "interview",
+          "keywords": [
+            "Nadia",
+            "contact",
+            "TV",
+            "screens",
+            "direct",
+            "conversation",
+            "cafe",
+            "interview"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview"
+      ],
+      "adjacentLocationIds": [
+        "loc-server-room",
+        "loc-newspaper-archive"
+      ]
+    },
+    {
+      "id": "loc-newspaper-archive",
+      "name": "City Herald — Digital Archive Room",
+      "type": "library",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-mesa-erasure",
+          "significance": "key",
+          "description": "Nadia worked at the City Herald for six years before going independent. Her archived articles are being systematically deleted — server-side, not through the CMS. Someone with direct database access is removing her work. The deletions started 48 hours ago and are proceeding chronologically. The IT department has no record of authorised maintenance. A cleanup crew from an 'information security consultancy' visited the building yesterday — their van had no company name, and the work order was signed by a shell company the operatives may recognise: Helix Boundary.",
+          "locationId": "loc-newspaper-archive",
+          "requiresAction": "investigate",
+          "keywords": [
+            "MESA",
+            "erasure",
+            "deletion",
+            "archive",
+            "Herald",
+            "files",
+            "Helix"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-cafe"
+      ]
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Time-pressure mystery. The tether is fraying regardless of action. actionCost=1, travelCost=1 (locations are close). Miss adds +3 (time is brutal). Confrontation at 8 (early contact possible). Disaster at 22 (Nadia disperses without sharing her information).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 1,
+      "missPenalty": 3,
+      "successRefund": 1,
+      "confrontationAt": 8,
+      "disasterAt": 22,
+      "stepThresholds": [
+        3,
+        7,
+        11,
+        15,
+        19
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags anomalous blog activity from deceased journalist Nadia Osei. Post 4 references PORTAL. Field team dispatched to make contact.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "Nadia's blog posts become erratic — timestamps overlapping, text fragments appearing and vanishing. She is losing coherence. Her digital footprint is also being actively erased by an unknown party.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "Nadia sends a burst of text messages to her sister, her editor, and three phone numbers she shouldn't know. The messages are urgent but increasingly fragmented. 'I can see the pattern. I can see all of it. Someone is listening. I need them to answer.'",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "Half of Nadia's archived work is gone. Her presence in digital systems is flickering — present in one server, absent the next. She is being erased and fading simultaneously. She sends one clear message: 'I found a third way. But it doesn't last.'",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "Nadia's consciousness contracts to a single server. She is fully lucid but can no longer reach external systems. This is the last window. If the operatives are here, she will talk. If they are not, she will write her final article — and it will contain everything, published to what remains of her blog, for anyone to read.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "The server goes quiet. Nadia Osei disperses. Her final article — if published — is online for 47 minutes before MESA's deletion protocol reaches it. Whatever the operatives didn't learn is gone.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

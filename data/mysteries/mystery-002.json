@@ -1,0 +1,436 @@
+{
+  "_note": "Based on Case A — The Volunteer (Gordon Avery). Open thread from PORTAL campaign briefings.json w01–w03. The monster is the mechanism inside Gordon, not Gordon himself. A parasite mystery where the entity doesn't know it exists.",
+  "_story_notes": {
+    "premise": "Gordon Avery, 58, retired schoolteacher. Survived a clinical trial run by Meridian BioSciences (now dissolved). Complete remission from terminal lung cancer. Unknown to Gordon, the trial implanted a vitality displacement mechanism — he unconsciously drains life from anyone in sustained proximity. Four deaths so far. He is now living with his daughter's family, including two young grandchildren.",
+    "resolution": "The mechanism can be severed by reconstructing the Meridian trial protocol and reversing the anchoring process, OR by making Gordon fully aware of what he is (which may kill the mechanism but will psychologically devastate him). The 'humane' path requires finding the Meridian trial records, understanding the science, and performing the reversal. The 'direct' path requires confronting Gordon with the truth and letting his own grief break the bond.",
+    "tone": "Tragic. Gordon is kind, gentle, and completely unaware. The children are at risk. Every hour the operatives spend investigating, the family is in danger. The ideal outcome saves Gordon AND severs the mechanism — but requires finding records from a company someone deliberately destroyed.",
+    "mesa_connection": "Meridian BioSciences was a MESA shell company. The trial was designed to study vitality displacement, not cure cancer. Gordon's remission was a side effect. MESA is watching him — not to help, but to collect data on the mechanism's long-term behaviour."
+  },
+  "id": "mystery-002",
+  "title": "The Volunteer",
+  "briefingText": "[CASE FILE OPEN: HMC-2026-091]\n[CLASSIFICATION: RED]\n[LOCATION: HARGROVE MEDICAL CENTRE / FAMILY RESIDENCE]\n\nFour unexplained deaths in a 28-day window. All within proximity of one subject — a clinical trial survivor in full cancer remission.\n\nThe subject is now living with his daughter's family. Two children present.\n\nMeridian BioSciences dissolved 10 weeks ago. Trial records missing.\n\nFOCUS: Gordon Avery, 58, retired schoolteacher. He does not know what he is.\n\n— CAMPBELL",
+  "monster": {
+    "id": "mon-vitality-parasite",
+    "type": "parasite",
+    "name": "The Meridian Mechanism",
+    "motivation": "consumption",
+    "weakness": {
+      "id": "w-trial-reversal",
+      "type": "ritual",
+      "description": "The vitality displacement mechanism can be severed by reconstructing and reversing the Meridian trial protocol. This requires the original trial documentation, a tissue sample from Gordon, and a controlled environment. A Weird-based exploitWeakness roll represents performing the reversal procedure. Alternatively, making Gordon fully, emotionally aware of the harm he causes can shatter the mechanism through psychic shock — but at enormous personal cost to him.",
+      "statRequired": "weird",
+      "exploitOptions": [
+        {
+          "id": "exploit-proximity-pattern",
+          "requiredClueIds": [
+            "clue-ward-deaths"
+          ],
+          "modifier": -2,
+          "description": "exploit_proximity_pattern_desc",
+          "successHarm": 4,
+          "mixedHarm": 2,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-trial-records",
+          "requiredClueIds": [
+            "clue-meridian-files"
+          ],
+          "modifier": -1,
+          "description": "exploit_trial_records_desc",
+          "successHarm": 5,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-tissue-sample",
+          "requiredClueIds": [
+            "clue-tissue-sample",
+            "clue-meridian-files"
+          ],
+          "modifier": 0,
+          "description": "exploit_tissue_sample_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 5,
+          "mixedHarmToHunter": 1
+        },
+        {
+          "id": "exploit-gordon-aware",
+          "requiredClueIds": [
+            "clue-gordon-interview",
+            "clue-ward-deaths"
+          ],
+          "modifier": 0,
+          "statRequired": "charm",
+          "description": "exploit_gordon_aware_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": 4,
+          "mixedHarmToHunter": 2
+        },
+        {
+          "id": "exploit-full-reversal",
+          "requiredClueIds": [
+            "clue-meridian-files",
+            "clue-tissue-sample",
+            "clue-trial-protocol"
+          ],
+          "modifier": 2,
+          "description": "exploit_full_reversal_desc",
+          "successHarm": "maxHarm",
+          "mixedHarm": "maxHarm",
+          "mixedHarmToHunter": 0
+        }
+      ],
+      "freeTextExploits": [
+        {
+          "id": "ft-full-reversal",
+          "requiredClueIds": [
+            "clue-meridian-files",
+            "clue-tissue-sample",
+            "clue-trial-protocol"
+          ],
+          "triggerWords": [
+            [
+              "reverse",
+              "protocol"
+            ],
+            [
+              "reversal",
+              "procedure"
+            ],
+            [
+              "counter",
+              "frequency",
+              "bim"
+            ]
+          ],
+          "modifier": 2,
+          "successHarm": "maxHarm",
+          "narrativeResult": "The counter-frequency exposure triggers. The mechanism recoils within Gordon's cells — and then stills. The grey residue evaporates."
+        },
+        {
+          "id": "ft-gordon-aware",
+          "requiredClueIds": [
+            "clue-gordon-interview",
+            "clue-ward-deaths"
+          ],
+          "triggerWords": [
+            [
+              "gordon",
+              "truth"
+            ],
+            [
+              "gordon",
+              "aware"
+            ],
+            [
+              "tell",
+              "gordon"
+            ],
+            [
+              "gordon",
+              "know"
+            ]
+          ],
+          "modifier": 0,
+          "successHarm": "maxHarm",
+          "narrativeResult": "Gordon's face changes as the truth settles in. The mechanism shudders — his grief, his horror, his love for his family."
+        },
+        {
+          "id": "ft-tissue-approach",
+          "requiredClueIds": [
+            "clue-tissue-sample",
+            "clue-meridian-files"
+          ],
+          "triggerWords": [
+            [
+              "tissue",
+              "reverse"
+            ],
+            [
+              "sample",
+              "counter"
+            ],
+            [
+              "anchor",
+              "sever"
+            ],
+            [
+              "mechanism",
+              "sever"
+            ]
+          ],
+          "modifier": 0,
+          "successHarm": "maxHarm",
+          "narrativeResult": "The counter-procedure begins. Gordon flinches. Something inside him resists."
+        }
+      ]
+    },
+    "harm": 2,
+    "armor": 3,
+    "maxHarm": 10,
+    "attacks": [
+      "vitality_drain_passive",
+      "proximity_surge"
+    ],
+    "specialAbility": "Passive — the mechanism operates continuously without Gordon's awareness or intent. Physical attacks against Gordon harm an innocent man, not the mechanism. Only Weird-stat approaches that target the mechanism itself can reduce its harm. Armor of 3 reflects the mechanism's integration with Gordon's biology. Sustained proximity (same room, 10+ minutes) to Gordon costs 1-harm per hour to any living person.",
+    "capabilities": [
+      {
+        "id": "cap-vitality-drain",
+        "name": "Vitality Drain (Passive)",
+        "harm": 1,
+        "description": "Continuous passive drain — each round spent in the same space as the mechanism costs 1 harm. Cannot be blocked by armour. Hunters who sustain proximity for 2+ rounds take an additional 1 harm.",
+        "disableConditions": [
+          "counter-frequency BIM exposure initiated",
+          "tissue sample used in reversal"
+        ]
+      },
+      {
+        "id": "cap-proximity-surge",
+        "name": "Proximity Surge",
+        "harm": 3,
+        "description": "The mechanism pulses outward in a 5-metre burst. All hunters in range take 3 harm. Triggered when a hunter attempts a physical attack on Gordon.",
+        "disableConditions": [
+          "Gordon made aware of mechanism",
+          "reversal protocol initiated"
+        ]
+      }
+    ]
+  },
+  "locationDefs": [
+    {
+      "id": "loc-medical-centre",
+      "name": "Hargrove Medical Centre — Outpatient Wing",
+      "type": "crimeScene",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-ward-deaths",
+          "significance": "partial",
+          "description": "Hospital records show four deaths in 28 days, all patients or visitors in proximity to Gordon Avery's treatment bay. Cause of death: unexplained systemic organ failure. No pathogen, no toxin, no shared medication. The only common factor is proximity — every victim spent at least three hours within ten metres of Gordon.",
+          "locationId": "loc-medical-centre",
+          "requiresAction": "investigate",
+          "keywords": [
+            "hospital",
+            "death",
+            "proximity",
+            "Gordon",
+            "patient",
+            "ward",
+            "organ",
+            "failure"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview"
+      ],
+      "adjacentLocationIds": [
+        "loc-family-home",
+        "loc-meridian-office"
+      ]
+    },
+    {
+      "id": "loc-family-home",
+      "name": "Avery Family Residence",
+      "type": "witnessHome",
+      "threatLevel": 3,
+      "clueDefs": [
+        {
+          "id": "clue-gordon-interview",
+          "significance": "key",
+          "description": "Gordon is warm, grateful, and completely unaware. He talks about his remission as a miracle. He mentions the clinical trial fondly — 'lovely people, very thorough.' He has noticed his daughter's dog won't come near him anymore. The houseplants in his bedroom died within a week of his arrival. He mentions this with mild embarrassment, not alarm. His granddaughter, age 7, has been unusually tired.",
+          "locationId": "loc-family-home",
+          "requiresAction": "interview",
+          "keywords": [
+            "Gordon",
+            "interview",
+            "family",
+            "plants",
+            "grandchildren",
+            "remission",
+            "trial",
+            "kind"
+          ]
+        },
+        {
+          "id": "clue-tissue-sample",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "A tissue sample from Gordon — obtained with his consent or covertly — reveals anomalous cellular activity. His cells are regenerating at a rate incompatible with normal biology. The energy source is external. Under magnification, the cell boundaries flicker with a faint grey residue — the same ash-class particulate found at other PORTAL case sites. The mechanism is written into his biology.",
+          "locationId": "loc-family-home",
+          "requiresAction": "investigate",
+          "keywords": [
+            "tissue",
+            "sample",
+            "cells",
+            "grey",
+            "residue",
+            "mechanism",
+            "biology",
+            "regenerate"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-medical-centre",
+        "loc-park"
+      ]
+    },
+    {
+      "id": "loc-meridian-office",
+      "name": "Meridian BioSciences — Former Offices",
+      "type": "hiddenArea",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-meridian-files",
+          "significance": "key",
+          "description": "The Meridian BioSciences office was stripped clean six weeks ago. But the building's basement storage unit was missed — a filing cabinet behind industrial shelving contains partial trial documentation. Subject dosing schedules, consent forms (Gordon's signature on file 3), and a single page of methodology notes describing 'vitality displacement anchoring — Stage II stabilisation.' The document references a 'Dell methodology' and a substance designated 'BIM-compound Θ-derivative.'",
+          "locationId": "loc-meridian-office",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "Meridian",
+            "files",
+            "trial",
+            "records",
+            "BIM",
+            "anchor",
+            "documentation",
+            "protocol"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-medical-centre",
+        "loc-university-lab"
+      ]
+    },
+    {
+      "id": "loc-university-lab",
+      "name": "State University — Biochemistry Lab",
+      "type": "library",
+      "threatLevel": 1,
+      "clueDefs": [
+        {
+          "id": "clue-trial-protocol",
+          "significance": "critical",
+          "minRollOutcome": "success",
+          "description": "Cross-referencing the partial Meridian files with published clinical trial registrations reveals the full protocol was filed under a different company name — Helix Boundary Research. The filing includes a reversal procedure: 'In the event of uncontrolled vitality displacement, administer counter-frequency BIM exposure at the original anchoring site.' The original anchoring site is Hargrove Medical Centre, Treatment Bay 7. The reversal requires equipment the operatives can improvise from lab supplies — if they understand the science.",
+          "locationId": "loc-university-lab",
+          "requiresAction": "deepSearch",
+          "keywords": [
+            "reversal",
+            "counter",
+            "frequency",
+            "BIM",
+            "protocol",
+            "Helix",
+            "procedure",
+            "antidote"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "deepSearch"
+      ],
+      "adjacentLocationIds": [
+        "loc-meridian-office"
+      ]
+    },
+    {
+      "id": "loc-park",
+      "name": "Riverside Park — Gordon's Walking Route",
+      "type": "publicSpace",
+      "threatLevel": 2,
+      "clueDefs": [
+        {
+          "id": "clue-dead-zone",
+          "significance": "partial",
+          "description": "Gordon walks the same riverside path every morning. Along a 200-metre stretch, the grass is brown and the trees are leafless despite being midsummer. Birds avoid the path. A park maintenance worker mentions that three stray cats were found dead on the bench where Gordon sits to read. No visible cause. The displacement effect is intensifying — Gordon's range is growing.",
+          "locationId": "loc-park",
+          "requiresAction": "investigate",
+          "keywords": [
+            "dead",
+            "zone",
+            "park",
+            "displacement",
+            "range",
+            "grass",
+            "cats",
+            "intensify"
+          ]
+        }
+      ],
+      "availableActions": [
+        "investigate",
+        "interview",
+        "helpBystander"
+      ],
+      "adjacentLocationIds": [
+        "loc-family-home"
+      ]
+    }
+  ],
+  "countdownDef": {
+    "_clockConfig_note": "Tight clock — the family is at risk every moment. actionCost=1, travelCost=2. Miss adds +2. Confrontation available at 10 (operatives can attempt reversal early with partial info). Disaster at 25 (a grandchild collapses).",
+    "clockConfig": {
+      "actionCost": 1,
+      "travelCost": 2,
+      "missPenalty": 2,
+      "successRefund": 0,
+      "confrontationAt": 10,
+      "disasterAt": 25,
+      "stepThresholds": [
+        4,
+        8,
+        13,
+        18,
+        22
+      ]
+    },
+    "steps": [
+      {
+        "step": 0,
+        "description": "CAMPBELL flags proximity correlation pattern at Hargrove Medical Centre. Field team dispatched for assessment. Gordon Avery is living with his daughter's family.",
+        "effect": null
+      },
+      {
+        "step": 1,
+        "description": "Gordon's daughter reports persistent fatigue and headaches. She attributes it to stress. The family dog refuses to enter Gordon's room.",
+        "effect": "countdown_threat_minor"
+      },
+      {
+        "step": 2,
+        "description": "A neighbour who visited for tea is hospitalised with unexplained organ weakness. Gordon is confused and worried. He doesn't connect it to himself.",
+        "effect": "countdown_threat_moderate"
+      },
+      {
+        "step": 3,
+        "description": "Gordon's granddaughter, age 7, faints at school. Medical tests show no cause. Gordon's daughter asks him if something is wrong. He doesn't know.",
+        "effect": "countdown_npc_destabilised"
+      },
+      {
+        "step": 4,
+        "description": "The granddaughter is hospitalised. Gordon sits by her bedside, holding her hand, unknowingly accelerating her decline. He will not leave her side.",
+        "effect": "countdown_exposure_risk"
+      },
+      {
+        "step": 5,
+        "description": "The granddaughter's vitals crash. Gordon finally understands — he sees his hand on hers and feels what he is. He runs. He is alone in the park, and the mechanism is in overdrive.",
+        "effect": "countdown_critical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+# Copy this file to .dev.vars (gitignored) and fill in values for local development.
+
+AUTH_PASSWORDS={"admin":"yourpassword"}
+AUTH_JWT_SECRET=dev-secret-change-in-prod
+
+# AI GM — local Ollama (free, no key needed)
+AI_GM_ENABLED=true
+AI_GM_URL=http://localhost:11434/v1
+AI_GM_MODEL=llama3.1:8b
+AI_GM_KEY=
+
+# AI GM — Groq (free tier, ~200ms, sign up at console.groq.com)
+# AI_GM_ENABLED=true
+# AI_GM_URL=https://api.groq.com/openai/v1
+# AI_GM_MODEL=llama-3.1-8b-instant
+# AI_GM_KEY=gsk_your_groq_api_key_here
