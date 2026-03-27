@@ -56,34 +56,148 @@ When working on Claude Code features (hooks, skills, subagents, MCP servers, etc
 
 ## Project Overview
 
-This repository is a **Claude Code starter configuration template**. It contains no application source code — only Claude Code settings, subagent definitions, slash commands, skills, and supplementary reference documentation intended to be copied into a real project.
+This is a roguelike mystery game set in the PORTAL universe. Read `GAME-DESIGN.md` for the full design document before making any architectural decisions.
 
-### Repository Layout
+**One-line summary:** Players manage field teams of supernatural hunters, investigate mysteries by gathering clues at locations, and confront monsters — where knowledge (not power) determines survival.
 
-```
-.claude/
-  agents/          # Subagent definitions (code-searcher, ux-design-expert, zai-cli, codex-cli, get-current-datetime, memory-bank-synchronizer)
-  commands/        # Slash commands grouped by category (anthropic, ccusage, cleanup, documentation, promptengineering, refactor, security, architecture)
-  skills/          # Extended skills (claude-docs-consultant, consult-zai, consult-codex)
-  mcp/             # MCP configs loaded on-demand (chrome-devtools — load via: claude --mcp-config .claude/mcp/chrome-devtools.json)
-  settings.json    # Shared project permissions and env vars
-  settings.local.json  # Personal/local overrides (not committed)
+## Build & Test Commands
 
-CLAUDE-cloudflare.md      # Comprehensive Cloudflare + Clerk reference (Wrangler CLI, D1, KV, R2, Durable Objects, Sandbox SDK)
-CLAUDE-cloudflare-mini.md # Condensed Cloudflare reference (lower token usage)
-CLAUDE-convex.md          # Convex + Next.js/React + Cloudflare Pages reference
-CLAUDE-*.md               # Memory bank files — NEVER committed to git
+```bash
+npm run test          # Vitest: all engine unit tests
+npm run test:watch    # Vitest: watch mode during development
+npm run simulate      # Headless simulation batch (Phase D+)
+npx vitest run tests/engine/actions.test.ts   # Run a single test file
 ```
 
-### Supplementary Reference Files
+## Reference Repository
 
-Reference these in `CLAUDE.md` when the target project uses the corresponding platform:
-- **Cloudflare/Clerk projects**: reference `CLAUDE-cloudflare.md` or `CLAUDE-cloudflare-mini.md`
-- **Convex + Next.js projects**: reference `CLAUDE-convex.md`
+The PORTAL campaign app lives in a separate repo: `GinoGalotti/portal-fieldops`. That repo contains the source data this game draws from (playbook definitions, monster types, NPCs, story arcs). **This game repo is independent — copy and adapt data you need, don't import directly.** Game versions of playbooks will diverge from campaign reference data.
 
-### No Build or Test Commands
+---
 
-There is no application code in this repo — no `npm install`, build, lint, or test commands apply here. After copying this template into a real project, run `/init` again so Claude can detect the project's actual stack and populate the memory bank files.
+## Architectural Invariants
+
+### 1. Deterministic Seeded RNG
+- All randomness derives from a seed via deterministic PRNG (mulberry32)
+- No `Math.random()` anywhere in game logic — ever
+- `GameRNG` class: `.next()`, `.roll2d6()`, `.roll2d6Detailed()`, `.pick(array)`, `.shuffle(array)`, `.getState()`, `.setState()`, `.clone()`
+
+### 2. Action Log Architecture
+- Every player action is appended to an ordered action log
+- Game state at any point = `reduce(actionLog, applyAction, initialState(seed))`
+- Action entries: `{ type, payload, timestamp, debug? }`
+- The engine is a pure function: `deriveState(seed, actions[]) → GameState`
+
+### 3. Save = Seed + Action Log
+- Auto-save writes each new action to D1
+- Resume replays the action log against the seed
+- Periodic state snapshots for performance (every ~20 actions)
+- Undo = pop last action + replay from nearest snapshot (disabled past dice rolls)
+
+### 4. Pure Engine
+- `src/engine/` has zero imports from React, Zustand, Cloudflare, or any I/O library
+- Pure TypeScript functions that take data and return data
+- Testable, replayable, simulatable, and portable
+
+### 5. i18n from Day One
+- Zero hardcoded player-facing strings — everything through `i18next` translation keys
+
+### 6. Telemetry from Day One
+- Every decision point emits a telemetry event recording what was chosen AND what was available
+- Fire-and-forget, never blocks gameplay
+- Two consumers: aggregate analytics for game tuning + per-mystery narrative export for PORTAL canon
+
+### 7. Debug Commands
+- Full cheat/debug commands in `src/engine/debug.ts` as pure functions `(GameState) → GameState`
+- Debug actions tagged `debug: true` in the action log
+- Debug screen accessible via `?debug=1` URL param
+
+---
+
+## Tech Stack
+
+- **Frontend:** React + Vite + TypeScript
+- **Styling:** Tailwind CSS
+- **State:** Zustand (fully serializable stores)
+- **Backend:** Cloudflare Workers + D1 (SQLite at edge)
+- **i18n:** i18next + react-i18next
+- **Unit tests:** Vitest (`npm run test`)
+- **E2E tests:** Playwright
+- **Simulation:** Custom headless runner using the engine directly (`npm run simulate`)
+
+---
+
+## Engine API (Phase A — complete)
+
+| File | Key exports |
+|------|-------------|
+| `src/engine/rng.ts` | `GameRNG` — seeded mulberry32 PRNG with state serialisation |
+| `src/engine/types.ts` | All game types + pure utility functions (`getRollOutcome`, `conditionFromHarm`, `intelFromClueCount`, `exploitModifier`) |
+| `src/engine/hunters.ts` | `createHunter`, `applyHarm`, `healHarm`, `spendLuck`, `gainExperience`, `canDeploy`, etc. |
+| `src/engine/actions.ts` | `applyAction(state, action): GameState` — single-clone pure reducer; `ActionError` |
+| `src/engine/state.ts` | `createInitialState(seed)`, `deriveState(seed, actions[])` |
+| `src/engine/debug.ts` | All 16 debug commands as pure functions (e.g., `revealAllClues`, `skipToConfrontation`, `forceRoll`) |
+
+### Key patterns
+
+- **Single clone:** `applyAction` does one `structuredClone(state)` at entry; all handlers mutate the clone
+- **RNG threading:** `GameRNG` is created from `state.rngState`, passed to handlers, final state captured at end
+- **Force-roll debug:** `debugForceRollValue` distributes forced dice sum across two d6s; cleared after any non-forceRoll action consumes it
+- **spendLuck:** `lastRoll` is preserved (not cleared) when processing `spendLuck` so it can read the previous roll
+- **Confrontation intelLevel:** Set from `mystery.intelLevel` at `startConfrontation`; `debug_setIntelLevel` updates both
+
+### Roll system (2d6 + stat)
+- `6-` → miss; `7-9` → mixed; `10+` → success
+- Luck pool (0–7, permanent, never regenerates) — spent AFTER seeing roll, upgrades one tier
+- `exploitWeakness` requires non-blind intel; modifier: partial=-1, informed=0, prepared=+1
+
+### Hunter harm thresholds
+- 0–3 → healthy; 4–5 → injured; 6 → seriouslyInjured; 7 → dead (alive=false)
+
+### Intel levels
+- blind (0–1 clues), partial (2–3), informed (4–5), prepared (6+)
+
+---
+
+## Build Order (MVP)
+
+### Phase A: Engine Foundation ✅ Complete
+All 6 engine files written and tested (251 tests passing).
+
+### Phase B: Content
+- `data/playbooks.json` — 4 playbooks with original names (reference PORTAL repo, rename/adapt)
+- `data/moves.json` — Shared + playbook-specific moves with game mechanics
+- `data/mysteries/mystery-001.json` — First hand-authored mystery
+
+### Phase C: Game Logic
+- `engine/investigation.ts`, `engine/clues.ts`, `engine/confrontation.ts`
+
+### Phase D: Simulation
+- `simulation/runner.ts` + strategies + reporter + CLI
+
+### Phase E: Infrastructure
+- D1 schema + Worker endpoints, telemetry wiring, i18n extraction, sound manager
+
+### Phase F: UI
+- All React screens: login, save slots, briefing, investigation map, confrontation, field report
+
+### Phase G: Second Mystery + Validation
+- `mystery-002.json`, E2E tests, simulation validation
+
+---
+
+## Workflow
+
+Claude Code sessions start with: "Read BACKLOG.md and pick up [Phase X]." Update BACKLOG.md and TEST-COVERAGE.md before finishing. Design docs go in repo root until implemented, then delete or archive.
+
+## Key Principles
+
+- **Engine is pure.** No React/DOM/Cloudflare imports in `src/engine/`.
+- **UI is a view layer.** React reads Zustand stores that wrap the engine.
+- **Content is data.** Mysteries, playbooks, moves — all JSON.
+- **Simulate before shipping.** New mysteries get a simulation run before reaching players.
+- **Debug commands are features.** They power development, testing, and simulation.
+- **Simulation coverage is mandatory.** Any new lever added to mysteries (monster fields, clock config fields, clue fields, location fields) MUST be documented in `simulation/SIMULATION.md` under the appropriate "Levers" section AND must be expressible via `mysteryOverrides` in experiment configs. New engine mechanics that affect investigation or confrontation outcomes must be exercisable headlessly — no lever may be UI-only or simulation-blind.
 
 ## ALWAYS START WITH THESE COMMANDS FOR COMMON TASKS
 
