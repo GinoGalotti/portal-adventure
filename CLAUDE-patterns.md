@@ -311,14 +311,19 @@ const { state, dispatch, actions: actionLog } = useGameStore()
 ```
 src/
   engine/         ← pure TypeScript, zero React/DOM imports
+    free-text/    ← keyword pipeline (tokenizer, clue-matcher, stat-classifier, exploit-resolver, pipeline)
+  ai/             ← AI GM client, prompt builder, parser, interpret pipeline
   data/
     names.ts      ← operative name pool (100 names)
     narrative/
       mystery-001.ts  ← narrative overlay (scene text, NPC dialogue)
+    mysteries.ts  ← mystery registry (getMysteryForState)
   store/
     auth.ts       ← Zustand + persist
     game.ts       ← Zustand + optimistic dispatch
   screens/        ← React screen components
+  components/
+    ui.tsx        ← reusable PORTAL design system components
   api/
     client.ts     ← typed fetch wrappers
     schema.sql    ← D1 schema
@@ -328,18 +333,32 @@ src/
     emitter.ts    ← fire-and-forget telemetry
   sound/
     manager.ts    ← audio architecture (files TBD)
+  styles/
+    portal-theme.css  ← CSS variables, scanline/grid overlays, animation classes
 
 workers/
-  index.ts        ← API router
-  auth.ts         ← JWT sign/verify
+  index.ts        ← API router + static asset serving
+  auth.ts         ← JWT sign/verify (HS256, Web Crypto)
+  ai.ts           ← AI GM proxy (routes to Ollama/Groq, guarded by AI_GM_ENABLED flag)
 
 data/
-  mysteries/      ← mystery JSON definitions
+  mysteries/      ← mystery JSON definitions (001–009)
   playbooks.json
   moves.json
 
-simulation/       ← headless runner + strategies + CLI
-tests/            ← Vitest unit tests
+simulation/
+  runner.ts       ← headless game runner
+  strategies.ts   ← strategy implementations (random, rush, greedy, balanced, free-text, free-text-compare)
+  valid-actions.ts ← action enumeration for strategies
+  optimizer.ts    ← ParameterizedStrategy + genetic optimizer
+  reporter.ts     ← balance flag analysis + formatted output
+  experiments/    ← experiment JSON configs (baseline, high-armor, tight-clock, three-hunters)
+
+tests/
+  engine/         ← Vitest unit tests for engine + free-text pipeline
+  simulation/     ← Vitest unit tests for runner + valid-actions
+  ai/             ← Vitest unit tests for AI client, parser, prompts, telemetry
+  e2e/            ← Playwright E2E tests (pending implementation)
 ```
 
 ---

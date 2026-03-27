@@ -9,7 +9,7 @@ This file tracks all tests in the project. Tests are added by Claude Code sessio
 - **E2E (Playwright):** Browser-based user flow tests. Slow, full stack.
 - **Simulation:** Headless game runs for balance verification. Variable speed.
 
-**Current totals: 496 engine/simulation tests (11 files), 0 E2E tests.**
+**Current totals: 543 engine/simulation tests (15 files), 0 E2E tests.**
 
 ---
 
@@ -171,7 +171,7 @@ Tests added by Claude Code sessions that haven't been reviewed yet. After review
 | `freetext.test.ts` | resolveExploit — fallback -2 with 1 matched clue | Verify fallback tier 1 | modifier=-2 | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | resolveExploit — fallback -1 with 3+ matched clues | Verify fallback tier 3+ | modifier=-1 | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | resolveExploit — matches ft-full-resolution | Verify best exploit | exploitId='ft-full-resolution', modifier=2 | 2026-03-26 | Sprint 1 |
-| `freetext.test.ts` | resolveExploit — skips exploit with missing required clues | Verify clue gate | exploit skipped when required clue absent | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | resolveExploit — matches ft-full-resolution even when required clues not found (players can always guess) | Verify non-enforcement of requiredClueIds in free-text path | ft-full-resolution returned even without ash-locket found | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | resolveExploit — matches ft-anchor-approach | Verify locket exploit | exploitId='ft-anchor-approach', modifier=1 | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | resolveExploit — matches ft-grief-approach | Verify grief exploit | exploitId='ft-grief-approach', modifier=0 | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | resolveExploit — picks highest modifier when multiple match | Verify best-first walk | ft-full-resolution wins over ft-grief-approach | 2026-03-26 | Sprint 1 |
@@ -198,9 +198,56 @@ Tests added by Claude Code sessions that haven't been reviewed yet. After review
 | `freetext.test.ts` | interpretAction — detects weird for "ritual banishment" | Integration: stat detection | stat='weird' | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | interpretAction — detects sharp for "analyze her pattern" | Integration: stat detection | stat='sharp' | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | interpretAction — source is always 'keyword' | Verify source tag | source='keyword' for all inputs | 2026-03-26 | Sprint 1 |
-| `freetext.test.ts` | interpretAction — exploit blocked if required clue missing | Verify clue gate | ft-full-resolution not returned without ash-locket | 2026-03-26 | Sprint 1 |
+| `freetext.test.ts` | interpretAction — matches ft-full-resolution even without finding required clues | Verify non-enforcement of requiredClueIds in interpretAction | ft-full-resolution returned regardless of clue state | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | interpretAction — narrativeResult set on exploit match | Verify narrative output | narrativeResult truthy | 2026-03-26 | Sprint 1 |
 | `freetext.test.ts` | interpretAction — narrativeResult null on fallback | Verify null on no match | narrativeResult=null | 2026-03-26 | Sprint 1 |
+| `interpret.test.ts` | createConfrontationContext — creates empty context | Verify initial context shape | turns=[], disabledCapabilities=[] | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | addTurnToContext — appends a turn to the context | Verify turn append | turns.length=1 after one add | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | addTurnToContext — does not mutate the original context | Verify immutability | original context unchanged | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | addTurnToContext — accumulates disabled capabilities from AI result | Verify capability tracking | disabledCapabilities contains AI-reported IDs | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | addTurnToContext — does not duplicate already-disabled capabilities | Verify dedup | repeated disable IDs deduplicated | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | interpretActionWithAI — returns keyword result when no AI client is provided | Verify keyword fallback | source='keyword' | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | interpretActionWithAI — returns keyword result when aiClient is undefined | Verify undefined client guard | source='keyword' | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | interpretActionWithAI — returns keyword result with latency when AI fails | Verify error fallback | latencyMs set, source='keyword' | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | interpretActionWithAI — returns keyword result when AI throws | Verify throw fallback | source='keyword' on throw | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | interpretActionWithAI — returns keyword result when AI returns invalid parse | Verify invalid-parse fallback | source='keyword' on bad parse | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | interpretActionWithAI — merges AI result when AI succeeds | Verify AI override | stat/modifier from AI, source='ai' | 2026-03-27 | Sprint 2 |
+| `interpret.test.ts` | interpretActionWithAI — passes confrontation context to AI | Verify context forwarding | context passed through to prompt builder | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — parses a valid response | Verify happy path | all fields parsed correctly | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — returns valid: false on invalid JSON | Verify JSON guard | valid=false | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — returns valid: false on missing stat | Verify required field | valid=false | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — returns valid: false on invalid stat value | Verify enum guard | valid=false | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — clamps modifier above +3 | Verify upper clamp | modifier=3 for input 99 | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — clamps modifier below -3 | Verify lower clamp | modifier=-3 for input -99 | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — clamps entity harm above maxEntityHarm | Verify harm clamp | entityHarm <= maxEntityHarm | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — filters unknown capability IDs | Verify capability whitelist | unknown IDs removed from disabledCapabilities | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — strips markdown code fences before parsing | Verify fence stripping | JSON extracted from ```json block | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — returns valid: false when narrative fields are missing | Verify required narrative | valid=false without narrativeSummary | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — defaults modifier to 0 when missing | Verify default | modifier=0 when omitted | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — defaults entity target to "all" when missing | Verify default | entityTarget='all' when omitted | 2026-03-27 | Sprint 2 |
+| `parser.test.ts` | parseAIGMResponse — accepts all valid stat values | Verify stat enum coverage | all 5 stats (sharp/cool/tough/charm/weird) accepted | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildEntitySummary — includes entity name, type, motivation | Verify entity section | name, type, motivation in output | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildEntitySummary — includes weakness description | Verify weakness section | weakness text in output | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildEntitySummary — lists active capabilities | Verify capability listing | active capabilities present | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildEntitySummary — marks disabled capabilities separately | Verify disabled distinction | disabled capabilities marked differently | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildEntitySummary — handles monster with no capabilities | Verify empty case | no crash with empty capabilities | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildHunterSummary — includes hunter name and playbook | Verify hunter section | name and playbook in output | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildHunterSummary — includes stats | Verify stats section | stat values in output | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildHunterSummary — excludes dead hunters | Verify dead filter | dead hunter absent from output | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildHunterSummary — returns empty string for all-dead team | Verify all-dead case | empty string when all dead | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildClueSummary — shows found clue count | Verify clue count | count in output | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildClueSummary — includes clue description excerpt | Verify clue detail | description excerpt present | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildClueSummary — notes unfound clues without revealing them | Verify unfound note | unfound note present without spoilers | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildClueSummary — does not add unfound note when count is 0 | Verify zero-unfound case | no unfound note | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildClueSummary — handles no found clues | Verify empty case | no crash | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildTurnHistory — returns "turn 1" message when empty | Verify empty history | 'turn 1' message | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildTurnHistory — lists turns with hunter name and input | Verify turn listing | hunter name + input in output | 2026-03-27 | Sprint 2 |
+| `prompts.test.ts` | buildPrompt — returns system and user strings | Verify prompt structure | system and user keys present | 2026-03-27 | Sprint 2 |
+| `telemetry.test.ts` | buildFreeTextEventData — builds keyword-only event data | Verify keyword event | source='keyword', latencyMs absent | 2026-03-27 | Sprint 3 |
+| `telemetry.test.ts` | buildFreeTextEventData — builds AI-enhanced event data | Verify AI event | source='ai', aiStat/aiModifier present | 2026-03-27 | Sprint 3 |
+| `telemetry.test.ts` | buildFreeTextEventData — records fallback when AI returns null | Verify fallback event | aiFallback=true in output | 2026-03-27 | Sprint 3 |
+| `telemetry.test.ts` | buildFreeTextEventData — records guardrail triggers | Verify guardrail flag | guardrailTriggered=true in output | 2026-03-27 | Sprint 3 |
+| `telemetry.test.ts` | buildFreeTextEventData — maps confidence levels to numeric values | Verify confidence mapping | numeric value for 'strong'/'moderate'/'weak' | 2026-03-27 | Sprint 3 |
 
 ---
 
@@ -257,7 +304,7 @@ Tests that should exist by the end of MVP. Check off as they are implemented.
 - [x] `freetext.test.ts` — matchClues: found-clue gate, scoring, sort order (Sprint 1)
 - [x] `freetext.test.ts` — resolveExploit: exploit matching, clue gate, fallback tiers (Sprint 1)
 - [x] `freetext.test.ts` — interpretAction: 20+ mystery-001 natural-language inputs (Sprint 1)
-- [ ] `freetext.test.ts` — coverage >80% on mystery-001 natural inputs — **sprint gate** (Sprint 1, in progress)
+- [x] `freetext.test.ts` — coverage >80% on mystery-001 natural inputs — 20+ integration cases (Sprint 1)
 
 ### Simulation Tests (Vitest)
 
@@ -300,3 +347,4 @@ Track simulation runs and their findings.
 |------|---------|------------|------|----------|--------------|
 | 2026-03-25 | mystery-001 | random, rush, greedy, balanced | 100 each | Win rates 88–100% — mystery too easy; armor not applied during engine combat (by design, Phase C); random at 88% confirms confrontation is not sufficiently challenging | Flagged for Phase G tuning |
 | 2026-03-26 | mysteries 001–009 | — | pending | freeTextExploits added to all 9 mysteries; simulation run with free-text-keyword strategy not yet done | **Todo: run simulation to verify all 9 mysteries are completable** |
+| 2026-03-27 | mystery-001 | greedy, balanced | 500 each | **Regression fixed.** campus-grounds adjacency was missing library+dorms → strategies couldn't unlock mod≥0 exploit. After fix + balanced strategy tuning: greedy 95% ✓ (target 60-95%), balanced 70% ✓ (target 60-80%), death rate 18% ✓ (target 5-20%) | Fixed mystery-001.json adjacency; tuned BalancedStrategy.shouldConfront to use hasViableExploit + partial intel threshold |

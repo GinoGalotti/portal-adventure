@@ -75,22 +75,97 @@ Regression: greedy dropped to 20%, balanced to 15% after the clue-based exploit 
 
 ## Phase G — Second Mystery + Simulation Validation
 
-- [ ] Simulation run for all 9 mysteries (002–009 now have exploitOptions + freeTextExploits)
+### Simulation results — first pass (2026-03-27, 100 runs each, random+rush+balanced)
+
+All mysteries have `freeTextExploits: 3` and `exploitOptions: 5`. Phase G can proceed, but balance tuning is required before wiring mysteries 002-009 to the UI.
+
+| Mystery | Balanced | Random | Rush | Death Rate | Status |
+|---------|----------|--------|------|------------|--------|
+| 001 | 70% ✓ | — | — | 18% ✓ | Validated |
+| 002 | 97% ⚠ | 1% ⚠ | 0% ⚠ | 5% ⚠ | Too easy + not lethal enough |
+| 003 | 100% ⚠ | 13% ⚠ | 0% ⚠ | 0% ⚠ | Too easy + not lethal |
+| 004 | 19% ⚠ | 6% ⚠ | 0% ⚠ | 42% ⚠ | Too hard + way too lethal |
+| 005 | OK ✓ | 2% ⚠ | 0% ⚠ | 24% ⚠ | Win rate OK, death rate high |
+| 006 | 100% ⚠ | 12% ⚠ | 0% ⚠ | 1% ⚠ | Too easy + not lethal |
+| 007 | 37% ⚠ | 2% ⚠ | 0% ⚠ | 37% ⚠ | Too hard + way too lethal |
+| 008 | 100% ⚠ | 6% ⚠ | 0% ⚠ | 0% ⚠ | Too easy + not lethal |
+| 009 | 93% ⚠ | OK | 0% ⚠ | 5% ✓ | Slightly over + rush too easy |
+
+Rush=0% across all mysteries is expected (high armor + exploit-gated mechanics).
+
+### Phase G tasks
+
+- [x] Simulation first pass for all 9 mysteries — results above
+- [ ] Balance tuning for mysteries 002, 003, 006, 008 (too easy — tighten clock or increase lethality)
+- [ ] Balance tuning for mysteries 004, 007 (too hard — reduce armor, increase exploit options, or loosen clock)
+- [ ] Death rate tuning for mysteries 004, 005, 007 (too lethal — reduce monster.harm)
 - [ ] Narrative overlay for mystery-002 (`src/data/narrative/mystery-002.ts`)
 - [ ] Briefing screen mystery selection (beyond mystery-001)
-- [ ] E2E tests: Playwright happy-path flows
+- [ ] E2E tests: Playwright happy-path flows (can begin now, not required for Phase G gate)
+- [ ] Roll-outcome narrative on investigate/deepSearch — per-outcome `{ miss, mixed, success }` response on SceneElement (see UX Polish backlog)
 
 ---
 
+## Sprint 4 — Monster Moves + Consequences System
+
+### Monster moves (reactive, investigation-phase)
+
+When a player **misses** an investigation roll, the monster gets a reactive "keeper move." These are narrative + mechanical events sourced from the mystery's `monsterMoves` array. Currently the engine only applies raw harm in confrontation; investigation phase has no monster pressure beyond the clock.
+
+**Design (to spec and implement):**
+- Add `moves: MonsterMove[]` to `MonsterDef` in `types.ts`
+- `MonsterMove`: `{ id, name, description, effect: MoveEffect }` where `MoveEffect` can be:
+  - `{ type: 'clockAdvance', amount: number }` — speeds up countdown
+  - `{ type: 'hunterHarm', amount: number }` — harms the investigating hunter (weird damage)
+  - `{ type: 'staminaDrain', amount: number }` — drains team stamina
+  - `{ type: 'clueObscure', locationId: string }` — resets or hides a clue
+  - `{ type: 'narrative' }` — flavor only (no mechanical effect)
+- Engine: on miss in investigation, pick a random `MonsterMove` (seeded RNG), apply effect, add to action log
+- Simulation: expose moves in RunResult for analysis
+- Inspired by: `keeper_moves` in `data/portal-entities.json`
+
+**Eszter's moves (from portal-entities.json):**
+- "Appear without warning at a location tied to the promise" → `clockAdvance +2` or `narrative`
+- "Harm someone who stands between Bálint and the promise" → `hunterHarm 1`
+- "Manifest the weight of obligation on the hunters" → `staminaDrain 1`
+
+**Reference for other mysteries:** `keeper_moves` in `data/portal-entities.json` for every entity.
+
+### Luck consequences (push luck = world gets worse)
+
+Current: luck is permanent 0-7 pool, spent any time to upgrade a roll tier. User decision: limit to 1-2 spends per mystery, and push luck = bad thing happens.
+
+**Design (to spec and implement):**
+- Add `luckySpends` counter per mystery (resets per mystery, not per hunter)
+- When `luckySpends >= 2` (or per-hunter limit), spending luck triggers a consequence event
+- `LuckConsequence`: drawn from a random table (or mystery-specific list), similar to `MonsterMove`
+- Examples:
+  - Police show up at the location (clock advance + NPC complication)
+  - Bystanders start recording / interfering (lose 1 stamina)
+  - Hunters are questioned (lose remaining scene actions at current location)
+  - Evidence is compromised (a found clue is "contested" — must re-discover)
+- Separate from monster moves (happens due to player over-reliance on luck, not monster action)
+
+**This is a NEW engine feature** — requires spec before implementation.
+
 ## Pending Design Questions
 
-- Original playbook names (replacing MotW placeholder names to avoid IP concerns)
+- Original playbook names (replacing MotW placeholder names to avoid IP concerns) — proposed names in session 2026-03-27 response; user will do naming pass later
 - Bond system specifics: how fast do bonds grow, what's the formula for assist charges?
 - Countdown advancement rules: exactly how many actions before it ticks? Linear or accelerating? NOTE: already discussed on a previous session.
 - CAMPBELL voice specifics for field reports: tone guide, vocabulary, sentence patterns. NOTE: will ask the other repo
 - Hunter roster: when to build the 15–20 pre-built hunter pool with randomised names/descriptions
 - Story generator: Claude API endpoint for generating MysteryDefinition JSON from incident parameters (Phase X, after MVP)
-- Monster moves system: active moves that fire during investigation, not just raw harm in confrontation
+- Luck consequences: per-hunter or per-mission limit? what's the consequence table? built-in or per-mystery?
+
+---
+
+## Free-Text Simulation Tests (Sprint 4 candidate)
+
+Currently pending from Sprint 1:
+- [ ] `valid-actions.test.ts` — includes `freeTextExploit` action when `freeTextExploits` exist on mystery
+- [ ] `runner.test.ts` — `free-text` strategy completes all 9 mysteries without throwing
+- [ ] AI simulation tests (Ollama-based) — check if Ollama is running before calling; skip gracefully if not. Test `interpretActionWithAI` against live model. Only enabled when `OLLAMA_URL` is set in env.
 
 ---
 
@@ -98,6 +173,12 @@ Regression: greedy dropped to 20%, balanced to 15% after the clue-based exploit 
 
 | Date | Decision | Context |
 |------|----------|---------|
+| 2026-03-27 | freeTextExploits NOT engine-gated; requiredClueIds kept for UI reference only | Players can always guess via free text. requiredClueIds shown in UI to help players understand what they know — not enforced by exploit-resolver |
+| 2026-03-27 | Luck consequences system approved (design pending) | Push luck → bad events. 1-2 spends per mystery (limit TBD). Separate from monster moves. |
+| 2026-03-27 | Monster moves reactive system approved (design pending) | On investigation miss → engine picks a keeper move (clockAdvance/hunterHarm/staminaDrain/narrative). Replaces raw "no feedback on miss" |
+| 2026-03-27 | Death rate target confirmed: 5–10% per hunter | reporter.ts flag updated to match |
+| 2026-03-27 | MotW playbook names OK for now (solo dev); will rename before wider release | Names proposed: Investigator/Operative/Broker/Sensitive/Handler/Face |
+| 2026-03-27 | E2E tests can begin now, not a Phase G gate | Playwright happy-path — start anytime, not blocking |
 | 2026-03-26 | freeTextExploits added to all 9 mysteries before Sprint 1 tests/UI | All mysteries playable via free-text engine once wired |
 | 2026-03-26 | Mystery registry in `src/data/mysteries.ts` for narrative overlay | InvestigationScreen decoupled from hardcoded mystery-001 imports |
 | 2026-03-26 | Free-text sprint gated at >80% keyword coverage before Sprint 2 (AI) | Proves keyword engine is good enough; AI is enhancement not crutch |

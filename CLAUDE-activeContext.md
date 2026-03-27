@@ -33,19 +33,18 @@ All engine phases (A–F) are complete. **Sprints 1–3 complete. UX polish done
 ## Recent Session (2026-03-27)
 
 ### Completed this session
+1. **Simulation regression fix** — Greedy win rate had fallen to 20% (from ~95%), balanced to 15%. Root cause: `loc-campus-grounds.adjacentLocationIds` was missing `loc-university-library` and `loc-student-dorms`, making the library unreachable from campus-grounds. Since `enrollment-record` (library) is a prerequisite for every mod≥0 exploit, strategies could never unlock a viable confrontation path. Fixed by adding both location IDs to campus-grounds' adjacency list. Result: greedy 95% ✓, balanced 70% ✓, death rate 18% ✓.
+
+2. **BalancedStrategy.shouldConfront tuned** — After map fix, both strategies matched (both waited for mod≥0 exploit). Reverted balanced to confront at partial intel when any viable exploit (net score ≥ 0) exists. Result: balanced 70% within 60-80% target.
+
+3. **Context files audited** — Corrected stale entries in SIMULATION.md, TEST-COVERAGE.md, CLAUDE-patterns.md, CLAUDE-activeContext.md. Added missing AI test entries (47 tests across 4 files). Archived implemented design docs. Wrote PROJECT-AUDIT.md.
+
+### Previous session (Sprint 3 / UX Polish)
 1. **Confrontation UI: action-first layout** — ConfrontationScreen refactored to show actions first, then hunter picker panel. Three sub-panels: standard (hunter list), exploitWeakness (options + hunter per option), freeText (textarea + hunter buttons).
-
-2. **Exploit spam prevention** — 1-action cooldown per hunter. Engine throws `ActionError` if hunter's last confrontation action was `exploitWeakness`. Simulation `valid-actions.ts` filters cooldown hunters. `FreeTextKeywordStrategy` respects cooldown when constructing exploit actions directly.
-
-3. **free-text-compare simulation strategy** — `FreeTextCompareStrategy` extends `FreeTextKeywordStrategy`. Records `FreeTextComparisonRecord` on every free-text exploit decision (keyword stat/modifier/exploitId/confidence + game context). Records accessible via `strategy.records` after simulation for batch AI comparison.
-
-4. **Bug fixes**:
-   - `actions.ts:783` — `mystery.locationDefs.flatMap(loc => loc.clueDefs)` → `mystery.locations.flatMap(loc => loc.clues)` (runtime `Mystery` doesn't have `locationDefs`)
-   - `strategies.ts:462` — Removed stale `requiredClueIds` filter from `FreeTextKeywordStrategy._confrontation()` (free-text exploits should always be guessable)
-
-5. **AI opt-in via URL param** — `?ai=1` enables AI calls in ConfrontationScreen. Default is keyword-only.
-
-6. **Sprint 3 AI pipeline** — `interpretActionWithAI()` in `src/ai/interpret.ts`, `ConfrontationContext` tracking, `FreeTextTelemetryEvent` emission, transcript types + D1 storage + Worker endpoints, quality rating UI + transcript export on FieldReportScreen.
+2. **Exploit spam prevention** — 1-action cooldown per hunter. Engine throws `ActionError` if hunter's last confrontation action was `exploitWeakness`.
+3. **free-text-compare simulation strategy** — `FreeTextCompareStrategy` extends `FreeTextKeywordStrategy`. Records `FreeTextComparisonRecord` for batch AI comparison.
+4. **AI opt-in via URL param** — `?ai=1` enables AI calls in ConfrontationScreen. Default is keyword-only.
+5. **Sprint 3 AI pipeline** — `interpretActionWithAI()` in `src/ai/interpret.ts`, `ConfrontationContext` tracking, `FreeTextTelemetryEvent` emission, transcript types + D1 storage, quality rating UI.
 
 ---
 
@@ -71,7 +70,6 @@ All engine phases (A–F) are complete. **Sprints 1–3 complete. UX polish done
 - Narrative overlay for mystery-002 (`src/data/narrative/mystery-002.ts`)
 - Briefing screen mystery selection (beyond mystery-001)
 - E2E tests: Playwright happy-path flows
-- Fix greedy strategy (picks best modifier+hunterStat, not just modifier)
 - Original playbook names (replace MotW placeholder names)
 
 ### AI comparison (deferred)

@@ -147,10 +147,10 @@ function checkBalance(stats: AggregateStats): BalanceFlag[] {
     })
 
     const deathPct = Math.round(stats.avgHunterDeathRate * 100)
-    const deathOk = stats.avgHunterDeathRate >= 0.05 && stats.avgHunterDeathRate <= 0.2
+    const deathOk = stats.avgHunterDeathRate >= 0.05 && stats.avgHunterDeathRate <= 0.1
     flags.push({
       ok: deathOk,
-      message: `${name} hunter death rate ${deathPct}% (target: 5–20%)${deathOk ? '' : ' — OUT OF RANGE ⚠'}`,
+      message: `${name} hunter death rate ${deathPct}% (target: 5–10%)${deathOk ? '' : ' — OUT OF RANGE ⚠'}`,
     })
   }
 

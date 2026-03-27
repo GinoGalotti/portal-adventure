@@ -92,6 +92,15 @@ All decisions made 2026-03-25 unless noted.
 
 ---
 
+## Systems (Sprint 4)
+
+| Decision | Rationale |
+|----------|-----------|
+| Monster moves: reactive, investigation-phase (2026-03-27) | On investigation miss → engine picks a keeper move (clockAdvance / hunterHarm / staminaDrain / narrative). Eliminates the "miss = nothing happens" dead zone. Design inspired by MotW keeper moves and `keeper_moves` in `data/portal-entities.json`. |
+| Luck consequences: push luck = world gets worse (2026-03-27) | 1-2 luck spends per mystery (limit TBD). Beyond limit: random bad event (police, witnesses, evidence compromise). Separate from monster moves. Spec needed before implementation. |
+| freeTextExploits requiredClueIds: UI reference, not engine gate (2026-03-27) | `requiredClueIds` on `FreeTextExploit` kept in JSON for future UI display (showing which clues an exploit approach draws from). Engine does NOT enforce it — players can always guess. This is intentional: knowledge makes guessing easier, not possible. |
+| Death rate target: 5–10% per hunter (confirmed 2026-03-27) | Original design doc value. Reporter.ts `deathOk` check was incorrectly set to 5-20% — should be corrected to 5-10%. |
+
 ## Pending Design Questions
 
 - Original playbook names (replacing MotW placeholder names)

@@ -65,9 +65,11 @@ npm run simulate -- --optimize-seed abc123 --mystery mystery-001 --trials 500
 | Name | `shouldConfront` trigger | Investigation style | Confrontation style | Luck spending |
 |------|--------------------------|---------------------|---------------------|---------------|
 | `random` | only when disaster | uniform random pick | uniform random | never |
-| `greedy` | intel ≥ informed OR clock ≥ 70% | investigate > interview > deepSearch; richest location first | exploitWeakness → attack | on miss |
+| `greedy` | mod≥0 exploit unlocked OR clock ≥ 93% (fallback: intel≥partial OR clock≥60% when no exploitOptions) | investigate > interview > deepSearch; richest location first; skips actions with no undiscovered clues | best exploit by modifier+hunterStat → attack | on miss during investigation |
 | `rush` | as soon as `confrontationAt` reached | one action per location; travels to unvisited first | always attack | never |
-| `balanced` | intel ≥ partial OR clock ≥ 60% | stat-matched (sharp→investigate, charm→interview); heals seriously-injured hunters | exploitWeakness → defend-if-hurt → attack-by-tough | on miss during confrontation |
+| `balanced` | hasViableExploit (net score ≥ 0) + intel≥partial OR clock ≥ 70% (fallback: intel≥partial OR clock≥60% when no exploitOptions) | stat-matched (sharp→investigate, charm→interview); heals seriously-injured hunters | best exploit → defend-if-hurt → attack-by-tough | on miss during investigation |
+| `free-text` | intel≥partial OR clock ≥ 60% | same as balanced | best freeTextExploit by modifier → hunt by weakness stat; falls back to balanced | on miss during investigation |
+| `free-text-compare` | same as `free-text` | same as `free-text` | same as `free-text`; records FreeTextComparisonRecord on every free-text exploit decision | on miss during investigation |
 
 **Interpretation:**
 - `random` is the floor. High win rate here = mystery is too easy at a structural level.
@@ -154,7 +156,7 @@ Stored in `simulation/experiments/*.json`. All fields:
 `expert`, `mundane`, `crooked`, `initiate`, `snoop`, `celebrity`
 
 ### Available strategy names
-`random`, `rush`, `greedy`, `balanced`
+`random`, `rush`, `greedy`, `balanced`, `free-text`, `free-text-compare`
 
 ---
 
@@ -166,18 +168,18 @@ Everything under `mysteryOverrides` lets you test hypotheses without modifying t
 | Field | Default (mystery-001) | Effect of increasing |
 |-------|-----------------------|----------------------|
 | `armor` | 4 | Harder to damage; regular attack deals `max(0, 2 - armor)` = 0 currently; only `exploitWeakness` bypasses armor (deals `maxHarm` on success) |
-| `maxHarm` | 6 | More total damage required to win; longer confrontations |
-| `harm` | 2 | More damage per monster hit; hunters die faster |
+| `maxHarm` | 10 | More total damage required to win; longer confrontations |
+| `harm` | 3 | More damage per monster hit; hunters die faster |
 
 ### Clock levers
-| Field | Default | Effect of increasing |
+| Field | Default (mystery-001) | Effect of increasing |
 |-------|---------|----------------------|
 | `disasterAt` | 30 | More time before forced confrontation; allows deeper investigation |
-| `confrontationAt` | 10 | More clock required before confrontation is allowed |
+| `confrontationAt` | 12 | More clock required before confrontation is allowed |
 | `travelCost` | 2 | Travel eats clock faster; fewer locations visited |
 | `actionCost` | 1 | Each action costs more clock |
-| `missPenalty` | 1 | Miss rolls penalised more; failed investigation punished harder |
-| `successRefund` | 1 | Success refunds less clock; high skill still uses time |
+| `missPenalty` | 2 | Miss rolls penalised more; failed investigation punished harder |
+| `successRefund` | 0 | Success refunds less clock; high skill still uses time |
 
 ---
 
