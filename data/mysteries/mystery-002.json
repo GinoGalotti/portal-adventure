@@ -168,7 +168,7 @@
     },
     "harm": 2,
     "armor": 3,
-    "maxHarm": 10,
+    "maxHarm": 13,
     "attacks": [
       "vitality_drain_passive",
       "proximity_surge"
@@ -391,7 +391,7 @@
       "missPenalty": 2,
       "successRefund": 0,
       "confrontationAt": 10,
-      "disasterAt": 25,
+      "disasterAt": 19,
       "stepThresholds": [
         4,
         8,

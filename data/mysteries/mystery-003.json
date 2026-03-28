@@ -27,9 +27,9 @@
           ],
           "modifier": -2,
           "description": "exploit_blog_contact_desc",
-          "successHarm": 4,
-          "mixedHarm": 2,
-          "mixedHarmToHunter": 2
+          "successHarm": 6,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 0
         },
         {
           "id": "exploit-sister-context",
@@ -46,12 +46,12 @@
           "id": "exploit-story-understood",
           "requiredClueIds": [
             "clue-unpublished-draft",
-            "clue-blog-analysis"
+            "clue-nadia-direct"
           ],
           "modifier": 0,
           "description": "exploit_story_understood_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": 4,
+          "successHarm": 6,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 1
         },
         {
@@ -62,8 +62,8 @@
           ],
           "modifier": 1,
           "description": "exploit_trust_earned_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": 5,
+          "successHarm": 8,
+          "mixedHarm": 4,
           "mixedHarmToHunter": 0
         },
         {
@@ -168,7 +168,7 @@
     },
     "harm": 2,
     "armor": 5,
-    "maxHarm": 8,
+    "maxHarm": 7,
     "attacks": [
       "nadia_digital_lash",
       "nadia_information_overload"
@@ -384,8 +384,8 @@
       "travelCost": 1,
       "missPenalty": 3,
       "successRefund": 1,
-      "confrontationAt": 8,
-      "disasterAt": 22,
+      "confrontationAt": 13,
+      "disasterAt": 17,
       "stepThresholds": [
         3,
         7,

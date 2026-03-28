@@ -16,6 +16,16 @@ export interface SceneSegment {
   elementId?: string  // for 'element' segments
 }
 
+/**
+ * Per-outcome narrative response for roll-based actions (investigate, deepSearch, interview).
+ * helpBystander uses a plain string since it has no roll.
+ */
+export type SceneElementResponse = string | {
+  miss?: string
+  mixed?: string
+  success?: string
+}
+
 export interface SceneElement {
   id: string
   label: string             // text shown inline in the scene description
@@ -24,7 +34,7 @@ export interface SceneElement {
   actionType: 'investigate' | 'interview' | 'helpBystander' | 'deepSearch' | 'fightMinion'
   requiresStamina?: boolean // deepSearch / fightMinion consume stamina
   npcId?: string            // if set, clicking opens the dialogue modal
-  response?: string         // narrative feedback shown after the action (no-roll actions)
+  response?: SceneElementResponse  // narrative feedback shown after the action
 }
 
 export interface DialogueOption {
@@ -103,7 +113,11 @@ const NARRATIVES: LocationNarrative[] = [
         label: 'grey ash powder',
         hint: 'Examine the ash residue',
         actionType: 'investigate',
-        response: 'The ash is odourless, cold, and impossibly fine. It does not smear — it simply reforms. A faint trail connects the memorial garden to the science building, as if someone walked this path every night and left nothing behind but dust.',
+        response: {
+          miss: 'You crouch to touch the ash. It stirs at your approach and reforms before your fingers reach it. Whatever was here doesn\'t want to be studied.',
+          mixed: 'The ash is odourless and impossibly fine — not natural. A faint trail runs toward the science building, but it disperses before you can follow it precisely.',
+          success: 'The ash is odourless, cold, and impossibly fine. It does not smear — it simply reforms. A faint trail connects the memorial garden to the science building, as if someone walked this path every night and left nothing behind but dust.',
+        },
       },
       {
         id: 'students-gathered',
@@ -169,7 +183,11 @@ const NARRATIVES: LocationNarrative[] = [
         label: 'grey smudges along the baseboard',
         hint: 'Examine the trail',
         actionType: 'investigate',
-        response: 'The smudges are footprint-shaped — small, bare feet, impossibly cold to the touch. They lead from the stairwell to room 214 and stop at the door. The same path, every night.',
+        response: {
+          miss: 'You bend to examine the smudges. A student brushes past, scattering them. Whatever pattern was there is gone.',
+          mixed: 'The smudges are cold ash — footprint-shaped, bare feet. They lead toward room 214. You can\'t tell when they were made.',
+          success: 'The smudges are footprint-shaped — small, bare feet, impossibly cold to the touch. They lead from the stairwell to room 214 and stop at the door. The same path, every night.',
+        },
       },
       {
         id: 'balint-door',
@@ -260,7 +278,11 @@ const NARRATIVES: LocationNarrative[] = [
         label: 'UNIVERSITY ARCHIVES — Authorised Access',
         hint: 'Investigate the records',
         actionType: 'investigate',
-        response: 'The archive yields a student enrolment file: Eszter Vasarhelyi, chemistry programme, admitted five years ago. Died in a cycling accident at the end of her first year. Emergency contact: Balint Feher. A small photograph shows a dark-haired young woman wearing a silver locket.',
+        response: {
+          miss: 'The archive is locked. You look for a staff member and find none. The archivist at the front desk shrugs without looking up. Dead end for now.',
+          mixed: 'The archive yields a student file: Eszter Vasarhelyi, chemistry programme. Died in an accident at the end of her first year. The emergency contact field is partially obscured — a name beginning with \'B\'.',
+          success: 'The archive yields a student enrolment file: Eszter Vásárhelyi, chemistry programme, admitted five years ago. Died in a cycling accident two hundred kilometres from Keller, at the end of her first year. Emergency contact: Bálint Kővári. A small photograph shows a dark-haired young woman wearing a silver locket.',
+        },
       },
       {
         id: 'old-yearbooks',
@@ -268,7 +290,11 @@ const NARRATIVES: LocationNarrative[] = [
         hint: 'Search more thoroughly',
         actionType: 'deepSearch',
         requiresStamina: true,
-        response: 'The yearbook from five years ago has a class photo. Third row, second from left — a young woman with dark hair and a quiet smile. The name beneath reads: Eszter Vasarhelyi. She looks exactly like the figure the students described.',
+        response: {
+          miss: 'You spend too long on the wrong year. By the time you find the right volume, the trolley is needed elsewhere and you\'ve lost your place.',
+          mixed: 'The yearbook has hundreds of class photos. One face catches your attention — dark hair, quiet smile — but you can\'t make out the name before the light shifts.',
+          success: 'The yearbook from five years ago has a class photo. Third row, second from left — a young woman with dark hair and a quiet smile. The name beneath reads: Eszter Vasarhelyi. She looks exactly like the figure the students described.',
+        },
       },
       {
         id: 'campus-bulletin',
@@ -276,7 +302,11 @@ const NARRATIVES: LocationNarrative[] = [
         hint: 'Note how they are framing it',
         hidden: true,
         actionType: 'investigate',
-        response: 'The bulletin describes a "recurring maintenance issue" causing grey residue in the corridors. No mention of the hospitalisations. Someone is keeping this quiet.',
+        response: {
+          miss: 'Dense administrative prose. You skim it twice and come away with nothing you didn\'t already know.',
+          mixed: 'The bulletin describes a "recurring maintenance issue" causing grey residue. The language is careful — deliberately vague. Someone chose these words.',
+          success: 'The bulletin describes a "recurring maintenance issue" causing grey residue in the corridors. No mention of the hospitalisations. Someone is keeping this quiet.',
+        },
       },
     ],
     npcs: [],
@@ -287,7 +317,7 @@ const NARRATIVES: LocationNarrative[] = [
     locationId: 'loc-science-lab',
     ambiance: 'Everything within two metres of Bálint\'s bench is coated in ash.',
     scene: [
-      { type: 'text', content: 'Bálint\'s research lab is small — two benches, a fume hood, a wall of reference texts. The air smells faintly of cold stone. A ' },
+      { type: 'text', content: 'Bálint\'s research lab adjoins the building\'s quantum computing cluster — a research-grade processor that hums behind a reinforced wall. The air smells faintly of cold stone and ozone. A ' },
       { type: 'element', elementId: 'lab-journal' },
       { type: 'text', content: ' sits open at a recent entry, the handwriting shaky. Everything near the ' },
       { type: 'element', elementId: 'lab-desk' },
@@ -303,14 +333,22 @@ const NARRATIVES: LocationNarrative[] = [
         label: 'lab journal',
         hint: 'Read the recent entries',
         actionType: 'investigate',
-        response: 'A recent entry in shaking handwriting: "She visits again. Third time this week. I can see her at the window — looking in, not looking at me. She looks exactly the same as the day she died. I don\'t know if I should be afraid or relieved. The ash follows me everywhere. I think she knows I haven\'t been visiting her grave."',
+        response: {
+          miss: 'The journal is open, but someone has turned it face-down. A lab mate appears in the doorway and gives you a look. You step back.',
+          mixed: 'A recent entry, handwriting shaky: "She visits again. Third time this week. I don\'t know if I should be afraid." It cuts off mid-sentence.',
+          success: 'A recent entry in shaking handwriting: "She visits again. Third time this week. I can see her at the window — looking in, not looking at me. She looks exactly the same as the day she died. I don\'t know if I should be afraid or relieved. The ash follows me everywhere. I think she knows I haven\'t been visiting her grave."',
+        },
       },
       {
         id: 'lab-desk',
         label: 'ash-covered research bench',
         hint: 'Examine the area',
         actionType: 'investigate',
-        response: 'Everything within two metres of Balint\'s bench is coated in fine grey ash. The instruments are untouched beneath it — the ash doesn\'t interfere, it just... covers. Like snowfall in a room with no windows open.',
+        response: {
+          miss: 'Ash everywhere. You touch it and it falls through your fingers without leaving a trace. You step back unsure what you were looking for.',
+          mixed: 'Everything within two metres of Bálint\'s bench is coated in fine grey ash. The instruments are untouched beneath it. It doesn\'t feel like accident or neglect.',
+          success: 'Everything within two metres of Bálint\'s bench is coated in fine grey ash. The instruments are untouched beneath it — the ash doesn\'t interfere, it just... covers. Like snowfall in a room with no windows open.',
+        },
       },
       {
         id: 'desk-drawer',
@@ -318,7 +356,11 @@ const NARRATIVES: LocationNarrative[] = [
         hint: 'Search it thoroughly',
         actionType: 'deepSearch',
         requiresStamina: true,
-        response: 'At the back of the drawer: a small silver locket filled with grey ash. It is warm to the touch. When you hold it, it pulses faintly — like a slow heartbeat. The air grows heavier. This is the anchor.',
+        response: {
+          miss: 'The drawer won\'t open. Not locked — just resistant, as if something presses from inside. The air near it grows heavier. You step away.',
+          mixed: 'At the back of the drawer: a small silver locket, warm to the touch. You open it and find ash inside. Something about it feels significant, but you can\'t say why.',
+          success: 'At the back of the drawer: a small silver locket filled with grey ash. It is warm to the touch. When you hold it, it pulses faintly — like a slow heartbeat. The air grows heavier. This is the anchor.',
+        },
       },
       {
         id: 'window-marks',
@@ -326,7 +368,11 @@ const NARRATIVES: LocationNarrative[] = [
         hint: 'Investigate the marks',
         hidden: true,
         actionType: 'investigate',
-        response: 'Two palm prints pressed into the glass from outside. The ash is cold, but the prints are fresh. Someone — something — stood here recently, hands against the window, watching the room.',
+        response: {
+          miss: 'Something at the window — you move toward it, but a cloud shifts and you lose the light. You can\'t be sure what you saw.',
+          mixed: 'Two palm prints pressed into the glass from outside. The ash is cold. The angle is wrong for someone standing on the ground — this is the second floor.',
+          success: 'Two palm prints pressed into the glass from outside. The ash is cold, but the prints are fresh. Someone — something — stood here recently, hands against the window, watching the room.',
+        },
       },
     ],
     npcs: [],
@@ -351,7 +397,11 @@ const NARRATIVES: LocationNarrative[] = [
         label: 'circle of grey ash',
         hint: 'Examine the pattern',
         actionType: 'investigate',
-        response: 'The circle is three metres across, perfectly round, centred on the memorial bench. Campus CCTV shows the same figure standing here every night between 2 and 3 AM — same position, same time, for six weeks. The bench plaque does not list her name. But someone leaves fresh flowers here every few days.',
+        response: {
+          miss: 'You walk the circumference. Three metres, at least. The ash is cold. You can\'t find an edge that makes sense — it\'s too perfect to be accidental.',
+          mixed: 'The circle is three metres across, perfectly round, centred on the memorial bench. Campus CCTV shows a figure standing here every night between 2 and 3 AM. Six weeks running.',
+          success: 'The circle is three metres across, perfectly round, centred on the memorial bench. Campus CCTV shows the same figure standing here every night between 2 and 3 AM — same position, same time, for six weeks. The bench plaque does not list her name. But someone leaves fresh flowers here every few days.',
+        },
       },
       {
         id: 'campus-security',
@@ -367,7 +417,11 @@ const NARRATIVES: LocationNarrative[] = [
         hidden: true,
         actionType: 'deepSearch',
         requiresStamina: true,
-        response: 'The flowers are lilies — the same variety, placed every three days. No card. No florist wrapping. Someone is maintaining a vigil here, in a place where the university forgot to add her name.',
+        response: {
+          miss: 'Lilies. No card, no wrapping. You check the nearby bins, the benches, the path. Nothing that points to who left them.',
+          mixed: 'Lilies — the same variety, placed regularly. No card, no florist wrapping. Someone is maintaining a vigil here. You can\'t tell when they last came.',
+          success: 'The flowers are lilies — the same variety, placed every three days. No card. No florist wrapping. Someone is maintaining a vigil here, in a place where the university forgot to add her name.',
+        },
       },
     ],
     npcs: [],

@@ -82,7 +82,13 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
     const action: ActionEntry = { ...actionDef, timestamp: Date.now() }
 
     // Optimistic local apply
-    const nextState = applyAction(state, action)
+    let nextState: GameState
+    try {
+      nextState = applyAction(state, action)
+    } catch (e) {
+      set({ error: (e as Error).message })
+      throw e
+    }
     const nextActions = [...actions, action]
     set({ state: nextState, actions: nextActions })
 

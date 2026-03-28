@@ -27,9 +27,9 @@
           ],
           "modifier": -2,
           "description": "exploit_letter_pattern_desc",
-          "successHarm": 4,
-          "mixedHarm": 2,
-          "mixedHarmToHunter": 2
+          "successHarm": 6,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 0
         },
         {
           "id": "exploit-mira-located",
@@ -50,8 +50,8 @@
           ],
           "modifier": 0,
           "description": "exploit_archive_found_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": 5,
+          "successHarm": 6,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 1
         },
         {
@@ -166,9 +166,9 @@
         }
       ]
     },
-    "harm": 3,
+    "harm": 2,
     "armor": 3,
-    "maxHarm": 10,
+    "maxHarm": 7,
     "attacks": [
       "wentworth_obligation_compulsion",
       "wentworth_paper_storm"
@@ -353,7 +353,7 @@
       "missPenalty": 2,
       "successRefund": 0,
       "confrontationAt": 12,
-      "disasterAt": 28,
+      "disasterAt": 32,
       "stepThresholds": [
         5,
         10,

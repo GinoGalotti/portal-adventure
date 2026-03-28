@@ -7,7 +7,7 @@
 export const SYNONYM_GROUPS: readonly string[][] = [
   // ── Approach verbs → maps to stat classification ──────────────────────────
   // CHARM: persuade / comfort
-  ['convince', 'persuade', 'talk', 'speak', 'comfort', 'reason', 'plead', 'negotiate', 'befriend', 'soothe', 'reassure', 'appeal', 'implore', 'coax', 'appeal'],
+  ['convince', 'persuade', 'talk', 'speak', 'comfort', 'reason', 'plead', 'negotiate', 'befriend', 'soothe', 'reassure', 'appeal', 'implore', 'coax', 'tell', 'ask', 'beg', 'instruct', 'order'],
   // COOL: protect / endure
   ['protect', 'shield', 'guard', 'defend', 'save', 'cover', 'endure', 'brace', 'steady', 'hold', 'stand', 'anchor'],
   // TOUGH: fight / force
@@ -22,7 +22,7 @@ export const SYNONYM_GROUPS: readonly string[][] = [
   // ── Common action verbs ───────────────────────────────────────────────────
   ['use', 'employ', 'wield', 'apply', 'utilize'],
   ['show', 'reveal', 'display', 'present', 'hold', 'lift', 'raise'],
-  ['call', 'shout', 'yell', 'cry', 'whisper', 'say', 'tell', 'ask'],
+  ['call', 'shout', 'yell', 'cry', 'whisper', 'say'],
   ['grab', 'take', 'snatch', 'seize', 'pick', 'collect', 'gather'],
   ['disable', 'jam', 'destroy', 'sabotage', 'break', 'disable', 'shutdown', 'turn off', 'cut'],
   ['trap', 'lure', 'bait', 'snare', 'contain', 'bind', 'restrain', 'capture'],

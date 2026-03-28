@@ -27,8 +27,8 @@
           ],
           "modifier": -2,
           "description": "exploit_drawings_analysed_desc",
-          "successHarm": 4,
-          "mixedHarm": 2,
+          "successHarm": 6,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 2
         },
         {
@@ -45,8 +45,8 @@
         {
           "id": "exploit-shutdown-docs",
           "requiredClueIds": [
-            "clue-storage-records",
-            "clue-patient-drawings"
+            "clue-patient-drawings",
+            "clue-storage-records"
           ],
           "modifier": 0,
           "description": "exploit_shutdown_docs_desc",
@@ -70,8 +70,7 @@
           "id": "exploit-full-shutdown",
           "requiredClueIds": [
             "clue-broadcast-source",
-            "clue-storage-records",
-            "clue-patient-drawings"
+            "clue-storage-records"
           ],
           "modifier": 2,
           "description": "exploit_full_shutdown_desc",
@@ -157,7 +156,7 @@
     },
     "harm": 2,
     "armor": 4,
-    "maxHarm": 10,
+    "maxHarm": 6,
     "attacks": [
       "broadcast_compulsion",
       "perceptual_overlay"
@@ -339,7 +338,7 @@
       "missPenalty": 2,
       "successRefund": 0,
       "confrontationAt": 12,
-      "disasterAt": 26,
+      "disasterAt": 30,
       "stepThresholds": [
         4,
         9,

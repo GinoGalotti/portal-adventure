@@ -9,7 +9,7 @@ This file tracks all tests in the project. Tests are added by Claude Code sessio
 - **E2E (Playwright):** Browser-based user flow tests. Slow, full stack.
 - **Simulation:** Headless game runs for balance verification. Variable speed.
 
-**Current totals: 543 engine/simulation tests (15 files), 0 E2E tests.**
+**Current totals: 543 engine/simulation tests (15 files), 0 E2E tests implemented (spec files pending).**
 
 ---
 
@@ -336,6 +336,10 @@ Tests that should exist by the end of MVP. Check off as they are implemented.
 - [ ] `debug.spec.ts` — Debug panel opens with ?debug=1
 - [ ] `debug.spec.ts` — Debug command executes and state updates
 - [ ] `freetext.spec.ts` — Free-text input dispatches exploitWeakness and shows result (Sprint 1 pending)
+- [ ] `mobile.spec.ts` — Investigation layout: map + operatives side-by-side at 375×667 viewport (no overflow)
+- [ ] `mobile.spec.ts` — MiniMap visible alongside operative selector panel on mobile portrait
+- [ ] `mobile.spec.ts` — Confrontation clue panel visible and scrollable on mobile viewport
+- [ ] `mobile.spec.ts` — Operative card expansion opens HunterDetailPanel on mobile
 
 ---
 

@@ -45,25 +45,25 @@
         {
           "id": "exploit-prophecy-identified",
           "requiredClueIds": [
-            "clue-impossible-tunes",
-            "clue-thin-boundary"
+            "clue-thin-boundary",
+            "clue-dead-mans-house"
           ],
           "modifier": 0,
           "description": "exploit_prophecy_identified_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": 5,
+          "successHarm": 5,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 1
         },
         {
           "id": "exploit-musicians-ready",
           "requiredClueIds": [
             "clue-siobhan-interview",
-            "clue-fiddle-player"
+            "clue-thin-boundary"
           ],
           "modifier": 1,
           "description": "exploit_musicians_ready_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": "maxHarm",
+          "successHarm": 4,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 0
         },
         {
@@ -75,8 +75,8 @@
           ],
           "modifier": 2,
           "description": "exploit_honest_farewell_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": "maxHarm",
+          "successHarm": 8,
+          "mixedHarm": 5,
           "mixedHarmToHunter": 0
         }
       ],
@@ -157,9 +157,9 @@
         }
       ]
     },
-    "harm": 2,
+    "harm": 3,
     "armor": 5,
-    "maxHarm": 8,
+    "maxHarm": 12,
     "attacks": [
       "boundary_bleed",
       "tune_compulsion"
@@ -361,7 +361,7 @@
       "missPenalty": 2,
       "successRefund": 1,
       "confrontationAt": 8,
-      "disasterAt": 20,
+      "disasterAt": 15,
       "stepThresholds": [
         3,
         6,

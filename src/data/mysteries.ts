@@ -13,7 +13,7 @@ import type { MysteryDefinition } from '../engine/types'
 import type { LocationNarrative, SceneElement, NpcDialogue } from './narrative/mystery-001'
 
 // Re-export narrative types so consumers don't need to import from mystery-001
-export type { LocationNarrative, SceneElement, SceneSegment, DialogueOption, NpcDialogue } from './narrative/mystery-001'
+export type { LocationNarrative, SceneElement, SceneElementResponse, SceneSegment, DialogueOption, NpcDialogue } from './narrative/mystery-001'
 
 // ─── JSON Definitions ────────────────────────────────────────────────────────
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

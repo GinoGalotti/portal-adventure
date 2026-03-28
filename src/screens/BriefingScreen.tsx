@@ -4,6 +4,8 @@ import { useAuthStore } from '../store/auth'
 import { useGameStore } from '../store/game'
 import type { MysteryDefinition } from '../engine/types'
 import { OPERATIVE_NAMES } from '../data/names'
+import playbooksRaw from '../../data/playbooks.json'
+const PLAYBOOKS = (playbooksRaw as { playbooks: Array<{ id: string; name: string; vulnerability: string; signatureMoves: Array<{ id: string; name: string; description: string }> }> }).playbooks
 import { ALL_MYSTERIES, type MysteryEntry } from '../data/mysteries'
 import {
   Card, SectionHeader, Tag, CampbellBlock, Eyebrow, Heading,
@@ -36,7 +38,7 @@ export default function BriefingScreen() {
   const token = useAuthStore((s) => s.token)
   const { dispatch } = useGameStore()
 
-  const [mysteryEntry, setMysteryEntry] = useState<MysteryEntry | null>(null)
+  const [mysteryEntry, setMysteryEntry] = useState<MysteryEntry | null>(() => ALL_MYSTERIES.find((e) => e.meta.id === 'mystery-001') ?? null)
   const [selected, setSelected] = useState<Set<string>>(new Set())
   const [deploying, setDeploying] = useState(false)
   const [error, setError] = useState('')
@@ -109,9 +111,8 @@ export default function BriefingScreen() {
                         {entry.meta.title}
                       </Heading>
                       <div className="flex flex-wrap gap-2 mt-1">
-                        <MonoLabel className="text-[#5a7a62]">{entry.meta.id.toUpperCase()}</MonoLabel>
                         <MonoLabel className="text-[#5a7a62]">{entry.meta.monsterType}</MonoLabel>
-                        <MonoLabel className="text-[#5a7a62]">{entry.meta.weaknessStat}</MonoLabel>
+                        {entry.meta.tone && <MonoLabel className="text-[#5a7a62]">{entry.meta.tone}</MonoLabel>}
                       </div>
                     </div>
                     {isActive && <Tag label="SELECTED" variant="warning" />}
@@ -187,6 +188,30 @@ export default function BriefingScreen() {
                     ))}
                     <MonoLabel className="text-[#5a7a62]">Assists: {h.bondCapacity}</MonoLabel>
                   </div>
+                  {isSelected && (() => {
+                    const pb = PLAYBOOKS.find((p) => p.id === h.playbookId)
+                    if (!pb) return null
+                    return (
+                      <div className="mt-3 ml-8 space-y-2 border-t border-[#1e3428] pt-2">
+                        {pb.signatureMoves.map((move) => (
+                          <div key={move.id} className="border-l-2 border-[#1e3428] pl-2">
+                            <MonoLabel className="text-[#1a7a43] block">{move.name}</MonoLabel>
+                            <p className="text-[0.75rem] text-[#8aab94] leading-[1.5] text-left" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                              {move.description}
+                            </p>
+                          </div>
+                        ))}
+                        {pb.vulnerability && (
+                          <div className="border-l-2 border-[#5c2020] pl-2">
+                            <MonoLabel className="text-[#e05050] block">VULNERABILITY</MonoLabel>
+                            <p className="text-[0.75rem] text-[#8aab94] leading-[1.5] text-left" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                              {pb.vulnerability}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })()}
                 </button>
               )
             })}

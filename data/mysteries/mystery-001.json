@@ -8,7 +8,7 @@
   },
   "id": "mystery-001",
   "title": "A Promise Is a Promise",
-  "briefingText": "[CASE FILE OPEN: KLR-2026-031]\n[CLASSIFICATION: AMBER]\n[LOCATION: KELLER UNIVERSITY, BUDAPEST]\n\nThree students hospitalised. Cause: paranormal. Grey ash reforms hourly — no known origin, no chemical signature.\n\nFOCUS: Bálint Kővári, 2nd year Chemistry. Something wants his attention. Something that cannot leave until a debt is settled.\n\nINTEL LEVEL: BLIND.\n\nFind out what it is before the clock runs out.\n\n— CAMPBELL",
+  "briefingText": "[CASE FILE OPEN: KLR-2026-031]\n[CLASSIFICATION: AMBER]\n[LOCATION: KELLER UNIVERSITY, BUDAPEST]\n\nSix weeks of ash formations on campus. Grey particulate. No chemical origin. Reforms hourly.\n\nCAMPBELL flagged the pattern when it correlated with a student death five years ago — Eszter Vásárhelyi, cycling accident, died two hundred kilometres from Keller. Emergency contact at time of death: Bálint Kővári, now a second-year chemistry student at this university.\n\nFOCUS: Bálint Kővári. Something made a promise to him. Something that cannot leave until the debt is settled.\n\nINTEL LEVEL: BLIND.\n\nFind out what it wants before the clock runs out.\n\n— CAMPBELL",
   "monster": {
     "id": "mon-eszter",
     "type": "sorcerer",
@@ -482,7 +482,7 @@
     "steps": [
       {
         "step": 0,
-        "description": "CAMPBELL flags anomalous ash traces at Keller University. No confirmed incidents. PORTAL sends a field team for assessment.",
+        "description": "Ash formations throughout campus. Nightly. Six weeks running. Source unconfirmed. No injuries logged — yet. Field team on site.",
         "effect": null
       },
       {

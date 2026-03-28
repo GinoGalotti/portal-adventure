@@ -42,8 +42,30 @@ Feedback from mystery-001 playtesting. Applies to all mysteries.
 - [x] **FREE TEXT button not appearing** — fixed: button was gated behind `canExploitNew || canExploitLegacy`, now also shows when `hasFreeTextExploits` is true.
 - [x] **Free-text exploits clue-gated** — fixed: removed `requiredClueIds` check from `resolveExploit()`, players can always guess via free text.
 - [ ] **Text size STILL too small on desktop** — 30-40% increase may not be enough, or may not have been applied to all screens (ConfrontationScreen was excluded). User reports no visible change — verify build, then increase further.
-- [ ] **Roll-outcome narrative on investigate/deepSearch** — clicking scene elements (e.g. "grey ash powder") should show contextual narrative per roll outcome, like interviews do. Miss: feel a presence (alert Eszter). Mixed: partial info. Success: learn something. Extend `SceneElement.response` to per-outcome `{ miss, mixed, success }` like `DialogueOption.responses`.
-- [ ] **Mystery selection on briefing screen** — currently hardcoded to mystery-001. Need a mystery picker before operative selection.
+- [x] **Roll-outcome narrative on investigate/deepSearch** — `SceneElement.response` extended to `string | { miss?, mixed?, success? }`. All mystery-001 elements updated with per-outcome text. RollResult now shows narrative on miss too (previously suppressed). InvestigationScreen updated throughout.
+- [x] **Mystery selection on briefing screen** — BriefingScreen now lazy-initializes to mystery-001. `ALL_MYSTERIES` from `src/data/mysteries.ts` used for future full picker.
+- [x] **Mobile layout** — InvestigationScreen is always side-by-side (`grid-cols-[1fr_auto]`, no `grid-cols-1` fallback). MiniMap font `text-[1rem]`, container `p-2`.
+- [x] **Operative card expansion** — `HunterDetailPanel` component shows playbook name, all 5 stats, signature moves with descriptions, and vulnerability. Playbook data loaded from `data/playbooks.json` at module scope.
+- [x] **Story text: Stage 0 countdown description** — Rewritten to reflect team already on-site ("Ash formations throughout campus. Nightly. Six weeks running..."). Stage 0 text no longer reads as deployment orders.
+- [x] **Story synopsis accuracy** — Briefing text updated: Eszter died 200km from Keller; Bálint is the emergency contact. Quantum processor hypothesis line removed (meta-information players won't have early-game).
+- [x] **Confrontation layout** — Verified and confirmed: action-first layout deployed. Clue panel added.
+
+### Playtest Round 2 Feedback (2026-03-27) — do not implement yet, another agent may be touching files
+
+- [ ] **Briefing screen: hide internal identifiers** — "sorcerer charm" (playbook id) and "mystery-001" (mystery id) are keeper/game concepts, not player-facing. Hide or replace with display names on the case file selector.
+- [ ] **Snoop playbook has no icon** — missing icon in operative/playbook views. Check `assets/icons/` for a suitable icon and wire it up.
+- [ ] **Hunter stats: move to bottom summary, not above session log** — stats panel should appear in the hunter summary row at the bottom of the investigation screen, not before the session log. Skill 1-phrase summary deferred.
+- [ ] **mystery-001: "Tell us about the promise you made" success → major clue** — success roll on this interview question should unlock a key clue (Bálint's promise). Gate: if players bring Bálint to the confrontation, or use something about Bálint in free-text, Eszter becomes less aggressive (reduced harm) and easier to soothe (humane resolution path easier). Requires engine support for confrontation modifiers from investigation choices.
+- [ ] **Humane solutions for all confrontations** — every mystery needs 3-4 possible endings: (1) destroy entity, (2) retrieve artefacts/remains, (3) humane/empathetic resolution, (4) capture/exploit at lab. Some should be easier than others. Humane solutions sometimes create downstream consequences (handled in lab session). mystery-001 Eszter: humane path = bring Bálint or invoke the promise → she passes on peacefully.
+- [ ] **Confrontation intel panel: 50-60% less text** — good feature but too verbose. Keep keyword-focused summary only, cut flavour/explanation text significantly.
+- [ ] **Exploit weakness: show hunter + stat bonus per action** — when exploit options are listed, each should show the hunter's name and their specific stat bonus (e.g. "MIRA  +2" if Mira has +2 to the required stat). Players need to see which hunter is best for each option.
+- [ ] **Don't highlight/recommend the most powerful action** — remove any visual "recommended" or power-ranking hints from exploit options.
+- [ ] **Synonym gap: "tell" and "ask" should match "convince"** — "convince balint to release her" and "tell balint to release her" should resolve the same. Add `tell`, `ask`, `instruct`, `order`, `beg`, `plead` to the convince synonym group in `src/engine/free-text/synonyms.ts`.
+- [ ] **BUG: free-text "convince balint" → click hunter → no roll/action** — typing in free-text field and clicking a hunter produces no roll. Likely `doFreeTextAction()` is not being triggered or the input state isn't being passed correctly to the hunter-picker handler.
+- [x] **Confrontation: clue panel** — Shows full description text for every found clue (card-per-clue layout), replacing minimal intel count display.
+- [x] **Confrontation: unique actions auto-select hunter** — When `aliveHunters.length === 1`, standard action buttons immediately dispatch without showing picker.
+- [ ] **Text size STILL too small on desktop** — 30-40% increase may not be enough, or may not have been applied to all screens (ConfrontationScreen was excluded). User reports no visible change — verify build, then increase further.
+- [ ] **E2E mobile layout tests** — `tests/e2e/mobile.spec.ts`: verify side-by-side layout renders on mobile viewport (375×667), MiniMap visible alongside operative panel, no overflow.
 
 ---
 
@@ -102,7 +124,7 @@ Rush=0% across all mysteries is expected (high armor + exploit-gated mechanics).
 - [ ] Narrative overlay for mystery-002 (`src/data/narrative/mystery-002.ts`)
 - [ ] Briefing screen mystery selection (beyond mystery-001)
 - [ ] E2E tests: Playwright happy-path flows (can begin now, not required for Phase G gate)
-- [ ] Roll-outcome narrative on investigate/deepSearch — per-outcome `{ miss, mixed, success }` response on SceneElement (see UX Polish backlog)
+- [x] Roll-outcome narrative on investigate/deepSearch — `SceneElementResponse = string | { miss?, mixed?, success? }`. All mystery-001 elements updated. RollResult resolves per-outcome via IIFE. Miss now shows narrative.
 
 ---
 

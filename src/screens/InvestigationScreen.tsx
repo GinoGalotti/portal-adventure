@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAuthStore } from '../store/auth'
 import { useGameStore } from '../store/game'
-import type { Hunter, Location } from '../engine/types'
+import type { Hunter, Location, Playbook } from '../engine/types'
 import { isConfrontationAvailable, isDisasterReached, isLocationAccessible } from '../engine/investigation'
 import {
   getMysteryForState,
   type SceneElement,
+  type SceneElementResponse,
   type LocationNarrative,
   type DialogueOption,
   type NpcDialogue,
@@ -15,6 +16,8 @@ import {
   Card, MonoLabel, Heading, Eyebrow, StatusDot, Tag,
   Icon, HarmPips, LuckPips, WarnBand,
 } from '../components/ui'
+import playbooksRaw from '../../data/playbooks.json'
+const PLAYBOOKS: Playbook[] = (playbooksRaw as { playbooks: Playbook[] }).playbooks
 
 // ─── Mini-map ──────────────────────────────────────────────────────────────────
 
@@ -72,7 +75,7 @@ function MiniMap({
         {t('investigation.map')}
       </MonoLabel>
       <pre
-        className="text-[0.8rem] leading-tight select-none"
+        className="text-[1rem] leading-tight select-none"
         style={{ fontFamily: "'Share Tech Mono', monospace" }}
       >
         {mapRows.map((row, i) => (
@@ -238,7 +241,7 @@ function RollResult({
 }: {
   state: ReturnType<typeof useGameStore.getState>['state']
   lastQuestion: { npc: NpcDialogue; option: DialogueOption } | null
-  narrativeResponse: string | null
+  narrativeResponse: SceneElementResponse | null
   onSpendLuck: (hunterId: string) => void
 }) {
   const { t } = useTranslation()
@@ -258,6 +261,12 @@ function RollResult({
     lastQuestion && roll.outcome
       ? lastQuestion.option.responses[roll.outcome]
       : null
+
+  const resolvedNarrativeText: string | null = (() => {
+    if (!narrativeResponse || !roll.outcome) return null
+    if (typeof narrativeResponse === 'string') return narrativeResponse
+    return narrativeResponse[roll.outcome] ?? null
+  })()
 
   return (
     <Card className="mb-2">
@@ -291,9 +300,9 @@ function RollResult({
         </div>
       )}
 
-      {!dialogueResponse && narrativeResponse && roll.outcome !== 'miss' && (
+      {!dialogueResponse && resolvedNarrativeText && (
         <div className="border-t border-[#1e3428] pt-3 mt-3">
-          <p className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] font-body">{narrativeResponse}</p>
+          <p className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] font-body">{resolvedNarrativeText}</p>
         </div>
       )}
 
@@ -360,6 +369,52 @@ function HunterSelector({
   )
 }
 
+// ─── Hunter detail panel ────────────────────────────────────────────────────────
+
+function HunterDetailPanel({ hunter }: { hunter: Hunter }) {
+  const pb = PLAYBOOKS.find((p) => p.id === hunter.playbookId)
+  if (!pb) return null
+  return (
+    <Card className="mb-2">
+      <div className="flex items-center gap-2 mb-2">
+        <Icon name={`playbooks/${hunter.playbookId}`} size={14} className="text-[#2ecc71]" />
+        <MonoLabel className="text-[#2ecc71]">{hunter.name}</MonoLabel>
+        <MonoLabel className="text-[#5a7a62]">— {pb.name}</MonoLabel>
+        <HarmPips harm={hunter.harm} />
+        <LuckPips luck={hunter.luck} />
+      </div>
+      <div className="flex flex-wrap gap-x-3 gap-y-[2px] mb-3">
+        {(['charm', 'cool', 'sharp', 'tough', 'weird'] as const).map((stat) => (
+          <span key={stat} className="inline-flex items-center gap-1">
+            <Icon name={`stats/${stat}`} size={10} className="text-[#5a7a62]" />
+            <MonoLabel className={`text-[0.65rem] ${hunter.stats[stat] >= 1 ? 'text-[#c8ddd0]' : 'text-[#5a7a62]'}`}>
+              {hunter.stats[stat] >= 0 ? '+' : ''}{hunter.stats[stat]}
+            </MonoLabel>
+          </span>
+        ))}
+      </div>
+      <div className="space-y-2">
+        {pb.signatureMoves.map((move) => (
+          <div key={move.id} className="border-l-2 border-[#1e3428] pl-2">
+            <MonoLabel className="text-[#1a7a43] block">{move.name}</MonoLabel>
+            <p className="text-[0.75rem] text-[#8aab94] leading-[1.5]" style={{ fontFamily: "'Barlow', sans-serif" }}>
+              {move.description}
+            </p>
+          </div>
+        ))}
+      </div>
+      {pb.vulnerability && (
+        <div className="mt-2 border-t border-[#1e3428] pt-2">
+          <MonoLabel className="text-[#e05050] block mb-1">VULNERABILITY</MonoLabel>
+          <p className="text-[0.75rem] text-[#8aab94] leading-[1.5]" style={{ fontFamily: "'Barlow', sans-serif" }}>
+            {pb.vulnerability}
+          </p>
+        </div>
+      )}
+    </Card>
+  )
+}
+
 // ─── Hunter status row ─────────────────────────────────────────────────────────
 
 function HunterStatusRow({ hunter }: { hunter: Hunter }) {
@@ -418,7 +473,7 @@ export default function InvestigationScreen() {
     option: DialogueOption
   } | null>(null)
   const [actionFeedback, setActionFeedback] = useState<string | null>(null)
-  const [lastNarrativeResponse, setLastNarrativeResponse] = useState<string | null>(null)
+  const [lastNarrativeResponse, setLastNarrativeResponse] = useState<SceneElementResponse | null>(null)
 
   if (!state?.mystery) return null
   const { mystery, team } = state
@@ -442,7 +497,7 @@ export default function InvestigationScreen() {
 
   const NO_ROLL_ACTIONS = new Set(['helpBystander', 'rest', 'travel'])
 
-  async function doAction(type: string, payload: Record<string, unknown> = {}, feedbackMsg?: string, preserveQuestion = false, narrativeResponse?: string) {
+  async function doAction(type: string, payload: Record<string, unknown> = {}, feedbackMsg?: string, preserveQuestion = false, narrativeResponse?: SceneElementResponse) {
     if (!token) return
     if (!preserveQuestion) setLastQuestion(null)
     setActionFeedback(null)
@@ -475,9 +530,12 @@ export default function InvestigationScreen() {
         return
       }
     }
-    const feedback = element.actionType === 'helpBystander'
+    const helpResponse = element.actionType === 'helpBystander' && typeof element.response === 'string'
       ? element.response
-        ? `// ${activeHunter.name} approaches the ${element.label}.\n\n${element.response}`
+      : undefined
+    const feedback = element.actionType === 'helpBystander'
+      ? helpResponse
+        ? `// ${activeHunter.name} approaches the ${element.label}.\n\n${helpResponse}`
         : `// ${activeHunter.name} helps — action spent.`
       : undefined
     const narrativeResponse = element.actionType !== 'helpBystander' ? element.response : undefined
@@ -493,7 +551,7 @@ export default function InvestigationScreen() {
   }
 
   return (
-    <div className="min-h-screen bg-[#080c0a] p-3 flex flex-col">
+    <div className="min-h-screen bg-[#080c0a] p-2 flex flex-col">
       <div className="max-w-2xl mx-auto w-full">
 
         {/* Status bar — compact */}
@@ -539,7 +597,7 @@ export default function InvestigationScreen() {
         {/* Map + Operatives — side by side on desktop */}
         {!disasterReached && (
           <>
-            <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 mb-2">
+            <div className="grid grid-cols-[1fr_auto] gap-2 mb-2">
               {/* Mini-map */}
               <MiniMap
                 currentLocationId={mystery.currentLocationId}
@@ -555,6 +613,9 @@ export default function InvestigationScreen() {
                 onSelect={setActiveHunterId}
               />
             </div>
+            {activeHunter && (
+              <HunterDetailPanel hunter={activeHunter} />
+            )}
 
             {/* Roll result / no-roll feedback */}
             {actionFeedback ? (

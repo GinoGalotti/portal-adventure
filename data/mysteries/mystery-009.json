@@ -58,7 +58,7 @@
           "id": "exploit-contract-obtained",
           "requiredClueIds": [
             "clue-contract-copy",
-            "clue-summoning-trace"
+            "clue-terry-account"
           ],
           "modifier": 1,
           "description": "exploit_contract_obtained_desc",
@@ -156,7 +156,7 @@
         }
       ]
     },
-    "harm": 2,
+    "harm": 3,
     "armor": 2,
     "maxHarm": 8,
     "attacks": [
@@ -358,7 +358,7 @@
       "missPenalty": 1,
       "successRefund": 1,
       "confrontationAt": 10,
-      "disasterAt": 24,
+      "disasterAt": 17,
       "stepThresholds": [
         4,
         8,

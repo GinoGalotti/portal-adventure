@@ -18,7 +18,7 @@
       "id": "w-theatrical-farewell",
       "type": "artifact",
       "description": "The prompt book is the anchoring artefact. Placing it on stage during a performance where Clara and Edmund are directly addressed — acknowledged as themselves, not as their characters — creates the conditions for a farewell. They must choose to leave. A Weird-based exploitWeakness roll represents staging the farewell scene that allows them to go. Destroying the prompt book by force would sever the connection violently, dispersing Clara and Edmund but permanently damaging the hospitalised understudies.",
-      "statRequired": "weird",
+      "statRequired": "charm",
       "exploitOptions": [
         {
           "id": "exploit-understudies-observed",
@@ -50,8 +50,8 @@
           ],
           "modifier": 0,
           "description": "exploit_mechanism_understood_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": 4,
+          "successHarm": 5,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 1
         },
         {

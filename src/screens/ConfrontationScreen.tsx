@@ -22,20 +22,32 @@ import {
 function HunterStatus({ hunter }: { hunter: Hunter }) {
   const isDead = !hunter.alive
   return (
-    <div className={`flex items-center gap-3 px-4 py-2 border ${
+    <div className={`px-4 py-2 border ${
       isDead ? 'border-[#5c2020]' : 'border-[#1e3428]'
     } bg-[#0d1410]`}>
-      <Icon
-        name={`playbooks/${hunter.playbookId}`}
-        size={16}
-        className={isDead ? 'text-[#e05050]' : 'text-[#5a7a62]'}
-      />
-      <Heading as="div" className={`text-[0.75rem] flex-1 ${isDead ? 'text-[#e05050]' : 'text-[#c8ddd0]'}`}>
-        {hunter.name}
-      </Heading>
-      <HarmPips harm={hunter.harm} />
-      <LuckPips luck={hunter.luck} />
-      {isDead && <Tag label="KIA" variant="danger" />}
+      <div className="flex items-center gap-3">
+        <Icon
+          name={`playbooks/${hunter.playbookId}`}
+          size={16}
+          className={isDead ? 'text-[#e05050]' : 'text-[#5a7a62]'}
+        />
+        <Heading as="div" className={`text-[0.75rem] flex-1 ${isDead ? 'text-[#e05050]' : 'text-[#c8ddd0]'}`}>
+          {hunter.name}
+        </Heading>
+        <HarmPips harm={hunter.harm} />
+        <LuckPips luck={hunter.luck} />
+        {isDead && <Tag label="KIA" variant="danger" />}
+      </div>
+      <div className="flex gap-3 mt-1 ml-7">
+        {(['charm', 'cool', 'sharp', 'tough', 'weird'] as const).map((stat) => {
+          const val = hunter.stats[stat]
+          return (
+            <MonoLabel key={stat} className={val >= 1 ? 'text-[#c8ddd0]' : 'text-[#5a7a62]'}>
+              {stat.slice(0, 3).toUpperCase()} {val >= 0 ? '+' : ''}{val}
+            </MonoLabel>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -43,7 +55,7 @@ function HunterStatus({ hunter }: { hunter: Hunter }) {
 export default function ConfrontationScreen() {
   const { t } = useTranslation()
   const token = useAuthStore((s) => s.token)
-  const { state, dispatch } = useGameStore()
+  const { state, dispatch, error, clearError } = useGameStore()
   const [selectedAction, setSelectedAction] = useState<string | null>(null)
   const [freeTextInput, setFreeTextInput] = useState('')
   const [freeTextPreview, setFreeTextPreview] = useState<ActionInterpretation | null>(null)
@@ -81,7 +93,7 @@ export default function ConfrontationScreen() {
   }
 
   function allClues() {
-    return mystery.locationDefs.flatMap((loc) => loc.clueDefs)
+    return mystery.locations.flatMap((loc) => loc.clues)
   }
 
   function previewFreeText(hunterId: string, input: string) {
@@ -103,105 +115,110 @@ export default function ConfrontationScreen() {
     if (!hunter) return
 
     setFreeTextLoading(true)
-    const hunterBestStat = (Object.entries(hunter.stats).sort(([,a],[,b]) => b - a)[0]?.[0] as typeof mystery.monster.weakness.statRequired) ?? undefined
-    const clues = allClues()
-    const foundClues = clues.filter((c) => mystery.cluesFound.includes(c.id))
-    const unfoundClueCount = clues.length - foundClues.length
+    try {
+      const hunterBestStat = (Object.entries(hunter.stats).sort(([,a],[,b]) => b - a)[0]?.[0] as typeof mystery.monster.weakness.statRequired) ?? undefined
+      const clues = allClues()
+      const foundClues = clues.filter((c) => mystery.cluesFound.includes(c.id))
+      const unfoundClueCount = clues.length - foundClues.length
 
-    // Run keyword engine (instant) — used for preview and telemetry baseline
-    const keywordResult = interpretAction({
-      input,
-      allClues: clues,
-      foundClueIds: mystery.cluesFound,
-      weakness: mystery.monster.weakness,
-      monsterHarm: mystery.monster.harm,
-      hunterBestStat,
-    })
+      // Run keyword engine (instant) — used for preview and telemetry baseline
+      const keywordResult = interpretAction({
+        input,
+        allClues: clues,
+        foundClueIds: mystery.cluesFound,
+        weakness: mystery.monster.weakness,
+        monsterHarm: mystery.monster.harm,
+        hunterBestStat,
+      })
 
-    // AI enhancement — opt-in via ?ai=1 URL parameter.
-    // Default: keyword-only. Add ?ai=1 to URL to enable AI GM calls.
-    const aiEnabled = new URLSearchParams(window.location.search).get('ai') === '1'
-    const aiClient = aiEnabled
-      ? new AIGMClient({
-          workerBaseUrl: '',  // relative — proxied by Vite dev server or same-origin in prod
-          token: token,
-          maxEntityHarm: mystery.monster.maxHarm,
-          validCapabilityIds: (mystery.monster.capabilities ?? []).map((c) => c.id),
-        })
-      : null
-    const result = await interpretActionWithAI({
-      input,
-      allClues: clues,
-      foundClueIds: mystery.cluesFound,
-      weakness: mystery.monster.weakness,
-      monsterHarm: mystery.monster.harm,
-      hunterBestStat,
-      aiClient,
-      confrontationContext: confrontationCtx.current,
-      monster: mystery.monster,
-      hunters: team.hunters,
-      foundClues,
-      unfoundClueCount,
-    })
+      // AI enhancement — opt-in via ?ai=1 URL parameter.
+      // Default: keyword-only. Add ?ai=1 to URL to enable AI GM calls.
+      const aiEnabled = new URLSearchParams(window.location.search).get('ai') === '1'
+      const aiClient = aiEnabled
+        ? new AIGMClient({
+            workerBaseUrl: '',  // relative — proxied by Vite dev server or same-origin in prod
+            token: token,
+            maxEntityHarm: mystery.monster.maxHarm,
+            validCapabilityIds: (mystery.monster.capabilities ?? []).map((c) => c.id),
+          })
+        : null
+      const result = await interpretActionWithAI({
+        input,
+        allClues: clues,
+        foundClueIds: mystery.cluesFound,
+        weakness: mystery.monster.weakness,
+        monsterHarm: mystery.monster.harm,
+        hunterBestStat,
+        aiClient,
+        confrontationContext: confrontationCtx.current,
+        monster: mystery.monster,
+        hunters: team.hunters,
+        foundClues,
+        unfoundClueCount,
+      })
 
-    // Emit telemetry (fire-and-forget)
-    const eventData = buildFreeTextEventData(keywordResult, {
-      aiResult: result.aiResult,
-      aiLatencyMs: result.aiLatencyMs,
-      source: result.source,
-    })
-    telemetry.emit({
-      id: `fta-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-      userId: token,
-      mysterySeed: mystery.seed ?? '',
-      eventType: 'action_taken',
-      eventData: eventData as unknown as Record<string, unknown>,
-      availableOptions: null,
-      chosenOption: input,
-      context: {
-        phase: state.phase,
-        cluesFound: mystery.cluesFound.length,
-        countdownStep: mystery.countdownStep,
-        intelLevel: mystery.intelLevel,
-        hunterConditions: team.hunters.map((h) => ({
-          id: h.id,
-          condition: h.harm >= 7 ? 'dead' as const : h.harm >= 6 ? 'seriouslyInjured' as const : h.harm >= 4 ? 'injured' as const : 'healthy' as const,
-          harm: h.harm,
-          luck: h.luck,
-        })),
-        staminaRemaining: team.hunters.reduce((sum, h) => sum + h.sceneActionsRemaining, 0),
-      },
-      gameTimestamp: Date.now(),
-      wallClock: new Date().toISOString(),
-    })
+      // Emit telemetry (fire-and-forget)
+      const eventData = buildFreeTextEventData(keywordResult, {
+        aiResult: result.aiResult,
+        aiLatencyMs: result.aiLatencyMs,
+        source: result.source,
+      })
+      telemetry.emit({
+        id: `fta-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        userId: token,
+        mysterySeed: mystery.seed ?? '',
+        eventType: 'action_taken',
+        eventData: eventData as unknown as Record<string, unknown>,
+        availableOptions: null,
+        chosenOption: input,
+        context: {
+          phase: state!.phase,
+          cluesFound: mystery.cluesFound.length,
+          countdownStep: mystery.countdown.currentStep,
+          intelLevel: mystery.intelLevel,
+          hunterConditions: team.hunters.map((h) => ({
+            id: h.id,
+            condition: h.harm >= 7 ? 'dead' as const : h.harm >= 6 ? 'seriouslyInjured' as const : h.harm >= 4 ? 'injured' as const : 'healthy' as const,
+            harm: h.harm,
+            luck: h.luck,
+          })),
+          staminaRemaining: team.hunters.reduce((sum, h) => sum + h.sceneActionsRemaining, 0),
+        },
+        gameTimestamp: Date.now(),
+        wallClock: new Date().toISOString(),
+      })
 
-    // Record turn in confrontation context for subsequent AI calls
-    const turnRecord = {
-      hunterName: hunter.name,
-      input,
-      outcome: 'pending',  // Updated after roll resolves
+      // Record turn in confrontation context for subsequent AI calls
+      const turnRecord = {
+        hunterName: hunter.name,
+        input,
+        outcome: 'pending',  // Updated after roll resolves
+      }
+      confrontationCtx.current = addTurnToContext(
+        confrontationCtx.current,
+        turnRecord,
+        result.aiResult,
+      )
+
+      // Record in transcript
+      transcriptRef.current.push({
+        turn: transcriptRef.current.length + 1,
+        hunter: hunter.name,
+        playerInput: input,
+        keywordResult,
+        aiResult: result.aiResult,
+        aiLatencyMs: result.aiLatencyMs,
+        source: result.source,
+      })
+
+      // Dispatch the exploit weakness action with free-text input
+      await doAction('exploitWeakness', { hunterId: hunter.id, freeTextInput: input })
+    } catch (e) {
+      console.error('[ConfrontationScreen] doFreeTextAction failed:', e)
+      useGameStore.setState({ error: (e as Error).message })
+    } finally {
+      setFreeTextLoading(false)
     }
-    confrontationCtx.current = addTurnToContext(
-      confrontationCtx.current,
-      turnRecord,
-      result.aiResult,
-    )
-
-    // Record in transcript
-    transcriptRef.current.push({
-      turn: transcriptRef.current.length + 1,
-      hunter: hunter.name,
-      playerInput: input,
-      keywordResult,
-      aiResult: result.aiResult,
-      aiLatencyMs: result.aiLatencyMs,
-      source: result.source,
-    })
-
-    setFreeTextLoading(false)
-
-    // Dispatch the exploit weakness action with free-text input
-    await doAction('exploitWeakness', { hunterId: hunter.id, freeTextInput: input })
   }
 
   const hasExploitOptions = (mystery.monster.weakness.exploitOptions?.length ?? 0) > 0
@@ -240,7 +257,7 @@ export default function ConfrontationScreen() {
           <div className="flex items-start gap-3 mb-3">
             <Icon name={`monsters/${mystery.monster.type}`} size={28} className="text-[#e05050] mt-1" />
             <div>
-              <Heading className="text-[1.4rem] text-[#e05050]">{mystery.monster.name}</Heading>
+              <Heading className="text-[1.7rem] text-[#e05050]">{mystery.monster.name}</Heading>
               <div className="flex gap-2 mt-1">
                 <Tag label={mystery.monster.type} variant="danger" />
                 <Tag label={mystery.monster.motivation} variant="warning" />
@@ -273,14 +290,36 @@ export default function ConfrontationScreen() {
           )}
         </Card>
 
-        {/* Intel level */}
-        <div className="flex items-center gap-3 mb-4 anim-fade-up-2">
-          <Icon name={`clues/${mystery.intelLevel}`} size={16}
-            className={mystery.intelLevel === 'blind' ? 'text-[#e05050]' : mystery.intelLevel === 'partial' ? 'text-[#f0a500]' : 'text-[#1a7a43]'} />
-          <Tag label={`INTEL: ${mystery.intelLevel}`} variant={intelVariant()} />
-          <MonoLabel className="text-[#5a7a62]">
-            ({mystery.cluesFound.length} clue{mystery.cluesFound.length !== 1 ? 's' : ''})
-          </MonoLabel>
+        {/* Intel level + clue panel */}
+        <div className="mb-4 anim-fade-up-2">
+          <div className="flex items-center gap-3 mb-2">
+            <Icon name={`clues/${mystery.intelLevel}`} size={16}
+              className={mystery.intelLevel === 'blind' ? 'text-[#e05050]' : mystery.intelLevel === 'partial' ? 'text-[#f0a500]' : 'text-[#1a7a43]'} />
+            <Tag label={`INTEL: ${mystery.intelLevel}`} variant={intelVariant()} />
+            <MonoLabel className="text-[#5a7a62]">
+              {mystery.cluesFound.length} clue{mystery.cluesFound.length !== 1 ? 's' : ''} found
+            </MonoLabel>
+          </div>
+          {mystery.cluesFound.length > 0 && (() => {
+            const foundClues = mystery.locations
+              .flatMap((loc) => loc.clues)
+              .filter((c) => mystery.cluesFound.includes(c.id))
+            return (
+              <div className="border border-[#1e3428] bg-[#0a110d] px-3 py-2 space-y-1">
+                {foundClues.map((clue) => {
+                  const summary = clue.description.split(/(?<=[.!?])\s/)[0] ?? clue.description
+                  return (
+                    <div key={clue.id} className="flex gap-2">
+                      <span className="text-[#1a7a43] shrink-0 mt-[2px]" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem' }}>▸</span>
+                      <p className="text-[0.65rem] text-[#8aab94] leading-[1.4]" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                        {summary}
+                      </p>
+                    </div>
+                  )
+                })}
+              </div>
+            )
+          })()}
         </div>
 
         {/* Roll result */}
@@ -291,14 +330,14 @@ export default function ConfrontationScreen() {
               {t('roll.title')}
             </MonoLabel>
             <div className="flex items-baseline gap-3 mb-1">
-              <Heading as="div" className={`text-[1.4rem] ${outcomeColour(lastRoll.outcome)}`}>
+              <Heading as="div" className={`text-[1.7rem] ${outcomeColour(lastRoll.outcome)}`}>
                 {lastRoll.dice[0]} + {lastRoll.dice[1]}
               </Heading>
               <MonoLabel className="text-[#5a7a62]">
                 {lastRoll.modifier >= 0 ? '+' : ''}{lastRoll.modifier} ({lastRoll.stat})
               </MonoLabel>
             </div>
-            <div className={`text-[0.7rem] tracking-[0.16em] uppercase font-bold mb-2 ${outcomeColour(lastRoll.outcome)}`}
+            <div className={`text-[0.85rem] tracking-[0.16em] uppercase font-bold mb-2 ${outcomeColour(lastRoll.outcome)}`}
                  style={{ fontFamily: "'Share Tech Mono', monospace" }}>
               {t(`roll.outcome.${lastRoll.outcome}` as Parameters<typeof t>[0])}
               {lastRoll.upgraded && (
@@ -323,6 +362,20 @@ export default function ConfrontationScreen() {
           </Card>
         )}
 
+        {/* Error banner */}
+        {error && (
+          <div className="mb-4 border border-[#5c2020] bg-[rgba(224,80,80,0.06)] px-3 py-2 flex items-center gap-2">
+            <MonoLabel className="text-[#e05050] flex-1">{error}</MonoLabel>
+            <button
+              onClick={clearError}
+              className="text-[#e05050] hover:text-[#ff8080] text-[0.6rem] tracking-[0.12em] uppercase border border-[#5c2020] px-2 py-1"
+              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            >
+              DISMISS
+            </button>
+          </div>
+        )}
+
         {/* Combat actions — action-first layout */}
         {!confrontation.monsterDefeated && !allDead && (
           <div className="mb-4 anim-fade-up-3">
@@ -338,8 +391,14 @@ export default function ConfrontationScreen() {
               ].map(({ type, icon, label, cls, activeCls }) => (
                 <button
                   key={type}
-                  onClick={() => setSelectedAction(selectedAction === type ? null : type)}
-                  className={`text-[0.55rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
+                  onClick={() => {
+                  if (aliveHunters.length === 1) {
+                    doAction(type, { hunterId: aliveHunters[0].id })
+                  } else {
+                    setSelectedAction(selectedAction === type ? null : type)
+                  }
+                }}
+                  className={`text-[0.7rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
                     selectedAction === type ? activeCls : cls
                   }`}
                   style={{ fontFamily: "'Share Tech Mono', monospace" }}
@@ -351,7 +410,7 @@ export default function ConfrontationScreen() {
               {(canExploitLegacy || canExploitNew) && (
                 <button
                   onClick={() => setSelectedAction(selectedAction === 'exploitWeakness' ? null : 'exploitWeakness')}
-                  className={`text-[0.55rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
+                  className={`text-[0.7rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
                     selectedAction === 'exploitWeakness'
                       ? 'border-[#f0a500] bg-[rgba(240,165,0,0.06)] text-[#f0a500]'
                       : 'border-[#7a5200] text-[#f0a500] hover:border-[#f0a500] hover:bg-[rgba(240,165,0,0.04)]'
@@ -369,7 +428,7 @@ export default function ConfrontationScreen() {
                     setFreeTextInput('')
                     setFreeTextPreview(null)
                   }}
-                  className={`text-[0.55rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
+                  className={`text-[0.7rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
                     selectedAction === 'freeText'
                       ? 'border-[#f0a500] bg-[rgba(240,165,0,0.06)] text-[#f0a500]'
                       : 'border-[#7a5200] text-[#f0a500] hover:border-[#f0a500] hover:bg-[rgba(240,165,0,0.04)]'
@@ -396,7 +455,7 @@ export default function ConfrontationScreen() {
                       <Icon name={`playbooks/${hunter.playbookId}`} size={14} className="text-[#5a7a62]" />
                       <MonoLabel className="text-[#c8ddd0] flex-1 text-left">{hunter.name}</MonoLabel>
                       <MonoLabel className="text-[#5a7a62]">
-                        +{hunter.stats[mystery.monster.weakness.statRequired] ?? 0} {mystery.monster.weakness.statRequired}
+                        +{hunter.stats[mystery.monster.weakness.statRequired ?? 'tough'] ?? 0} {mystery.monster.weakness.statRequired}
                       </MonoLabel>
                       <MonoLabel className="text-[#5a7a62]">L:{hunter.luck} H:{hunter.harm}</MonoLabel>
                     </button>
@@ -415,37 +474,44 @@ export default function ConfrontationScreen() {
                     </MonoLabel>
                     {availableExploits.map((option) => {
                       const mod = option.modifier
-                      const modColor = mod > 0 ? 'text-[#2ecc71]' : mod < 0 ? 'text-[#e05050]' : 'text-[#f0a500]'
                       const stat = option.statRequired ?? mystery.monster.weakness.statRequired
                       return (
                         <div key={option.id} className="mb-2">
                           <div className="flex items-center gap-3 border border-[#1e3428] px-3 py-2 mb-1">
-                            <span className={`text-[0.65rem] tracking-[0.1em] font-bold shrink-0 ${modColor}`}
+                            <span className="text-[0.8rem] tracking-[0.1em] font-bold shrink-0 text-[#f0a500]"
                               style={{ fontFamily: "'Share Tech Mono', monospace" }}>
                               {mod >= 0 ? '+' : ''}{mod}
                             </span>
-                            <span className="text-[0.6rem] text-[#c8ddd0] flex-1" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                            <span className="text-[0.75rem] text-[#c8ddd0] flex-1" style={{ fontFamily: "'Barlow', sans-serif" }}>
                               {t(option.description as Parameters<typeof t>[0])}
                             </span>
                             {stat && (
-                              <span className="text-[0.5rem] tracking-[0.12em] uppercase text-[#5a7a62] shrink-0"
+                              <span className="text-[0.65rem] tracking-[0.12em] uppercase text-[#5a7a62] shrink-0"
                                 style={{ fontFamily: "'Share Tech Mono', monospace" }}>
-                                +{stat}
+                                {stat}
                               </span>
                             )}
                           </div>
                           <div className="flex gap-1 ml-4">
-                            {aliveHunters.map((hunter) => (
-                              <button
-                                key={hunter.id}
-                                onClick={() => doAction('exploitWeakness', { hunterId: hunter.id, exploitOptionId: option.id })}
-                                className="flex items-center gap-1 border border-[#1e3428] hover:border-[#7a5200] px-2 py-1 text-[0.5rem] tracking-[0.1em] uppercase text-[#5a7a62] hover:text-[#f0a500] transition-colors"
-                                style={{ fontFamily: "'Share Tech Mono', monospace" }}
-                              >
-                                <Icon name={`playbooks/${hunter.playbookId}`} size={10} />
-                                {hunter.name.split(' ')[0]}
-                              </button>
-                            ))}
+                            {aliveHunters.map((hunter) => {
+                              const hunterStat = hunter.stats[stat ?? 'tough'] ?? 0
+                              const totalMod = mod + hunterStat
+                              const totalColor = totalMod > 0 ? 'text-[#2ecc71]' : totalMod < 0 ? 'text-[#e05050]' : 'text-[#f0a500]'
+                              return (
+                                <button
+                                  key={hunter.id}
+                                  onClick={() => doAction('exploitWeakness', { hunterId: hunter.id, exploitOptionId: option.id })}
+                                  className="flex items-center gap-1 border border-[#1e3428] hover:border-[#7a5200] px-2 py-1 text-[0.5rem] tracking-[0.1em] uppercase text-[#5a7a62] hover:text-[#f0a500] transition-colors"
+                                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                                >
+                                  <Icon name={`playbooks/${hunter.playbookId}`} size={10} />
+                                  {hunter.name.split(' ')[0]}
+                                  <span className={totalColor}>
+                                    {totalMod >= 0 ? '+' : ''}{totalMod}
+                                  </span>
+                                </button>
+                              )
+                            })}
                           </div>
                         </div>
                       )
@@ -522,7 +588,7 @@ export default function ConfrontationScreen() {
                     >
                       <Icon name={`playbooks/${hunter.playbookId}`} size={12} className="text-[#f0a500]" />
                       <MonoLabel className="text-[#f0a500]">{hunter.name}</MonoLabel>
-                      <MonoLabel className="text-[#5a7a62]">+{hunter.stats[mystery.monster.weakness.statRequired] ?? 0}</MonoLabel>
+                      <MonoLabel className="text-[#5a7a62]">+{hunter.stats[mystery.monster.weakness.statRequired ?? 'tough'] ?? 0}</MonoLabel>
                     </button>
                   ))}
                 </div>

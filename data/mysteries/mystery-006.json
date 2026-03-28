@@ -29,18 +29,19 @@
           "description": "exploit_emotional_pattern_desc",
           "successHarm": 4,
           "mixedHarm": 2,
-          "mixedHarmToHunter": 3
+          "mixedHarmToHunter": 1
         },
         {
           "id": "exploit-sake-found",
           "requiredClueIds": [
-            "clue-sake-cask"
+            "clue-sake-cask",
+            "clue-911-transcripts"
           ],
           "modifier": -1,
           "description": "exploit_sake_found_desc",
           "successHarm": 6,
           "mixedHarm": 3,
-          "mixedHarmToHunter": 2
+          "mixedHarmToHunter": 1
         },
         {
           "id": "exploit-folklore-known",
@@ -50,33 +51,35 @@
           ],
           "modifier": 0,
           "description": "exploit_folklore_known_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": 5,
-          "mixedHarmToHunter": 2
+          "successHarm": 6,
+          "mixedHarm": 3,
+          "mixedHarmToHunter": 1
         },
         {
           "id": "exploit-sake-circle",
           "requiredClueIds": [
             "clue-sake-cask",
-            "clue-tanaka-interview"
+            "clue-death-pattern",
+            "clue-feeding-mechanism"
           ],
           "modifier": 1,
           "description": "exploit_sake_circle_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": 6,
+          "successHarm": 5,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 1
         },
         {
           "id": "exploit-emotional-honesty",
           "requiredClueIds": [
             "clue-feeding-mechanism",
-            "clue-death-pattern"
+            "clue-death-pattern",
+            "clue-tanaka-interview"
           ],
           "modifier": 1,
           "statRequired": "charm",
           "description": "exploit_emotional_honesty_desc",
-          "successHarm": "maxHarm",
-          "mixedHarm": "maxHarm",
+          "successHarm": 5,
+          "mixedHarm": 3,
           "mixedHarmToHunter": 0
         }
       ],
@@ -156,9 +159,9 @@
         }
       ]
     },
-    "harm": 4,
+    "harm": 3,
     "armor": 2,
-    "maxHarm": 12,
+    "maxHarm": 10,
     "attacks": [
       "shojo_emotional_drain",
       "shojo_drunken_strike"
@@ -344,7 +347,7 @@
       "missPenalty": 1,
       "successRefund": 1,
       "confrontationAt": 10,
-      "disasterAt": 28,
+      "disasterAt": 18,
       "stepThresholds": [
         5,
         10,
