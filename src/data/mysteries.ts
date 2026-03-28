@@ -38,6 +38,7 @@ import m009Raw from '../../data/mysteries/mystery-009.json'
 // ─── Narrative Modules ───────────────────────────────────────────────────────
 
 import * as narrative001 from './narrative/mystery-001'
+import * as narrative002 from './narrative/mystery-002'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -155,8 +156,17 @@ const MYSTERY_ENTRIES: MysteryEntry[] = [
     getNarrativeForLocation: narrative001.getNarrativeForLocation,
     getNpcById: narrative001.getNpcById,
   },
-  // mystery-002 through mystery-009: fallback narratives (to be replaced with hand-authored layers)
-  ...[m002Raw, m003Raw, m004Raw, m005Raw, m006Raw, m007Raw, m008Raw, m009Raw].map((raw) => {
+  // mystery-002: hand-authored narrative
+  {
+    meta: extractMeta(m002Raw as Record<string, unknown>),
+    definition: m002Raw as unknown as MysteryDefinition,
+    mapRows: narrative002.MAP_ROWS,
+    mapTokens: narrative002.MAP_TOKENS,
+    getNarrativeForLocation: narrative002.getNarrativeForLocation,
+    getNpcById: narrative002.getNpcById,
+  },
+  // mystery-003 through mystery-009: fallback narratives (to be replaced with hand-authored layers)
+  ...[m003Raw, m004Raw, m005Raw, m006Raw, m007Raw, m008Raw, m009Raw].map((raw) => {
     const r = raw as Record<string, unknown>
     const fallback = makeFallbackEntry(r)
     return {
