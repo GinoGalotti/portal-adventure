@@ -25,13 +25,10 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
     setDebugState(fn())
   }
 
-  const mono = { fontFamily: "'Share Tech Mono', monospace" }
-
   function SectionHead({ label }: { label: string }) {
     return (
       <div
-        className="text-[0.55rem] tracking-[0.18em] uppercase text-[#1a7a43] border-b border-[#1e3428] pb-1 mb-2"
-        style={mono}
+        className="font-mono-system text-[0.55rem] tracking-[0.18em] text-[#1a7a43] border-b border-[#1e3428] pb-1 mb-2"
       >
         {label}
       </div>
@@ -56,8 +53,7 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
     return (
       <button
         onClick={onClick}
-        className={`border px-2 py-[3px] text-[0.55rem] tracking-[0.12em] uppercase transition-colors ${colours[variant]}`}
-        style={mono}
+        className={`font-mono-system border px-2 py-[3px] text-[0.55rem] tracking-[0.12em] transition-colors ${colours[variant]}`}
       >
         {label}
       </button>
@@ -82,8 +78,7 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
         max={max}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-12 bg-[#0d1410] border border-[#1e3428] text-[#c8ddd0] px-1 py-[3px] text-center text-[0.55rem]"
-        style={mono}
+        className="font-mono-system w-12 bg-[#0d1410] border border-[#1e3428] text-[#c8ddd0] px-1 py-[3px] text-center text-[0.55rem]"
       />
     )
   }
@@ -102,19 +97,18 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
         <div
           className="sticky top-0 bg-[#080c0a] border-b border-[#2ecc71] px-3 py-2 flex justify-between items-center z-10"
         >
-          <span className="text-[0.6rem] tracking-[0.2em] uppercase text-[#2ecc71]" style={mono}>
+          <span className="font-mono-system text-[0.6rem] tracking-[0.2em] text-[#2ecc71]">
             // DEBUG CONSOLE
           </span>
           <button
             onClick={onClose}
-            className="text-[0.55rem] tracking-[0.14em] text-[#5a7a62] hover:text-[#e05050] transition-colors"
-            style={mono}
+            className="font-mono-system text-[0.55rem] tracking-[0.14em] text-[#5a7a62] hover:text-[#e05050] transition-colors"
           >
             [×] CLOSE
           </button>
         </div>
 
-        <div className="px-3 py-3 space-y-4 text-[0.6rem]" style={mono}>
+        <div className="font-mono-system px-3 py-3 space-y-4 text-[0.6rem]">
 
           {/* Status line */}
           <div className="text-[#5a7a62]">
@@ -135,7 +129,6 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
                 value={hunterId}
                 onChange={(e) => setSelectedHunterId(e.target.value)}
                 className="w-full bg-[#0d1410] border border-[#1e3428] text-[#c8ddd0] px-2 py-1 text-[0.55rem]"
-                style={mono}
               >
                 {hunters.map((h) => (
                   <option key={h.id} value={h.id}>
@@ -164,7 +157,6 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
                 value={intelLevel}
                 onChange={(e) => setIntelLevel(e.target.value as IntelLevel)}
                 className="flex-1 bg-[#0d1410] border border-[#1e3428] text-[#c8ddd0] px-2 py-1 text-[0.55rem]"
-                style={mono}
               >
                 {(['blind', 'partial', 'informed', 'prepared'] as IntelLevel[]).map((l) => (
                   <option key={l} value={l}>{l}</option>
@@ -245,7 +237,6 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
                   value={seedInput}
                   onChange={(e) => setSeedInput(e.target.value)}
                   className="flex-1 bg-[#0d1410] border border-[#1e3428] text-[#c8ddd0] px-2 py-[3px] text-[0.55rem] placeholder-[#1e3428]"
-                  style={mono}
                 />
                 <Btn label="Set Seed" onClick={() => seedInput && apply(() => debug.setSeed(state, seedInput))} />
               </div>
@@ -256,7 +247,6 @@ export default function DebugPanel({ onClose }: { onClose: () => void }) {
                   onChange={(e) => setLoadJson(e.target.value)}
                   rows={3}
                   className="w-full bg-[#0d1410] border border-[#1e3428] text-[#c8ddd0] px-2 py-1 text-[0.55rem] placeholder-[#1e3428] resize-none"
-                  style={mono}
                 />
                 <Btn
                   label="Load State JSON"

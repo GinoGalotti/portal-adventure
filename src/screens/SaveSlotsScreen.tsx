@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { api, type SlotSummary } from '../api/client'
 import { useAuthStore } from '../store/auth'
 import { useGameStore } from '../store/game'
-import { Card, SectionHeader, Eyebrow, Heading, StatusDot, MonoLabel, Icon } from '../components/ui'
+import { Card, SectionHeader, Eyebrow, Heading, StatusDot, MonoLabel, Icon, Button, ConfirmModal } from '../components/ui'
 
 export default function SaveSlotsScreen() {
   const { t } = useTranslation()
@@ -13,6 +13,11 @@ export default function SaveSlotsScreen() {
   const [slots, setSlots] = useState<SlotSummary[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [confirmAction, setConfirmAction] = useState<
+    | { type: 'delete'; slot: SlotSummary }
+    | { type: 'forceClear'; slotNumber: number }
+    | null
+  >(null)
   const [longPressSlotId, setLongPressSlotId] = useState<string | null>(null)
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const suppressClick = useRef(false)
@@ -40,34 +45,40 @@ export default function SaveSlotsScreen() {
     } catch (e) {
       const msg = (e as Error).message
       if (msg.includes('already in use')) {
-        // Slot exists in DB but wasn't returned by listSaves — offer to force-clear it
-        if (window.confirm(t('slots.confirm.forceClear'))) {
-          try {
-            await api.deleteSlotByNumber(token, slotNumber)
-            // Retry creation after clearing
-            const seed = crypto.randomUUID()
-            const created = await api.createSave(token, 'New Operation', seed, slotNumber)
-            initSlot(created.id, seed)
-            return
-          } catch (clearErr) {
-            setError((clearErr as Error).message)
-            return
-          }
-        }
+        setConfirmAction({ type: 'forceClear', slotNumber })
+        return
       }
       setError(msg)
     }
   }
 
-  async function handleDelete(slot: SlotSummary, e: React.MouseEvent) {
+  function handleDelete(slot: SlotSummary, e: React.MouseEvent) {
     e.stopPropagation()
     if (!token) return
-    if (!window.confirm(t('slots.confirm.delete'))) return
-    try {
-      await api.deleteSave(token, slot.id)
-      setSlots((prev) => prev.filter((s) => s.id !== slot.id))
-    } catch (err) {
-      setError((err as Error).message)
+    setConfirmAction({ type: 'delete', slot })
+  }
+
+  async function handleConfirmAction() {
+    if (!confirmAction || !token) return
+    const action = confirmAction
+    setConfirmAction(null)
+
+    if (action.type === 'delete') {
+      try {
+        await api.deleteSave(token, action.slot.id)
+        setSlots((prev) => prev.filter((s) => s.id !== action.slot.id))
+      } catch (err) {
+        setError((err as Error).message)
+      }
+    } else if (action.type === 'forceClear') {
+      try {
+        await api.deleteSlotByNumber(token, action.slotNumber)
+        const seed = crypto.randomUUID()
+        const created = await api.createSave(token, 'New Operation', seed, action.slotNumber)
+        initSlot(created.id, seed)
+      } catch (clearErr) {
+        setError((clearErr as Error).message)
+      }
     }
   }
 
@@ -128,8 +139,8 @@ export default function SaveSlotsScreen() {
 
         {error && (
           <div
-            className="text-[#e05050] text-[0.82rem] tracking-[0.12em] uppercase border border-[#5c2020] bg-[rgba(224,80,80,0.04)] px-3 py-2 mb-4"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            role="alert"
+            className="text-[#e05050] text-[0.82rem] tracking-[0.12em] border border-[#5c2020] bg-[rgba(224,80,80,0.04)] px-3 py-2 mb-4 font-mono-system"
           >
             {t('common.error', { message: error })}
           </div>
@@ -166,15 +177,16 @@ export default function SaveSlotsScreen() {
                           })}
                         </MonoLabel>
                       </div>
-                      <button
+                      <Button
+                        variant="danger"
+                        size="sm"
                         onClick={(e) => handleDelete(slot, e)}
-                        className={`text-[0.75rem] tracking-[0.12em] uppercase text-[#5c2020] hover:text-[#e05050] transition-opacity px-2 py-1 ${
+                        className={
                           longPressSlotId === slot.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                        }`}
-                        style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                        }
                       >
                         {t('slots.delete')}
-                      </button>
+                      </Button>
                     </div>
                   </Card>
                 </button>
@@ -191,8 +203,7 @@ export default function SaveSlotsScreen() {
                 >
                   <MonoLabel className="text-[#5a7a62]">SLOT {slotNumber}</MonoLabel>
                   <div
-                    className="text-[0.85rem] tracking-[0.16em] uppercase text-[#5a7a62] mt-2"
-                    style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                    className="text-[0.85rem] text-[#5a7a62] mt-2 font-mono-system"
                   >
                     // EMPTY SLOT
                   </div>
@@ -209,21 +220,36 @@ export default function SaveSlotsScreen() {
 
         {/* Footer */}
         <div className="border-t border-[#1e3428] mt-8 pt-4 anim-fade-up-2 flex items-center justify-between">
-          <button
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={handleLogout}
-            className="text-[0.8rem] tracking-[0.16em] uppercase text-[#5a7a62] hover:text-[#2ecc71] transition-colors"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
             {t('slots.logout')}
-          </button>
+          </Button>
           <span
-            className="text-[0.65rem] tracking-[0.2em] uppercase text-[#1e3428]"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            className="text-[0.65rem] tracking-[0.2em] text-[#1e3428] font-mono-system"
           >
             v{__APP_VERSION__}
           </span>
         </div>
       </div>
+
+      {confirmAction && (
+        <ConfirmModal
+          title={confirmAction.type === 'delete'
+            ? t('slots.confirm.deleteTitle')
+            : t('slots.confirm.forceClearTitle')}
+          message={confirmAction.type === 'delete'
+            ? t('slots.confirm.delete')
+            : t('slots.confirm.forceClear')}
+          confirmLabel={confirmAction.type === 'delete' ? t('slots.confirm.deleteConfirm') : t('slots.confirm.forceClearConfirm')}
+          cancelLabel={t('slots.confirm.cancel')}
+          variant="danger"
+          onConfirm={handleConfirmAction}
+          onCancel={() => setConfirmAction(null)}
+        />
+      )}
     </div>
   )
 }

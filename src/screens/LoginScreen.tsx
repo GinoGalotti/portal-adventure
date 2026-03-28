@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { api } from '../api/client'
 import { useAuthStore } from '../store/auth'
-import { Eyebrow, Heading, StatusDot, Icon } from '../components/ui'
+import { Eyebrow, Heading, StatusDot, Icon, Button } from '../components/ui'
 
 export default function LoginScreen() {
   const { t } = useTranslation()
@@ -41,8 +41,7 @@ export default function LoginScreen() {
           <div className="flex items-center justify-center gap-2 mt-4">
             <StatusDot />
             <span
-              className="text-[0.8rem] tracking-[0.2em] text-[#5a7a62] uppercase"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              className="text-[0.8rem] tracking-[0.2em] text-[#5a7a62] font-mono-system"
             >
               {t('login.subtitle')}
             </span>
@@ -55,8 +54,7 @@ export default function LoginScreen() {
         <form onSubmit={handleSubmit} className="space-y-5 anim-fade-up-2">
           <div>
             <label
-              className="block text-[0.8rem] tracking-[0.2em] uppercase text-[#1a7a43] mb-1"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              className="block text-[0.8rem] tracking-[0.2em] text-[#1a7a43] mb-1 font-mono-system"
             >
               <Icon name="ui/lock" size={12} className="text-[#1a7a43] mr-1 relative top-[1px]" />
               {t('login.operativeId')}
@@ -67,15 +65,13 @@ export default function LoginScreen() {
               onChange={(e) => setUsername(e.target.value)}
               autoComplete="username"
               spellCheck={false}
-              className="w-full bg-[#111a14] border border-[#1e3428] text-[#c8ddd0] px-3 py-2 text-base focus:border-[#1a7a43] transition-colors"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              className="w-full bg-[#111a14] border border-[#1e3428] text-[#c8ddd0] px-3 py-2 text-base focus:border-[#1a7a43] transition-colors font-mono-system normal-case"
             />
           </div>
 
           <div>
             <label
-              className="block text-[0.8rem] tracking-[0.2em] uppercase text-[#1a7a43] mb-1"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              className="block text-[0.8rem] tracking-[0.2em] text-[#1a7a43] mb-1 font-mono-system"
             >
               {t('login.clearanceCode')}
             </label>
@@ -84,34 +80,33 @@ export default function LoginScreen() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
-              className="w-full bg-[#111a14] border border-[#1e3428] text-[#c8ddd0] px-3 py-2 text-base focus:border-[#1a7a43] transition-colors"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              className="w-full bg-[#111a14] border border-[#1e3428] text-[#c8ddd0] px-3 py-2 text-base focus:border-[#1a7a43] transition-colors font-mono-system normal-case"
             />
           </div>
 
           {error && (
             <div
-              className="text-[#e05050] text-[0.82rem] tracking-[0.12em] uppercase border border-[#5c2020] bg-[rgba(224,80,80,0.04)] px-3 py-2"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              role="alert"
+              className="text-[#e05050] text-[0.82rem] tracking-[0.12em] border border-[#5c2020] bg-[rgba(224,80,80,0.04)] px-3 py-2 font-mono-system"
             >
               {error}
             </div>
           )}
 
-          <button
+          <Button
             type="submit"
+            variant="primary"
+            size="lg"
+            fullWidth
             disabled={loading || !username || !password}
-            className="w-full bg-[rgba(46,204,113,0.06)] border border-[#1a7a43] hover:bg-[rgba(46,204,113,0.12)] disabled:bg-[#0d1410] disabled:border-[#1e3428] disabled:text-[#5a7a62] text-[#2ecc71] py-3 text-[0.95rem] tracking-[0.2em] uppercase transition-colors"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
             {loading ? t('common.loading') : t('login.submit')}
-          </button>
+          </Button>
         </form>
 
         <div className="border-t border-[#1e3428] mt-8 anim-fade-up-3" />
         <div
-          className="text-center mt-3 text-[0.65rem] tracking-[0.2em] uppercase text-[#1e3428]"
-          style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          className="text-center mt-3 text-[0.65rem] tracking-[0.2em] text-[#1e3428] font-mono-system"
         >
           v{__APP_VERSION__}
         </div>

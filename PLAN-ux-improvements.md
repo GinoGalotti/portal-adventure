@@ -17,7 +17,7 @@ Batch 4 (sequential):         Item 3 (micro-interactions) → Item 7 (a11y)
 
 ## Item 6: Migrate inline `fontFamily` to CSS utility classes
 
-- [ ] **Status: pending**
+- [x] **Status: DONE**
 - **Size:** Small (mechanical, but needs per-instance verification)
 - **Files:** `src/components/ui.tsx`, all 6 screen files, `src/components/DebugPanel.tsx`
 
@@ -40,7 +40,7 @@ Replace ~50+ instances of inline `style={{ fontFamily: ... }}` with existing CSS
 
 ## Item 5: Invert narrative/mechanical priority in roll results
 
-- [ ] **Status: pending**
+- [x] **Status: DONE**
 - **Size:** Small-Medium
 - **Files:** `src/screens/InvestigationScreen.tsx` (RollResult component), `src/screens/ConfrontationScreen.tsx`
 
@@ -61,7 +61,7 @@ Replace ~50+ instances of inline `style={{ fontFamily: ... }}` with existing CSS
 
 ## Item 1: Create shared `Button` component
 
-- [ ] **Status: pending**
+- [x] **Status: DONE**
 - **Size:** Large (component + migration of ~25 buttons across 7 files)
 - **Files:** `src/components/ui.tsx` (add Button), all 6 screens + DebugPanel (migrate)
 - **Depends on:** Item 6 (fontFamily migration should be done first)
@@ -106,7 +106,7 @@ Replace ~50+ instances of inline `style={{ fontFamily: ... }}` with existing CSS
 
 ## Item 4: Replace `window.confirm()` with in-world ConfirmModal
 
-- [ ] **Status: pending**
+- [x] **Status: DONE**
 - **Size:** Medium
 - **Files:** `src/components/ui.tsx` (add ConfirmModal), `src/screens/SaveSlotsScreen.tsx`
 - **Depends on:** Item 1 (uses Button component)
@@ -140,7 +140,7 @@ Replace ~50+ instances of inline `style={{ fontFamily: ... }}` with existing CSS
 
 ## Item 2: Make Investigation screen responsive
 
-- [ ] **Status: pending**
+- [x] **Status: DONE**
 - **Size:** Large
 - **Files:** `src/screens/InvestigationScreen.tsx`, possibly `src/styles/portal-theme.css`
 - **Depends on:** Item 1 (Button component for consistent touch targets)
@@ -173,7 +173,7 @@ Replace ~50+ instances of inline `style={{ fontFamily: ... }}` with existing CSS
 
 ## Item 3: Add micro-interaction feedback
 
-- [ ] **Status: pending**
+- [x] **Status: DONE**
 - **Size:** Medium
 - **Files:** `src/styles/portal-theme.css` (keyframes), `src/screens/InvestigationScreen.tsx`, `src/screens/ConfrontationScreen.tsx`, `src/components/ui.tsx`
 - **Should be done before:** Item 7 (a11y wraps animations)
@@ -206,7 +206,7 @@ Replace ~50+ instances of inline `style={{ fontFamily: ... }}` with existing CSS
 
 ## Item 7: Add `prefers-reduced-motion` + basic ARIA
 
-- [ ] **Status: pending**
+- [x] **Status: DONE**
 - **Size:** Medium
 - **Files:** `src/styles/portal-theme.css`, `src/screens/InvestigationScreen.tsx`, `src/screens/ConfrontationScreen.tsx`, `src/screens/SaveSlotsScreen.tsx`, `src/components/ui.tsx`
 - **Depends on:** Item 3 (needs to wrap those animations too)

@@ -28,7 +28,12 @@ i18n
           'slots.lastActive': 'Last active: {{date}}',
           'slots.delete': 'DELETE',
           'slots.confirm.delete': 'Delete this operation? All progress will be lost.',
+          'slots.confirm.deleteTitle': 'DELETE OPERATION',
+          'slots.confirm.deleteConfirm': 'DELETE',
           'slots.confirm.forceClear': 'This slot has corrupted data. Clear it and start fresh?',
+          'slots.confirm.forceClearTitle': 'CORRUPTED SLOT',
+          'slots.confirm.forceClearConfirm': 'CLEAR & RETRY',
+          'slots.confirm.cancel': 'CANCEL',
           'slots.logout': 'LOG OUT',
 
           // Briefing

@@ -16,11 +16,14 @@ import { telemetry } from '../telemetry/emitter'
 import type { Hunter, ActionInterpretation } from '../engine/types'
 import {
   Card, SectionHeader, Tag, Eyebrow, Heading, StatusDot,
-  MonoLabel, Icon, HarmPips, LuckPips,
+  MonoLabel, Icon, HarmPips, LuckPips, Button,
 } from '../components/ui'
 
 function HunterStatus({ hunter }: { hunter: Hunter }) {
   const isDead = !hunter.alive
+  const prevHarm = useRef(hunter.harm)
+  const highlightFrom = hunter.harm > prevHarm.current ? prevHarm.current : undefined
+  if (hunter.harm !== prevHarm.current) prevHarm.current = hunter.harm
   return (
     <div className={`px-4 py-2 border ${
       isDead ? 'border-[#5c2020]' : 'border-[#1e3428]'
@@ -34,7 +37,7 @@ function HunterStatus({ hunter }: { hunter: Hunter }) {
         <Heading as="div" className={`text-[0.75rem] flex-1 ${isDead ? 'text-[#e05050]' : 'text-[#c8ddd0]'}`}>
           {hunter.name}
         </Heading>
-        <HarmPips harm={hunter.harm} />
+        <HarmPips harm={hunter.harm} highlightFrom={highlightFrom} />
         <LuckPips luck={hunter.luck} />
         {isDead && <Tag label="KIA" variant="danger" />}
       </div>
@@ -310,8 +313,8 @@ export default function ConfrontationScreen() {
                   const summary = clue.description.split(/(?<=[.!?])\s/)[0] ?? clue.description
                   return (
                     <div key={clue.id} className="flex gap-2">
-                      <span className="text-[#1a7a43] shrink-0 mt-[2px]" style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem' }}>▸</span>
-                      <p className="text-[0.65rem] text-[#8aab94] leading-[1.4]" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                      <span className="font-mono-system normal-case text-[#1a7a43] shrink-0 mt-[2px]" style={{ fontSize: '0.55rem' }}>▸</span>
+                      <p className="font-body text-[0.65rem] text-[#8aab94] leading-[1.4]">
                         {summary}
                       </p>
                     </div>
@@ -324,39 +327,46 @@ export default function ConfrontationScreen() {
 
         {/* Roll result */}
         {lastRoll && (
-          <Card className="mb-4">
-            <MonoLabel className="text-[#1a7a43] block mb-2">
-              <Icon name="ui/dice" size={12} className="text-[#1a7a43] mr-1 relative top-[1px]" />
-              {t('roll.title')}
-            </MonoLabel>
-            <div className="flex items-baseline gap-3 mb-1">
-              <Heading as="div" className={`text-[1.7rem] ${outcomeColour(lastRoll.outcome)}`}>
-                {lastRoll.dice[0]} + {lastRoll.dice[1]}
-              </Heading>
-              <MonoLabel className="text-[#5a7a62]">
-                {lastRoll.modifier >= 0 ? '+' : ''}{lastRoll.modifier} ({lastRoll.stat})
-              </MonoLabel>
-            </div>
-            <div className={`text-[0.85rem] tracking-[0.16em] uppercase font-bold mb-2 ${outcomeColour(lastRoll.outcome)}`}
-                 style={{ fontFamily: "'Share Tech Mono', monospace" }}>
-              {t(`roll.outcome.${lastRoll.outcome}` as Parameters<typeof t>[0])}
+          <Card key={confrontation.history.length} className="mb-4 anim-roll-reveal">
+            <div className="flex items-center gap-2 mb-2">
+              <Tag
+                label={t(`roll.outcome.${lastRoll.outcome}` as Parameters<typeof t>[0])}
+                variant={lastRoll.outcome === 'success' ? 'active' : lastRoll.outcome === 'mixed' ? 'warning' : 'danger'}
+              />
               {lastRoll.upgraded && (
-                <span className="ml-2 text-[#1a7a43]">{t('roll.upgraded')}</span>
+                <Tag label={t('roll.upgraded')} variant="active" />
               )}
             </div>
+
+            {/* Collapsible dice details */}
+            <details className="border-t border-[#1e3428] pt-2">
+              <summary className="font-mono-system text-[0.7rem] text-[#5a7a62] cursor-pointer list-none hover:text-[#8aab94] transition-colors">
+                <Icon name="ui/dice" size={10} className="text-[#5a7a62] mr-1 relative top-[0px]" />
+                ▸ {lastRoll.dice[0]} + {lastRoll.dice[1]} {lastRoll.modifier >= 0 ? '+' : ''}{lastRoll.modifier} ({lastRoll.stat}) = {lastRoll.total}
+              </summary>
+              <div className="flex items-baseline gap-3 mt-2">
+                <Heading as="div" className={`text-[1.4rem] ${outcomeColour(lastRoll.outcome)}`}>
+                  {lastRoll.dice[0]} + {lastRoll.dice[1]}
+                </Heading>
+                <MonoLabel className="text-[#5a7a62]">
+                  {lastRoll.modifier >= 0 ? '+' : ''}{lastRoll.modifier} ({lastRoll.stat})
+                </MonoLabel>
+              </div>
+            </details>
 
             {!lastRoll.upgraded && lastRoll.outcome !== 'success' && (() => {
               const luckyHunter = aliveHunters.find((h) => h.luck > 0 && h.id === lastRoll.hunterId)
               if (!luckyHunter) return null
               return (
-                <button
+                <Button
+                  variant="warning"
+                  size="sm"
+                  icon="actions/push-luck"
                   onClick={() => doAction('spendLuck', { hunterId: luckyHunter.id })}
-                  className="mt-2 text-[0.6rem] tracking-[0.16em] uppercase border border-[#7a5200] text-[#f0a500] hover:bg-[rgba(240,165,0,0.06)] px-3 py-1 transition-colors"
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                  className="mt-2"
                 >
-                  <Icon name="actions/push-luck" size={12} className="text-[#f0a500] mr-1 relative top-[1px]" />
                   {t('roll.spendLuck', { remaining: luckyHunter.luck })}
-                </button>
+                </Button>
               )
             })()}
           </Card>
@@ -364,15 +374,15 @@ export default function ConfrontationScreen() {
 
         {/* Error banner */}
         {error && (
-          <div className="mb-4 border border-[#5c2020] bg-[rgba(224,80,80,0.06)] px-3 py-2 flex items-center gap-2">
+          <div role="alert" className="mb-4 border border-[#5c2020] bg-[rgba(224,80,80,0.06)] px-3 py-2 flex items-center gap-2">
             <MonoLabel className="text-[#e05050] flex-1">{error}</MonoLabel>
-            <button
+            <Button
+              variant="danger"
+              size="sm"
               onClick={clearError}
-              className="text-[#e05050] hover:text-[#ff8080] text-[0.6rem] tracking-[0.12em] uppercase border border-[#5c2020] px-2 py-1"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
             >
               DISMISS
-            </button>
+            </Button>
           </div>
         )}
 
@@ -398,46 +408,41 @@ export default function ConfrontationScreen() {
                     setSelectedAction(selectedAction === type ? null : type)
                   }
                 }}
-                  className={`text-[0.7rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
+                  className={`font-mono-system text-[0.7rem] tracking-[0.12em] border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
                     selectedAction === type ? activeCls : cls
                   }`}
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
                 >
                   <Icon name={icon} size={12} className="relative top-[0px]" />
                   {label}
                 </button>
               ))}
               {(canExploitLegacy || canExploitNew) && (
-                <button
+                <Button
+                  variant="warning"
+                  size="sm"
+                  active={selectedAction === 'exploitWeakness'}
+                  icon="actions/exploit"
                   onClick={() => setSelectedAction(selectedAction === 'exploitWeakness' ? null : 'exploitWeakness')}
-                  className={`text-[0.7rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
-                    selectedAction === 'exploitWeakness'
-                      ? 'border-[#f0a500] bg-[rgba(240,165,0,0.06)] text-[#f0a500]'
-                      : 'border-[#7a5200] text-[#f0a500] hover:border-[#f0a500] hover:bg-[rgba(240,165,0,0.04)]'
-                  }`}
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                  className="flex items-center gap-1"
                 >
-                  <Icon name="actions/exploit" size={12} />
                   {t('confrontation.action.exploitWeakness')}
-                </button>
+                </Button>
               )}
               {hasFreeTextExploits && (
-                <button
+                <Button
+                  variant="warning"
+                  size="sm"
+                  active={selectedAction === 'freeText'}
+                  icon="actions/exploit"
                   onClick={() => {
                     setSelectedAction(selectedAction === 'freeText' ? null : 'freeText')
                     setFreeTextInput('')
                     setFreeTextPreview(null)
                   }}
-                  className={`text-[0.7rem] tracking-[0.12em] uppercase border px-2 py-[5px] transition-colors min-h-[44px] flex items-center gap-1 ${
-                    selectedAction === 'freeText'
-                      ? 'border-[#f0a500] bg-[rgba(240,165,0,0.06)] text-[#f0a500]'
-                      : 'border-[#7a5200] text-[#f0a500] hover:border-[#f0a500] hover:bg-[rgba(240,165,0,0.04)]'
-                  }`}
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                  className="flex items-center gap-1"
                 >
-                  <Icon name="actions/exploit" size={12} />
                   FREE TEXT
-                </button>
+                </Button>
               )}
             </div>
 
@@ -478,16 +483,14 @@ export default function ConfrontationScreen() {
                       return (
                         <div key={option.id} className="mb-2">
                           <div className="flex items-center gap-3 border border-[#1e3428] px-3 py-2 mb-1">
-                            <span className="text-[0.8rem] tracking-[0.1em] font-bold shrink-0 text-[#f0a500]"
-                              style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+                            <span className="font-mono-system normal-case text-[0.8rem] tracking-[0.1em] font-bold shrink-0 text-[#f0a500]">
                               {mod >= 0 ? '+' : ''}{mod}
                             </span>
-                            <span className="text-[0.75rem] text-[#c8ddd0] flex-1" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                            <span className="font-body text-[0.75rem] text-[#c8ddd0] flex-1">
                               {t(option.description as Parameters<typeof t>[0])}
                             </span>
                             {stat && (
-                              <span className="text-[0.65rem] tracking-[0.12em] uppercase text-[#5a7a62] shrink-0"
-                                style={{ fontFamily: "'Share Tech Mono', monospace" }}>
+                              <span className="font-mono-system text-[0.65rem] tracking-[0.12em] text-[#5a7a62] shrink-0">
                                 {stat}
                               </span>
                             )}
@@ -501,8 +504,7 @@ export default function ConfrontationScreen() {
                                 <button
                                   key={hunter.id}
                                   onClick={() => doAction('exploitWeakness', { hunterId: hunter.id, exploitOptionId: option.id })}
-                                  className="flex items-center gap-1 border border-[#1e3428] hover:border-[#7a5200] px-2 py-1 text-[0.5rem] tracking-[0.1em] uppercase text-[#5a7a62] hover:text-[#f0a500] transition-colors"
-                                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                                  className="font-mono-system flex items-center gap-1 border border-[#1e3428] hover:border-[#7a5200] px-2 py-1 text-[0.5rem] tracking-[0.1em] text-[#5a7a62] hover:text-[#f0a500] transition-colors"
                                 >
                                   <Icon name={`playbooks/${hunter.playbookId}`} size={10} />
                                   {hunter.name.split(' ')[0]}
@@ -543,8 +545,8 @@ export default function ConfrontationScreen() {
               <div className="border border-[#7a5200] bg-[#0d1410] p-3 mb-3">
                 <MonoLabel className="text-[#f0a500] block mb-2">// DESCRIBE YOUR APPROACH</MonoLabel>
                 <textarea
-                  className="w-full bg-[#080c0a] border border-[#1e3428] text-[#c8ddd0] p-2 text-[0.65rem] resize-none focus:outline-none focus:border-[#f0a500]"
-                  style={{ fontFamily: "'Barlow', sans-serif", minHeight: '60px' }}
+                  className="font-body normal-case w-full bg-[#080c0a] border border-[#1e3428] text-[#c8ddd0] p-2 text-[0.65rem] resize-none focus:outline-none focus:border-[#f0a500]"
+                  style={{ minHeight: '60px' }}
                   placeholder="How do you confront the entity? (e.g. 'convince Balint to release her')"
                   value={freeTextInput}
                   onChange={(e) => {
@@ -570,7 +572,7 @@ export default function ConfrontationScreen() {
                       )}
                     </div>
                     {freeTextPreview.narrativeResult && (
-                      <p className="text-[0.6rem] text-[#c8ddd0] italic" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                      <p className="font-body text-[0.6rem] text-[#c8ddd0] italic">
                         {freeTextPreview.narrativeResult}
                       </p>
                     )}
@@ -583,8 +585,7 @@ export default function ConfrontationScreen() {
                       key={hunter.id}
                       disabled={!freeTextInput.trim() || freeTextLoading}
                       onClick={() => doFreeTextAction(hunter.id, freeTextInput)}
-                      className="flex items-center gap-1 border border-[#7a5200] hover:border-[#f0a500] hover:bg-[rgba(240,165,0,0.04)] disabled:opacity-30 disabled:cursor-not-allowed px-3 py-2 transition-colors"
-                      style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                      className="font-mono-system flex items-center gap-1 border border-[#7a5200] hover:border-[#f0a500] hover:bg-[rgba(240,165,0,0.04)] disabled:opacity-30 disabled:cursor-not-allowed px-3 py-2 transition-colors"
                     >
                       <Icon name={`playbooks/${hunter.playbookId}`} size={12} className="text-[#f0a500]" />
                       <MonoLabel className="text-[#f0a500]">{hunter.name}</MonoLabel>
@@ -603,28 +604,26 @@ export default function ConfrontationScreen() {
         {/* End mystery */}
         <div className="space-y-2 mb-4">
           {(confrontation.monsterDefeated || allDead) && (
-            <button
+            <Button
+              variant={confrontation.monsterDefeated ? 'primary' : 'danger'}
+              size="lg"
+              fullWidth
+              icon={confrontation.monsterDefeated ? 'ui/victory' : 'ui/defeat'}
               onClick={() => doAction('endMystery', { outcome: confrontation.monsterDefeated ? 'win' : 'loss' })}
-              className={`w-full border py-3 text-[0.7rem] tracking-[0.2em] uppercase transition-colors ${
-                confrontation.monsterDefeated
-                  ? 'border-[#1a7a43] text-[#2ecc71] hover:bg-[rgba(46,204,113,0.06)]'
-                  : 'border-[#5c2020] text-[#e05050] hover:bg-[rgba(224,80,80,0.04)]'
-              }`}
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
             >
-              <Icon name={confrontation.monsterDefeated ? 'ui/victory' : 'ui/defeat'} size={14} className="mr-2 relative top-[1px]" />
               {confrontation.monsterDefeated
                 ? t('confrontation.endMystery.win')
                 : '[ CASE FAILED — LOG CASUALTIES ]'}
-            </button>
+            </Button>
           )}
-          <button
+          <Button
+            variant="ghost"
+            size="sm"
+            fullWidth
             onClick={() => doAction('endMystery', { outcome: 'retreat' })}
-            className="w-full border border-[#1e3428] hover:border-[#5a7a62] text-[#5a7a62] hover:text-[#c8ddd0] py-1 text-[0.6rem] tracking-[0.16em] uppercase transition-colors"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
             {t('confrontation.endMystery.retreat')}
-          </button>
+          </Button>
         </div>
 
         {/* Team status */}

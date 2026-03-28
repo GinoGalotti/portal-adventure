@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAuthStore } from '../store/auth'
 import { useGameStore } from '../store/game'
@@ -14,7 +14,7 @@ import {
 } from '../data/mysteries'
 import {
   Card, MonoLabel, Heading, Eyebrow, StatusDot, Tag,
-  Icon, HarmPips, LuckPips, WarnBand,
+  Icon, HarmPips, LuckPips, WarnBand, Button,
 } from '../components/ui'
 import playbooksRaw from '../../data/playbooks.json'
 const PLAYBOOKS: Playbook[] = (playbooksRaw as { playbooks: Playbook[] }).playbooks
@@ -75,8 +75,7 @@ function MiniMap({
         {t('investigation.map')}
       </MonoLabel>
       <pre
-        className="text-[1rem] leading-tight select-none"
-        style={{ fontFamily: "'Share Tech Mono', monospace" }}
+        className="text-[1rem] leading-tight select-none font-mono-system normal-case overflow-x-auto"
       >
         {mapRows.map((row, i) => (
           <div key={i}>{renderRow(row)}</div>
@@ -100,6 +99,7 @@ function ScenePanel({
   onElementClick: (element: SceneElement) => void
 }) {
   const { t } = useTranslation()
+  const [flashId, setFlashId] = useState<string | null>(null)
 
   function isDisabled(element: SceneElement): boolean {
     if (!activeHunter) return true
@@ -124,8 +124,7 @@ function ScenePanel({
     <div className="mb-2">
       <Card>
         <div
-          className="text-[0.75rem] tracking-[0.12em] uppercase text-[#1a7a43] mb-2 italic"
-          style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          className="text-[0.75rem] tracking-[0.12em] text-[#1a7a43] mb-2 italic font-mono-system"
         >
           {narrative.ambiance}
         </div>
@@ -144,9 +143,10 @@ function ScenePanel({
                 tabIndex={disabled ? -1 : 0}
                 title={!element.hidden ? element.hint : undefined}
                 aria-disabled={disabled}
-                onClick={() => !disabled && onElementClick(element)}
-                onKeyDown={(e) => { if (!disabled && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); onElementClick(element) } }}
-                className={`inline ${elementClass(element)}`}
+                onClick={() => { if (!disabled) { setFlashId(element.id); onElementClick(element) } }}
+                onKeyDown={(e) => { if (!disabled && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); setFlashId(element.id); onElementClick(element) } }}
+                onAnimationEnd={() => setFlashId(null)}
+                className={`inline ${elementClass(element)}${flashId === element.id ? ' anim-click-flash' : ''}`}
               >
                 {element.label}
               </span>
@@ -197,13 +197,14 @@ function InterviewModal({
             </MonoLabel>
             <Heading as="div" className="text-[1.1rem] text-[#c8ddd0]">{npc.name}</Heading>
           </div>
-          <button
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={onClose}
-            className="text-[0.8rem] tracking-[0.16em] uppercase text-[#5a7a62] hover:text-[#2ecc71] transition-colors px-2 py-1 min-h-[44px]"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            className="px-2"
           >
             {t('investigation.interview.close')}
-          </button>
+          </Button>
         </div>
 
         {/* NPC description */}
@@ -268,53 +269,86 @@ function RollResult({
     return narrativeResponse[roll.outcome] ?? null
   })()
 
+  const hasNarrative = !!(dialogueResponse || resolvedNarrativeText)
+
   return (
-    <Card className="mb-2">
-      <MonoLabel className="text-[#1a7a43] block mb-1">
-        {t('roll.title')}
-      </MonoLabel>
-      <div className="flex items-baseline gap-3 mb-1">
-        <Heading as="div" className={`text-[1.4rem] ${outcomeColour}`}>
-          {roll.dice[0]} + {roll.dice[1]}
-        </Heading>
-        <MonoLabel className="text-[#5a7a62]">
-          {roll.modifier >= 0 ? '+' : ''}{roll.modifier} ({roll.stat})
-        </MonoLabel>
-      </div>
-      <div className={`text-[0.95rem] tracking-[0.16em] uppercase font-bold mb-2 ${outcomeColour}`}
-           style={{ fontFamily: "'Share Tech Mono', monospace" }}>
-        {t(`roll.outcome.${roll.outcome}` as Parameters<typeof t>[0])}
-        {roll.upgraded && (
-          <span className="ml-2 text-[#1a7a43]">{t('roll.upgraded')}</span>
-        )}
-      </div>
+    <Card key={state?.actionCount} className="mb-2 anim-roll-reveal">
+      {hasNarrative ? (
+        <>
+          {/* Narrative-first layout: outcome tag + narrative text prominent */}
+          <div className="flex items-start gap-2 mb-2">
+            <Tag
+              label={t(`roll.outcome.${roll.outcome}` as Parameters<typeof t>[0])}
+              variant={roll.outcome === 'success' ? 'active' : roll.outcome === 'mixed' ? 'warning' : 'danger'}
+            />
+            {roll.upgraded && (
+              <Tag label={t('roll.upgraded')} variant="active" />
+            )}
+          </div>
 
-      {dialogueResponse && (
-        <div className="border-t border-[#1e3428] pt-3 mt-3">
-          {lastQuestion && (
-            <MonoLabel className="text-[#5a7a62] block mb-2">
-              {lastQuestion.option.question}
-            </MonoLabel>
+          {dialogueResponse && (
+            <>
+              {lastQuestion && (
+                <MonoLabel className="text-[#5a7a62] block mb-2">
+                  {lastQuestion.option.question}
+                </MonoLabel>
+              )}
+              <p className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] font-body">{dialogueResponse}</p>
+            </>
           )}
-          <p className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] font-body">{dialogueResponse}</p>
-        </div>
-      )}
 
-      {!dialogueResponse && resolvedNarrativeText && (
-        <div className="border-t border-[#1e3428] pt-3 mt-3">
-          <p className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] font-body">{resolvedNarrativeText}</p>
-        </div>
+          {!dialogueResponse && resolvedNarrativeText && (
+            <p className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] font-body">{resolvedNarrativeText}</p>
+          )}
+
+          {/* Collapsible dice details */}
+          <details className="mt-3 border-t border-[#1e3428] pt-2">
+            <summary className="font-mono-system text-[0.7rem] text-[#5a7a62] cursor-pointer list-none hover:text-[#8aab94] transition-colors">
+              ▸ {roll.dice[0]} + {roll.dice[1]} {roll.modifier >= 0 ? '+' : ''}{roll.modifier} ({roll.stat}) = {roll.total}
+            </summary>
+            <div className="flex items-baseline gap-3 mt-2">
+              <Heading as="div" className={`text-[1.4rem] ${outcomeColour}`}>
+                {roll.dice[0]} + {roll.dice[1]}
+              </Heading>
+              <MonoLabel className="text-[#5a7a62]">
+                {roll.modifier >= 0 ? '+' : ''}{roll.modifier} ({roll.stat})
+              </MonoLabel>
+            </div>
+          </details>
+        </>
+      ) : (
+        <>
+          {/* Mechanical-first layout: no narrative, show dice prominently */}
+          <MonoLabel className="text-[#1a7a43] block mb-1">
+            {t('roll.title')}
+          </MonoLabel>
+          <div className="flex items-baseline gap-3 mb-1">
+            <Heading as="div" className={`text-[1.4rem] ${outcomeColour}`}>
+              {roll.dice[0]} + {roll.dice[1]}
+            </Heading>
+            <MonoLabel className="text-[#5a7a62]">
+              {roll.modifier >= 0 ? '+' : ''}{roll.modifier} ({roll.stat})
+            </MonoLabel>
+          </div>
+          <div className={`text-[0.95rem] font-bold mb-2 font-mono-system ${outcomeColour}`}>
+            {t(`roll.outcome.${roll.outcome}` as Parameters<typeof t>[0])}
+            {roll.upgraded && (
+              <span className="ml-2 text-[#1a7a43]">{t('roll.upgraded')}</span>
+            )}
+          </div>
+        </>
       )}
 
       {canSpendLuck && (
-        <button
+        <Button
+          variant="warning"
+          size="sm"
+          icon="actions/push-luck"
           onClick={() => onSpendLuck(luckyHunter.id)}
-          className="mt-3 text-[0.8rem] tracking-[0.16em] uppercase border border-[#7a5200] text-[#f0a500] hover:bg-[rgba(240,165,0,0.06)] px-3 py-1 transition-colors"
-          style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          className="mt-3"
         >
-          <Icon name="actions/push-luck" size={12} className="text-[#f0a500] mr-1 relative top-[1px]" />
           {t('roll.spendLuck', { remaining: luckyHunter.luck })}
-        </button>
+        </Button>
       )}
     </Card>
   )
@@ -348,14 +382,13 @@ function HunterSelector({
             <button
               key={h.id}
               onClick={() => onSelect(h.id)}
-              className={`text-[0.75rem] tracking-[0.1em] uppercase px-2 py-[4px] border transition-colors ${
+              className={`text-[0.75rem] tracking-[0.1em] px-2 py-[4px] border transition-colors font-mono-system ${
                 isActive
                   ? 'border-[#1a7a43] bg-[rgba(46,204,113,0.06)] text-[#2ecc71]'
                   : isInjured
                     ? 'border-[#7a5200] bg-[#0d1410] text-[#f0a500] hover:border-[#f0a500]'
                     : 'border-[#1e3428] bg-[#111a14] text-[#5a7a62] hover:border-[#2ecc7155] hover:text-[#c8ddd0]'
               } ${noActions ? 'opacity-50' : ''}`}
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
             >
               <span className="block">{h.name.split(' ')[0]}</span>
               <span className="block text-[#5a7a62]">
@@ -371,77 +404,71 @@ function HunterSelector({
 
 // ─── Hunter detail panel ────────────────────────────────────────────────────────
 
-function HunterDetailPanel({ hunter }: { hunter: Hunter }) {
-  const pb = PLAYBOOKS.find((p) => p.id === hunter.playbookId)
-  if (!pb) return null
-  return (
-    <Card className="mb-2">
-      <div className="flex items-center gap-2 mb-2">
-        <Icon name={`playbooks/${hunter.playbookId}`} size={14} className="text-[#2ecc71]" />
-        <MonoLabel className="text-[#2ecc71]">{hunter.name}</MonoLabel>
-        <MonoLabel className="text-[#5a7a62]">— {pb.name}</MonoLabel>
-        <HarmPips harm={hunter.harm} />
-        <LuckPips luck={hunter.luck} />
-      </div>
-      <div className="flex flex-wrap gap-x-3 gap-y-[2px] mb-3">
-        {(['charm', 'cool', 'sharp', 'tough', 'weird'] as const).map((stat) => (
-          <span key={stat} className="inline-flex items-center gap-1">
-            <Icon name={`stats/${stat}`} size={10} className="text-[#5a7a62]" />
-            <MonoLabel className={`text-[0.65rem] ${hunter.stats[stat] >= 1 ? 'text-[#c8ddd0]' : 'text-[#5a7a62]'}`}>
-              {hunter.stats[stat] >= 0 ? '+' : ''}{hunter.stats[stat]}
-            </MonoLabel>
-          </span>
-        ))}
-      </div>
-      <div className="space-y-2">
-        {pb.signatureMoves.map((move) => (
-          <div key={move.id} className="border-l-2 border-[#1e3428] pl-2">
-            <MonoLabel className="text-[#1a7a43] block">{move.name}</MonoLabel>
-            <p className="text-[0.75rem] text-[#8aab94] leading-[1.5]" style={{ fontFamily: "'Barlow', sans-serif" }}>
-              {move.description}
-            </p>
-          </div>
-        ))}
-      </div>
-      {pb.vulnerability && (
-        <div className="mt-2 border-t border-[#1e3428] pt-2">
-          <MonoLabel className="text-[#e05050] block mb-1">VULNERABILITY</MonoLabel>
-          <p className="text-[0.75rem] text-[#8aab94] leading-[1.5]" style={{ fontFamily: "'Barlow', sans-serif" }}>
-            {pb.vulnerability}
-          </p>
-        </div>
-      )}
-    </Card>
-  )
-}
-
 // ─── Hunter status row ─────────────────────────────────────────────────────────
 
 function HunterStatusRow({ hunter }: { hunter: Hunter }) {
   const condition = hunter.conditions[0] ?? 'healthy'
   const isDead = !hunter.alive
+  const prevHarm = useRef(hunter.harm)
+  const highlightFrom = hunter.harm > prevHarm.current ? prevHarm.current : undefined
+  if (hunter.harm !== prevHarm.current) prevHarm.current = hunter.harm
+  const pb = PLAYBOOKS.find((p) => p.id === hunter.playbookId)
   return (
-    <div className={`flex items-center gap-3 px-4 py-2 border ${
-      isDead ? 'border-[#5c2020]' : 'border-[#1e3428]'
-    } bg-[#0d1410]`}>
-      <Icon
-        name={`playbooks/${hunter.playbookId}`}
-        size={16}
-        className={isDead ? 'text-[#e05050]' : 'text-[#5a7a62]'}
-      />
-      <div className="flex-1 min-w-0">
-        <Heading as="div" className={`text-[1rem] ${isDead ? 'text-[#e05050]' : 'text-[#c8ddd0]'}`}>
-          {hunter.name}
-        </Heading>
+    <div className={`border ${isDead ? 'border-[#5c2020]' : 'border-[#1e3428]'} bg-[#0d1410]`}>
+      {/* Summary row */}
+      <div className="flex items-center gap-3 px-4 py-2">
+        <Icon
+          name={`playbooks/${hunter.playbookId}`}
+          size={16}
+          className={isDead ? 'text-[#e05050]' : 'text-[#5a7a62]'}
+        />
+        <div className="flex-1 min-w-0">
+          <Heading as="div" className={`text-[1rem] ${isDead ? 'text-[#e05050]' : 'text-[#c8ddd0]'}`}>
+            {hunter.name}
+          </Heading>
+        </div>
+        <HarmPips harm={hunter.harm} highlightFrom={highlightFrom} />
+        <LuckPips luck={hunter.luck} />
+        <MonoLabel className="text-[#5a7a62] shrink-0">
+          A:{hunter.sceneActionsRemaining}
+        </MonoLabel>
+        {isDead && <Tag label="KIA" variant="danger" />}
+        {!isDead && condition !== 'healthy' && (
+          <Tag label={condition} variant="warning" />
+        )}
       </div>
-      <HarmPips harm={hunter.harm} />
-      <LuckPips luck={hunter.luck} />
-      <MonoLabel className="text-[#5a7a62] shrink-0">
-        A:{hunter.sceneActionsRemaining}
-      </MonoLabel>
-      {isDead && <Tag label="KIA" variant="danger" />}
-      {!isDead && condition !== 'healthy' && (
-        <Tag label={condition} variant="warning" />
+      {/* Stats row */}
+      <div className="flex gap-3 px-4 pb-1 ml-7">
+        {(['charm', 'cool', 'sharp', 'tough', 'weird'] as const).map((stat) => {
+          const val = hunter.stats[stat]
+          return (
+            <MonoLabel key={stat} className={`text-[0.6rem] ${val >= 1 ? 'text-[#c8ddd0]' : 'text-[#5a7a62]'}`}>
+              {stat.slice(0, 3).toUpperCase()} {val >= 0 ? '+' : ''}{val}
+            </MonoLabel>
+          )
+        })}
+      </div>
+      {/* Expandable details */}
+      {pb && (
+        <details className="border-t border-[#1e3428]">
+          <summary className="font-mono-system text-[0.65rem] text-[#5a7a62] cursor-pointer list-none hover:text-[#8aab94] transition-colors px-4 py-1">
+            ▸ MOVES &amp; ABILITIES
+          </summary>
+          <div className="px-4 pb-3 pt-1 space-y-2">
+            {pb.signatureMoves.map((move) => (
+              <div key={move.id} className="border-l-2 border-[#1e3428] pl-2">
+                <MonoLabel className="text-[#1a7a43] block text-[0.65rem]">{move.name}</MonoLabel>
+                <p className="text-[0.7rem] text-[#8aab94] leading-[1.4] font-body">{move.description}</p>
+              </div>
+            ))}
+            {pb.vulnerability && (
+              <div className="border-l-2 border-[#5c2020] pl-2">
+                <MonoLabel className="text-[#e05050] block text-[0.65rem]">VULNERABILITY</MonoLabel>
+                <p className="text-[0.7rem] text-[#8aab94] leading-[1.4] font-body">{pb.vulnerability}</p>
+              </div>
+            )}
+          </div>
+        </details>
       )}
     </div>
   )
@@ -554,17 +581,19 @@ export default function InvestigationScreen() {
     <div className="min-h-screen bg-[#080c0a] p-2 flex flex-col">
       <div className="max-w-2xl mx-auto w-full">
 
-        {/* Status bar — compact */}
+        {/* Status bar — compact, sticky on scroll */}
+        <div className="sticky top-0 z-10 bg-[#080c0a] border-b border-[#1e3428] pb-2 -mx-2 px-2">
         <div className="flex items-center gap-2 mb-1">
           <StatusDot />
           <Eyebrow>// INVESTIGATION PHASE</Eyebrow>
         </div>
-        <div className="flex flex-wrap items-center gap-2 mb-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Tag label={`INTEL: ${mystery.intelLevel}`} variant={intelVariant(mystery.intelLevel)} />
           <Tag label={`CLOCK: ${mystery.countdown.currentStep}/${mystery.countdown.steps.length}`}
             variant={mystery.countdown.currentStep >= 4 ? 'danger' : mystery.countdown.currentStep >= 2 ? 'warning' : 'default'} />
           <Tag label={`STAMINA: ${team.staminaPool}/${team.maxStamina}`} variant="default" />
           <Tag label={`CLUES: ${mystery.cluesFound.length}`} variant="default" />
+        </div>
         </div>
 
         {/* Countdown alert */}
@@ -583,21 +612,23 @@ export default function InvestigationScreen() {
             <WarnBand variant="red">
               DISASTER THRESHOLD REACHED — CONFRONTATION MANDATORY
             </WarnBand>
-            <button
+            <Button
+              variant="danger"
+              size="lg"
+              fullWidth
+              icon="ui/confrontation"
               onClick={() => doAction('startConfrontation', {})}
-              className="w-full mt-2 border border-[#e05050] text-[#e05050] hover:bg-[rgba(224,80,80,0.06)] py-3 text-[0.95rem] tracking-[0.2em] uppercase transition-colors"
-              style={{ fontFamily: "'Share Tech Mono', monospace" }}
+              className="mt-2"
             >
-              <Icon name="ui/confrontation" size={14} className="text-[#e05050] mr-2 relative top-[1px]" />
               BEGIN CONFRONTATION
-            </button>
+            </Button>
           </div>
         )}
 
         {/* Map + Operatives — side by side on desktop */}
         {!disasterReached && (
           <>
-            <div className="grid grid-cols-[1fr_auto] gap-2 mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2 mb-2">
               {/* Mini-map */}
               <MiniMap
                 currentLocationId={mystery.currentLocationId}
@@ -613,17 +644,13 @@ export default function InvestigationScreen() {
                 onSelect={setActiveHunterId}
               />
             </div>
-            {activeHunter && (
-              <HunterDetailPanel hunter={activeHunter} />
-            )}
-
             {/* Roll result / no-roll feedback */}
             {actionFeedback ? (
               <Card className="mb-2">
                 {actionFeedback.split('\n\n').map((part, i) =>
                   i === 0
                     ? <MonoLabel key={i} className="text-[#5a7a62] block">{part}</MonoLabel>
-                    : <p key={i} className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] mt-2" style={{ fontFamily: "'Barlow', sans-serif" }}>{part}</p>
+                    : <p key={i} className="text-[1.1rem] text-[#c8ddd0] italic leading-[1.75] mt-2 font-body">{part}</p>
                 )}
               </Card>
             ) : (
@@ -634,8 +661,7 @@ export default function InvestigationScreen() {
             {actionLog.length > 0 && (
               <details className="mb-2">
                 <summary
-                  className="text-[0.65rem] tracking-[0.12em] uppercase text-[#5a7a62] cursor-pointer hover:text-[#c8ddd0] transition-colors list-none"
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                  className="text-[0.65rem] tracking-[0.12em] text-[#5a7a62] cursor-pointer hover:text-[#c8ddd0] transition-colors list-none font-mono-system"
                 >
                   ▶ SESSION LOG ({actionLog.length})
                 </summary>
@@ -647,8 +673,7 @@ export default function InvestigationScreen() {
                     return (
                       <div
                         key={i}
-                        className="text-[0.65rem] text-[#5a7a62]"
-                        style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                        className="text-[0.65rem] text-[#5a7a62] font-mono-system"
                       >
                         <span className="text-[#1a7a43]">{actionLog.length - i}.</span>{' '}
                         {hunter && <span className="text-[#c8ddd0]">{hunter.name}</span>}
@@ -683,22 +708,22 @@ export default function InvestigationScreen() {
                 {/* Inline actions: rest + fight minion */}
                 <div className="flex flex-wrap gap-1 mb-2">
                   {activeHunter && activeHunter.harm > 0 && activeHunter.sceneActionsRemaining > 0 && (
-                    <button
+                    <Button
+                      variant="secondary"
+                      size="sm"
                       onClick={() => doAction('rest', { hunterId: activeHunter.id }, `// ${activeHunter.name} rests — 1 harm healed.`)}
-                      className="text-[0.75rem] tracking-[0.12em] uppercase border border-[#1e3428] hover:border-[#1a7a43] text-[#5a7a62] hover:text-[#2ecc71] px-2 py-[4px] transition-colors"
-                      style={{ fontFamily: "'Share Tech Mono', monospace" }}
                     >
                       {t('investigation.action.rest')}
-                    </button>
+                    </Button>
                   )}
                   {activeHunter && currentLoc.minionsPresent > 0 && team.staminaPool > 0 && (
-                    <button
+                    <Button
+                      variant="danger"
+                      size="sm"
                       onClick={() => doAction('fightMinion', { hunterId: activeHunter.id, locationId: currentLoc.id })}
-                      className="text-[0.75rem] tracking-[0.12em] uppercase border border-[#5c2020] hover:border-[#e05050] text-[#e05050] px-2 py-[4px] transition-colors"
-                      style={{ fontFamily: "'Share Tech Mono', monospace" }}
                     >
                       {t('investigation.action.fightMinion')}
-                    </button>
+                    </Button>
                   )}
                 </div>
               </>
@@ -719,8 +744,7 @@ export default function InvestigationScreen() {
                     <button
                       key={loc.id}
                       onClick={() => doTravel(loc.id)}
-                      className="text-[0.75rem] tracking-[0.12em] uppercase border border-[#1e3428] hover:border-[#1a7a43] bg-[#0d1410] hover:bg-[rgba(46,204,113,0.04)] px-3 py-[6px] transition-colors flex items-center gap-1"
-                      style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                      className="text-[0.75rem] tracking-[0.12em] border border-[#1e3428] hover:border-[#1a7a43] bg-[#0d1410] hover:bg-[rgba(46,204,113,0.04)] px-3 py-[6px] transition-colors flex items-center gap-1 font-mono-system"
                     >
                       <span className="text-[#1a7a43]">→</span>
                       <span className="text-[#c8ddd0]">{loc.name}</span>
@@ -734,14 +758,16 @@ export default function InvestigationScreen() {
 
             {/* Confrontation */}
             {confrontationAvailable && !disasterReached && (
-              <button
+              <Button
+                variant="danger"
+                size="lg"
+                fullWidth
+                icon="ui/confrontation"
                 onClick={() => doAction('startConfrontation', {})}
-                className="w-full mb-2 border border-[#5c2020] hover:border-[#e05050] text-[#e05050] hover:bg-[rgba(224,80,80,0.06)] py-2 text-[0.85rem] tracking-[0.2em] uppercase transition-colors"
-                style={{ fontFamily: "'Share Tech Mono', monospace" }}
+                className="mb-2"
               >
-                <Icon name="ui/confrontation" size={14} className="text-[#e05050] mr-2 relative top-[1px]" />
                 {t('investigation.startConfrontation')}
-              </button>
+              </Button>
             )}
           </>
         )}

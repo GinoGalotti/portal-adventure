@@ -12,6 +12,7 @@ export default defineConfig({
     target: 'es2020',
   },
   server: {
+    open: true,
     proxy: {
       '/api': 'http://localhost:8787',
     },

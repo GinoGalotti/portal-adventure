@@ -9,7 +9,7 @@ const PLAYBOOKS = (playbooksRaw as { playbooks: Array<{ id: string; name: string
 import { ALL_MYSTERIES, type MysteryEntry } from '../data/mysteries'
 import {
   Card, SectionHeader, Tag, CampbellBlock, Eyebrow, Heading,
-  StatusDot, MonoLabel, Icon,
+  StatusDot, MonoLabel, Icon, Button,
 } from '../components/ui'
 
 interface RosterEntry {
@@ -196,7 +196,7 @@ export default function BriefingScreen() {
                         {pb.signatureMoves.map((move) => (
                           <div key={move.id} className="border-l-2 border-[#1e3428] pl-2">
                             <MonoLabel className="text-[#1a7a43] block">{move.name}</MonoLabel>
-                            <p className="text-[0.75rem] text-[#8aab94] leading-[1.5] text-left" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                            <p className="font-body text-[0.75rem] text-[#8aab94] leading-[1.5] text-left">
                               {move.description}
                             </p>
                           </div>
@@ -204,7 +204,7 @@ export default function BriefingScreen() {
                         {pb.vulnerability && (
                           <div className="border-l-2 border-[#5c2020] pl-2">
                             <MonoLabel className="text-[#e05050] block">VULNERABILITY</MonoLabel>
-                            <p className="text-[0.75rem] text-[#8aab94] leading-[1.5] text-left" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                            <p className="font-body text-[0.75rem] text-[#8aab94] leading-[1.5] text-left">
                               {pb.vulnerability}
                             </p>
                           </div>
@@ -220,23 +220,25 @@ export default function BriefingScreen() {
 
         {error && (
           <div
-            className="text-[#e05050] text-[0.82rem] tracking-[0.12em] uppercase border border-[#5c2020] bg-[rgba(224,80,80,0.04)] px-3 py-2 mb-4"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
+            role="alert"
+            className="font-mono-system text-[#e05050] text-[0.82rem] tracking-[0.12em] border border-[#5c2020] bg-[rgba(224,80,80,0.04)] px-3 py-2 mb-4"
           >
             {t('common.error', { message: error })}
           </div>
         )}
 
-        <button
+        <Button
+          variant="primary"
+          size="lg"
+          fullWidth
           onClick={handleDeploy}
           disabled={selected.size === 0 || !mysteryEntry || deploying}
-          className="w-full bg-[rgba(46,204,113,0.06)] border border-[#1a7a43] hover:bg-[rgba(46,204,113,0.12)] disabled:bg-[#0d1410] disabled:border-[#1e3428] disabled:text-[#5a7a62] text-[#2ecc71] py-3 text-[0.95rem] tracking-[0.2em] uppercase transition-colors anim-fade-up-3"
-          style={{ fontFamily: "'Share Tech Mono', monospace" }}
+          className="anim-fade-up-3"
         >
           {deploying
             ? t('common.loading')
             : `${t('briefing.deploy')} (${selected.size}/4 operative${selected.size !== 1 ? 's' : ''})`}
-        </button>
+        </Button>
 
         <div className="border-t border-[#1e3428] mt-8" />
       </div>

@@ -4,7 +4,7 @@ import { useGameStore } from '../store/game'
 import { useAuthStore } from '../store/auth'
 import {
   Card, SectionHeader, Tag, CampbellBlock, Eyebrow,
-  StatusDot, MonoLabel, Icon, HarmPips,
+  StatusDot, MonoLabel, Icon, HarmPips, Button,
 } from '../components/ui'
 
 const RATING_OPTIONS = [
@@ -202,43 +202,42 @@ export default function FieldReportScreen() {
                   <button
                     key={value}
                     onClick={() => setSelectedRating(value)}
-                    className={`w-full text-left border px-3 py-2 text-[0.8rem] transition-colors ${
+                    className={`font-body w-full text-left border px-3 py-2 text-[0.8rem] transition-colors ${
                       selectedRating === value
                         ? 'border-[#f0a500] bg-[rgba(240,165,0,0.06)] text-[#f0a500]'
                         : 'border-[#1e3428] text-[#5a7a62] hover:border-[#5a7a62] hover:text-[#c8ddd0]'
                     }`}
-                    style={{ fontFamily: "'Barlow', sans-serif" }}
                   >
                     {label}
                   </button>
                 ))}
               </div>
               <textarea
-                className="w-full bg-[#080c0a] border border-[#1e3428] text-[#c8ddd0] p-2 text-[0.8rem] resize-none focus:outline-none focus:border-[#f0a500]"
-                style={{ fontFamily: "'Barlow', sans-serif", minHeight: '40px' }}
+                className="font-body w-full bg-[#080c0a] border border-[#1e3428] text-[#c8ddd0] p-2 text-[0.8rem] resize-none focus:outline-none focus:border-[#f0a500]"
+                style={{ minHeight: '40px' }}
                 placeholder="(optional) What worked or didn't?"
                 value={feedbackText}
                 onChange={(e) => setFeedbackText(e.target.value)}
               />
               <div className="flex gap-2">
-                <button
+                <Button
+                  variant="primary"
+                  size="sm"
                   disabled={selectedRating === null}
                   onClick={() => {
                     setRatingSubmitted(true)
                     // TODO: POST to /api/transcripts/:id/rating when transcript saving is wired
                   }}
-                  className="border border-[#1a7a43] text-[#2ecc71] hover:bg-[rgba(46,204,113,0.06)] disabled:opacity-30 disabled:cursor-not-allowed px-4 py-1 text-[0.8rem] tracking-[0.12em] uppercase transition-colors"
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
                 >
                   SUBMIT
-                </button>
-                <button
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="sm"
                   onClick={() => setRatingSubmitted(true)}
-                  className="border border-[#1e3428] text-[#5a7a62] hover:border-[#5a7a62] hover:text-[#c8ddd0] px-4 py-1 text-[0.8rem] tracking-[0.12em] uppercase transition-colors"
-                  style={{ fontFamily: "'Share Tech Mono', monospace" }}
                 >
                   SKIP
-                </button>
+                </Button>
               </div>
             </Card>
           </div>
@@ -261,7 +260,10 @@ export default function FieldReportScreen() {
               Confrontation decision log available for export.
             </MonoLabel>
             <div className="flex gap-2">
-              <button
+              <Button
+                variant="secondary"
+                size="sm"
+                icon="ui/copy"
                 onClick={() => {
                   const text = `CONFRONTATION TRANSCRIPT — ${report.mysteryId}\nOutcome: ${outcome}\nClues: ${report.cluesFound}/${report.cluesAvailable}\nIntel: ${report.intelLevel}\nActions: ${report.totalActions}\n\n${report.hunterReports.map(hr =>
                     `${hr.name} (${hr.playbookId}): Harm ${hr.finalHarm}, Luck spent ${hr.luckSpent}, Rolls ${hr.rollsSucceeded}✓ ${hr.rollsMixed}~ ${hr.rollsMissed}✗`
@@ -271,12 +273,13 @@ export default function FieldReportScreen() {
                     setTimeout(() => setTranscriptCopied(false), 2000)
                   })
                 }}
-                className="border border-[#1e3428] text-[#5a7a62] hover:border-[#5a7a62] hover:text-[#c8ddd0] px-4 py-1 text-[0.8rem] tracking-[0.12em] uppercase transition-colors"
-                style={{ fontFamily: "'Share Tech Mono', monospace" }}
               >
                 {transcriptCopied ? 'COPIED ✓' : 'COPY TRANSCRIPT'}
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
+                icon="ui/download"
                 onClick={() => {
                   const data = {
                     mysteryId: report.mysteryId,
@@ -299,32 +302,32 @@ export default function FieldReportScreen() {
                   a.click()
                   URL.revokeObjectURL(url)
                 }}
-                className="border border-[#1e3428] text-[#5a7a62] hover:border-[#5a7a62] hover:text-[#c8ddd0] px-4 py-1 text-[0.8rem] tracking-[0.12em] uppercase transition-colors"
-                style={{ fontFamily: "'Share Tech Mono', monospace" }}
               >
                 DOWNLOAD JSON
-              </button>
+              </Button>
             </div>
           </Card>
         </div>
 
         {/* Actions */}
         <div className="space-y-2 mb-4">
-          <button
+          <Button
+            variant="primary"
+            size="lg"
+            fullWidth
+            icon="ui/save"
             onClick={handleReturn}
-            className="w-full border border-[#1a7a43] text-[#2ecc71] hover:bg-[rgba(46,204,113,0.06)] py-3 text-[0.95rem] tracking-[0.2em] uppercase transition-colors"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
-            <Icon name="ui/save" size={14} className="text-[#2ecc71] mr-2 relative top-[1px]" />
             {t('report.return')}
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            fullWidth
             onClick={handleLogout}
-            className="w-full border border-[#1e3428] hover:border-[#5a7a62] text-[#5a7a62] hover:text-[#c8ddd0] py-1 text-[0.8rem] tracking-[0.16em] uppercase transition-colors"
-            style={{ fontFamily: "'Share Tech Mono', monospace" }}
           >
             {t('slots.logout')}
-          </button>
+          </Button>
         </div>
 
         <div className="border-t border-[#1e3428] mt-8" />
